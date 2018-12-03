@@ -1,0 +1,55 @@
+{
+  "name": "handlebars-component-composer",
+  "version": "1.0.0",
+  "description": "Handlebars component composer",
+  "main": "index.js",
+  "scripts": {
+    "generate-doc": "npm test && npm run-script generate-doc-coverage && npm run-script generate-doc-tests && npm run-script generate-doc-jsdoc",
+    "generate-doc-coverage": "nyc report --reporter=html --report-dir=./doc/coverage",
+    "generate-doc-tests": "mocha src/**/*.test.js src/**/**/*.test.js --reporter mochawesome --reporter-options reportDir=doc/tests,reportFilename=index,showHooks=always",
+    "generate-doc-jsdoc": "jsdoc src -c jsdoc.json",
+    "test": "nyc mocha src/**/*.test.js src/**/**/*.test.js",
+    "tester": "eslint src/**/**.js && nyc mocha src/**/*.test.js",
+    "linter": "eslint src/**/**.js",
+    "linter-and-fix": "eslint src/**/**.js --fix",
+    "build": "webpack"
+  },
+  "keywords": [
+    "handlebars",
+    "components",
+    "web"
+  ],
+  "author": "@borbalher",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/borablher/handlebars-component-composer/"
+  },
+  "dependencies": {
+    "camelcase": "^5.0.0",
+    "handlebars": "^4.0.12"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-preset-minify": "^0.5.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.9.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "jsdoc": "^3.5.5",
+    "jsdom": "^13.0.0",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^5.2.0",
+    "mochawesome": "^3.1.1",
+    "nyc": "^13.1.0",
+    "tui-jsdoc-template": "^1.2.2",
+    "webpack": "^4.26.1"
+  }
+}
