@@ -34,8 +34,8 @@ class UIController
   render()
   {
     const
-    handlebarsView  = window['component-composer'].views[this.viewName],
-    compiledView    = handlebarsView(this.vm)
+    precompiledView = window['component-composer'].views[this.viewName],
+    compiledView    = precompiledView(this.vm)
 
     document.querySelector(`${this.selector}`).innerHTML = compiledView
   }

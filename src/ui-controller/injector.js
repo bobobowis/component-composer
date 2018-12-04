@@ -25,25 +25,27 @@ class UIControllerInjector
     document.querySelectorAll('[id][data-component]').forEach((component) =>
     {
       const
-      componentName = component.getAttribute('data-component'),
-      componentId   = component.id
+      controllerType  = component.getAttribute('data-component'),
+      componentId     = component.id
 
-      window.controllers[component.id] = this.getController(componentName, componentId)
+      window.controllers[component.id] = this.getController(controllerType, componentId)
     })
   }
   /**
    * Creates a ui-controller for the specified controller type and id
    * @param {string} - Controller type
    * @param {string} - Controller id
-   * @return {FrontController} Component FrontController
+   * @return {UIController} Component UIController
    */
   getController(controllerType, id)
   {
-    const functionName = camelCase(controllerType, { pascalCase: true })
-
     try
     {
-      const controller = this.controllersFactory[`create${functionName}Controller`](`#${id}`)
+      const
+      functionName             = camelCase(controllerType, { pascalCase: true }),
+      createControllerFunction = this.controllersFactory[`create${functionName}Controller`],
+      controller               = createControllerFunction(`#${id}`)
+
       return controller
     }
     catch(error)
