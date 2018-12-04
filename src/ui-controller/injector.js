@@ -46,7 +46,7 @@ class UIControllerInjector
       const controller = this.controllersFactory[`create${functionName}Controller`](`#${id}`)
       return controller
     }
-    catch(Error)
+    catch(error)
     {
       throw new ControllerFunctionDoesNotExistsError(controllerType)
     }
