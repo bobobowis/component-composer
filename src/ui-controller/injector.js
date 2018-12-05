@@ -42,9 +42,8 @@ class UIControllerInjector
     try
     {
       const
-      functionName             = camelCase(controllerType, { pascalCase: true }),
-      createControllerFunction = this.controllersFactory[`create${functionName}Controller`],
-      controller               = createControllerFunction(`#${id}`)
+      functionName  = camelCase(controllerType, { pascalCase: true }),
+      controller    = this.controllersFactory[`create${functionName}Controller`](`#${id}`)
 
       return controller
     }

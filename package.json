@@ -1,7 +1,7 @@
 {
   "name": "@borbalher/component-composer",
   "version": "1.0.0",
-  "description": "Handlebars component composer",
+  "description": "Component composer for Handlebars.js",
   "main": "index.js",
   "scripts": {
     "generate-doc": "npm test && npm run-script generate-doc-coverage && npm run-script generate-doc-tests && npm run-script generate-doc-jsdoc",
@@ -51,5 +51,8 @@
     "nyc": "^13.1.0",
     "tui-jsdoc-template": "^1.2.2",
     "webpack": "^4.26.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
