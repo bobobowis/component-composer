@@ -1,11 +1,9 @@
-const path = require('path')
-
 module.exports = {
   mode   : 'production', /* Sets process.env.NODE_ENV on DefinePlugin to value production. Enables FlagDependencyUsagePlugin, FlagIncludedChunksPlugin, ModuleConcatenationPlugin, NoEmitOnErrorsPlugin, OccurrenceOrderPlugin, SideEffectsFlagPlugin and UglifyJsPlugin. */
   entry  : './src/index.js',
   output :
   {
-    path     : path.join(__dirname, 'dist'),
+    path     : __dirname,
     filename : 'index.js'
   },
   module : {

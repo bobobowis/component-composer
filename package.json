@@ -1,6 +1,6 @@
 {
-  "name": "handlebars-component-composer",
-  "version": "1.0.2",
+  "name": "@borbalher/component-composer",
+  "version": "1.0.0",
   "description": "Handlebars component composer",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/borablher/handlebars-component-composer/"
+    "url": "https://github.com/borbalher/component-composer/"
   },
   "dependencies": {
     "camelcase": "^5.0.0",

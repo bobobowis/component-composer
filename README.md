@@ -1,4 +1,4 @@
-# handlebars-component-composer
+# hbs-component-composer
 
 > Component composer for handlebars
 
@@ -8,7 +8,7 @@
 | [camelcase](https://www.npmjs.com/package/camelcase) | Convert a dash/dot/underscore/space separated string to camelCase or PascalCase. |
 | [handlebars](https://handlebarsjs.com) | Handlebars provides the power necessary to let you build semantic templates effectively with no frustration. |
 
- ## Dev Dependencies
+## Dev Dependencies
 | Module | Description |
 | ------ | ------ |
 | [@babel/cli](https://babeljs.io/docs/en/babel-cli) | Babel comes with a built-in CLI which can be used to compile files from the command line. |
