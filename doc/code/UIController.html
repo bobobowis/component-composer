@@ -32,7 +32,7 @@
         <ul></ul>
     </div>
     
-    <div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="ControllerFunctionDoesNotExistsError.html">ControllerFunctionDoesNotExistsError</a><div class="hidden" id="ControllerFunctionDoesNotExistsError_sub"></div></li><li><a href="NoPrecompiledViewError.html">NoPrecompiledViewError</a><div class="hidden" id="NoPrecompiledViewError_sub"></div></li><li><a href="UIController.html">UIController</a><div class="hidden" id="UIController_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="UIController.html#getComponentNode">getComponentNode</a></li><li><a href="UIController.html#getComponentNodes">getComponentNodes</a></li><li><a href="UIController.html#render">render</a></li><li><a href="UIController.html#setViewModel">setViewModel</a></li></ul></div></li><li><a href="UIControllerInjector.html">UIControllerInjector</a><div class="hidden" id="UIControllerInjector_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="UIControllerInjector.html#getController">getController</a></li><li><a href="UIControllerInjector.html#inject">inject</a></li></ul></div></li></ul></div><div class="lnb-api hidden"><h3>Global</h3><ul><li><a href="global.html#handlebarsComponent">handlebarsComponent</a></li><li><a href="global.html#handlebarsHelper">handlebarsHelper</a></li></ul></div>
+    <div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="ControllerFunctionDoesNotExistsError.html">ControllerFunctionDoesNotExistsError</a><div class="hidden" id="ControllerFunctionDoesNotExistsError_sub"></div></li><li><a href="NoPrecompiledViewError.html">NoPrecompiledViewError</a><div class="hidden" id="NoPrecompiledViewError_sub"></div></li><li><a href="UIController.html">UIController</a><div class="hidden" id="UIController_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="UIController.html#apply">apply</a></li><li><a href="UIController.html#bindings">bindings</a></li><li><a href="UIController.html#getComponentNode">getComponentNode</a></li><li><a href="UIController.html#getComponentNodes">getComponentNodes</a></li><li><a href="UIController.html#getViewModel">getViewModel</a></li><li><a href="UIController.html#render">render</a></li><li><a href="UIController.html#setViewModel">setViewModel</a></li></ul></div></li><li><a href="UIControllerInjector.html">UIControllerInjector</a><div class="hidden" id="UIControllerInjector_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="UIControllerInjector.html#getController">getController</a></li><li><a href="UIControllerInjector.html#inject">inject</a></li></ul></div></li></ul></div><div class="lnb-api hidden"><h3>Global</h3><ul><li><a href="global.html#handlebarsComponent">handlebarsComponent</a></li><li><a href="global.html#handlebarsHelper">handlebarsHelper</a></li></ul></div>
 </nav>
 <div id="resizer"></div>
 
@@ -326,6 +326,234 @@
 
 <dt>
     
+        <h4 class="name" id="apply">
+            
+                <span class="type-signature"></span>apply<span class="signature">(vm)</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="ui-controller_index.js.html">ui-controller/index.js</a></code>,
+                <code><a href="ui-controller_index.js.html#line83">line 83</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Applies the specified view model in the component,then renders the view and set all the bindings
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>vm</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">View model</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id="bindings">
+            
+                <span class="type-signature"></span>bindings<span class="signature">()</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="ui-controller_index.js.html">ui-controller/index.js</a></code>,
+                <code><a href="ui-controller_index.js.html#line73">line 73</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Binds all the event listeners
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
         <h4 class="name" id="getComponentNode">
             
                 <span class="type-signature"></span>getComponentNode<span class="signature">()</span><span class="type-signature"> &rarr; {HTMLElement}</span>
@@ -492,6 +720,116 @@
 
 
 - - Array of DOM HTML nodes
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id="getViewModel">
+            
+                <span class="type-signature"></span>getViewModel<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="ui-controller_index.js.html">ui-controller/index.js</a></code>,
+                <code><a href="ui-controller_index.js.html#line65">line 65</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Gets a copy of the current vm
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">Object</span>
+
+
+
+
+
+- - View model
 
 
 

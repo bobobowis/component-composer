@@ -57,6 +57,35 @@ class UIController
   {
     return document.querySelectorAll(`${this.selector} ${nodeSelector}`)
   }
+
+  /**
+   * Gets a copy of the current vm
+   * @returns {Object} - View model
+   */
+  getViewModel()
+  {
+    return Object.assign({}, this.vm)
+  }
+
+  /**
+   * Binds all the event listeners
+   */
+  bindings()
+  {
+
+  }
+
+  /**
+   * Applies the specified view model in the component,
+   * then renders the view and set all the bindings
+   * @param {Object} - View model
+   */
+  apply(vm)
+  {
+    this.setViewModel(vm)
+    this.render()
+    this.bindings()
+  }
 }
 
 module.exports = UIController

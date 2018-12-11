@@ -66,6 +66,16 @@ describe('UIController tests', () =>
       expect(controller.vm).to.deep.equal({ 'items': [3, 4, 5] })
     })
 
+    it('should get a copy of the vm', () =>
+    {
+      const
+      unorderedListFactory = new UnorderedListFactory(),
+      controller = new UIController('#myList', 'unordered-list', unorderedListFactory),
+      vm = controller.getViewModel()
+
+      expect(controller.vm).to.deep.equal(vm)
+    })
+
     it('should render the template', () =>
     {
       const
@@ -74,6 +84,19 @@ describe('UIController tests', () =>
 
       controller.setViewModel([3, 4, 5])
       controller.render()
+
+      const view = document.getElementById('myList').innerHTML
+
+      expect(view).equal('<ul><li>3</li><li>4</li><li>5</li></ul>')
+    })
+
+    it('should change, render the template and apply bindings', () =>
+    {
+      const
+      unorderedListFactory = new UnorderedListFactory(),
+      controller = new UIController('#myList', 'unordered-list', unorderedListFactory)
+
+      controller.apply([3, 4, 5])
 
       const view = document.getElementById('myList').innerHTML
 

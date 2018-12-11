@@ -18,4 +18,13 @@
    */},{key:"getComponentNode",value:function b(a){return document.querySelector("".concat(this.selector," ").concat(a))}/**
    * Gets the HTMLNodes inside the component DOM  for the specified selector
    * @returns {Array<HTMLElement>} - Array of DOM HTML nodes
-   */},{key:"getComponentNodes",value:function b(a){return document.querySelectorAll("".concat(this.selector," ").concat(a))}}]),a}();module.exports=UIController;
+   */},{key:"getComponentNodes",value:function b(a){return document.querySelectorAll("".concat(this.selector," ").concat(a))}/**
+   * Gets a copy of the current vm
+   * @returns {Object} - View model
+   */},{key:"getViewModel",value:function a(){return Object.assign({},this.vm)}/**
+   * Binds all the event listeners
+   */},{key:"bindings",value:function a(){}/**
+   * Applies the specified view model in the component,
+   * then renders the view and set all the bindings
+   * @param {Object} - View model
+   */},{key:"apply",value:function b(a){this.setViewModel(a),this.render(),this.bindings()}}]),a}();module.exports=UIController;
