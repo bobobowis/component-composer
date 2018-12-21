@@ -76,6 +76,21 @@ All precompiled templates must be added in the global component-composer variabl
 window['component-composer'].views['component-name']
 ```
 
+## EventEmitter
+### EventEmitter class
+This class represents an event emitter for comunicating controlles.
+
+It has the current properties:
+* **Events**
+
+And the following methods:
+* **on**: Adds a listener to an event.
+* **removeListener**: Removes the listener function for the specified event.
+* **removeAllListeners**: Removes all listener functions for the specified event.
+* **resetEventEmitter**: Resets the EventEmitter.
+* **emit**: Emits a event.
+* **once**: Adds a listener to an event that only executes once.
+
 ## UIController
 ### UIController class
 This class represents a basic component controller. Our custom controller must extend this class.
@@ -85,14 +100,19 @@ It has the current properties:
 * **CSS selector for component wrapper**: This is where the component lives and view will be injected.
 * **View/Component name**
 * **Component factory**: Used for create and validate its view model.
+* **Event emitter**: Used for communicating nested controllers.
 * **View model**
 
 And the following methods:
-
+* **registerEventListeners**: Registers all events listeners for the controller.
+* **extractViewModelFromHTML**: Extracts the controller view model from the HTML.
 * **setViewModel**: Sets a new view model using the component factory and renders the view.
 * **render**: Renders the precompiled component view using its view model.
 * **getComponentNode**: Gets the HTMLNode inside the component DOM for the specified CSS selector.
 * **getComponentNodes**: Gets the HTMLNodes inside the component DOM  for the specified CSS selector.
+* **getViewModel**: Gets a copy of the current vm.
+* **bindings**: Binds all the HTML listeners and post actions after render
+* **apply**: Applies the specified view model in the component, then renders the view and set all the bindings
 
 ### UIController injector
 If the component has an id (global controller), it will be automatically initialized by the UIController injector. Then it will be added to a global variable and can be accesed in client-side using:

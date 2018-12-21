@@ -1,6 +1,7 @@
 const
-camelCase                             = require('camelcase'),
-ControllerFunctionDoesNotExistsError  = require('./errors/ControllerFunctionDoesNotExists')
+camelCase     = require('camelcase'),
+InjectorError = require('./errors/InjectorError'),
+EventEmitter  = require('../event-emitter')
 /**
  * UIControllerInjector class
  * @class
@@ -43,13 +44,14 @@ class UIControllerInjector
     {
       const
       functionName  = camelCase(controllerType, { pascalCase: true }),
-      controller    = this.controllersFactory[`create${functionName}Controller`](`#${id}`)
+      eventEmitter  = new EventEmitter(),
+      controller    = this.controllersFactory[`create${functionName}Controller`](`#${id}`, eventEmitter)
 
       return controller
     }
     catch(error)
     {
-      throw new ControllerFunctionDoesNotExistsError(controllerType)
+      throw new InjectorError(error)
     }
   }
 }

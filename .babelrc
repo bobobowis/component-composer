@@ -3,5 +3,6 @@
   "ignore": [
     "src/**/*.test.js",
     "src/**/test/*.js"
-  ]
+  ],
+  "comments": false
 }

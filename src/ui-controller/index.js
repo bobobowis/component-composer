@@ -9,14 +9,35 @@ class UIController
    * @param {string} selector - CSS selector for component wrapper (where the component lives and view will be injected)
    * @param {string} viewName - View name
    * @param {ComponentsFactory} factory   - Component factory, used for creating and validating its view model
-   * @param {Object} [vm]   - Initial component view model
+   * @param {EventEmitter} eventEmitter - Event Emmiter for changes
    */
-  constructor(selector, viewName, factory, vm = {})
+  constructor(selector, viewName, factory, eventEmitter)
   {
-    this.selector = selector
-    this.viewName = viewName
-    this.factory  = factory
-    this.vm       = vm
+    this.selector     = selector
+    this.viewName     = viewName
+    this.factory      = factory
+    this.eventEmitter = eventEmitter
+
+    this.extractViewModelFromHTML()
+    this.registerEventListeners()
+    this.bindings()
+  }
+
+  /**
+   * Registers all events listeners
+   */
+  registerEventListeners()
+  {
+
+  }
+
+  /**
+   * Extracts the controller view model from the HTML.
+   */
+  extractViewModelFromHTML()
+  {
+    const vm = this.getComponentNode('[data-model]').getAttribute('data-model')
+    this.setViewModel(JSON.parse(vm))
   }
 
   /**
@@ -68,7 +89,7 @@ class UIController
   }
 
   /**
-   * Binds all the event listeners
+   * Binds all the HTML listeners and post actions after render
    */
   bindings()
   {

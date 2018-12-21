@@ -13,7 +13,11 @@ describe('UIController tests', () =>
     // Precompile unordered-list template
     const
     Handlebars          = require('handlebars'),
-    precompiledTemplate = Handlebars.compile('<ul>{{#each items}}<li>{{this}}</li>{{/each}}</ul>')
+    jsonStringifyHelper = require('../handlebars/json-stringify')
+
+    Handlebars.registerHelper('jsonStringify', jsonStringifyHelper)
+
+    const precompiledTemplate = Handlebars.compile('<ul data-model="{{jsonStringify this}}">{{#each items}}<li>{{this}}</li>{{/each}}</ul>')
 
 
     // Add handlebars runtime and precompiled template to component-composer.views
@@ -52,7 +56,7 @@ describe('UIController tests', () =>
       controller           = new UIController('#myList', 'unordered-list', unorderedListFactory)
 
       expect(controller).to.be.instanceOf(UIController)
-      expect(document.getElementById('myList').innerHTML).equal('<ul><li>1</li><li>2</li><li>3</li></ul>')
+      expect(document.getElementById('myList').innerHTML).equal('<ul data-model="{&quot;items&quot;:[1,2,3]}"><li>1</li><li>2</li><li>3</li></ul>')
     })
 
     it('should change the vm', () =>
@@ -87,7 +91,7 @@ describe('UIController tests', () =>
 
       const view = document.getElementById('myList').innerHTML
 
-      expect(view).equal('<ul><li>3</li><li>4</li><li>5</li></ul>')
+      expect(view).equal('<ul data-model="{&quot;items&quot;:[3,4,5]}"><li>3</li><li>4</li><li>5</li></ul>')
     })
 
     it('should change, render the template and apply bindings', () =>
@@ -100,7 +104,7 @@ describe('UIController tests', () =>
 
       const view = document.getElementById('myList').innerHTML
 
-      expect(view).equal('<ul><li>3</li><li>4</li><li>5</li></ul>')
+      expect(view).equal('<ul data-model="{&quot;items&quot;:[3,4,5]}"><li>3</li><li>4</li><li>5</li></ul>')
     })
 
     it('should get the ul node', () =>
@@ -172,7 +176,7 @@ describe('UIController tests', () =>
       expect(() =>
       {
         injector.inject()
-      }).to.throw(/Controller 'component-inexistent' does not have a function/)
+      }).to.throw(/this.controllersFactory\[functionName\] is not a function/)
     })
   })
 })
