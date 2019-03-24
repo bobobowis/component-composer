@@ -1,6 +1,6 @@
 {
   "name": "@borbalher/component-composer",
-  "version": "1.0.4",
+  "version": "1.0.13",
   "description": "Component composer for Handlebars.js",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,10 @@
   "dependencies": {
     "add-module-exports-webpack-plugin": "^0.1.0",
     "camelcase": "^5.0.0",
-    "handlebars": "^4.0.12"
+    "handlebars": "^4.0.12",
+    "kind-of": "^6.0.2",
+    "moment": "^2.24.0",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",

@@ -32,7 +32,7 @@
         <ul></ul>
     </div>
     
-    <div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="ControllerFunctionDoesNotExistsError.html">ControllerFunctionDoesNotExistsError</a><div class="hidden" id="ControllerFunctionDoesNotExistsError_sub"></div></li><li><a href="NoPrecompiledViewError.html">NoPrecompiledViewError</a><div class="hidden" id="NoPrecompiledViewError_sub"></div></li><li><a href="UIController.html">UIController</a><div class="hidden" id="UIController_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="UIController.html#apply">apply</a></li><li><a href="UIController.html#bindings">bindings</a></li><li><a href="UIController.html#getComponentNode">getComponentNode</a></li><li><a href="UIController.html#getComponentNodes">getComponentNodes</a></li><li><a href="UIController.html#getViewModel">getViewModel</a></li><li><a href="UIController.html#render">render</a></li><li><a href="UIController.html#setViewModel">setViewModel</a></li></ul></div></li><li><a href="UIControllerInjector.html">UIControllerInjector</a><div class="hidden" id="UIControllerInjector_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="UIControllerInjector.html#getController">getController</a></li><li><a href="UIControllerInjector.html#inject">inject</a></li></ul></div></li></ul></div><div class="lnb-api hidden"><h3>Global</h3><ul><li><a href="global.html#handlebarsComponent">handlebarsComponent</a></li><li><a href="global.html#handlebarsHelper">handlebarsHelper</a></li></ul></div>
+    <div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="EventEmitter.html">EventEmitter</a><div class="hidden" id="EventEmitter_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="EventEmitter.html#emit">emit</a></li><li><a href="EventEmitter.html#on">on</a></li><li><a href="EventEmitter.html#once">once</a></li><li><a href="EventEmitter.html#removeAllListeners">removeAllListeners</a></li><li><a href="EventEmitter.html#removeListener">removeListener</a></li><li><a href="EventEmitter.html#resetEventEmitter">resetEventEmitter</a></li></ul></div></li><li><a href="InjectorError.html">InjectorError</a><div class="hidden" id="InjectorError_sub"></div></li><li><a href="NoPrecompiledViewError.html">NoPrecompiledViewError</a><div class="hidden" id="NoPrecompiledViewError_sub"></div></li><li><a href="UIController.html">UIController</a><div class="hidden" id="UIController_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="UIController.html#apply">apply</a></li><li><a href="UIController.html#bindings">bindings</a></li><li><a href="UIController.html#extractViewModelFromHTML">extractViewModelFromHTML</a></li><li><a href="UIController.html#getComponentNode">getComponentNode</a></li><li><a href="UIController.html#getComponentNodes">getComponentNodes</a></li><li><a href="UIController.html#getViewModel">getViewModel</a></li><li><a href="UIController.html#registerEventListeners">registerEventListeners</a></li><li><a href="UIController.html#render">render</a></li><li><a href="UIController.html#setViewModel">setViewModel</a></li></ul></div></li><li><a href="UIControllerInjector.html">UIControllerInjector</a><div class="hidden" id="UIControllerInjector_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="UIControllerInjector.html#getController">getController</a></li><li><a href="UIControllerInjector.html#inject">inject</a></li></ul></div></li></ul></div><div class="lnb-api hidden"><h3>Global</h3><ul><li><a href="global.html#handlebarsComponent">handlebarsComponent</a></li><li><a href="global.html#handlebarsHelper">handlebarsHelper</a></li></ul></div>
 </nav>
 <div id="resizer"></div>
 
@@ -46,7 +46,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>UIController<span class="signature">(selector, viewName, factory, vm<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>UIController<span class="signature">(selector, viewName, factory, eventEmitter)</span><span class="type-signature"></span></h2>
         
             <div class="class-description">UIController class</div>
         
@@ -63,7 +63,7 @@
     
         <h4 class="name" id="UIController">
             
-                new <span class="type-signature"></span>UIController<span class="signature">(selector, viewName, factory, vm<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span>
+                new <span class="type-signature"></span>UIController<span class="signature">(selector, viewName, factory, eventEmitter)</span><span class="type-signature"></span>
                 
             
             <div class="container-source members">
@@ -104,8 +104,6 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
         
 
@@ -131,14 +129,6 @@
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
 
@@ -161,14 +151,6 @@
             
             </td>
 
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
             
 
             
@@ -193,14 +175,6 @@
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
 
@@ -211,33 +185,23 @@
 
         <tr>
             
-                <td class="name"><code>vm</code></td>
+                <td class="name"><code>eventEmitter</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type"><a href="EventEmitter.html">EventEmitter</a></span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last">Initial component view model</td>
+            <td class="description last">Event Emmiter for changes</td>
         </tr>
 
     
@@ -333,7 +297,7 @@
             
             <div class="container-source members">
                 <code><a href="ui-controller_index.js.html">ui-controller/index.js</a></code>,
-                <code><a href="ui-controller_index.js.html#line83">line 83</a></code>
+                <code><a href="ui-controller_index.js.html#line104">line 104</a></code>
             </div>
             
         </h4>
@@ -472,7 +436,7 @@
             
             <div class="container-source members">
                 <code><a href="ui-controller_index.js.html">ui-controller/index.js</a></code>,
-                <code><a href="ui-controller_index.js.html#line73">line 73</a></code>
+                <code><a href="ui-controller_index.js.html#line94">line 94</a></code>
             </div>
             
         </h4>
@@ -484,7 +448,96 @@
 
     
     <div class="description">
-        Binds all the event listeners
+        Binds all the HTML listeners and post actions after render
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id="extractViewModelFromHTML">
+            
+                <span class="type-signature"></span>extractViewModelFromHTML<span class="signature">()</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="ui-controller_index.js.html">ui-controller/index.js</a></code>,
+                <code><a href="ui-controller_index.js.html#line37">line 37</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Extracts the controller view model from the HTML.
     </div>
     
 
@@ -561,7 +614,7 @@
             
             <div class="container-source members">
                 <code><a href="ui-controller_index.js.html">ui-controller/index.js</a></code>,
-                <code><a href="ui-controller_index.js.html#line47">line 47</a></code>
+                <code><a href="ui-controller_index.js.html#line68">line 68</a></code>
             </div>
             
         </h4>
@@ -671,7 +724,7 @@
             
             <div class="container-source members">
                 <code><a href="ui-controller_index.js.html">ui-controller/index.js</a></code>,
-                <code><a href="ui-controller_index.js.html#line56">line 56</a></code>
+                <code><a href="ui-controller_index.js.html#line77">line 77</a></code>
             </div>
             
         </h4>
@@ -781,7 +834,7 @@
             
             <div class="container-source members">
                 <code><a href="ui-controller_index.js.html">ui-controller/index.js</a></code>,
-                <code><a href="ui-controller_index.js.html#line65">line 65</a></code>
+                <code><a href="ui-controller_index.js.html#line86">line 86</a></code>
             </div>
             
         </h4>
@@ -884,6 +937,95 @@
 
 <dt>
     
+        <h4 class="name" id="registerEventListeners">
+            
+                <span class="type-signature"></span>registerEventListeners<span class="signature">()</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="ui-controller_index.js.html">ui-controller/index.js</a></code>,
+                <code><a href="ui-controller_index.js.html#line29">line 29</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Registers all events listeners
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
         <h4 class="name" id="render">
             
                 <span class="type-signature"></span>render<span class="signature">()</span><span class="type-signature"></span>
@@ -891,7 +1033,7 @@
             
             <div class="container-source members">
                 <code><a href="ui-controller_index.js.html">ui-controller/index.js</a></code>,
-                <code><a href="ui-controller_index.js.html#line34">line 34</a></code>
+                <code><a href="ui-controller_index.js.html#line55">line 55</a></code>
             </div>
             
         </h4>
@@ -980,7 +1122,7 @@
             
             <div class="container-source members">
                 <code><a href="ui-controller_index.js.html">ui-controller/index.js</a></code>,
-                <code><a href="ui-controller_index.js.html#line26">line 26</a></code>
+                <code><a href="ui-controller_index.js.html#line47">line 47</a></code>
             </div>
             
         </h4>

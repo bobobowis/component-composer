@@ -23,13 +23,13 @@ class UIControllerInjector
   {
     window.controllers = {}
 
-    document.querySelectorAll('[id][data-component]').forEach((component) =>
+    document.querySelectorAll('[data-component][id]').forEach((component) =>
     {
       const
       controllerType  = component.getAttribute('data-component'),
       componentId     = component.id
 
-      window.controllers[component.id] = this.getController(controllerType, componentId)
+      window.controllers[component.id] = this.getController(controllerType, `#${componentId}`)
     })
   }
   /**
@@ -38,16 +38,18 @@ class UIControllerInjector
    * @param {string} - Controller id
    * @return {UIController} Component UIController
    */
-  getController(controllerType, id)
+  getController(controllerType, selector, eventEmitter = new EventEmitter())
   {
     try
     {
       const
-      functionName  = camelCase(controllerType, { pascalCase: true }),
-      eventEmitter  = new EventEmitter(),
-      controller    = this.controllersFactory[`create${functionName}Controller`](`#${id}`, eventEmitter)
+      functionName      = camelCase(controllerType, { pascalCase: true }),
+      createController  = this.controllersFactory[`create${functionName}Controller`]
 
-      return controller
+      if(createController && typeof createController === 'function')
+        return this.controllersFactory[`create${functionName}Controller`](selector, eventEmitter)
+      else
+        return undefined
     }
     catch(error)
     {

@@ -1,10 +1,8 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Source: ui-controller/injector.js | Component composer</title>
+    <title>Class: InjectorError | Component composer</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -43,71 +41,197 @@
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>const
-camelCase     = require('camelcase'),
-InjectorError = require('./errors/InjectorError'),
-EventEmitter  = require('../event-emitter')
-/**
- * UIControllerInjector class
- * @class
- */
-class UIControllerInjector
-{
-  /**
-   * Creates a basic UI controller injector.
-   * @param {ControllersFactory} controllersFactory   - ControllersFactory factory, used for creating component controllers
-   */
-  constructor(controllersFactory)
-  {
-    this.controllersFactory = controllersFactory
-  }
-  /**
-  * Initialize all components that have an ID on the html
-  */
-  inject()
-  {
-    window.controllers = {}
+        <h2><span class="attribs"><span class="type-signature"></span></span>InjectorError<span class="signature">(error)</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description">InjectorError class</div>
+        
+    
+</header>
 
-    document.querySelectorAll('[id][data-component]').forEach((component) =>
-    {
-      const
-      controllerType  = component.getAttribute('data-component'),
-      componentId     = component.id
+<article>
+    
+        <div class="container-overview">
+        
+            
 
-      window.controllers[component.id] = this.getController(controllerType, componentId)
-    })
-  }
-  /**
-   * Creates a ui-controller for the specified controller type and id
-   * @param {string} - Controller type
-   * @param {string} - Controller id
-   * @return {UIController} Component UIController
-   */
-  getController(controllerType, id)
-  {
-    try
-    {
-      const
-      functionName  = camelCase(controllerType, { pascalCase: true }),
-      eventEmitter  = new EventEmitter(),
-      controller    = this.controllersFactory[`create${functionName}Controller`](`#${id}`, eventEmitter)
+<dt>
+    
+        <h4 class="name" id="InjectorError">
+            
+                new <span class="type-signature"></span>InjectorError<span class="signature">(error)</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="ui-controller_errors_InjectorError.js.html">ui-controller/errors/InjectorError.js</a></code>,
+                <code><a href="ui-controller_errors_InjectorError.js.html#line6">line 6</a></code>
+            </div>
+            
+        </h4>
 
-      return controller
-    }
-    catch(error)
-    {
-      throw new InjectorError(error)
-    }
-  }
-}
+        
+    
+</dt>
+<dd>
 
-module.exports = UIControllerInjector
-</code></pre>
-        </article>
-    </section>
+    
+    <div class="description">
+        Creates a InjectorError.
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Error</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">error</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+        
+        </div>
+    
+
+    
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li>Error</li>
+    </ul>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
@@ -124,7 +248,7 @@ module.exports = UIControllerInjector
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = '_sub'.replace(/"/g, '_');
+        var id = 'InjectorError_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 

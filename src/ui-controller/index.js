@@ -1,52 +1,77 @@
+const
+UIChunk   = require('../ui-chunk'),
+deepCopy  = require('../deepcopy')
+
 /**
  * UIController class
  * @class
  */
-class UIController
+class UIController extends UIChunk
 {
   /**
    * Creates a basic UI controller.
-   * @param {string} selector - CSS selector for component wrapper (where the component lives and view will be injected)
-   * @param {string} viewName - View name
-   * @param {ComponentsFactory} factory   - Component factory, used for creating and validating its view model
-   * @param {EventEmitter} eventEmitter - Event Emmiter for changes
    */
-  constructor(selector, viewName, factory, eventEmitter)
+  constructor(
+    id,
+    type,
+    props,
+    bus
+  )
   {
-    this.selector     = selector
-    this.viewName     = viewName
-    this.factory      = factory
-    this.eventEmitter = eventEmitter
+    super(id, type, props)
+    this.selector    = `#${id}`
+    this.template    = window['component-composer'].views[this.type]
+    this.bus         = bus
 
-    this.extractViewModelFromHTML()
-    this.registerEventListeners()
     this.bindings()
+    this.subscribers()
+  }
+
+  extendType(type)
+  {
+    this.type     = type
+    this.template = window['component-composer'].views[type]
+  }
+
+  subscribers()
+  {
+    this.bus.subscribe(this.id, 'PROPS_CHANGED', this.onPropsChanged.bind(this))
+  }
+
+  subscribe(actionId, subscriber)
+  {
+    this.bus.subscribe(this.id, actionId, subscriber)
+  }
+
+  subscribeTo(channelId, actionId, subscriber)
+  {
+    this.bus.subscribe(channelId, actionId, subscriber)
+  }
+
+  onPropsChanged(action)
+  {
+    const props = action.payload
+    this.apply(props)
+  }
+
+  getProps()
+  {
+    return deepCopy(this.props)
+  }
+
+  apply(props)
+  {
+    this.setProps(props)
+    this.render()
   }
 
   /**
-   * Registers all events listeners
+   * Sets new props using the UIChunkFactory
+   * @param {Object} props - Component props
    */
-  registerEventListeners()
+  setProps(props)
   {
-
-  }
-
-  /**
-   * Extracts the controller view model from the HTML.
-   */
-  extractViewModelFromHTML()
-  {
-    const vm = this.getComponentNode('[data-model]').getAttribute('data-model')
-    this.setViewModel(JSON.parse(vm))
-  }
-
-  /**
-   * Sets a new view model using the component factory
-   * @param {Object} data - New view model
-   */
-  setViewModel(data)
-  {
-    this.vm = this.factory.create(data)
+    this.props = props
   }
 
   /**
@@ -54,11 +79,26 @@ class UIController
    */
   render()
   {
-    const
-    precompiledView = window['component-composer'].views[this.viewName],
-    compiledView    = precompiledView(this.vm)
+    const compiledTemplate = this.template(this.props)
 
-    document.querySelector(`${this.selector}`).innerHTML = compiledView
+    document.querySelector(`${this.selector}`).innerHTML = compiledTemplate
+    this.bindings()
+    this.childrenBindings()
+  }
+
+  childrenBindings()
+  {
+    const components = this.getComponentNodes('[data-component]')
+    components.forEach(this.childBindings.bind(this))
+  }
+
+  childBindings(component)
+  {
+    const
+    id = component.id,
+    controller = window.controllers.get(id)
+    if(controller)
+      controller.bindings()
   }
 
   /**
@@ -79,13 +119,30 @@ class UIController
     return document.querySelectorAll(`${this.selector} ${nodeSelector}`)
   }
 
-  /**
-   * Gets a copy of the current vm
-   * @returns {Object} - View model
-   */
-  getViewModel()
+  addListener(event, callback, node)
   {
-    return Object.assign({}, this.vm)
+    node.addEventListener(event, callback)
+  }
+
+  bindTo(selector, event, callback)
+  {
+    const nodes = this.getComponentNodes(selector)
+    nodes.forEach(this.addListener.bind(this, event, callback))
+  }
+
+  publishTo(channelId, actionId, payload)
+  {
+    this.bus.publish(channelId, actionId, this.id, this.type, payload)
+  }
+
+  dispatch(actionId, payload)
+  {
+    this.bus.publish('DISPATCHER', actionId, this.id, this.type, payload)
+  }
+
+  publish(actionId, payload)
+  {
+    this.bus.publish(this.id, actionId, this.id, this.type, payload)
   }
 
   /**
@@ -94,18 +151,6 @@ class UIController
   bindings()
   {
 
-  }
-
-  /**
-   * Applies the specified view model in the component,
-   * then renders the view and set all the bindings
-   * @param {Object} - View model
-   */
-  apply(vm)
-  {
-    this.setViewModel(vm)
-    this.render()
-    this.bindings()
   }
 }
 

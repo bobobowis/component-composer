@@ -1,9 +1,13 @@
 const
 Handlebars          = require('handlebars/runtime'),
-componentHelper     = require('./component'),
-jsonStringifyHelper = require('./json-stringify')
+jsonStringifyHelper = require('./json-stringify'),
+ifHelper            = require('./if'),
+momentFormat        = require('./moment-format'),
+component           = require('./component')
 
 Handlebars.registerHelper('jsonStringify', jsonStringifyHelper)
-Handlebars.registerHelper('component', componentHelper)
+Handlebars.registerHelper('if', ifHelper)
+Handlebars.registerHelper('momentFormat', momentFormat)
+Handlebars.registerHelper('component', component)
 
 module.exports = Handlebars

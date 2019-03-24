@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Source: ui-controller/injector.js | Component composer</title>
+    <title>Source: ui-controller/errors/InjectorError.js | Component composer</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -46,65 +46,28 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const
-camelCase     = require('camelcase'),
-InjectorError = require('./errors/InjectorError'),
-EventEmitter  = require('../event-emitter')
-/**
- * UIControllerInjector class
+            <pre class="prettyprint source linenums"><code>/**
+ * InjectorError class
  * @class
+ * @extends Error
  */
-class UIControllerInjector
+class InjectorError extends Error
 {
   /**
-   * Creates a basic UI controller injector.
-   * @param {ControllersFactory} controllersFactory   - ControllersFactory factory, used for creating component controllers
+   * Creates a InjectorError.
+   * @param {Error} error - error
    */
-  constructor(controllersFactory)
+  constructor(error)
   {
-    this.controllersFactory = controllersFactory
-  }
-  /**
-  * Initialize all components that have an ID on the html
-  */
-  inject()
-  {
-    window.controllers = {}
+    super(error.message)
 
-    document.querySelectorAll('[id][data-component]').forEach((component) =>
-    {
-      const
-      controllerType  = component.getAttribute('data-component'),
-      componentId     = component.id
-
-      window.controllers[component.id] = this.getController(controllerType, componentId)
-    })
-  }
-  /**
-   * Creates a ui-controller for the specified controller type and id
-   * @param {string} - Controller type
-   * @param {string} - Controller id
-   * @return {UIController} Component UIController
-   */
-  getController(controllerType, id)
-  {
-    try
-    {
-      const
-      functionName  = camelCase(controllerType, { pascalCase: true }),
-      eventEmitter  = new EventEmitter(),
-      controller    = this.controllersFactory[`create${functionName}Controller`](`#${id}`, eventEmitter)
-
-      return controller
-    }
-    catch(error)
-    {
-      throw new InjectorError(error)
-    }
+    this.name   = 'InjectorError'
+    this.code   = 'INJECTOR_ERROR'
+    this.error  = error
   }
 }
 
-module.exports = UIControllerInjector
+module.exports = InjectorError
 </code></pre>
         </article>
     </section>

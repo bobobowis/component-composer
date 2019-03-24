@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Source: ui-controller/injector.js | Component composer</title>
+    <title>Source: event-emitter/index.js | Component composer</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -46,65 +46,88 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const
-camelCase     = require('camelcase'),
-InjectorError = require('./errors/InjectorError'),
-EventEmitter  = require('../event-emitter')
-/**
- * UIControllerInjector class
+            <pre class="prettyprint source linenums"><code>/**
+ * EventEmitter class
  * @class
  */
-class UIControllerInjector
+class EventEmitter
 {
   /**
-   * Creates a basic UI controller injector.
-   * @param {ControllersFactory} controllersFactory   - ControllersFactory factory, used for creating component controllers
+   * Creates a basic EventEmitter
    */
-  constructor(controllersFactory)
+  constructor()
   {
-    this.controllersFactory = controllersFactory
+    this.events = {}
   }
   /**
-  * Initialize all components that have an ID on the html
-  */
-  inject()
+   * Adds a listener to an event
+   * @param {string} event - Name of the event
+   * @param {function} listener - Listener function
+   * @returns {function} - Returns its removeListener function
+   */
+  on(event, listener)
   {
-    window.controllers = {}
+    if(!Array.isArray(this.events[event]))
+      this.events[event] = []
 
-    document.querySelectorAll('[id][data-component]').forEach((component) =>
+    this.events[event].push(listener)
+    return () => this.removeListener(event, listener)
+  }
+  /**
+   * Removes the listener function for the specified event.
+   * @param {string} event - Name of the event
+   * @param {function} listener - Listener function
+   */
+  removeListener(event, listener)
+  {
+    if(Array.isArray(this.events[event]))
     {
-      const
-      controllerType  = component.getAttribute('data-component'),
-      componentId     = component.id
-
-      window.controllers[component.id] = this.getController(controllerType, componentId)
+      const idx = this.events[event].indexOf(listener)
+      if(idx > -1)
+        this.events[event].splice(idx, 1)
+    }
+  }
+  /**
+   * Removes all listener functions for the specified event.
+   * @param {string} event - Name of the event
+   */
+  removeAllListeners(event)
+  {
+    this.events[event] = []
+  }
+  /**
+   * Resets the EventEmitter
+   */
+  resetEventEmitter()
+  {
+    this.events = {}
+  }
+  /**
+   * Emits a event
+   * @param {string} event - Name of the event
+   * @param {...any} args - Listener args
+   */
+  emit(event, ...args)
+  {
+    if(Array.isArray(this.events[event]))
+      this.events[event].forEach(listener => listener.apply(this, args))
+  }
+  /**
+   * Adds a listener to an event that only executes once
+   * @param {string} event - Name of the event
+   * @param {function} listener - Listener function
+   */
+  once(event, listener)
+  {
+    const remove = this.on(event, (...args) =>
+    {
+      remove()
+      listener.apply(this, args)
     })
-  }
-  /**
-   * Creates a ui-controller for the specified controller type and id
-   * @param {string} - Controller type
-   * @param {string} - Controller id
-   * @return {UIController} Component UIController
-   */
-  getController(controllerType, id)
-  {
-    try
-    {
-      const
-      functionName  = camelCase(controllerType, { pascalCase: true }),
-      eventEmitter  = new EventEmitter(),
-      controller    = this.controllersFactory[`create${functionName}Controller`](`#${id}`, eventEmitter)
-
-      return controller
-    }
-    catch(error)
-    {
-      throw new InjectorError(error)
-    }
   }
 }
 
-module.exports = UIControllerInjector
+module.exports = EventEmitter
 </code></pre>
         </article>
     </section>
