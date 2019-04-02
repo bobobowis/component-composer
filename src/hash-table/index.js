@@ -27,16 +27,17 @@ class HashTable
 
   [Symbol.iterator]()
   {
-    const data  = Object.keys(this.table)
+    const keys = Object.keys(this.table)
 
     let  index = 0
     return {
       next : () =>
       {
-        if(index < data.length)
+        if(index < keys.length)
         {
+          const key = keys[index++]
           return {
-            value : this.table[data[index++]],
+            value : this.table[key],
             done  : false
           }
         }

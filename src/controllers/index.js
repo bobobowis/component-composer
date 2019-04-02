@@ -2,14 +2,16 @@ const HashTable = require('../hash-table')
 
 class Controllers extends HashTable
 {
-  constructor(propsMapper, bus, controllersLocator)
+  constructor({
+    propsMapper,
+    bus,
+    controllersLocator
+  })
   {
     super()
     this.propsMapper        = propsMapper
     this.bus                = bus
     this.controllersLocator = controllersLocator
-
-    window.controllers = this
   }
 
   addController(type, controller)

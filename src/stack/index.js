@@ -1,30 +1,27 @@
-class Queue
+class Stack
 {
   constructor()
   {
     this.items = []
   }
 
-  enqueue(element)
+  sta(element)
   {
     this.items.push(element)
   }
 
-  dequeue()
+  pop()
   {
     if(!this.isEmpty())
-      return this.items.shift()
+      return this.items.pop()
 
     return null
   }
 
 
-  front()
+  peek()
   {
-    if(!this.isEmpty())
-      return this.items[0]
-
-    return null
+    return this.items[this.items.length - 1]
   }
 
   isEmpty()
@@ -33,4 +30,4 @@ class Queue
   }
 }
 
-module.exports = Queue
+module.exports = Stack

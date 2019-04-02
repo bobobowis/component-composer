@@ -1,28 +1,33 @@
 const
 UIChunk = require('.'),
-uuid    = require('uuid/v4')
+uuidv4  = require('uuid/v4')
 
 class UIChunkFactory
 {
   create({
-    id,
+    customId,
     type,
     props,
-    template,
-    controllers,
-    reducers
+    template    = type,
+    controller  = type,
+    reducer     = type
   })
   {
-    const chunkId =  id ? id : `_${uuid()}`
+    const
+    uuid      = uuidv4(),
+    selector  = customId ? `#${customId}` : `#_${uuid}`,
+    id        = customId ? customId : uuid
 
-    return new UIChunk(
-      chunkId,
-      type,
-      props,
+    return new UIChunk({
+      id,
+      selector,
       template,
-      controllers,
-      reducers
-    )
+      controller,
+      reducer,
+      uuid,
+      type,
+      props
+    })
   }
 }
 

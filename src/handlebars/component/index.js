@@ -18,6 +18,8 @@ function handlebarsComponent(component, chunk)
     const compiledView = `<div
       id="${chunk.id}"
       data-component="${chunk.type}"
+      data-controller="${chunk.controller}"
+      data-reducer="${chunk.reducer}"
       class="component-wrapper">
       ${handlebarsView(chunk.props)}
     </div>`
