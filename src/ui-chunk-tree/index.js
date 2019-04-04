@@ -1,18 +1,15 @@
 class UIChunkTree
 {
-  constructor(chunksLocator, rootChunk)
+  constructor(chunksLocator, adjacencyLocator, rootChunk)
   {
-    this.chunks        = chunksLocator
-    this.adjacencyList = new Map()
+    this.chunks           = chunksLocator
+    this.adjacencyLocator = adjacencyLocator
 
     this.addLeaf(rootChunk)
   }
 
-
-  addChunk(uiChunkNode)
+  addChunk(chunk)
   {
-    const chunk = uiChunkNode.element
-
     this.chunks[chunk.id] = chunk
   }
 
@@ -20,42 +17,50 @@ class UIChunkTree
   {
     this.addLeaf(child)
     this.addEdge(parent, child)
+    this.addEdge(child, parent)
   }
 
-  addChildren(uiChunkNode)
+  addChildren(chunk)
   {
     const
-    children = uiChunkNode.children,
-    parent   = uiChunkNode.element
+    chunks                 = chunk.props.getChunks(),
+    chunkCollectionsChunks = chunk.props.getChunkCollectionsChunks(),
+    children               = [...chunks, ...chunkCollectionsChunks],
+    parent                 = chunk
 
     children.forEach(this.addChild.bind(this, parent))
   }
 
-  addEdge(parent, uiChunkNode)
+  addEdge(parent, chunk)
   {
-    const list = this.adjacencyList.get(parent.element.id)
+    const list = this.adjacencyLocator.get(parent.id)
 
-    list.push(uiChunkNode.element.id)
+    list.push(chunk.id)
   }
 
-  addLeaf(uiChunkNode)
+  addParent(chunk, parent)
   {
-    this.addChunk(uiChunkNode)
-    this.createAdjacencyList(uiChunkNode)
-    this.addChildren(uiChunkNode)
+    chunk.parent = parent.id
   }
 
-  createAdjacencyList(uiChunkNode)
+  addLeaf(chunk)
   {
-    this.adjacencyList.set(uiChunkNode.element.id, [])
+    this.addChunk(chunk)
+    this.createAdjacencyList(chunk)
+    this.addChildren(chunk)
+  }
+
+  createAdjacencyList(chunk)
+  {
+    this.adjacencyLocator.add(chunk.id, [])
   }
 
   getProps(leaf, visited = {})
   {
     const
-    id       = leaf.element.id,
-    props    = { ...leaf.element.props },
-    children = this.adjacencyList.get(id)
+    id       = leaf.id,
+    props    = { ...leaf.props.getProps() },
+    children = this.adjacencyLocator.get(id)
 
     visited[id] = true
 

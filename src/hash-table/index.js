@@ -25,6 +25,26 @@ class HashTable
     this.table = {}
   }
 
+  getJSON()
+  {
+    const json = {}
+
+    for(let key in this.table)
+      json[key] = this.table[key]
+
+    return json
+  }
+
+  getArray()
+  {
+    const array = []
+
+    for(let key in this.table)
+      array.push(this.table[key])
+
+    return array
+  }
+
   [Symbol.iterator]()
   {
     const keys = Object.keys(this.table)

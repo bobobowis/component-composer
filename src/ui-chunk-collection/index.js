@@ -1,27 +1,26 @@
-class UIChunk
+
+class UIChunkCollection
 {
   constructor({
     id,
     name,
-    uuid,
     selector,
-    type,
-    props,
-    template,
     controller,
-    reducer
+    reducer,
+    uuid,
+    collection,
+    type
   })
   {
     this.id         = id
     this.name       = name
-    this.uuid       = uuid
     this.selector   = selector
-    this.type       = type
-    this.props      = props
-    this.template   = template
     this.controller = controller
     this.reducer    = reducer
+    this.uuid       = uuid
+    this.collection = collection
+    this.type       = type
   }
 }
 
-module.exports = UIChunk
+module.exports = UIChunkCollection

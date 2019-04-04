@@ -10,11 +10,18 @@ class UIChunkTreeFactory
     return chunksLocator
   }
 
+  createAdjacencyLocator()
+  {
+    const adjacencyLocator = new Locator()
+    return adjacencyLocator
+  }
+
   create({ rootChunk })
   {
     const
-    chunksLocator = this.createChunksLocator(),
-    chunkTree     = new UIChunkTree(chunksLocator, rootChunk)
+    chunksLocator    = this.createChunksLocator(),
+    adjacencyLocator = this.createAdjacencyLocator(),
+    chunkTree        = new UIChunkTree(chunksLocator, adjacencyLocator, rootChunk)
 
     return chunkTree
   }

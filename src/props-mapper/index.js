@@ -36,7 +36,7 @@ class PropsMapper
   {
     for(let key in state)
     {
-      if(this.hasProps(state, key))
+      if(state[key].isChunk)
         this.mapProps(state[key], key)
     }
   }
@@ -49,7 +49,7 @@ class PropsMapper
       return `${path}.${key}.props`
   }
 
-  getPathArray(path, parentKey, key, index)
+  getPathArray(path, parentKey, index)
   {
     return `${path}.${parentKey}[${index}].props`
   }
@@ -62,19 +62,43 @@ class PropsMapper
     return false
   }
 
-  mapPropsArrayElement(element, index, property, key)
+  mapPropsArrayElement(element, index, property, parentKey)
   {
     const props = {}
 
-    for(let elementKey in element.props)
+    for(let key in element.props)
     {
-      if(this.hasProps(element.props, elementKey))
-        this.mapProps(element.props[elementKey], elementKey, this.getPathArray(property, key, elementKey, index))
+      if(element.props[key].isChunk)
+      {
+        this.mapProps(element.props[key], key, this.getPathArray(property, parentKey, index))
+        props[key] = {
+          id      : element.props[key].id,
+          props   : this.getProps(element.props[key].id),
+          type    : element.props[key].type,
+          isChunk : true
+        }
+      }
+      else if(Array.isArray(element.props[key]) && this.isArrayOfChunks(element.props[key]))
+      {
+        this.findPropsInArray(element.props[key], key, this.getPathArray(property, parentKey, index))
+        props[key] = element.props[key].map((chunk) =>
+        {
+          return {
+            id      : chunk.id,
+            props   : this.getProps(chunk.id),
+            type    : chunk.type,
+            isChunk : true
+          }
+        })
+      }
       else
-        props[elementKey] = element.props[elementKey]
+      {
+        props[key] = element.props[key]
+      }
     }
 
     this.addProp(element.id, props)
+    this.addMappingInfo(element.id, this.getPathArray(property, parentKey, index))
   }
 
   findPropsInArray(array, key, property)
@@ -85,10 +109,10 @@ class PropsMapper
     })
   }
 
-  arrayHasProps(array)
+  isArrayOfChunks(array)
   {
     const element = array[0]
-    if(element && typeof element === 'object' && element.hasOwnProperty('props'))
+    if(element && typeof element === 'object' && element.isChunk)
       return true
     else
       return false
@@ -103,24 +127,26 @@ class PropsMapper
 
     for(let key of keys)
     {
-      if(this.hasProps(element.props, key))
+      if(element.props[key].isChunk)
       {
         this.mapProps(element.props[key], key, this.getPath(property, path))
         props[key] = {
-          id    : element.props[key].id,
-          props : this.getProps(element.props[key].id),
-          type  : element.props[key].type
+          id      : element.props[key].id,
+          props   : this.getProps(element.props[key].id),
+          type    : element.props[key].type,
+          isChunk : true
         }
       }
-      else if(Array.isArray(element.props[key]) && this.arrayHasProps(element.props[key]))
+      else if(Array.isArray(element.props[key]) && this.isArrayOfChunks(element.props[key]))
       {
         this.findPropsInArray(element.props[key], key, this.getPath(property, path))
         props[key] = element.props[key].map((chunk) =>
         {
           return {
-            id    : chunk.id,
-            props : this.getProps(chunk.id),
-            type  : chunk.type
+            id      : chunk.id,
+            props   : this.getProps(chunk.id),
+            type    : chunk.type,
+            isChunk : true
           }
         })
       }
