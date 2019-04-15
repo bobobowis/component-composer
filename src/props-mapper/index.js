@@ -36,7 +36,7 @@ class PropsMapper
   {
     for(let key in state)
     {
-      if(state[key].isChunk)
+      if(state[key] && state[key].isChunk)
         this.mapProps(state[key], key)
     }
   }
@@ -68,7 +68,7 @@ class PropsMapper
 
     for(let key in element.props)
     {
-      if(element.props[key].isChunk)
+      if(element.props[key] && element.props[key].isChunk)
       {
         this.mapProps(element.props[key], key, this.getPathArray(property, parentKey, index))
         props[key] = {
@@ -127,7 +127,7 @@ class PropsMapper
 
     for(let key of keys)
     {
-      if(element.props[key].isChunk)
+      if(element.props[key] && element.props[key].isChunk)
       {
         this.mapProps(element.props[key], key, this.getPath(property, path))
         props[key] = {

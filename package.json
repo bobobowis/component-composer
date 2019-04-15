@@ -1,6 +1,6 @@
 {
   "name": "@borbalher/component-composer",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Component composer for Handlebars.js",
   "main": "index.js",
   "scripts": {
