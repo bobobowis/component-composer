@@ -14,8 +14,8 @@ class Queue
   {
     if(!this.isEmpty())
       return this.items.shift()
-
-    return null
+    else
+      return null
   }
 
 
@@ -23,8 +23,8 @@ class Queue
   {
     if(!this.isEmpty())
       return this.items[0]
-
-    return null
+    else
+      return null
   }
 
   isEmpty()

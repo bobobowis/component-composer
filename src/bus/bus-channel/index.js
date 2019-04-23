@@ -30,7 +30,7 @@ class BusChannel
 
   subscribeAll(subscriber)
   {
-    return this.subscribe('GLOBAL', subscriber)
+    return this.subscribe('ALL_ACTIONS', subscriber)
   }
 
   /**
@@ -105,13 +105,10 @@ class BusChannel
    */
   publish(id, source, type, payload)
   {
-    const
-    action            = this.createAction(id, source, type, payload),
-    globalSubscribers = this.getSubscribers('GLOBAL'),
-    actionSubscribers = this.getSubscribers(action.id),
-    subscribers       = globalSubscribers.concat(actionSubscribers)
+    const action = this.createAction(id, source, type, payload)
 
-    this.executeSubscribers(subscribers, action)
+    this.executeSubscribers('ALL_ACTIONS', action)
+    this.executeSubscribers(action.id, action)
   }
 
   /**
@@ -119,9 +116,12 @@ class BusChannel
    * @param {function} subscriber - Subscriber
    * @param {Action} action - Actions
    */
-  async executeSubscribers(subscribers, action)
+  executeSubscribers(actionId, action)
   {
-    return Promise.all(subscribers.map(this.executeSubscriber.bind(this, action)))
+    const subscribers = this.getSubscribers(actionId)
+
+    if(subscribers)
+      subscribers.forEach(this.executeSubscriber.bind(this, action))
   }
 
   /**
@@ -129,9 +129,9 @@ class BusChannel
    * @param {function} subscriber - Subscriber
    * @param {Action} action - Actions
    */
-  async executeSubscriber(action, subscriber)
+  executeSubscriber(action, subscriber)
   {
-    return subscriber.call(this, action)
+    subscriber.call(this, action)
   }
 
   /**

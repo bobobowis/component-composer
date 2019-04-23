@@ -56,30 +56,24 @@ class UIController extends UIChunk
 
   getProps()
   {
-    return deepCopy(this.props)
+    const props = window.propsMapper.props.get(this.id)
+    return {...props}
   }
 
-  apply(props)
+  apply()
   {
-    this.setProps(props)
     this.render()
   }
 
-  /**
-   * Sets new props using the UIChunkFactory
-   * @param {Object} props - Component props
-   */
-  setProps(props)
-  {
-    this.props = props
-  }
 
   /**
    * Renders the precompiled component view using its view model(vm)
    */
   render()
   {
-    const compiledTemplate = this.template(this.props)
+    const
+    props            = this.getProps(),
+    compiledTemplate = this.template(props)
 
     document.querySelector(`${this.selector}`).innerHTML = compiledTemplate
     this.bindings()

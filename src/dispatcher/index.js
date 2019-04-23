@@ -17,7 +17,9 @@ class Dispatcher
 
   dispatchAction(action)
   {
+    console.log(JSON.stringify(action))
     this.modifyStore(action)
+    console.log(JSON.stringify(this.store.state))
     this.updateMapper()
     this.notifySource(action)
   }

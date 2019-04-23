@@ -68,13 +68,13 @@ class PropsMapper
 
     for(let key in element.props)
     {
-      if(element.props[key].isChunk)
+      if(element.props[key] && element.props[key].isChunk)
       {
         this.mapProps(element.props[key], key, this.getPathArray(property, parentKey, index))
         props[key] = {
-          id      : element.props[key].id,
-          props   : this.getProps(element.props[key].id),
-          type    : element.props[key].type,
+          id    : element.props[key].id,
+          props : this.getProps(element.props[key].id),
+          type  : element.props[key].type,
           isChunk : true
         }
       }
@@ -84,9 +84,9 @@ class PropsMapper
         props[key] = element.props[key].map((chunk) =>
         {
           return {
-            id      : chunk.id,
-            props   : this.getProps(chunk.id),
-            type    : chunk.type,
+            id    : chunk.id,
+            props : this.getProps(chunk.id),
+            type  : chunk.type,
             isChunk : true
           }
         })
