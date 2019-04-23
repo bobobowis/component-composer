@@ -13,7 +13,7 @@ class ControllersFactory
   {
     const controllersLocator = this.createControllersLocator()
 
-    return new Controllers({ propsMapper, bus, controllersLocator})
+    return new Controllers(propsMapper, bus, controllersLocator)
   }
 }
 
