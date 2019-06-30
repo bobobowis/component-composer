@@ -18,7 +18,7 @@ class UIController extends UIChunk
     bus
   )
   {
-    super(id, type, props)
+    super({id, type, props})
     this.selector    = `#${id}`
     this.template    = window['component-composer'].views[this.type]
     this.bus         = bus
