@@ -1,5 +1,3 @@
-const moment = require('moment')
-
 /**
  * Returns a Date in the specified format
  * @param {string} date - UTC date string
@@ -8,7 +6,7 @@ const moment = require('moment')
  */
 function handlebarsHelper(date, format)
 {
-  return moment(date).format(format)
+  return window.localeService.formatDate(date, 'YYYY-MM-DD', true, format)
 }
 
 module.exports = handlebarsHelper
