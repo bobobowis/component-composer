@@ -17,10 +17,12 @@ class DispatcherLocator extends LocatorConstituent
     dtoMapper = this.locator.locate('core/ui/dto-mapper'),
     bus       = this.locator.locate('core/ui/bus')
 
+    bus.addChannel('STORE')
+
     return new Dispatcher({
+      busChannel : this.bus.getChannel('STORE'),
       store,
-      dtoMapper,
-      bus
+      dtoMapper
     })
   }
 }

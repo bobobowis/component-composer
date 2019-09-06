@@ -8,10 +8,12 @@ class BusChannel
    * Creates a basic BusChannel
    */
   constructor({
+    id,
     actionFactory
   })
   {
     this.actionFactory      = actionFactory
+    this.id                 =
     this.actionSubscribers  = {}
   }
 
@@ -104,15 +106,12 @@ class BusChannel
 
   createAction({
     id,
-    source,
-    schema,
     payload
   })
   {
     const action = this.actionFactory.create({
       id,
-      source,
-      schema,
+      source : this.id,
       payload
     })
 
@@ -124,15 +123,12 @@ class BusChannel
    */
   publish({
     id,
-    source,
-    schema,
     payload
   })
   {
     const action = this.createAction({
       id,
-      source,
-      schema,
+      emitter : this.id,
       payload
     })
 

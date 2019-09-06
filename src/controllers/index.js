@@ -27,13 +27,13 @@ class Controllers extends HashTable
     components.forEach(this.createComponentController.bind(this))
   }
 
-  createComponentController(component)
+  createComponentController(componentNode)
   {
     const
-    schema      = component.getAttribute('data-component'),
-    id          = component.id,
+    component   = componentNode.getAttribute('data-component'),
+    id          = componentNode.id,
     controller  = this.createController({
-      schema,
+      component,
       id
     })
 
@@ -41,14 +41,17 @@ class Controllers extends HashTable
   }
 
   createController({
-    schema,
+    component,
     id
   })
   {
-    const UIControllerFactory = this.locator.locate(`${schema}/controller/factory`)
+    const
+    UIControllerFactory = this.locator.locate(`${component}/controller/factory`),
+    busChannel          = this.bus.getChannel(id)
 
     return UIControllerFactory.create({
-      schema,
+      busChannel,
+      component,
       id
     })
   }

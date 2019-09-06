@@ -14,10 +14,12 @@ class DTOMapperLocator extends LocatorConstituent
   {
     const
     hashTableFactory  = this.locator.locate('core/ui/hash-table/factory'),
+    composer          = this.locator.locate('core/schema/composer'),
     dtos              = hashTableFactory.create(),
     mappingInfo       = hashTableFactory.create()
 
     return new DTOMapper({
+      composer,
       dtos,
       mappingInfo
     })

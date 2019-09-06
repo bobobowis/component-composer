@@ -9,7 +9,7 @@ class ActionFactory
 
   create(actionDTO)
   {
-    return this.composer.compose('core/ui/action', actionDTO)
+    return this.composer.compose('core/ui/action', actionDTO) // { id, emitter, payload }
   }
 }
 

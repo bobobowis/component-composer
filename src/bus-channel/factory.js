@@ -9,9 +9,10 @@ class BusChannelFactory
     this.actionFactory = actionFactory
   }
 
-  create()
+  create(id)
   {
     const busChannel    = new BusChannel({
+      id,
       actionFactory : this.actionFactory
     })
 

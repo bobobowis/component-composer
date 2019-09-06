@@ -16,6 +16,11 @@ class App
     this.dispatcher   = dispatcher
     this.controllers  = controllers
   }
+
+  run(initialState)
+  {
+
+  }
 }
 
 module.exports = App

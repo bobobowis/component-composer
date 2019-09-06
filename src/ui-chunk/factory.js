@@ -10,6 +10,7 @@ class UIChunkFactory
   }
 
   create({
+    id,
     schema,
     dto,
     template
@@ -18,6 +19,7 @@ class UIChunkFactory
     const composedDTO = this.composer.compose(schema, dto)
 
     return new UIChunk({
+      id,
       schema,
       template,
       dto : composedDTO

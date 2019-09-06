@@ -11,8 +11,11 @@ class Bus
 
   addChannel(id)
   {
-    const channel = this.busChannelFactory.create()
-    this.channels.add(id, channel)
+    if(!this.getChannel(id))
+    {
+      const channel = this.busChannelFactory.create(id)
+      this.channels.add(id, channel)
+    }
   }
 
   deleteChannel(id)
@@ -29,14 +32,12 @@ class Bus
     channelId,
     actionId,
     source,
-    schema,
     payload
   })
   {
     this.getChannel(channelId).publish({
       actionId,
       source,
-      schema,
       payload
     })
   }

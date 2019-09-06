@@ -1,15 +1,14 @@
 class DTOMapper
 {
   constructor({
+    composer,
     dtos,
-    mappingInfo,
-    initialState
+    mappingInfo
   })
   {
+    this.composer    = composer
     this.dtos        = dtos
     this.mappingInfo = mappingInfo
-
-    this.update(initialState)
   }
 
   reset()
@@ -44,11 +43,19 @@ class DTOMapper
     this.dtos.add(id, dto)
   }
 
+  isChunk(obj)
+  {
+    return obj.hasOwnProperty('dto') &&
+           obj.hasOwnProperty('id') &&
+           obj.hasOwnProperty('schema') &&
+           obj.hasOwnProperty('template')
+  }
+
   mapStateToDTOs(state)
   {
     for(let key in state)
     {
-      if(state[key] && state[key].isChunk)
+      if(state[key] && this.isChunk(state[key]))
         this.mapDTO(state[key], key)
     }
   }
@@ -80,14 +87,13 @@ class DTOMapper
 
     for(let key in element.dto)
     {
-      if(element.dto[key] && element.dto[key].isChunk)
+      if(element.dto[key] && this.isChunk(element.dto[key]))
       {
         this.mapDTO(element.dto[key], key, this.getPathArray(property, parentKey, index))
         dto[key] = {
-          id      : element.dto[key].id,
-          dto     : this.getDTO(element.dto[key].id),
-          schema  : element.dto[key].type,
-          isChunk : true
+          id     : element.dto[key].id,
+          dto    : this.getDTO(element.dto[key].id),
+          schema : element.dto[key].type
         }
       }
       else if(Array.isArray(element.dto[key]) && this.isArrayOfChunks(element.dto[key]))
@@ -96,10 +102,9 @@ class DTOMapper
         dto[key] = element.dto[key].map((chunk) =>
         {
           return {
-            id      : chunk.id,
-            dto     : this.getDTO(chunk.id),
-            schema  : chunk.schema,
-            isChunk : true
+            id     : chunk.id,
+            dto    : this.getDTO(chunk.id),
+            schema : chunk.schema
           }
         })
       }
@@ -124,7 +129,7 @@ class DTOMapper
   isArrayOfChunks(array)
   {
     const element = array[0]
-    if(element && typeof element === 'object' && element.isChunk)
+    if(element && typeof element === 'object' && this.isChunk(element))
       return true
     else
       return false
