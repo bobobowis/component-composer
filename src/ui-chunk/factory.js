@@ -1,28 +1,27 @@
-const
-UIChunk = require('.'),
-uuid    = require('uuid/v4')
+const UIChunk = require('.')
 
 class UIChunkFactory
 {
-  create({
-    id,
-    type,
-    props,
-    template,
-    controllers,
-    reducers
+  constructor({
+    composer
   })
   {
-    const chunkId =  id ? id : `_${uuid()}`
+    this.composer = composer
+  }
 
-    return new UIChunk(
-      chunkId,
-      type,
-      props,
+  create({
+    schema,
+    dto,
+    template
+  })
+  {
+    const composedDTO = this.composer.compose(schema, dto)
+
+    return new UIChunk({
+      schema,
       template,
-      controllers,
-      reducers
-    )
+      dto : composedDTO
+    })
   }
 }
 

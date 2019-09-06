@@ -1,16 +1,19 @@
-const deepCopy = require('../deepcopy')
-
 class Store
 {
-  constructor(state, rootReducer)
+  constructor({
+    state,
+    rootReducer,
+    deepclone
+  })
   {
     this.state        = state
     this.rootReducer  = rootReducer
+    this.deepclone    = deepclone
   }
 
   getState()
   {
-    return deepCopy(this.state)
+    return this.deepclone.clone(this.state)
   }
 
   apply(action)

@@ -1,19 +1,22 @@
-const
-Locator = require('../locator'),
-RootReducer = require('.')
+const RootReducer = require('.')
 
 class RootReducerFactory
 {
-  createReducersLocator()
+  constructor({
+    locator,
+    propsMapper
+  })
   {
-    return new Locator()
+    this.propsMapper  = propsMapper
+    this.locator      = locator
   }
 
-  create({ propsMapper })
+  create()
   {
-    const reducersLocator  = this.createReducersLocator()
-
-    return new RootReducer(reducersLocator, propsMapper)
+    return new RootReducer({
+      locator     : this.locator,
+      propsMapper : this.propsMapper
+    })
   }
 }
 

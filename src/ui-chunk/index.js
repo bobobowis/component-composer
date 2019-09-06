@@ -1,14 +1,14 @@
 class UIChunk
 {
-  constructor(id, type, props)
+  constructor({
+    schema,
+    dto,
+    template
+  })
   {
-    this.id          = id
-    this.type        = type
-    this.props       = props
-    this.isChunk     = true
-    // this.template    = template
-    // this.controllers = controllers
-    // this.reducers    = reducers
+    this.schema   = schema
+    this.dto      = dto
+    this.template = template
   }
 }
 

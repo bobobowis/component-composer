@@ -1,27 +1,31 @@
-const
-HashTable         = require('../hash-table'),
-BusChannelFactory = require('./bus-channel/factory')
-Bus               = require('.')
+const Bus = require('.')
 
 class BusFactory
 {
-  createChannels()
+  constructor({
+    hashTableFactory,
+    busChannelFactory
+  })
   {
-    return new HashTable()
+    this.hashTableFactory  = hashTableFactory
+    this.busChannelFactory = busChannelFactory
   }
 
-  createBusChannelFactory()
+  createChannels()
   {
-    return new BusChannelFactory()
+    return this.hashTableFactory.create()
   }
 
   create()
   {
     const
-    busChannelFactory = this.createBusChannelFactory(),
+    busChannelFactory = this.busChannelFactory,
     channels          = this.createChannels()
 
-    return new Bus(busChannelFactory, channels)
+    return new Bus({
+      busChannelFactory,
+      channels
+    })
   }
 }
 

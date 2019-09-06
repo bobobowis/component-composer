@@ -2,16 +2,22 @@ const Store = require('.')
 
 class StoreFactory
 {
-  constructor(storeValidator)
+  constructor({
+    deepclone,
+    rootReducer
+  })
   {
-    this.validator = storeValidator
+    this.deepclone    = deepclone
+    this.rootReducer  = rootReducer
   }
 
-  create({ initialState, rootReducer })
+  create(state = {})
   {
-    this.validator.validate({ initialState })
-
-    return new Store(initialState, rootReducer)
+    return new Store({
+      state,
+      rootReducer : this.rootReducer,
+      deepcopy    : this.deepclone
+    })
   }
 }
 

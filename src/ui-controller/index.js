@@ -1,36 +1,31 @@
-const
-UIChunk   = require('../ui-chunk'),
-deepCopy  = require('../deepcopy')
-
 /**
  * UIController class
  * @class
  */
-class UIController extends UIChunk
+class UIController
 {
   /**
    * Creates a basic UI controller.
    */
-  constructor(
+  constructor({
     id,
-    type,
-    props,
+    dtoMapper,
+    controllers,
+    template,
     bus
-  )
+  })
   {
-    super(id, type, props)
-    this.selector    = `#${id}`
-    this.template    = window['component-composer'].views[this.type]
+    this.id          = id
+
+    this.template    = template
+    this.dtoMapper   = dtoMapper
+    this.controllers = controllers
     this.bus         = bus
+
+    this.selector    = `#${id}`
 
     this.bindings()
     this.subscribers()
-  }
-
-  extendType(type)
-  {
-    this.type     = type
-    this.template = window['component-composer'].views[type]
   }
 
   subscribers()
@@ -50,14 +45,13 @@ class UIController extends UIChunk
 
   onPropsChanged(action)
   {
-    const props = action.payload
-    this.apply(props)
+    const dto = action.payload
+    this.apply(dto)
   }
 
-  getProps()
+  getDTO()
   {
-    const props = window.propsMapper.props.get(this.id)
-    return {...props}
+    return this.dtoMapper.getDTO(this.id)
   }
 
   apply()
@@ -72,10 +66,11 @@ class UIController extends UIChunk
   render()
   {
     const
-    props            = this.getProps(),
-    compiledTemplate = this.template(props)
+    dto              = this.getDTO(),
+    compiledTemplate = this.template(dto)
 
     document.querySelector(`${this.selector}`).innerHTML = compiledTemplate
+
     this.bindings()
     this.childrenBindings()
   }
@@ -89,8 +84,9 @@ class UIController extends UIChunk
   childBindings(component)
   {
     const
-    id = component.id,
-    controller = window.controllers.get(id)
+    id          = component.id,
+    controller  = this.controllers.get(id)
+
     if(controller)
       controller.bindings()
   }

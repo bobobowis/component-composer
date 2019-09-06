@@ -1,18 +1,36 @@
 class Reducer
 {
-  constructor(bus)
+  constructor({
+    bus
+  })
   {
-    this.bus = bus
+    this.channelId  = 'DISPATCHER'
+    this.bus        = bus
   }
 
-  dispatch(actionId, id, type, payload)
+  dispatch({
+    actionId,
+    id,
+    schema,
+    payload
+  })
   {
-    this.bus.publish('DISPATCHER', actionId, id, type, payload)
+    this.bus.publish({
+      channelId : this.channelId,
+      actionId,
+      id,
+      schema,
+      payload
+    })
   }
 
-  executeAction(action, state, mappingInfo)
+  executeAction({
+    action,
+    state,
+    mappingInfo
+  })
   {
-    return state
+    throw new Error('Method not implemented yet') // TODO Better error
   }
 }
 

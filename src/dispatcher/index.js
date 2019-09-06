@@ -1,25 +1,33 @@
 class Dispatcher
 {
-  constructor(store, propsMapper, bus)
+  constructor({
+    store,
+    dtoMapper,
+    bus
+  })
   {
-    this.store       = store
-    this.propsMapper = propsMapper
-    this.bus         = bus
+    this.channelId  = 'DISPATCHER'
+
+    this.store      = store
+    this.dtoMapper  = dtoMapper
+    this.bus        = bus
 
     this.createDispatcherChannel()
   }
 
   createDispatcherChannel()
   {
-    this.bus.addChannel('DISPATCHER')
-    this.bus.subscribeAll('DISPATCHER', this.dispatchAction.bind(this))
+    this.bus.addChannel(this.channelId)
+
+    this.bus.subscribeAll({
+      channelId  : this.channelId,
+      subscriber : this.dispatchAction.bind(this)
+    })
   }
 
   dispatchAction(action)
   {
-    console.log(JSON.stringify(action))
     this.modifyStore(action)
-    console.log(JSON.stringify(this.store.state))
     this.updateMapper()
     this.notifySource(action)
   }
@@ -32,25 +40,25 @@ class Dispatcher
   updateMapper()
   {
     const state = this.store.getState()
-    this.propsMapper.update(state)
+    this.dtoMapper.update(state)
   }
 
   notifySource(action)
   {
     const
     channelId = action.source,
-    actionId  = 'PROPS_CHANGED',
+    actionId  = 'DTO_CHANGED',
     source    = action.source,
-    type      = action.type,
-    payload   = this.propsMapper.getProps(action.source)
+    schema    = action.schema,
+    payload   = this.dtoMapper.getDTO(action.source)
 
-    this.bus.publish(
+    this.bus.publish({
       channelId,
       actionId,
       source,
-      type,
+      schema,
       payload
-    )
+    })
   }
 }
 
