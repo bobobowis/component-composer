@@ -1,0 +1,1 @@
+"use strict";function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}var UIChunk=function a(b){var c=b.id,d=b.schema,e=b.dto,f=b.template;_classCallCheck(this,a),this.id=c,this.schema=d,this.dto=e,this.template=f};module.exports=UIChunk;

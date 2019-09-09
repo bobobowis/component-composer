@@ -1,7 +1,7 @@
 const
-UIControllerInjector = require('./src/ui-controller/injector'),
-UIController         = require('./src/ui-controller'),
-Handlebars           = require('./src/handlebars/runtime'),
+UIControllerInjector = require('./src/ui/ui-controller/injector'),
+UIController         = require('./src/ui/ui-controller'),
+Handlebars           = require('./src/ui/handlebars/runtime'),
 EventEmmiter         = require('./src/event-emitter')
 
 module.exports =
