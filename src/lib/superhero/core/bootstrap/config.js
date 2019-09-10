@@ -6,7 +6,7 @@ define(function()
     {
       'locator' :
       {
-        'core/bootstrap' : 'superhero/core/bootstrap'
+        'core/bootstrap' : 'core/bootstrap'
       }
     }
   }

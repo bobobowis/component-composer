@@ -1,8 +1,7 @@
 /* eslint-disable no-undef */
 
-define(['require', 'superhero/core/schema/validator/csv/index'], function(require)
+define(['superhero/core/schema/validator/csv/index'], function(InvalidCsvError)
 {
-  const InvalidCsvError = require('superhero/core/schema/validator/csv/error/invalid')
   /**
    * @implements {SchemaValidator}
    */

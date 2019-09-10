@@ -1,5 +1,10 @@
 /* eslint-disable no-undef */
-define(['require'], function(require)
+define([
+  'require',
+  'superhero/core/error/service-unmet-dependency',
+  'superhero/core/error/service-locator-not-found',
+  'superhero/core/error/service-unable-to-resolve-dependencies'
+], function(require, ServiceUnmetDependencyError, ServiceLocatorNotFoundError, ServiceUnableToResolveDependenciesError)
 {
   class Core
   {
@@ -14,15 +19,17 @@ define(['require'], function(require)
       this.components[component] = pathname
     }
 
-    load()
+    async load()
     {
       const configuration = this.locate('core/configuration')
 
       // extending the configurations of every component
       for(const component in this.components)
       {
-        const config = this.fetchComponentConfig(component, this.components[component])
-        configuration.extend(config)
+        const config = await this.fetchComponentConfig(component, this.components[component])
+
+        if(config)
+          configuration.extend(config)
       }
 
       const
@@ -30,69 +37,71 @@ define(['require'], function(require)
       serviceNames  = Object.keys(serviceMap)
 
       // eager loading the services in the sevice locator
-      this.loadServiceRecursion(serviceNames)
+      await this.loadServiceRecursion(serviceNames)
     }
 
-    fetchComponentConfig(component, pathname)
+    async fetchComponentConfig(component, pathname)
     {
-      try
+      return new Promise((resolve) =>
       {
-        const
-        configPath = pathname ? `${pathname}/config` : `${component}/config`,
-        config     = require(configPath)
-
-        return config
-      }
-      catch(error)
-      {
-        return undefined
-      }
-    }
-
-    loadService(name)
-    {
-      const
-      configuration = this.locator.locate('core/configuration')
-      locatorPath   = `${configuration.find('core.locator')[name]}/locator`
-
-      try
-      {
-        const
-        Locator = require(locatorPath),
-        locator = new Locator(this.locator)
-
         try
         {
-          const service = locator.locate()
-          this.locator.set(name, service)
+          const configPath = pathname ? `${pathname}/config` : `${component}/config`
+
+          require([configPath], function(config)
+          {
+            resolve(config)
+          })
         }
         catch(error)
         {
-          switch(error.code)
-          {
-          case 'E_SERVICE_UNDEFINED':
-          {
-            const
-            msg                   = `An unmet dependency was found for service "${name}", error: ${error.message}`,
-            errorUnmetDependency  = new Error(msg)
-
-            errorUnmetDependency.code = 'E_SERVICE_UNMET_DEPENDENCY'
-            throw errorUnmetDependency
-          }
-          default:
-            throw error
-          }
+          resolve(undefined)
         }
-      }
-      catch(error)
+      })
+    }
+
+    async loadService(name)
+    {
+      return new Promise((resolve, reject) =>
       {
         const
-        msg                               = `locator could not be found for ${name}`,
-        serviceLocatorNotFoundError       = new Error(msg)
-        serviceLocatorNotFoundError.code  = 'E_SERVICE_LOCATOR_NOT_FOUND'
+        configuration = this.locator.locate('core/configuration'),
+        locatorPath   = `${configuration.find('core.locator')[name]}/locator`
 
-        throw serviceLocatorNotFoundError
-      }
+        try
+        {
+          const locator = this.locator
+          require([locatorPath], function(ServiceLocator)
+          {
+            try
+            {
+              const
+              serviceLocator  = new ServiceLocator(locator),
+              service         = serviceLocator.locate()
+
+              locator.set(name, service)
+
+              resolve()
+            }
+            catch(error)
+            {
+              switch(error.code)
+              {
+              case 'E_SERVICE_UNDEFINED':
+                reject(new ServiceUnmetDependencyError(`An unmet dependency was found for service "${name}", error: ${error.message}`))
+                break
+              default:
+                reject(error)
+                break
+              }
+            }
+          })
+        }
+        catch(error)
+        {
+          reject(new ServiceLocatorNotFoundError(`locator could not be found for ${name}`))
+        }
+      })
     }
 
     /**
@@ -100,7 +109,7 @@ define(['require'], function(require)
      * Recursion queue to complete loading all services.
      * @param {Array<string>} services names of services
      */
-    loadServiceRecursion(services)
+    async loadServiceRecursion(services)
     {
       // when the queu is empty, then we are done
       if(services.length === 0)
@@ -116,7 +125,7 @@ define(['require'], function(require)
       {
         try
         {
-          this.loadService(serviceName)
+          await this.loadService(serviceName)
         }
         catch(error)
         {
@@ -133,15 +142,10 @@ define(['require'], function(require)
 
       // if the new queue is the same as the old queue, then no progress has taken place
       if(services.length === queue.length)
-      {
-        const error = new Error(`Unmet dependencies found, could not resolve dependencies for ${queue.join(', ')}`)
-        error.code = 'E_SERVICE_UNABLE_TO_RESOLVE_DEPENDENCIES'
-
-        throw error
-      }
+        throw new ServiceUnableToResolveDependenciesError(`Unmet dependencies found, could not resolve dependencies for ${queue.join(', ')}`)
 
       // recursion until the queue is empty
-      this.loadServiceRecursion(queue)
+      await this.loadServiceRecursion(queue)
     }
 
     locate(service)

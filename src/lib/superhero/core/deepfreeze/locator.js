@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/deepfreeze/index'], function(require)
+define(['superhero/core/deepfreeze/index'], function(DeepFreeze)
 {
-  const DeepFreeze = require('superhero/core/deepfreeze/index')
-
   class DeepFreezeLocator
   {
     locate()

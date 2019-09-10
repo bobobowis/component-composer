@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/deepfind/index'], function(require)
+define(['superhero/core/deepfind/index'], function(DeepFind)
 {
-  const DeepFind = require('superhero/core/deepfind/index')
-
   class DeepFindLocator
   {
     locate()

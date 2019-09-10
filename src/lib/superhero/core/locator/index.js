@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/locator/error/service-undefined'], function(require)
+define(['superhero/core/locator/error/service-undefined'], function(ServiceUndefinedError)
 {
-  const ServiceUndefinedError = require('superhero/core/locator/error/service-undefined')
-
   class Locator
   {
     constructor()

@@ -1,9 +1,7 @@
 
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/deepclone/error/failed-to-clone'], function(require)
+define(['superhero/core/deepclone/error/failed-to-clone'], function(FailedToCloneError)
 {
-  const FailedToCloneError = require('superhero/core/deepclone/error/failed-to-clone')
-
   class DeepClone
   {
     clone(obj)

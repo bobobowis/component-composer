@@ -1,9 +1,7 @@
 
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/schema/validator/csv/index'], function(require)
+define(['superhero/core/schema/validator/csv/index'], function(SchemaValidatorCsv)
 {
-  const SchemaValidatorCsv = require('superhero/core/schema/validator/csv/index')
-
   class SchemaValidatorCsvLocator
   {
     locate()

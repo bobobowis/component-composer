@@ -10,7 +10,8 @@ requirejs.config({
   'baseUrl' : 'lib',
   'paths'   :
   {
-    'app' : '../app'
+    'app'  : '../app',
+    'core' : '../lib/superhero/core'
   }
 })
 

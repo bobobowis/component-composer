@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/schema/filter/schema/error/missing-schema-definition.js'], function(require)
+define(['superhero/core/schema/filter/schema/error/missing-schema-definition'], function(MissingSchemaDefinitionError)
 {
-  const MissingSchemaDefinitionError = require('superhero/core/schema/filter/schema/error/missing-schema-definition')
   /**
    * @implements {SchemaFilter}
    */

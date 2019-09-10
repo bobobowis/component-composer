@@ -1,15 +1,22 @@
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/locator/constituent'], function(require)
+define([
+  'superhero/core/index',
+  'superhero/core/configuration/index',
+  'superhero/core/deepclone/index',
+  'superhero/core/deepfind/index',
+  'superhero/core/deepfreeze/index',
+  'superhero/core/deepmerge/index',
+  'superhero/core/locator/index'
+], function(
+  Core,
+  Configuration,
+  Deepclone,
+  Deepfind,
+  Deepfreeze,
+  Deepmerge,
+  Locator
+)
 {
-  const
-  Core          = require('superhero/core/index'),
-  Configuration = require('superhero/core/configuration/index'),
-  Deepclone     = require('superhero/core/deepclone/index'),
-  Deepfind      = require('superhero/core/deepfind/index'),
-  Deepfreeze    = require('superhero/core/deepfreeze/index'),
-  Deepmerge     = require('superhero/core/deepmerge/index'),
-  Locator       = require('superhero/core/locator/index')
-
   class CoreFactory
   {
     create()

@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/locator/error/locator-not-implemented'], function(require)
+define(['superhero/core/locator/error/locator-not-implemented'], function(LocatorNotImplementedError)
 {
-  const LocatorNotImplementedError = require('superhero/core/locator/error/locator-not-implemented')
-
   /**
    * For classes that represent a locator constituent of a composite pattern.
    *

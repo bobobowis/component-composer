@@ -1,13 +1,18 @@
 /* eslint-disable no-undef */
 define(function(require)
 {
-  var
-  messages   = require('./messages'),  // Load any app-specific modules with a relative require call,
-  print      = require('print'),        // Load library/vendor modules using full IDs
-  f          = require('./ui/hash-table/factory')
+  const
+  CoreFactory = require('superhero/core/factory'),
+  coreFactory = new CoreFactory(),
+  core        = coreFactory.create()
 
-
-  print(messages.getHello())
+  core.load().then(() =>
+  {
+    core.locate('core/bootstrap').bootstrap().then(() =>
+    {
+      console.log('LOADED')
+    })
+  })
 })
 
 // const

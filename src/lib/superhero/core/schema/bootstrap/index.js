@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/schema/bootstrap/error/schema-not-resolvable'], function(require)
+define(['require', 'superhero/core/schema/bootstrap/error/schema-not-resolvable'], function(require, SchemaNotResolvable)
 {
-  const SchemaNotResolvable = require('superhero/core/schema/bootstrap/error/schema-not-resolvable')
-
   class SchemaBootstrap
   {
     constructor(locator, configuration)

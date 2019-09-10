@@ -19,6 +19,3 @@ define(function()
 
   return DeepFreeze
 })
-
-
-module.exports = DeepFreeze

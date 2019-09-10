@@ -1,13 +1,17 @@
-/**
- * @extends {Error}
- */
-class InvalidDecimalError extends Error
+/* eslint-disable no-undef */
+define(function()
 {
-  constructor(...a)
+  /**
+   * @extends {Error}
+   */
+  class InvalidDecimalError extends Error
   {
-    super(...a)
-    this.code = 'E_INVALID_DECIMAL'
+    constructor(...a)
+    {
+      super(...a)
+      this.code = 'E_INVALID_DECIMAL'
+    }
   }
-}
 
-module.exports = InvalidDecimalError
+  return InvalidDecimalError
+})

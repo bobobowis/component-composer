@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/schema/validator/integer/index'], function(require)
+define(['superhero/core/schema/validator/integer/index'], function(SchemaValidatorInteger)
 {
-  const SchemaValidatorInteger = require('superhero/core/schema/validator/integer/index')
-
   class SchemaValidatorIntegerLocator
   {
     locate()

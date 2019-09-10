@@ -12,7 +12,7 @@ class BusChannelFactoryLocator extends LocatorConstituent
    */
   locate()
   {
-    const actionFactory = this.locator.locate('core/ui/action/factory')
+    const actionFactory = this.locator.locate('ui/action/factory')
 
     return new BusChannelFactory({
       actionFactory

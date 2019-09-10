@@ -1,9 +1,7 @@
 
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/schema/filter/timestamp/index'], function(require)
+define(['superhero/core/schema/filter/timestamp/index'], function(SchemaFilterTimestamp)
 {
-  const SchemaFilterTimestamp = require('superhero/core/schema/filter/timestamp/index')
-
   class SchemaFilterTimestampLocator
   {
     locate()

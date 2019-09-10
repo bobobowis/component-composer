@@ -35,8 +35,8 @@ define(function()
       },
       'locator' :
       {
-        'core/schema/composer'            : 'superhero/core/composer',
-        'core/schema/bootstrap'           : 'superhero/core/bootstrap',
+        'core/schema/composer'            : 'superhero/core/schema/composer',
+        'core/schema/bootstrap'           : 'superhero/core/schema/bootstrap',
         'core/schema/filter/boolean'      : 'superhero/core/schema/filter/boolean',
         'core/schema/filter/csv'          : 'superhero/core/schema/filter/csv',
         'core/schema/filter/decimal'      : 'superhero/core/schema/filter/decimal',

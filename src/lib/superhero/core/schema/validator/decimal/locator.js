@@ -1,11 +1,13 @@
-const SchemaValidatorDecimal = require('.')
-
-class SchemaValidatorDecimalLocator
+/* eslint-disable no-undef */
+define(['superhero/core/schema/validator/decimal/index'], function(SchemaValidatorDecimal)
 {
-  locate()
+  class SchemaValidatorDecimalLocator
   {
-    return new SchemaValidatorDecimal
+    locate()
+    {
+      return new SchemaValidatorDecimal()
+    }
   }
-}
 
-module.exports = SchemaValidatorDecimalLocator
+  return SchemaValidatorDecimalLocator
+})

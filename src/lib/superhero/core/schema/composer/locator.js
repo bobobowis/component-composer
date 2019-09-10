@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/schema/composer/index'], function(require)
+define(['superhero/core/schema/composer/index'], function(Composer)
 {
-  const Composer = require('superhero/core/schema/composer/index')
-
   class ComposerLocator
   {
     constructor(locator)

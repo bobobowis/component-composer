@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/deepclone/index'], function(require)
+define(['superhero/core/deepclone/index'], function(DeepClone)
 {
-  const DeepClone = require('superhero/core/deepclone/index')
-
   class DeepCloneLocator
   {
     locate()

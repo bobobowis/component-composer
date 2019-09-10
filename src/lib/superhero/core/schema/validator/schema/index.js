@@ -1,8 +1,6 @@
 /* eslint-disable*/
-define(['require', 'superhero/core/schema/validator/schema/error/invalid'], function()
+define(['superhero/core/schema/validator/schema/error/invalid'], function(InvalidSchemaError)
 {
-  const InvalidSchemaError = require('superhero/core/schema/validator/schema/error/invalid')
-
   /**
    * @implements {SchemaValidator}
    */

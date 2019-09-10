@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/deepmerge'], function(require)
+define(['superhero/core/deepmerge'], function(DeepMerge)
 {
-  const DeepMerge = require('superhero/core/deepmerge')
-
   class DeepMergeLocator
   {
     locate()

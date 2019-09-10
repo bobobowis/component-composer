@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 define([
-  'require',
   'superhero/core/schema/composer/error/invalid-attribute',
   'superhero/core/schema/composer/error/invalid-collection',
   'superhero/core/schema/composer/error/invalid-schema',
@@ -8,17 +7,16 @@ define([
   'superhero/core/schema/composer/error/filter-is-not-honering-contract',
   'superhero/core/schema/composer/error/validator-is-not-honering-contract',
   'superhero/core/schema/composer/error/validator-not-found'
-], function(require)
+], function(
+  InvalidAttributeError,
+  InvalidCollectionError,
+  InvalidSchemaError,
+  SchemaNotFoundError,
+  FilterIsNotHoneringContractError,
+  ValidatorIsNotHoneringContractError,
+  ValidatorNotFoundError
+)
 {
-  const
-  InvalidAttributeError               = require('superhero/core/schema/composer/error/invalid-attribute'),
-  InvalidCollectionError              = require('superhero/core/schema/composer/error/invalid-collection'),
-  InvalidSchemaError                  = require('superhero/core/schema/composer/error/invalid-schema'),
-  SchemaNotFoundError                 = require('superhero/core/schema/composer/error/schema-not-found'),
-  FilterIsNotHoneringContractError    = require('superhero/core/schema/composer/error/filter-is-not-honering-contract'),
-  ValidatorIsNotHoneringContractError = require('superhero/core/schema/composer/error/validator-is-not-honering-contract'),
-  ValidatorNotFoundError              = require('superhero/core/schema/composer/error/validator-not-found')
-
   class Composer
   {
     constructor(deepmerge, deepclone)

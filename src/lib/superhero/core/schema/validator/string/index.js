@@ -1,9 +1,7 @@
 
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/schema/validator/string/error/invalid'], function(require)
+define(['superhero/core/schema/validator/string/error/invalid'], function(InvalidStringError)
 {
-  const InvalidStringError = require('superhero/core/schema/validator/string/error/invalid')
-
   /**
    * @implements {SchemaValidator}
    */

@@ -1,9 +1,7 @@
 
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/schema/filter/decimal/index'], function(require)
+define(['superhero/core/schema/filter/decimal/index'], function(SchemaFilterDecimal)
 {
-  const SchemaFilterDecimal = require('superhero/core/schema/filter/decimal/index')
-
   class SchemaFilterDecimalLocator
   {
     locate()

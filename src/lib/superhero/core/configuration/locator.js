@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/configuration/index'], function(require)
+define(['superhero/core/configuration/index'], function(Configuration)
 {
-  const Configuration = require('superhero/core/configuration/index')
-
   class ConfigurationLocator
   {
     constructor(locator)

@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/schema/validator/timestamp/index'], function(require)
+define(['superhero/core/schema/validator/timestamp/index'], function(SchemaValidatorTimestamp)
 {
-  const SchemaValidatorTimestamp = require('superhero/core/schema/validator/timestamp/index')
-
   class SchemaValidatorTimestampLocator
   {
     locate()

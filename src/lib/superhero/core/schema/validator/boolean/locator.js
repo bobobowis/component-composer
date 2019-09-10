@@ -1,9 +1,7 @@
 
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/schema/validator/boolean/index'], function(require)
+define(['superhero/core/schema/validator/boolean/index'], function(SchemaValidatorBoolean)
 {
-  const SchemaValidatorBoolean = require('superhero/core/schema/validator/boolean/index')
-
   class SchemaValidatorBooleanLocator
   {
     locate()

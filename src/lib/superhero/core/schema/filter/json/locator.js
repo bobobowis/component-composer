@@ -1,9 +1,7 @@
 
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/schema/filter/json/index'], function(require)
+define(['superhero/core/schema/filter/json/index'], function(SchemaFilterJson)
 {
-  const SchemaFilterJson = require('superhero/core/schema/filter/json/index')
-
   class SchemaFilterJsonLocator
   {
     locate()

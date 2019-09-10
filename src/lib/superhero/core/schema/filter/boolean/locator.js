@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/schema/filter/boolean/index'], function(require)
+define(['superhero/core/schema/filter/boolean/index'], function(SchemaFilterBoolean)
 {
-  const SchemaFilterBoolean = require('superhero/core/schema/filter/boolean/index')
-
   class SchemaFilterBooleanLocator
   {
     locate()

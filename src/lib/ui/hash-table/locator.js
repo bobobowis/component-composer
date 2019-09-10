@@ -1,18 +1,14 @@
 
 /* eslint-disable no-undef */
-define(['require', 'app/ui/hash-table/factory', 'superhero/core/locator/constituent'], function(require)
+define(['app/ui/hash-table/factory', 'superhero/core/locator/constituent'], function(HashTableFactory, LocatorConstituent)
 {
-  const
-  HashTableFactory   = require('app/ui/hash-table/factory'),
-  LocatorConstituent = require('superhero/core/locator/constituent')
-
   /**
    * @extends {superhero/core/locator/constituent}
    */
   class HashTableFactoryLocator extends LocatorConstituent
   {
     /**
-     * @returns {HashTable}
+     * @returns {HashTableFactory}
      */
     locate()
     {

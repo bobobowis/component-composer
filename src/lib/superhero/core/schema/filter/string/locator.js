@@ -1,9 +1,7 @@
 
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/schema/filter/string/index'], function(require)
+define(['superhero/core/schema/filter/string/index'], function(SchemaFilterString)
 {
-  const SchemaFilterString = require('superhero/core/schema/filter/string/index')
-
   class SchemaFilterStringLocator
   {
     locate()

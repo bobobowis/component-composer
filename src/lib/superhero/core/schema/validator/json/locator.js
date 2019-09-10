@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/schema/validator/json/index'], function(require)
+define(['superhero/core/schema/validator/json/index'], function(SchemaValidatorJson)
 {
-  const SchemaValidatorJson = require('superhero/core/schema/validator/json/index')
-
   class SchemaValidatorJsonLocator
   {
     locate()

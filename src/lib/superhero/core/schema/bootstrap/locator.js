@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/schema/bootstrap/index'], function(require)
+define(['superhero/core/schema/bootstrap/index'], function(SchemaBootstrap)
 {
-  const SchemaBootstrap = require('superhero/core/bootstrap/index')
-
   class SchemaBootstrapLocator
   {
     constructor(locator)

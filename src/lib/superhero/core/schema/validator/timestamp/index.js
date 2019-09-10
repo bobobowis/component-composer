@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
-define(['require', 'superhero/core/schema/validator/timestamp/error/invalid'], function(require)
+define(['superhero/core/schema/validator/timestamp/error/invalid'], function(InvalidTimestampError)
 {
-  const InvalidTimestampError = require('superhero/core/schema/validator/timestamp/error/invalid')
   /**
    * @implements {SchemaValidator}
    */
