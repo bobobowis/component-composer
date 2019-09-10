@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
-define(['superhero/core/eventbus/index'], function(Eventbus)
+define(['superhero/core/bus/index'], function(Eventbus)
 {
-  class EventbusLocator
+  class BusLocator
   {
     constructor(locator)
     {
@@ -11,15 +11,19 @@ define(['superhero/core/eventbus/index'], function(Eventbus)
     locate()
     {
       const
-      configuration   = this.locator.locate('core/configuration'),
-      eventbusOptions = configuration.find('core.eventbus.options'),
-      observers       = configuration.find('core.eventbus.observers'),
-      observersKeys   = Object.keys(observers || {}),
-      eventbus        = new Eventbus(eventbusOptions, observersKeys)
+      // configuration   = this.locator.locate('core/configuration'),
+      // eventbusOptions = configuration.find('core.eventbus.options'),
+      // observers       = configuration.find('core.eventbus.observers'),
+      // observersKeys   = Object.keys(observers || {}),
+      busChannelFactory  = this.locator.locate('core/bus-channel/factory')
+      bus        = new Bus({
+        busChannelFactory,
+        channels
+      })
 
-      return eventbus
+      return bus
     }
   }
 
-  return EventbusLocator
+  return BusLocator
 })
