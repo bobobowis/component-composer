@@ -1,14 +1,18 @@
-/**
- * @memberof Domain
- * @extends {Error}
- */
-class InvalidMultipleAssociativeArrayError extends Error
+/* eslint-disable no-undef */
+define(function()
 {
-  constructor(...args)
+  /**
+   * @memberof Domain
+   * @extends {Error}
+   */
+  class InvalidMultipleAssociativeArrayError extends Error
   {
-    super(...args)
-    this.code = 'E_INVALID_MULTIPLE_ASSOCIATIVE_ARRAY'
+    constructor(...args)
+    {
+      super(...args)
+      this.code = 'E_INVALID_MULTIPLE_ASSOCIATIVE_ARRAY'
+    }
   }
-}
 
-module.exports = InvalidMultipleAssociativeArrayError
+  return InvalidMultipleAssociativeArrayError
+})

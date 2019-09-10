@@ -1,14 +1,18 @@
-/**
- * @memberof Domain
- * @extends {Error}
- */
-class InvalidJSONError extends Error
+/* eslint-disable no-undef */
+define(function()
 {
-  constructor(...args)
+  /**
+   * @memberof Domain
+   * @extends {Error}
+   */
+  class InvalidJSONError extends Error
   {
-    super(...args)
-    this.code = 'E_INVALID_JSON'
+    constructor(...args)
+    {
+      super(...args)
+      this.code = 'E_INVALID_JSON'
+    }
   }
-}
 
-module.exports = InvalidJSONError
+  return InvalidJSONError
+})

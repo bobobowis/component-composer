@@ -22,19 +22,20 @@ define(['require', 'superhero/core/schema/bootstrap/error/schema-not-resolvable'
       this.addValidators(composer, validators)
     }
 
-    addSchemas(composer, schemas)
+    async addSchemas(composer, schemas)
     {
       for(const schemaName in schemas || [])
       {
         try
         {
-          const schema = require(schemas[schemaName])
-          composer.addSchema(schemaName, schema)
+          require([schemas[schemaName]], function(schema)
+          {
+            composer.addSchema(schemaName, schema)
+          })
         }
         catch(error)
         {
-          const msg = `Could not resolve path for schema: "${schemaName}", path: "${schemas[schemaName]}"`
-          throw new SchemaNotResolvable(msg)
+          throw new SchemaNotResolvable(`Could not resolve path for schema: "${schemaName}", path: "${schemas[schemaName]}"`)
         }
       }
     }

@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 define([
-  'superhero/core/data-structure/schema/value-object/associative-array/validator/error/invalid-associative-array'
+  'superhero/core/schema/validator/associative-array/error/invalid-associative-array'
 ], function(InvalidAssociativeArray)
 {
   /**

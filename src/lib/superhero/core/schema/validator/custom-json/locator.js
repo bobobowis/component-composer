@@ -1,21 +1,23 @@
-const
-CustomJSONValidator = require('.'),
-LocatorConstituent  = require('superhero/core/locator/constituent')
-
-/**
- * @extends {superhero/core/locator/constituent}
- */
-class CustomJSONValidatorLocator extends LocatorConstituent
+/* eslint-disable no-undef */
+define([
+  'superhero/core/schema/validator/custom-json/index',
+  'superhero/core/locator/constituent'
+], function(CustomJSONValidator, LocatorConstituent)
 {
   /**
-   * @returns {CustomJSONValidator}
+   * @extends {superhero/core/locator/constituent}
    */
-  locate()
+  class CustomJSONValidatorLocator extends LocatorConstituent
   {
-    return new CustomJSONValidator({
-      locator : this.locator
-    })
+    /**
+     * @returns {CustomJSONValidator}
+     */
+    locate()
+    {
+      const locator = this.locator
+      return new CustomJSONValidator(locator)
+    }
   }
-}
 
-module.exports = CustomJSONValidatorLocator
+  return CustomJSONValidatorLocator
+})

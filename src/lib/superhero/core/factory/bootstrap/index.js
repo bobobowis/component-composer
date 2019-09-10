@@ -1,47 +1,49 @@
-class FactoryBootstrap
+/* eslint-disable no-undef */
+define(function()
 {
-  constructor({
-    factories,
-    locator,
-    composer
-  })
+  class FactoryBootstrap
   {
-    this.locator    = locator
-    this.composer   = composer
-    this.factories  = factories
-  }
-
-
-  getFactoryArgs(schema)
-  {
-    const args = {}
-
-    for(const key in schema)
+    constructor({
+      factories,
+      locator,
+      composer
+    })
     {
-      args[key] = this.locator.locate(schema[key])
+      this.locator    = locator
+      this.composer   = composer
+      this.factories  = factories
     }
 
-    return args
-  }
 
-  bootstrap()
-  {
-    const Factory = this.locator.locate('factory')
-
-    for(const schema in this.factories)
+    getFactoryArgs(schema)
     {
-      const
-      args    = this.getFactoryArgs(this.factories[schema]),
-      factory = new Factory({
-        locator  : this.locator,
-        composer : this.composer,
-        args,
-        schema
-      })
+      const args = {}
 
-      this.locator.set(`${schema}/factory`, factory)
+      for(const key in schema)
+        args[key] = this.locator.locate(schema[key])
+
+      return args
+    }
+
+    bootstrap()
+    {
+      const Factory = this.locator.locate('core/factory')
+
+      for(const schema in this.factories)
+      {
+        const
+        args    = this.getFactoryArgs(this.factories[schema]),
+        factory = new Factory({
+          locator  : this.locator,
+          composer : this.composer,
+          args,
+          schema
+        })
+
+        this.locator.set(`${schema}/factory`, factory)
+      }
     }
   }
-}
 
-module.exports = FactoryBootstrap
+  return FactoryBootstrap
+})

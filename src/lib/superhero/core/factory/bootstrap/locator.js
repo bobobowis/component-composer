@@ -1,26 +1,27 @@
-
-const FactoryBootstrap = require('.')
-
-class FactoryBootstrapLocator
+/* eslint-disable no-undef */
+define(['superhero/core/factory/bootstrap/index'], function(FactoryBootstrap)
 {
-  constructor(locator)
+  class FactoryBootstrapLocator
   {
-    this.locator = locator
+    constructor(locator)
+    {
+      this.locator = locator
+    }
+
+    locate()
+    {
+      const
+      factories = this.locator.locate('core/configuration').find('core.factories'),
+      locator   = this.locator,
+      composer  = this.locator.locate('core/schema/composer')
+
+      return new FactoryBootstrap({
+        factories,
+        locator,
+        composer
+      })
+    }
   }
 
-  locate()
-  {
-    const
-    factories = this.locator.locate('core/configuration').find('core.factories'),
-    locator   = this.locator,
-    composer  = this.locator.locate('core/schema/composer')
-
-    return new FactoryBootstrap({
-      factories,
-      locator,
-      composer
-    })
-  }
-}
-
-module.exports = FactoryBootstrapLocator
+  return FactoryBootstrapLocator
+})

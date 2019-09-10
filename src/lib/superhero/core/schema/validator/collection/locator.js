@@ -1,21 +1,23 @@
-const
-ArrayValidator      = require('.'),
-LocatorConstituent  = require('superhero/core/locator/constituent')
-
-/**
- * @extends {superhero/core/locator/constituent}
- */
-class ArrayValidatorLocator extends LocatorConstituent
+/* eslint-disable no-undef */
+define([
+  'superhero/core/schema/validator/collection/index',
+  'superhero/core/locator/constituent'
+], function(CollectionValidator, LocatorConstituent)
 {
   /**
-   * @returns {ArrayValidator}
+   * @extends {superhero/core/locator/constituent}
    */
-  locate()
+  class CollectionValidatorLocator extends LocatorConstituent
   {
-    return new ArrayValidator({
-      locator : this.locator
-    })
+    /**
+     * @returns {CollectionValidator}
+     */
+    locate()
+    {
+      const locator = this.locator
+      return new CollectionValidator(locator)
+    }
   }
-}
 
-module.exports = ArrayValidatorLocator
+  return CollectionValidatorLocator
+})

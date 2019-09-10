@@ -172,7 +172,7 @@ define([
 
       for(const attribute in schema)
       {
-        if(typeof schema[attribute].type !== 'string')
+        if(typeof schema[attribute].type !== 'string' && attribute !== '@meta')
           throw new InvalidSchemaError(`In schema "${schemaName}", attribute "${attribute}" does not have a type defined`)
 
         if('enum' in schema[attribute] && !Array.isArray(schema[attribute].enum))

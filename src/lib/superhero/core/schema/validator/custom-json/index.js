@@ -1,74 +1,69 @@
-const InvalidJSON = require('./error/invalid-json')
-
-/**
- * Validates Multiple Associative Array
- * @memberof Domain
- * @implements {superhero/core/schema/validator}
- */
-class CustomJSONValidator
+/* eslint-disable no-undef */
+define(['superhero/core/schema/validator/custom-json/error/invalid-json'], function(InvalidJSON)
 {
-  constructor({
-    locator
-  })
+  /**
+   * Validates Multiple Associative Array
+   * @memberof Domain
+   * @implements {superhero/core/schema/validator}
+   */
+  class CustomJSONValidator
   {
-    this.locator = locator
-  }
-
-  valid(options, data)
-  {
-    options.collection
-      ? this.validCollection(options, data)
-      : this.validSingle(options, data)
-  }
-
-  validCollection(options, data)
-  {
-    if(!Array.isArray(data))
+    constructor({
+      locator
+    })
     {
-      const msg = `Invalid type: "${typeof data}", array expected`
-      throw new InvalidJSON(msg)
+      this.locator = locator
     }
 
-    for(const item of data)
-      this.validSingle(options, item)
-  }
-
-  validProperties(data, options)
-  {
-    const
-    type              = options['custom-json'].type,
-    validator         = this.locator.locate(`core/schema/validator/${type}`),
-    validatorOptions  = options['custom-json'].options || {}
-
-    for(const key in data)
+    valid(options, data)
     {
-      try
+      options.collection
+        ? this.validCollection(options, data)
+        : this.validSingle(options, data)
+    }
+
+    validCollection(options, data)
+    {
+      if(!Array.isArray(data))
+        throw new InvalidJSON(`Invalid type: "${typeof data}", array expected`)
+
+      for(const item of data)
+        this.validSingle(options, item)
+    }
+
+    validProperties(data, options)
+    {
+      const
+      type              = options['custom-json'].type,
+      validator         = this.locator.locate(`core/schema/validator/${type}`),
+      validatorOptions  = options['custom-json'].options || {}
+
+      for(const key in data)
       {
-        validator.valid(validatorOptions, data[key])
-      }
-      catch(error)
-      {
-        const msg = `Invalid property "${key}": got ${typeof data[key]}, ${type} expected`
-        throw new InvalidJSON(msg)
+        try
+        {
+          validator.valid(validatorOptions, data[key])
+        }
+        catch(error)
+        {
+          throw new InvalidJSON(`Invalid property "${key}": got ${typeof data[key]}, ${type} expected`)
+        }
       }
     }
-  }
 
-  validSingle(options, data)
-  {
-    const jsonValidator = this.locator.locate(`core/schema/validator/json`)
-
-    jsonValidator.valid(options, data)
-
-    if(typeof data !== 'object')
+    validSingle(options, data)
     {
-      const msg = `Invalid type: "${typeof data}", object expected`
-      throw new InvalidJSON(msg)
+      const jsonValidator = this.locator.locate(`core/schema/validator/json`)
+
+      jsonValidator.valid(options, data)
+
+      if(typeof data !== 'object')
+        throw new InvalidJSON(`Invalid type: "${typeof data}", object expected`)
+
+      if(options['custom-json'])
+        this.validProperties(data, options)
     }
-
-    if(options['custom-json'])
-      this.validProperties(data, options)
   }
-}
 
-module.exports = CustomJSONValidator
+  return CustomJSONValidator
+})
