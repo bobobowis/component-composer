@@ -10,10 +10,10 @@ define(function()
     },
     'array' :
     {
-      'type'        : 'data-structure/custom-json',
+      'type'        : 'custom-json',
       'custom-json' :
       {
-        'type' : 'data-structure/collection'
+        'type' : 'collection'
       },
       'default' : {}
     }

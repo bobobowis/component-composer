@@ -6,14 +6,14 @@ define(function()
     {
       'bootstrap' :
       {
-        'bus' : 'superhero/core/bus/bootstrap'
+        'eventbus' : 'core/eventbus/bootstrap'
       },
       'locator' :
       {
-        'core/bus'           : 'superhero/core/bus/',
-        'core/bus/bootstrap' : 'superhero/core/bus/bootstrap'
+        'core/eventbus'           : 'superhero/core/eventbus',
+        'core/eventbus/bootstrap' : 'superhero/core/eventbus/bootstrap'
       },
-      'bus' :
+      'eventbus' :
       {
         'options'   : {},
         'observers' : {}

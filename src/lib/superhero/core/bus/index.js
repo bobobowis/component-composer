@@ -41,7 +41,6 @@ define(function()
         this.getChannel(channelId)
           .publish({
             name : eventName,
-            emitter,
             data
           })
           .then(() =>

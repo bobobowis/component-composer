@@ -4,7 +4,7 @@ define(function()
   return {
     'array' :
     {
-      'type'    : 'data-structure/custom-json',
+      'type'    : 'custom-json',
       'default' : {}
     }
   }

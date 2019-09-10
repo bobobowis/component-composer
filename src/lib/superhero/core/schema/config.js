@@ -6,8 +6,9 @@ define(function()
     {
       'factories' :
       {
-        'multiple-associative-array' : {},
-        'associative-array'          : {}
+        'data-structure/multiple-associative-array' : {},
+        'data-structure/associative-array'          : {},
+        'data-structure/event'                      : {}
       },
       'bootstrap' :
       {
@@ -18,8 +19,8 @@ define(function()
       {
         'composer' :
         {
-          'associative-array'          : 'superhero/core/schema/value-object/associative-array',
-          'multiple-associative-array' : 'superhero/core/schema/value-object/multiple-associative-array'
+          'data-structure/associative-array'          : 'superhero/core/schema/value-object/associative-array',
+          'data-structure/multiple-associative-array' : 'superhero/core/schema/value-object/multiple-associative-array'
         },
         'filter' :
         {
@@ -34,18 +35,18 @@ define(function()
         },
         'validator' :
         {
-          'boolean'                    : 'core/schema/validator/boolean',
-          'csv'                        : 'core/schema/validator/csv',
-          'decimal'                    : 'core/schema/validator/decimal',
-          'integer'                    : 'core/schema/validator/integer',
-          'json'                       : 'core/schema/validator/json',
-          'schema'                     : 'core/schema/validator/schema',
-          'string'                     : 'core/schema/validator/string',
-          'timestamp'                  : 'core/schema/validator/timestamp',
-          'collection'                 : 'core/schema/validator/collection',
-          'custom-json'                : 'core/schema/validator/custom-json',
-          'associative-array'          : 'core/schema/validator/associative-array',
-          'multiple-associative-array' : 'core/schema/validator/multiple-associative-array'
+          'boolean'                                   : 'core/schema/validator/boolean',
+          'csv'                                       : 'core/schema/validator/csv',
+          'decimal'                                   : 'core/schema/validator/decimal',
+          'integer'                                   : 'core/schema/validator/integer',
+          'json'                                      : 'core/schema/validator/json',
+          'schema'                                    : 'core/schema/validator/schema',
+          'string'                                    : 'core/schema/validator/string',
+          'timestamp'                                 : 'core/schema/validator/timestamp',
+          'collection'                                : 'core/schema/validator/collection',
+          'custom-json'                               : 'core/schema/validator/custom-json',
+          'data-structure/associative-array'          : 'core/schema/validator/associative-array',
+          'data-structure/multiple-associative-array' : 'core/schema/validator/multiple-associative-array'
         }
       },
       'locator' :
@@ -74,8 +75,8 @@ define(function()
         'core/schema/validator/multiple-associative-array' : 'superhero/core/schema/validator/multiple-associative-array',
         'core/factory'                                     : 'superhero/core/factory',
         'core/factory/bootstrap'                           : 'superhero/core/factory/bootstrap',
-        'core/data-structure/associative-array'            : 'superhero/core/data-structure/associative-array',
-        'core/data-structure/multiple-associative-array'   : 'superhero/core/data-structure/multiple-associative-array'
+        'data-structure/associative-array'                 : 'superhero/core/data-structure/associative-array',
+        'data-structure/multiple-associative-array'        : 'superhero/core/data-structure/multiple-associative-array'
       }
     }
   }
