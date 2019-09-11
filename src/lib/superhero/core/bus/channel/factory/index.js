@@ -1,26 +1,32 @@
 /* eslint-disable no-undef */
 define([
-  'superhero/core/bus-channel/index'
+  'superhero/core/bus/channel/index'
 ], function(BusChannel)
 {
   class BusChannelFactory
   {
-    constructor(composer)
+    constructor({ 
+      composer, 
+      multipleAssociativeArrayFactory
+    })
     {
       this.composer                        = composer
       this.multipleAssociativeArrayFactory = multipleAssociativeArrayFactory
+    }
+
+    createMultipleAssociativeArray()
+    {
+      return this.multipleAssociativeArrayFactory.create()
     }
 
     create({
       id
     })
     {
-      const eventSubscribers = multipleAssociativeArrayFactory.create()
-
       return new BusChannel({
         id,
-        eventSubscribers,
-        composer
+        observers : this.createMultipleAssociativeArray(),
+        composer  : this.composer
       })
     }
   }

@@ -1,38 +1,50 @@
 /* eslint-disable no-undef */
 
-define(['superhero/core/eventbus/bootstrap/error/observer-contract-not-honered'], function(ObserverContractNotHoneredError)
+define(['superhero/core/bus/bootstrap/error/observer-contract-not-honered'], function(ObserverContractNotHoneredError)
 {
-  class EventbusBootstrap
+  class BusBootstrap
   {
-    constructor(configuration, eventbus, locator)
+    constructor(configuration, bus, locator)
     {
       this.configuration  = configuration
-      this.eventbus       = eventbus
+      this.bus            = bus
       this.locator        = locator
     }
 
     bootstrap()
     {
-      const observers = this.configuration.find('core.eventbus.observers')
+      const channels = this.configuration.find('core.bus.channels')
 
-      for(const event in observers)
+      for(const channel in channels)
       {
-        for(const serviceName in observers[event])
+        this.bus.addChannel(channel)
+
+        const observers = this.configuration.find(`core.bus.channels.${channel}.observers`)
+
+        for(const event in observers)
         {
-          if(!observers[event][serviceName])
-            continue
-
-          const service = this.locator.locate(serviceName)
-
-          if(typeof service.observe !== 'function')
-            throw new ObserverContractNotHoneredError(`"${serviceName}" does not implement the EventBusObserver interface`)
-
-          const observer = service.observe.bind(service)
-          this.eventbus.on(event, observer)
+          for(const observerPath in observers[event])
+          {
+            if(!observers[event][observerPath])
+              continue
+  
+            const observer = this.locator.locate(observerPath)
+  
+            if(typeof observer.observe !== 'function')
+              throw new ObserverContractNotHoneredError(`"${observerPath}" does not implement the BusObserver interface`)
+             
+            this.bus.on({
+              channel,
+              event,
+              observer : observer.observe.bind(observer)
+            })
+          }
         }
       }
+
+
     }
   }
 
-  return EventbusBootstrap
+  return BusBootstrap
 })

@@ -3,12 +3,6 @@ define(['superhero/core/data-structure/associative-array/index'], function(Assoc
 {
   class MultipleAssociativeArray extends AssociativeArray
   {
-    constructor(dto)
-    {
-      super(dto)
-      this[Symbol.for('schema')]  = 'data-structure/multiple-associative-array'
-    }
-
     add({
       id,
       element

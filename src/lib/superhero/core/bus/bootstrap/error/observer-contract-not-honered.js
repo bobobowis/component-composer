@@ -6,7 +6,7 @@ define(function()
     constructor(...a)
     {
       super(...a)
-      this.code = 'E_EVENTBUS_OBSERVER_CONTRACT_NOT_HONERED'
+      this.code = 'E_BUS_OBSERVER_CONTRACT_NOT_HONERED'
     }
   }
 

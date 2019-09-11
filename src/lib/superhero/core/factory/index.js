@@ -7,21 +7,28 @@ define(function()
       locator,
       composer,
       schema,
-      args
+      dependencies
     })
     {
       this.locator                = locator
       this.composer               = composer
-      this.arguments              = args
+      this.schema                 = schema
+      this.dependencies           = dependencies
 
+      this.Class                  = this.tryLocate(schema)
       this[Symbol.for('schema')]  = schema
     }
 
-    getFactory(type)
+    hasClass()
+    {
+      return this.Class !== undefined
+    }
+
+    tryLocate(path)
     {
       try
       {
-        return this.locator.locate(`${type}/factory`)
+        return this.locator.locate(path)
       }
       catch(error)
       {
@@ -29,111 +36,91 @@ define(function()
         {
         case 'E_SERVICE_UNDEFINED':
           return undefined
+        default:
+          throw error
         }
       }
     }
 
-    getService(type)
-    {
-      try
-      {
-        return this.locator.locate(type)
-      }
-      catch(error)
-      {
-        switch(error)
-        {
-        case 'E_SERVICE_UNDEFINED':
-          return undefined
-        }
-      }
-    }
+    // initializeDTO(dto)
+    // {
+    //   const dependencies = {}
 
-    getClass()
-    {
-      try
-      {
-        return this.locator.locate(this[Symbol.for('schema')])
-      }
-      catch(error)
-      {
-        switch(error)
-        {
-        case 'E_SERVICE_UNDEFINED':
-          return undefined
-        }
-      }
-    }
+    //   for(const attribute in dto)
+    //   {
+    //     const type = this.schema[attribute].type
 
-    getAttributeType(attribute)
-    {
-      const schema = this.composer.schemas[this[Symbol.for('schema')]]
-      return schema[attribute].type
-    }
+    //     if(type !== 'schema')
+    //     {
+    //       const
+    //       factory = this.tryLocate(`${type}/factory`),
+    //       service = this.tryLocate(type)
 
-    getDTODependencies(dto)
-    {
-      const args = {}
+    //       if(factory)
+    //         dependencies[attribute] = factory.create(dto[attribute])
+    //       else if(service)
+    //         dependencies[attribute] = service
 
-      for(const key in dto)
-      {
-        const
-        type    = this.getAttributeType(key),
-        factory = this.getFactory(type),
-        service = this.getService(type)
+    //     }
+    //     else
+    //     {
+    //       const
+    //       schema  = this.schema[attribute].schema,
+    //       factory = this.tryLocate(`${schema}/factory`)
 
-        if(factory)
-          args[key] = factory.create(dto[key])
-        else if(service)
-          args[key] = service
-      }
+    //       if(factory)
+    //       {
+    //         dependencies[attribute] = factory.create(dto[attribute])
+    //       }
 
-      return args
-    }
+    //     }
+    //   }
 
-    getClassConstructorDependencies()
+    //   return { ...dto, ...dependencies }
+    // }
+
+    getConstructorDependencies()
     {
       const dependencies = {}
 
-      for(const key in this.arguments)
-        dependencies[key]  = this.arguments[key]
+      for(const key in this.dependencies)
+        dependencies[key]  = this.dependencies[key]
 
       return dependencies
     }
 
-    getClassConstructorArguments(dto)
+    composeArguments(dto)
     {
-      const
-      dependencies    = this.getClassConstructorDependencies(),
-      dtoDependencies = this.getDTODependencies(dto)
+      const dependencies = this.getConstructorDependencies()
+      // dtoInitialized = this.initializeDTO(dto)
 
       return {
         ...dto,
-        ...dtoDependencies,
         ...dependencies
       }
     }
 
-    composeDTO(dto = {})
+    composeDTO(dto)
     {
       return this.composer.compose(this[Symbol.for('schema')], dto)
     }
 
-    create(dto)
+    createInstance(dto)
     {
       const
-      composedDTO = this.composeDTO(dto),
-      Class       = this.getClass()
+      composedDTO = this.composeDTO(dto)
+      args        = this.composeArguments(composedDTO),
+      instance    = new this.Class(args)
 
-      if(Class)
-      {
-        const args = this.getClassConstructorArguments(composedDTO)
-        return new Class(args)
-      }
+      return instance
+    }
+
+    create(dto = {})
+    {
+      if(this.hasClass())
+        return this.createInstance(dto)
       else
-      {
-        return composedDTO
-      }
+        return this.composeDTO(dto)
     }
 
     get [Symbol.toStringTag]()

@@ -5,8 +5,7 @@ define(function()
   {
     constructor(dto)
     {
-      this.dto                    = dto
-      this[Symbol.for('schema')]  = 'data-structure/associative-array'
+      this.dto = dto
     }
 
     get(id)

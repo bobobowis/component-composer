@@ -15,14 +15,14 @@ define(function()
     }
 
 
-    getFactoryArgs(schema)
+    getFactoryDependencies(schema)
     {
-      const args = {}
+      const dependencies = {}
 
       for(const key in schema)
-        args[key] = this.locator.locate(schema[key])
+        dependencies[key] = this.locator.locate(schema[key])
 
-      return args
+      return dependencies
     }
 
     bootstrap()
@@ -32,11 +32,12 @@ define(function()
       for(const schema in this.factories)
       {
         const
-        args    = this.getFactoryArgs(this.factories[schema]),
-        factory = new Factory({
+        dependencies  = this.getFactoryDependencies(this.factories[schema]),
+        factory       = new Factory({
           locator  : this.locator,
           composer : this.composer,
-          args,
+          schema   : this.composer.schemas[schema],
+          dependencies,
           schema
         })
 

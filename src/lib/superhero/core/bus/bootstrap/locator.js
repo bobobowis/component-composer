@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-undef
-define(['superhero/core/eventbus/bootstrap/index'], function(EventbusBootstrap)
+define(['superhero/core/bus/bootstrap/index'], function(BusBootstrap)
 {
-  class EventbusBootstrapLocator
+  class BusBootstrapLocator
   {
     constructor(locator)
     {
@@ -12,11 +12,11 @@ define(['superhero/core/eventbus/bootstrap/index'], function(EventbusBootstrap)
     {
       const
       configuration = this.locator.locate('core/configuration'),
-      eventbus      = this.locator.locate('core/eventbus')
+      bus           = this.locator.locate('core/bus')
 
-      return new EventbusBootstrap(configuration, eventbus, this.locator)
+      return new BusBootstrap(configuration, bus, this.locator)
     }
   }
 
-  return EventbusBootstrapLocator
+  return BusBootstrapLocator
 })

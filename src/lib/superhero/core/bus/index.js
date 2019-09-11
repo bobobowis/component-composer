@@ -4,19 +4,19 @@ define(function()
   class Bus
   {
     constructor({
-      busChannelFactory,
+      channelFactory,
       channels
     })
     {
-      this.busChannelFactory  = busChannelFactory
-      this.channels           = channels
+      this.channelFactory  = channelFactory
+      this.channels        = channels
     }
 
     addChannel(id)
     {
       this.channels.add({
         id,
-        element : this.busChannelFactory.create(id)
+        element : this.channelFactory.create(id)
       })
     }
 
@@ -30,17 +30,17 @@ define(function()
       return this.channels.get(id)
     }
 
-    async publish({
+    async emit({
       channelId,
-      eventName,
+      event,
       data
     })
     {
       return new Promise((resolve, reject) =>
       {
         this.getChannel(channelId)
-          .publish({
-            name : eventName,
+          .emit({
+            event,
             data
           })
           .then(() =>
@@ -54,60 +54,60 @@ define(function()
       })
     }
 
-    subscribe({
+    on({
       channelId,
-      eventName,
-      subscriber
+      event,
+      observer
     })
     {
       return this.getChannel(channelId)
-        .subscribe({
-          eventName,
-          subscriber
+        .on({
+          event,
+          observer
         })
     }
 
-    subscribeOnce({
+    once({
       channelId,
-      eventName,
-      subscriber
+      event,
+      observer
     })
     {
       this.getChannel(channelId)
-        .subscribeOnce({
-          eventName,
-          subscriber
+        .once({
+          event,
+          observer
         })
     }
 
-    subscribeAll({
+    onAllEvents({
       channelId,
-      subscriber
+      observer
     })
     {
       this.getChannel(channelId)
-        .subscribeAll(subscriber)
+        .onAllEvents(observer)
     }
 
-    unsubscribe({
+    removeListener({
       channelId,
-      eventName,
-      subscriber
+      event,
+      observer
     })
     {
       this.getChannel(channelId)
-        .unsubscribe({
-          eventName,
-          subscriber
+        .removeListener({
+          event,
+          observer
         })
     }
 
-    unsubscribeAll({
+    removeAllListeners({
       channelId,
-      eventName
+      event
     })
     {
-      this.getChannel(channelId).unsubscribeAll(eventName)
+      this.getChannel(channelId).removeAllListeners(event)
     }
 
     reset(channelId)
