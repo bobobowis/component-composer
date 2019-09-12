@@ -13,7 +13,12 @@ define(function(require)
   {
     core.locate('core/bootstrap').bootstrap().then(() =>
     {
-      console.log('LOADED')
+      const bus = core.locator.locate('core/bus')
+      bus.emit({
+        channelId : 'events',
+        name      : 'logged',
+        data      : 'que paso parce'
+      })
     })
   })
 })
