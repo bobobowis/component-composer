@@ -1,15 +1,11 @@
+const SchemaValidatorBoolean = require('.')
 
-/* eslint-disable no-undef */
-define(['superhero/core/schema/validator/boolean/index'], function(SchemaValidatorBoolean)
+class SchemaValidatorBooleanLocator
 {
-  class SchemaValidatorBooleanLocator
+  locate()
   {
-    locate()
-    {
-      return new SchemaValidatorBoolean()
-    }
+    return new SchemaValidatorBoolean()
   }
+}
 
-  return SchemaValidatorBooleanLocator
-})
-
+module.exports = SchemaValidatorBooleanLocator

@@ -24,5 +24,5 @@ define(['superhero/core/locator/error/locator-not-implemented'], function(Locato
     }
   }
 
-  return LocatorConstituent
+  module.expor LocatorConstituent //TODO
 })

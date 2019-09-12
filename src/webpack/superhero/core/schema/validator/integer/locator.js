@@ -1,13 +1,11 @@
-/* eslint-disable no-undef */
-define(['superhero/core/schema/validator/integer/index'], function(SchemaValidatorInteger)
-{
-  class SchemaValidatorIntegerLocator
-  {
-    locate()
-    {
-      return new SchemaValidatorInteger()
-    }
-  }
+const SchemaValidatorInteger = require('.')
 
-  return SchemaValidatorIntegerLocator
-})
+class SchemaValidatorIntegerLocator
+{
+  locate()
+  {
+    return new SchemaValidatorInteger()
+  }
+}
+
+module.exports = SchemaValidatorIntegerLocator

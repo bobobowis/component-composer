@@ -13,5 +13,5 @@ define(function()
     }
   }
 
-  return InvalidSchemaError
+  module.exports =  InvalidSchemaError
 })

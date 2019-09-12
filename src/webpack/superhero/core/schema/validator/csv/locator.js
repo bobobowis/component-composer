@@ -1,15 +1,11 @@
+const SchemaValidatorCsv = require('.')
 
-/* eslint-disable no-undef */
-define(['superhero/core/schema/validator/csv/index'], function(SchemaValidatorCsv)
+class SchemaValidatorCsvLocator
 {
-  class SchemaValidatorCsvLocator
+  locate()
   {
-    locate()
-    {
-      return new SchemaValidatorCsv()
-    }
+    return new SchemaValidatorCsv()
   }
+}
 
-  return SchemaValidatorCsvLocator
-})
-
+module.exports = SchemaValidatorCsvLocator

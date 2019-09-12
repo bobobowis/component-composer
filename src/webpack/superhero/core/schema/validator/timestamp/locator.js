@@ -1,13 +1,10 @@
-/* eslint-disable no-undef */
-define(['superhero/core/schema/validator/timestamp/index'], function(SchemaValidatorTimestamp)
+const SchemaValidatorTimestamp = require('.')
+class SchemaValidatorTimestampLocator
 {
-  class SchemaValidatorTimestampLocator
+  locate()
   {
-    locate()
-    {
-      return new SchemaValidatorTimestamp()
-    }
+    return new SchemaValidatorTimestamp()
   }
+}
 
-  return SchemaValidatorTimestampLocator
-})
+module.exports =  SchemaValidatorTimestampLocator
