@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 define([
-  'superhero/core/data-structure/associative-array/index',
+  'superhero/core/data-structure/composite/associative-array/index',
   'superhero/core/locator/constituent'
 ], function(AssociativeArray, LocatorConstituent)
 {

@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 define([
-  'superhero/core/schema/validator/associative-array/index',
+  'superhero/core/data-structure/schema/validator/associative-array/index',
   'superhero/core/locator/constituent'
 ], function(AssociativeArrayValidator, LocatorConstituent)
 {

@@ -6,6 +6,9 @@ define(function(require)
   coreFactory = new CoreFactory(),
   core        = coreFactory.create()
 
+  core.add('core/channel')
+  core.add('core/bus')
+
   core.load().then(() =>
   {
     core.locate('core/bootstrap').bootstrap().then(() =>

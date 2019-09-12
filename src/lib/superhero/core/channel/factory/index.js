@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
 define([
-  'superhero/core/bus/channel/index'
+  'superhero/core/channel/index'
 ], function(BusChannel)
 {
   class BusChannelFactory
   {
-    constructor({ 
-      composer, 
+    constructor({
+      composer,
       multipleAssociativeArrayFactory
     })
     {

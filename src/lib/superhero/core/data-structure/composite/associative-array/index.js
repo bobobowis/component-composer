@@ -3,14 +3,14 @@ define(function()
 {
   class AssociativeArray
   {
-    constructor(dto)
+    constructor(items)
     {
-      this.dto = dto
+      this.items = items
     }
 
     get(id)
     {
-      return this.dto['array'][id]
+      return this.items[id]
     }
 
     add({
@@ -18,29 +18,29 @@ define(function()
       element
     })
     {
-      this.dto['array'][id] = element
+      this.items[id] = element
     }
 
     remove(id)
     {
-      delete this.dto['array'][id]
+      delete this.items[id]
     }
 
     reset()
     {
-      this.dto['array'] = {}
+      this.items = {}
     }
 
     toJSON()
     {
-      return this.dto['array']
+      return this.items
     }
 
     getArray()
     {
       const array  = []
 
-      for(let key in this.dto['array'])
+      for(let key in this.items)
         array.push(this.get(key))
 
       return array
@@ -48,12 +48,12 @@ define(function()
 
     count()
     {
-      return Object.keys(this.dto['array']).length
+      return Object.keys(this.items).length
     }
 
     [Symbol.iterator]()
     {
-      const  keys = Object.keys(this.dto['array'])
+      const  keys = Object.keys(this.items)
 
       let  index = 0
       return {
@@ -63,7 +63,7 @@ define(function()
           {
             const key = keys[index++]
             return {
-              value : this.dto['array'][key],
+              value : this.items[key],
               done  : false
             }
           }

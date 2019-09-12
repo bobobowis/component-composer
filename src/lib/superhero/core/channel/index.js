@@ -95,27 +95,26 @@ define(function()
       return this.observers.hasElements(event)
     }
 
-
-     /**
+    /**
      * Creates an event
      * @param {string} event - Event name
      * @param {Object} data - Event payload
      * @returns {Event} event
      */
     createEvent({
-      event,
+      name,
       data
     })
     {
       const
       timestamp = new Date().toISOString(),
       emitter   = this[Symbol.for('id')],
-      meta      = this.composer.compose('bus/event-meta', {
-        name : event,
+      meta      = this.composer.compose('core/channel/event-meta', {
+        name,
         timestamp,
         emitter
       }),
-      event     = this.composer.compose('bus/event', {
+      event     = this.composer.compose('core/channel/event', {
         meta,
         data
       })
@@ -129,12 +128,12 @@ define(function()
      * @returns {boolean} - Flag indicating if the event has observers
      */
     async emit({
-      event,
+      name,
       data
     })
     {
       const
-      event             = this.createEvent({ event, data }),
+      event             = this.createEvent({ name, data }),
       globalobservers   = this.observers.get('*') || [],
       eventObservers    = this.observers.get(event) || [],
       observers         = globalobservers.concat(eventObservers)

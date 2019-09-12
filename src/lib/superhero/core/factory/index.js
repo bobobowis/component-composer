@@ -42,61 +42,49 @@ define(function()
       }
     }
 
-    // initializeDTO(dto)
-    // {
-    //   const dependencies = {}
-
-    //   for(const attribute in dto)
-    //   {
-    //     const type = this.schema[attribute].type
-
-    //     if(type !== 'schema')
-    //     {
-    //       const
-    //       factory = this.tryLocate(`${type}/factory`),
-    //       service = this.tryLocate(type)
-
-    //       if(factory)
-    //         dependencies[attribute] = factory.create(dto[attribute])
-    //       else if(service)
-    //         dependencies[attribute] = service
-
-    //     }
-    //     else
-    //     {
-    //       const
-    //       schema  = this.schema[attribute].schema,
-    //       factory = this.tryLocate(`${schema}/factory`)
-
-    //       if(factory)
-    //       {
-    //         dependencies[attribute] = factory.create(dto[attribute])
-    //       }
-
-    //     }
-    //   }
-
-    //   return { ...dto, ...dependencies }
-    // }
-
-    getConstructorDependencies()
+    initializeDTO(dto)
     {
-      const dependencies = {}
+      const dtoInitialized = {}
 
-      for(const key in this.dependencies)
-        dependencies[key]  = this.dependencies[key]
+      for(const attribute in dto)
+      {
+        const type = this.schema[attribute].type
 
-      return dependencies
+        if(type !== 'schema')
+        {
+          const
+          factory = this.tryLocate(`${type}/factory`),
+          service = this.tryLocate(type)
+
+          if(factory)
+            dtoInitialized[attribute] = factory.create(dto[attribute])
+          else if(service)
+            dtoInitialized[attribute] = service
+        }
+        // else
+        // {
+        //   const
+        //   schema  = this.schema[attribute].schema,
+        //   factory = this.tryLocate(`${schema}/factory`)
+
+        //   if(factory)
+        //   {
+        //     dependencies[attribute] = factory.create(dto[attribute])
+        //   }
+
+        // }
+      }
+
+      return { ...dto, ...dependencies }
     }
 
     composeArguments(dto)
     {
-      const dependencies = this.getConstructorDependencies()
-      // dtoInitialized = this.initializeDTO(dto)
+      const dtoInitialized = this.initializeDTO(dto)
 
       return {
-        ...dto,
-        ...dependencies
+        ...dtoInitialized,
+        ...this.dependencies
       }
     }
 
@@ -108,7 +96,7 @@ define(function()
     createInstance(dto)
     {
       const
-      composedDTO = this.composeDTO(dto)
+      composedDTO = this.composeDTO(dto),
       args        = this.composeArguments(composedDTO),
       instance    = new this.Class(args)
 

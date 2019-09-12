@@ -1,13 +1,14 @@
-define(['superhero/core/bus/index'],function(Bus)
+/* eslint-disable no-undef */
+define(['superhero/core/bus/index'], function(Bus)
 {
   class BusFactory
   {
     constructor({
-      busChannelFactory,
+      channelFactory,
       associativeArrayFactory
     })
     {
-      this.busChannelFactory       = busChannelFactory,
+      this.channelFactory          = channelFactory
       this.associativeArrayFactory = associativeArrayFactory
     }
 
@@ -19,13 +20,13 @@ define(['superhero/core/bus/index'],function(Bus)
     create()
     {
       const bus = new Bus({
-        busChannelFactory : this.busChannelFactory,
-        channels          : this.createChannels(channels)
+        channelFactory : this.channelFactory,
+        channels       : this.createAssociativeArray()
       })
 
       return bus
     }
-}
+  }
 
   return BusFactory
 })

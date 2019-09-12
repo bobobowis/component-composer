@@ -2,10 +2,9 @@
 define(function()
 {
   return {
-    'items' :
+    'channels' :
     {
-      'type'    : 'custom-json',
-      'default' : {}
+      'type' : 'data-structure/multiple-associative-array'
     }
   }
 })

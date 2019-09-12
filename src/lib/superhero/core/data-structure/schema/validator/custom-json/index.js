@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-define(['superhero/core/schema/validator/custom-json/error/invalid-json'], function(InvalidJSON)
+define(['superhero/core/data-structure/schema/validator/custom-json/error/invalid-json'], function(InvalidJSON)
 {
   /**
    * Validates Multiple Associative Array

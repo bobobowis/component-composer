@@ -10,7 +10,9 @@ define(['superhero/core/bus/index'], function(Bus)
 
     locate()
     {
-      return Bus
+      const busFactory = this.locator.locate('core/bus/factory')
+
+      return busFactory.create()
     }
   }
 

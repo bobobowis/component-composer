@@ -32,7 +32,7 @@ define(function()
 
     async emit({
       channelId,
-      event,
+      name,
       data
     })
     {
@@ -40,7 +40,7 @@ define(function()
       {
         this.getChannel(channelId)
           .emit({
-            event,
+            name,
             data
           })
           .then(() =>

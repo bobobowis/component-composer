@@ -8,7 +8,7 @@ define(function()
         'data-structure/associative-array'
       ]
     },
-    'array' :
+    'items' :
     {
       'type'        : 'custom-json',
       'custom-json' :

@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 define([
-  'superhero/core/schema/validator/custom-json/index',
+  'superhero/core/data-structure/schema/validator/custom-json/index',
   'superhero/core/locator/constituent'
 ], function(CustomJSONValidator, LocatorConstituent)
 {

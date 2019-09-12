@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 define([
-  'superhero/core/bus/channel/factory',
+  'superhero/core/channel/factory/index',
   'superhero/core/locator/constituent'
 ], function(BusChannelFactory, LocatorConstituent)
 {

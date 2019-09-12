@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 define([
-  'superhero/core/schema/validator/multiple-associative-array/index',
+  'superhero/core/data-structure/schema/validator/multiple-associative-array/index',
   'superhero/core/locator/constituent'
 ], function(MultipleAssociativeArrayValidator, LocatorConstituent)
 {
@@ -14,7 +14,7 @@ define([
      */
     locate()
     {
-      const associateArrayValidator = this.locator.locate('core/schema/validator/associative-array')
+      const associateArrayValidator = this.locator.locate('core/schema/validator/data-structure/associative-array')
 
       return new MultipleAssociativeArrayValidator(associateArrayValidator)
     }

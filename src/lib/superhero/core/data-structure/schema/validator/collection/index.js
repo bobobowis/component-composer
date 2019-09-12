@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-define(['superhero/core/schema/validator/collection/error/invalid-collection'], function(InvalidArray)
+define(['superhero/core/data-structure/schema/validator/collection/error/invalid-collection'], function(InvalidArray)
 {
   /**
    * Validates Collection

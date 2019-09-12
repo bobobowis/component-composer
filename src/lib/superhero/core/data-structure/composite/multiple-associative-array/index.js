@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-define(['superhero/core/data-structure/associative-array/index'], function(AssociativeArray)
+define(['superhero/core/data-structure/composite/associative-array/index'], function(AssociativeArray)
 {
   class MultipleAssociativeArray extends AssociativeArray
   {

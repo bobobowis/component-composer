@@ -27,12 +27,12 @@ define(['superhero/core/bus/bootstrap/error/observer-contract-not-honered'], fun
           {
             if(!observers[event][observerPath])
               continue
-  
+
             const observer = this.locator.locate(observerPath)
-  
+
             if(typeof observer.observe !== 'function')
               throw new ObserverContractNotHoneredError(`"${observerPath}" does not implement the BusObserver interface`)
-             
+
             this.bus.on({
               channel,
               event,
@@ -41,8 +41,6 @@ define(['superhero/core/bus/bootstrap/error/observer-contract-not-honered'], fun
           }
         }
       }
-
-
     }
   }
 
