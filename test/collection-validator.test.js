@@ -80,6 +80,20 @@ describe('Collection Validator', () =>
 
       validator.valid(options, data)
     }).to.not.throw()
+
+    expect(() =>
+    {
+      const
+      options = {
+        'collection-type'    : 'string',
+        'collection-options' : {
+          'enum' : ['a', 'b', 'c']
+        }
+      },
+      data    = ['a', 'z', 'c']
+
+      validator.valid(options, data)
+    }).to.throw()
   })
 
   it('Can valid an collection of an specified type (without options)', () =>

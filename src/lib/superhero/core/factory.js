@@ -29,12 +29,10 @@ define([
 
       core.add('core/bootstrap')
       core.add('core/schema')
+      core.add('core')
       core.add('core/data-structure')
       core.add('core/channel')
       core.add('core/bus')
-      // core.add('core/factory')
-      core.add('core')
-
       return core
     }
 
@@ -46,7 +44,7 @@ define([
       deepfreeze    = new Deepfreeze(),
       deepmerge     = new Deepmerge(),
       deepfind      = new Deepfind(),
-      deepassign    = new DeepAssign(),
+      deepassign    = new DeepAssign(deepclone),
       configuration = new Configuration(deepclone, deepmerge, deepfind)
 
       locator.set('core/deepclone', deepclone)

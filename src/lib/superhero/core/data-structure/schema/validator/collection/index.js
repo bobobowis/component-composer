@@ -8,9 +8,7 @@ define(['superhero/core/data-structure/schema/validator/collection/error/invalid
    */
   class CollectionValidator
   {
-    constructor({
-      locator
-    })
+    constructor(locator)
     {
       this.locator = locator
     }

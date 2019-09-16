@@ -31,7 +31,7 @@ describe('Associative Array', () =>
       {
         core.locate('core/bootstrap').bootstrap().then(() =>
         {
-          factory = core.locate('core/data-structure/associative-array/factory')
+          factory = core.locate('data-structure/associative-array/factory')
           done()
         })
       })
@@ -133,9 +133,12 @@ describe('Associative Array', () =>
       element : true
     })
 
-    const array = associativeArray.getArray()
+    const array = associativeArray.toArray()
 
-    expect(array).to.deep.equal([true])
+    expect(array).to.deep.equal({
+      keys   : ['id'],
+      values : [true]
+    })
   })
 
   it('Can iterate the associative array', () =>

@@ -46,7 +46,7 @@ describe('Associative Array Validator', () =>
       const
       options = {},
       data    = {
-        'array' : {}
+        'items' : {}
       }
 
       validator.valid(options, data)
@@ -62,7 +62,7 @@ describe('Associative Array Validator', () =>
         'collection' : true
       },
       data    = [{
-        'array' : {
+        'items' : {
           'item' : ['a', 'b', 'c']
         }
       }]
@@ -92,7 +92,7 @@ describe('Associative Array Validator', () =>
       const
       options = {},
       data    = {
-        'array' : 12
+        'items' : 12
       }
 
       validator.valid(options, data)
@@ -124,7 +124,7 @@ describe('Associative Array Validator', () =>
         }
       },
       data    = {
-        'array' : {
+        'items' : {
           'property' : 'this is a string'
         }
       }
@@ -148,7 +148,7 @@ describe('Associative Array Validator', () =>
         }
       },
       data    = {
-        'array' : {
+        'items' : {
           'property' : 'a'
         }
       }

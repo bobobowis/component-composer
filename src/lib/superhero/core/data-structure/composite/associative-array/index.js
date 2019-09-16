@@ -3,9 +3,10 @@ define(function()
 {
   class AssociativeArray
   {
-    constructor(items)
+    constructor({ items })
     {
-      this.items = items
+      this.items                  = items
+      this[Symbol.for('schema')]  = 'data-structureassociative-array'
     }
 
     get(id)
@@ -36,14 +37,22 @@ define(function()
       return this.items
     }
 
-    getArray()
+    toArray()
     {
-      const array  = []
+      const
+      keys   = [],
+      values = []
 
       for(let key in this.items)
-        array.push(this.get(key))
+      {
+        keys.push(key)
+        values.push(this.get(key))
+      }
 
-      return array
+      return {
+        keys,
+        values
+      }
     }
 
     count()

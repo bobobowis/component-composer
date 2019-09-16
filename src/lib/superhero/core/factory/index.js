@@ -12,10 +12,10 @@ define(function()
     {
       this.locator                = locator
       this.composer               = composer
-      this.schema                 = schema
       this.dependencies           = dependencies
-
+      this.schema                 = composer.schemas[schema]
       this.Class                  = this.tryLocate(schema)
+
       this[Symbol.for('schema')]  = schema
     }
 

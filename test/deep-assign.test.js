@@ -29,6 +29,7 @@ describe('Deepassign', () =>
       core.load().then(() =>
       {
         deepassign = core.locate('core/deepassign')
+        done()
       })
     })
   })

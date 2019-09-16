@@ -5,9 +5,17 @@ define([
 {
   class AssociativeArrayFactory
   {
+    constructor({
+      composer
+    })
+    {
+      this.composer = composer
+    }
+
     create(items = {})
     {
-      return new AssociativeArray(items)
+      const args = this.composer.compose('data-structure/associative-array', { items })
+      return new AssociativeArray(args)
     }
   }
 

@@ -14,7 +14,11 @@ define([
      */
     locate()
     {
-      return new MultipleAssociativeArrayFactory()
+      const composer = this.locator.locate('core/schema/composer')
+
+      return new MultipleAssociativeArrayFactory({
+        composer
+      })
     }
   }
 

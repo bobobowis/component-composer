@@ -40,7 +40,7 @@ define([
       const associativeArrayOptions = {
         'associative-array' :
         {
-          'type'    : options['associative-array'] && options['associative-array'].type ? options['associative-array'].type : 'data-structure/collection',
+          'type'    : options['associative-array'] && options['associative-array'].type ? options['associative-array'].type : 'collection',
           'options' : options['associative-array'] && options['associative-array'].options ? options['associative-array'].options : {}
         }
       }

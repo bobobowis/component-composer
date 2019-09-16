@@ -36,9 +36,8 @@ define(function()
         factory       = new Factory({
           locator  : this.locator,
           composer : this.composer,
-          schema   : this.composer.schemas[schema],
-          dependencies,
-          schema
+          schema,
+          dependencies
         })
 
         this.locator.set(`${schema}/factory`, factory)

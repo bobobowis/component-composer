@@ -47,11 +47,11 @@ define([
       if(typeof data !== 'object')
         throw new InvalidAssociativeArray(`Invalid type: "${typeof data}", object expected`)
 
-      if(typeof data['array'] !== 'object')
-        throw new InvalidAssociativeArray(`Invalid array property: "${typeof data}", object expected`)
+      if(typeof data['items'] !== 'object')
+        throw new InvalidAssociativeArray(`Invalid items property: "${typeof data}", object expected`)
 
       if(options['associative-array'])
-        this.validArrayProperty(data['array'], options)
+        this.validArrayProperty(data['items'], options)
     }
   }
 

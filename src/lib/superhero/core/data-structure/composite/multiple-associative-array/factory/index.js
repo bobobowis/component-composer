@@ -5,9 +5,17 @@ define([
 {
   class MultipleAssociativeArrayFactory
   {
+    constructor({
+      composer
+    })
+    {
+      this.composer = composer
+    }
+
     create(items = {})
     {
-      return new MultipleAssociativeArray(items)
+      const args = this.composer.compose('data-structure/multiple-associative-array', { items })
+      return new MultipleAssociativeArray(args)
     }
   }
 

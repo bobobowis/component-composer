@@ -31,7 +31,7 @@ describe('Multiple Associative Array', () =>
       {
         core.locate('core/bootstrap').bootstrap().then(() =>
         {
-          factory = core.locate('core/data-structure/multiple-associative-array/factory')
+          factory = core.locate('data-structure/multiple-associative-array/factory')
           done()
         })
       })
@@ -124,7 +124,7 @@ describe('Multiple Associative Array', () =>
 
     multipleAssociativeArray.reset()
 
-    expect(multipleAssociativeArray.args['array']).to.deep.equal({})
+    expect(multipleAssociativeArray.items).to.deep.equal({})
   })
 
   it('Can get the associative array in JSON format', () =>
@@ -160,9 +160,12 @@ describe('Multiple Associative Array', () =>
       element : { 'bar': 'baz' }
     })
 
-    const array = multipleAssociativeArray.getArray()
+    const array = multipleAssociativeArray.toArray()
 
-    expect(array).to.deep.equal([[{ 'foo': 'bar' }, { 'foo': 'baz' }], [{ 'bar': 'baz' }]])
+    expect(array).to.deep.equal({
+      keys   : ['1', '2'],
+      values : [[{ 'foo': 'bar' }, { 'foo': 'baz' }], [{ 'bar': 'baz' }]]
+    })
   })
 
   it('Can iterate the associative array', () =>
