@@ -34,7 +34,7 @@ define([
     validArrayProperty(data, options)
     {
       const
-      customJSONValidator = this.locator.locate(`core/schema/validator/data-structure/custom-json`),
+      customJSONValidator = this.locator.locate(`core/schema/validator/custom-json`),
       customJSONOptions   = {
         'custom-json' : options['associative-array']
       }

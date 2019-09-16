@@ -21,23 +21,28 @@ define([
 
     async load()
     {
-      const configuration = this.locate('core/configuration')
-
-      // extending the configurations of every component
-      for(const component in this.components)
+      return new Promise(async (resolve) =>
       {
-        const config = await this.fetchComponentConfig(component, this.components[component])
+        const configuration = this.locate('core/configuration')
 
-        if(config)
-          configuration.extend(config)
-      }
+        // extending the configurations of every component
+        for(const component in this.components)
+        {
+          const config = await this.fetchComponentConfig(component, this.components[component])
 
-      const
-      serviceMap    = configuration.find('core.locator'),
-      serviceNames  = Object.keys(serviceMap)
+          if(config)
+            configuration.extend(config)
+        }
 
-      // eager loading the services in the sevice locator
-      await this.loadServiceRecursion(serviceNames)
+        const
+        serviceMap    = configuration.find('core.locator'),
+        serviceNames  = Object.keys(serviceMap)
+
+        // eager loading the services in the sevice locator
+        await this.loadServiceRecursion(serviceNames)
+
+        resolve()
+      })
     }
 
     async fetchComponentConfig(component, pathname)

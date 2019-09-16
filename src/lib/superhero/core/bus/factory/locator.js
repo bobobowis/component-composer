@@ -12,7 +12,7 @@ define(['superhero/core/bus/factory/index'], function(BusFactory)
     {
       return new BusFactory({
         channelFactory          : this.locator.locate('core/channel/factory'),
-        associativeArrayFactory : this.locator.locate('data-structure/associative-array/factory')
+        associativeArrayFactory : this.locator.locate('core/data-structure/associative-array/factory')
       })
     }
   }

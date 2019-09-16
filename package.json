@@ -6,10 +6,10 @@
   "scripts": {
     "generate-doc": "npm test && npm run-script generate-doc-coverage && npm run-script generate-doc-tests && npm run-script generate-doc-jsdoc",
     "generate-doc-coverage": "nyc report --reporter=html --report-dir=./doc/coverage",
-    "generate-doc-tests": "mocha src/**/*.test.js src/**/**/*.test.js --reporter mochawesome --reporter-options reportDir=doc/tests,reportFilename=index,showHooks=always",
+    "generate-doc-tests": "mocha src/**/*.test.js test/**/*.test.js --reporter mochawesome --reporter-options reportDir=doc/tests,reportFilename=index,showHooks=always",
     "generate-doc-jsdoc": "jsdoc src -c jsdoc.json",
-    "test": "nyc mocha src/**/*.test.js src/**/**/*.test.js",
-    "tester": "eslint src/**/**.js && nyc mocha src/**/*.test.js",
+    "test": "nyc mocha src/**/*.test.js test/**/*.test.js",
+    "tester": "eslint src/**/**.js && nyc mocha src/**/*.test.js test/**/*.test.js",
     "linter": "eslint src/**/**.js",
     "linter-and-fix": "eslint src/**/**.js --fix",
     "build": "babel src -d dist"
@@ -28,6 +28,7 @@
   "dependencies": {
     "add-module-exports-webpack-plugin": "^0.1.0",
     "handlebars": "^4.0.12",
+    "requirejs": "^2.3.6",
     "uuid": "^3.3.2"
   },
   "devDependencies": {

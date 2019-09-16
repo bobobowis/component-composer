@@ -8,9 +8,7 @@ define(['superhero/core/data-structure/schema/validator/custom-json/error/invali
    */
   class CustomJSONValidator
   {
-    constructor({
-      locator
-    })
+    constructor(locator)
     {
       this.locator = locator
     }

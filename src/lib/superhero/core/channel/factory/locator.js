@@ -16,7 +16,7 @@ define([
     {
       const
       composer                        = this.locator.locate('core/schema/composer'),
-      multipleAssociativeArrayFactory = this.locator.locate('data-structure/multiple-associative-array/factory')
+      multipleAssociativeArrayFactory = this.locator.locate('core/data-structure/multiple-associative-array/factory')
 
       return new BusChannelFactory({
         composer,

@@ -32,8 +32,8 @@ define(function()
         'core/schema/validator/data-structure/multiple-associative-array' : 'superhero/core/data-structure/schema/validator/multiple-associative-array',
         // 'data-structure/associative-array'                                : 'superhero/core/data-structure/composite/associative-array',
         // 'data-structure/multiple-associative-array'                       : 'superhero/core/data-structure/composite/multiple-associative-array'
-        'data-structure/associative-array/factory'                        : 'superhero/core/data-structure/composite/associative-array/factory',
-        'data-structure/multiple-associative-array/factory'               : 'superhero/core/data-structure/composite/multiple-associative-array/factory'
+        'core/data-structure/associative-array/factory'                   : 'superhero/core/data-structure/composite/associative-array/factory',
+        'core/data-structure/multiple-associative-array/factory'          : 'superhero/core/data-structure/composite/multiple-associative-array/factory'
       }
     }
   }
