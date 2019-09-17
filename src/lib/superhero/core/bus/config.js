@@ -29,7 +29,6 @@ define(function()
       },
       'locator' :
       {
-        'core/bus'           : 'superhero/core/bus/',
         'core/bus/factory'   : 'superhero/core/bus/factory',
         'core/bus/bootstrap' : 'superhero/core/bus/bootstrap',
         'core/bus/log'       : 'superhero/core/bus/log'

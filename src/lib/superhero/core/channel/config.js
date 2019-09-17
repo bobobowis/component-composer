@@ -15,8 +15,7 @@ define(function()
         'composer' :
         {
           'core/channel/event-meta' : 'superhero/core/channel/schema/dto/event-meta',
-          'core/channel/event'      : 'superhero/core/channel/schema/dto/event',
-          'core/channel'            : 'superhero/core/channel/schema/entity/channel'
+          'core/channel/event'      : 'superhero/core/channel/schema/dto/event'
         }
       },
       'locator' :

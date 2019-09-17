@@ -10,11 +10,12 @@ define(['superhero/core/bus/bootstrap/index'], function(BusBootstrap)
 
     locate()
     {
-      const
-      configuration = this.locator.locate('core/configuration'),
-      bus           = this.locator.locate('core/bus')
+      const configuration = this.locator.locate('core/configuration')
 
-      return new BusBootstrap(configuration, bus, this.locator)
+      return new BusBootstrap({
+        configuration,
+        locator : this.locator
+      })
     }
   }
 

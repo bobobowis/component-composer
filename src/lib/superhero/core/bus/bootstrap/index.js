@@ -4,20 +4,26 @@ define(['superhero/core/bus/bootstrap/error/observer-contract-not-honered'], fun
 {
   class BusBootstrap
   {
-    constructor(configuration, bus, locator)
+    constructor({
+      configuration,
+      locator
+    })
     {
       this.configuration  = configuration
-      this.bus            = bus
       this.locator        = locator
     }
 
     bootstrap()
     {
-      const channels = this.configuration.find('core.bus.channels')
+      const
+      busFactory = this.locator.locate('core/bus/factory'),
+      bus        = busFactory.create(),
+      channels   = this.configuration.find('core.bus.channels')
+
 
       for(const channel in channels)
       {
-        this.bus.addChannel(channel)
+        bus.addChannel(channel)
 
         const observers = this.configuration.find(`core.bus.channels.${channel}.observers`)
 
@@ -33,7 +39,7 @@ define(['superhero/core/bus/bootstrap/error/observer-contract-not-honered'], fun
             if(typeof observer.observe !== 'function')
               throw new ObserverContractNotHoneredError(`"${observerPath}" does not implement the BusObserver interface`)
 
-            this.bus.on({
+            bus.on({
               channelId : channel,
               observer  : observer.observe.bind(observer),
               event
@@ -41,6 +47,8 @@ define(['superhero/core/bus/bootstrap/error/observer-contract-not-honered'], fun
           }
         }
       }
+
+      this.locator.set('core/bus', bus)
     }
   }
 

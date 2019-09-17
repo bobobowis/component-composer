@@ -48,11 +48,18 @@ define(['superhero/core/deepassign/error/not-an-object'], function(NotAnObjectEr
     objectProperty(obj, value, key, index, keys)
     {
       if(!this.isAssignableObject(obj[key]) && !this.isLastKey(keys, index))
-        throw new NotAnObjectError(`Expected and object for assigning properties: ${this.getPath(keys, index)}`)
-      else if(this.isLastKey(keys, index))
-        obj[key] = value
-      else
+      {
+        obj[key] = {}
         obj = obj[key]
+      }
+      else if(this.isLastKey(keys, index))
+      {
+        obj[key] = value
+      }
+      else
+      {
+        obj = obj[key]
+      }
 
       return obj
     }
