@@ -1,18 +1,16 @@
-/* eslint-disable no-undef */
-define(['superhero/core/object/index'], function(CoreObject)
-{
-  class CoreObjectLocator
-  {
-    constructor(locator)
-    {
-      this.locator = locator
-    }
+const CoreObject = require('.')
 
-    locate()
-    {
-      return CoreObject
-    }
+class CoreObjectLocator
+{
+  constructor(locator)
+  {
+    this.locator = locator
   }
 
-  return CoreObjectLocator
-})
+  locate()
+  {
+    return CoreObject
+  }
+}
+
+module.exports = CoreObjectLocator

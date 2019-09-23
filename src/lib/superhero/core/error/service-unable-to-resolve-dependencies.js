@@ -1,15 +1,10 @@
-/* eslint-disable no-undef */
-define(function()
+class ServiceUnableToResolveDependenciesError extends Error
 {
-  class ServiceUnableToResolveDependenciesError extends Error
+  constructor(...a)
   {
-    constructor(...a)
-    {
-      super(...a)
-      this.code = 'E_SERVICE_UNABLE_TO_RESOLVE_DEPENDENCIES'
-    }
+    super(...a)
+    this.code = 'E_SERVICE_UNABLE_TO_RESOLVE_DEPENDENCIES'
   }
+}
 
-  return ServiceUnableToResolveDependenciesError
-})
-
+module.exports = ServiceUnableToResolveDependenciesError

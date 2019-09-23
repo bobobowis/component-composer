@@ -1,25 +1,22 @@
-/* eslint-disable no-undef */
-define([
-  'superhero/core/data-structure/composite/queue/factory/index',
-  'superhero/core/locator/constituent'
-], function(QueueFactory, LocatorConstituent)
+const
+QueueFactory        = require('.'),
+LocatorConstituent  = require('superhero/core/locator/constituent')
+
+/**
+ * @extends {superhero/core/locator/constituent}
+ */
+class QueueFactoryLocator extends LocatorConstituent
 {
   /**
-   * @extends {superhero/core/locator/constituent}
+   * @returns {QueueFactory}
    */
-  class QueueFactoryLocator extends LocatorConstituent
+  locate()
   {
-    /**
-     * @returns {QueueFactory}
-     */
-    locate()
-    {
-      const composer = this.locator.locate('core/schema/composer')
-      return new QueueFactory({
-        composer
-      })
-    }
+    const composer = this.locator.locate('core/schema/composer')
+    return new QueueFactory({
+      composer
+    })
   }
+}
 
-  return QueueFactoryLocator
-})
+module.exports = QueueFactoryLocator

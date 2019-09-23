@@ -1,15 +1,11 @@
+const SchemaValidatorString = require('.')
 
-/* eslint-disable no-undef */
-define(['superhero/core/schema/validator/csv/index'], function(SchemaValidatorCsv)
+class SchemaValidatorStringLocator
 {
-  class SchemaValidatorCsvLocator
+  locate()
   {
-    locate()
-    {
-      return new SchemaValidatorCsv()
-    }
+    return new SchemaValidatorString
   }
+}
 
-  return SchemaValidatorCsvLocator
-})
-
+module.exports = SchemaValidatorStringLocator

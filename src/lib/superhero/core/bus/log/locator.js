@@ -1,18 +1,13 @@
-/* eslint-disable no-undef */
-define(['superhero/core/bus/log/index'], function(LogObserver)
+const
+LocatorConstituent  = require('superhero/core/locator/constituent'),
+LogObserver         = require('.')
+
+class LogObserverLocator extends LocatorConstituent
 {
-  class LogObserverLocator
+  locate()
   {
-    constructor(locator)
-    {
-      this.locator = locator
-    }
-
-    locate()
-    {
-      return new LogObserver()
-    }
+    return new LogObserver()
   }
+}
 
-  return LogObserverLocator
-})
+module.exports = LogObserverLocator

@@ -17,7 +17,21 @@ module.exports = {
   {
     path     : path.join(__dirname, 'webpacked'),
     filename : '[name].bundle.js'
+    // path: '/home/proj/cdn/assets/[hash]',
+    // publicPath: 'https://cdn.example.com/assets/[hash]/'
   },
+  resolve:
+  {
+    modulesDirectories: ['public/js', 'node_modules'],
+    // alias:
+    // {
+    //   "backbone": "lib/backbone-1.1.0",
+    //   "jquery": "lib/jquery-1.10.2",
+    //   "underscore": "lib/lodash.underscore-2.3.0",
+    //   "jqueryUI": "lib/jquery-ui.min"
+    // }
+  },
+
   module : {
     rules : [
       {
@@ -32,6 +46,10 @@ module.exports = {
       }
     ]
   },
+  // loaders: [
+  //   { test: /underscore/, loader: 'exports?_' },
+  //   { test: /backbone/, loader: 'exports?Backbone!imports?underscore,jquery' }
+  // ],
   stats :
   {
     all          : true,
@@ -46,8 +64,18 @@ module.exports = {
     errorDetails : true,
     colors       : true
   },
-  optimization: {
-    minimizer: [new UglifyJsPlugin({ sourceMap : true })]
+  optimization:
+  {
+    minimizer:
+    [
+      new UglifyJsPlugin({
+        sourceMap : true
+      })
+    ],
+    splitChunks:
+    {
+      chunks: 'all'
+    }
   },
   devtool : 'source-map'
 }

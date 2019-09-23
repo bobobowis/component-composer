@@ -1,22 +1,19 @@
-/* eslint-disable no-undef */
-define([
-  'superhero/core/channel/index',
-  'superhero/core/locator/constituent'
-], function(BusChannel, LocatorConstituent)
+const
+BusChannel          = require('.'),
+LocatorConstituent  = require('superhero/core/locator/constituent')
+
+/**
+ * @extends {superhero/core/locator/constituent}
+ */
+class BusChannelLocator extends LocatorConstituent
 {
   /**
-   * @extends {superhero/core/locator/constituent}
+   * @returns {BusChannel}
    */
-  class BusChannelLocator extends LocatorConstituent
+  locate()
   {
-    /**
-     * @returns {BusChannel}
-     */
-    locate()
-    {
-      return BusChannel
-    }
+    return BusChannel
   }
+}
 
-  return BusChannelLocator
-})
+module.exports = BusChannelLocator

@@ -1,23 +1,19 @@
-/* eslint-disable no-undef */
-define([
-  'superhero/core/data-structure/composite/associative-array/index'
-], function(AssociativeArray)
-{
-  class AssociativeArrayFactory
-  {
-    constructor({
-      composer
-    })
-    {
-      this.composer = composer
-    }
+const AssociativeArray = require('..')
 
-    create(items = {})
-    {
-      const args = this.composer.compose('data-structure/associative-array', { items })
-      return new AssociativeArray(args)
-    }
+class AssociativeArrayFactory
+{
+  constructor({
+    composer
+  })
+  {
+    this.composer = composer
   }
 
-  return AssociativeArrayFactory
-})
+  create(items = {})
+  {
+    const args = this.composer.compose('data-structure/associative-array', { items })
+    return new AssociativeArray(args)
+  }
+}
+
+module.exports = AssociativeArrayFactory

@@ -1,13 +1,11 @@
-/* eslint-disable no-undef */
-define(['superhero/core/deepfind/index'], function(DeepFind)
-{
-  class DeepFindLocator
-  {
-    locate()
-    {
-      return new DeepFind()
-    }
-  }
+const DeepFind = require('.')
 
-  return DeepFindLocator
-})
+class DeepFindLocator
+{
+  locate()
+  {
+    return new DeepFind()
+  }
+}
+
+module.exports = DeepFindLocator

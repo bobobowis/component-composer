@@ -1,11 +1,7 @@
-/* eslint-disable no-undef */
-define(function()
-{
-  return {
-    'items' :
-    {
-      'type'    : 'collection',
-      'default' : []
-    }
+module.exports = {
+  'items' :
+  {
+    'type'    : 'collection',
+    'default' : []
   }
-})
+}

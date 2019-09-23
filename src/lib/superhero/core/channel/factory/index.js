@@ -1,33 +1,29 @@
-/* eslint-disable no-undef */
-define([
-  'superhero/core/channel/index'
-], function(BusChannel)
+const BusChannel = require('.')
+
+class BusChannelFactory
 {
-  class BusChannelFactory
+  constructor({
+    composer,
+    multipleAssociativeArrayFactory
+  })
   {
-    constructor({
-      composer,
-      multipleAssociativeArrayFactory
-    })
-    {
-      this.composer                        = composer
-      this.multipleAssociativeArrayFactory = multipleAssociativeArrayFactory
-    }
-
-    createMultipleAssociativeArray()
-    {
-      return this.multipleAssociativeArrayFactory.create()
-    }
-
-    create(id)
-    {
-      return new BusChannel({
-        id,
-        observers : this.createMultipleAssociativeArray(),
-        composer  : this.composer
-      })
-    }
+    this.composer                        = composer
+    this.multipleAssociativeArrayFactory = multipleAssociativeArrayFactory
   }
 
-  return BusChannelFactory
-})
+  createMultipleAssociativeArray()
+  {
+    return this.multipleAssociativeArrayFactory.create()
+  }
+
+  create(id)
+  {
+    return new BusChannel({
+      id,
+      observers : this.createMultipleAssociativeArray(),
+      composer  : this.composer
+    })
+  }
+}
+
+module.exports = BusChannelFactory

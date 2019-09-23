@@ -1,13 +1,11 @@
-/* eslint-disable no-undef */
-define(['superhero/core/deepfreeze/index'], function(DeepFreeze)
-{
-  class DeepFreezeLocator
-  {
-    locate()
-    {
-      return new DeepFreeze()
-    }
-  }
+const DeepFreeze = require('.')
 
-  return DeepFreezeLocator
-})
+class DeepFreezeLocator
+{
+  locate()
+  {
+    return new DeepFreeze()
+  }
+}
+
+module.exports = DeepFreezeLocator

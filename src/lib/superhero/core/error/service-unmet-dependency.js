@@ -1,15 +1,10 @@
-/* eslint-disable no-undef */
-define(function()
+class ServiceUnmetDependencyError extends Error
 {
-  class ServiceUnmetDependencyError extends Error
+  constructor(...a)
   {
-    constructor(...a)
-    {
-      super(...a)
-      this.code = 'E_SERVICE_UNMET_DEPENDENCY'
-    }
+    super(...a)
+    this.code = 'E_SERVICE_UNMET_DEPENDENCY'
   }
+}
 
-  return ServiceUnmetDependencyError
-})
-
+module.exports = ServiceUnmetDependencyError

@@ -1,23 +1,19 @@
-/* eslint-disable no-undef */
-define([
-  'superhero/core/data-structure/composite/multiple-associative-array/index'
-], function(MultipleAssociativeArray)
-{
-  class MultipleAssociativeArrayFactory
-  {
-    constructor({
-      composer
-    })
-    {
-      this.composer = composer
-    }
+const MultipleAssociativeArray = require('..')
 
-    create(items = {})
-    {
-      const args = this.composer.compose('data-structure/multiple-associative-array', { items })
-      return new MultipleAssociativeArray(args)
-    }
+class MultipleAssociativeArrayFactory
+{
+  constructor({
+    composer
+  })
+  {
+    this.composer = composer
   }
 
-  return MultipleAssociativeArrayFactory
-})
+  create(items = {})
+  {
+    const args = this.composer.compose('data-structure/multiple-associative-array', { items })
+    return new MultipleAssociativeArray(args)
+  }
+}
+
+module.exports = MultipleAssociativeArrayFactory

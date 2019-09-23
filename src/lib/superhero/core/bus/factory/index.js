@@ -1,32 +1,30 @@
-/* eslint-disable no-undef */
-define(['superhero/core/bus/index'], function(Bus)
+const Bus = require('..')
+
+class BusFactory
 {
-  class BusFactory
+  constructor({
+    channelFactory,
+    associativeArrayFactory
+  })
   {
-    constructor({
-      channelFactory,
-      associativeArrayFactory
-    })
-    {
-      this.channelFactory          = channelFactory
-      this.associativeArrayFactory = associativeArrayFactory
-    }
-
-    createAssociativeArray()
-    {
-      return this.associativeArrayFactory.create()
-    }
-
-    create()
-    {
-      const bus = new Bus({
-        channelFactory : this.channelFactory,
-        channels       : this.createAssociativeArray()
-      })
-
-      return bus
-    }
+    this.channelFactory          = channelFactory
+    this.associativeArrayFactory = associativeArrayFactory
   }
 
-  return BusFactory
-})
+  createAssociativeArray()
+  {
+    return this.associativeArrayFactory.create()
+  }
+
+  create()
+  {
+    const bus = new Bus({
+      channelFactory : this.channelFactory,
+      channels       : this.createAssociativeArray()
+    })
+
+    return bus
+  }
+}
+
+module.exports = BusFactory

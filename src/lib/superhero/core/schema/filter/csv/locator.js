@@ -1,14 +1,11 @@
+const SchemaFilterCsv = require('.')
 
-/* eslint-disable no-undef */
-define(['superhero/core/schema/filter/csv/index'], function(SchemaFilterCsv)
+class SchemaFilterCsvLocator
 {
-  class SchemaFilterCsvLocator
+  locate()
   {
-    locate()
-    {
-      return new SchemaFilterCsv()
-    }
+    return new SchemaFilterCsv
   }
+}
 
-  return SchemaFilterCsvLocator
-})
+module.exports = SchemaFilterCsvLocator

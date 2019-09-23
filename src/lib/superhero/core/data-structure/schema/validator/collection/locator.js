@@ -1,23 +1,20 @@
-/* eslint-disable no-undef */
-define([
-  'superhero/core/data-structure/schema/validator/collection/index',
-  'superhero/core/locator/constituent'
-], function(CollectionValidator, LocatorConstituent)
+const
+LocatorConstituent  = require('superhero/core/locator/constituent'),
+CollectionValidator = require('.')
+
+/**
+ * @extends {superhero/core/locator/constituent}
+ */
+class CollectionValidatorLocator extends LocatorConstituent
 {
   /**
-   * @extends {superhero/core/locator/constituent}
+   * @returns {CollectionValidator}
    */
-  class CollectionValidatorLocator extends LocatorConstituent
+  locate()
   {
-    /**
-     * @returns {CollectionValidator}
-     */
-    locate()
-    {
-      const locator = this.locator
-      return new CollectionValidator(locator)
-    }
+    const locator = this.locator
+    return new CollectionValidator(locator)
   }
+}
 
-  return CollectionValidatorLocator
-})
+module.exports = CollectionValidatorLocator

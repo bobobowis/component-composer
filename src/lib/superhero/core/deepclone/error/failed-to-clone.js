@@ -1,14 +1,10 @@
-/* eslint-disable no-undef */
-define(function()
+class FailedToCloneError extends Error
 {
-  class FailedToCloneError extends Error
+  constructor(...args)
   {
-    constructor(...args)
-    {
-      super(...args)
-      this.code = 'E_FAILED_TO_CLONE'
-    }
+    super(...args)
+    this.code = 'E_FAILED_TO_CLONE'
   }
+}
 
-  return FailedToCloneError
-})
+module.exports = FailedToCloneError

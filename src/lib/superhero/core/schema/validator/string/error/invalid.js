@@ -1,17 +1,13 @@
-/* eslint-disable no-undef */
-define(function()
+/**
+ * @extends {Error}
+ */
+class InvalidStringError extends Error
 {
-  /**
-   * @extends {Error}
-   */
-  class InvalidStringError extends Error
+  constructor(...a)
   {
-    constructor(...a)
-    {
-      super(...a)
-      this.code = 'E_INVALID_STRING'
-    }
+    super(...a)
+    this.code = 'E_INVALID_STRING'
   }
+}
 
-  return InvalidStringError
-})
+module.exports = InvalidStringError

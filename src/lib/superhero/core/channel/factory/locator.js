@@ -1,29 +1,26 @@
-/* eslint-disable no-undef */
-define([
-  'superhero/core/channel/factory/index',
-  'superhero/core/locator/constituent'
-], function(BusChannelFactory, LocatorConstituent)
+const
+BusChannelFactory   = require('.'),
+LocatorConstituent  = require('superhero/core/locator/constituent')
+
+/**
+ * @extends {superhero/core/locator/constituent}
+ */
+class BusChannelFactoryLocator extends LocatorConstituent
 {
   /**
-   * @extends {superhero/core/locator/constituent}
+   * @returns {BusChannelFactory}
    */
-  class BusChannelFactoryLocator extends LocatorConstituent
+  locate()
   {
-    /**
-     * @returns {BusChannelFactory}
-     */
-    locate()
-    {
-      const
-      composer                        = this.locator.locate('core/schema/composer'),
-      multipleAssociativeArrayFactory = this.locator.locate('data-structure/multiple-associative-array/factory')
+    const
+    composer                        = this.locator.locate('core/schema/composer'),
+    multipleAssociativeArrayFactory = this.locator.locate('data-structure/multiple-associative-array/factory')
 
-      return new BusChannelFactory({
-        composer,
-        multipleAssociativeArrayFactory
-      })
-    }
+    return new BusChannelFactory({
+      composer,
+      multipleAssociativeArrayFactory
+    })
   }
+}
 
-  return BusChannelFactoryLocator
-})
+module.exports = BusChannelFactoryLocator

@@ -1,15 +1,11 @@
-/* eslint-disable no-undef */
-define(function()
+class DeepFind
 {
-  class DeepFind
+  find(path, obj)
   {
-    find(path, obj)
-    {
-      // split on "." or "/"
-      const keys = path.split(/\.|\//)
-      return keys.reduce((obj, key) => obj && obj[key], obj)
-    }
+    // split on "." or "/"
+    const keys = path.split(/\.|\//)
+    return keys.reduce((obj, key) => obj && obj[key], obj)
   }
+}
 
-  return DeepFind
-})
+module.exports = DeepFind

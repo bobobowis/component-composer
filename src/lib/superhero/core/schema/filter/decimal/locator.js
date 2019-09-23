@@ -1,14 +1,11 @@
+const SchemaFilterDecimal = require('.')
 
-/* eslint-disable no-undef */
-define(['superhero/core/schema/filter/decimal/index'], function(SchemaFilterDecimal)
+class SchemaFilterDecimalLocator
 {
-  class SchemaFilterDecimalLocator
+  locate()
   {
-    locate()
-    {
-      return new SchemaFilterDecimal()
-    }
+    return new SchemaFilterDecimal
   }
+}
 
-  return SchemaFilterDecimalLocator
-})
+module.exports = SchemaFilterDecimalLocator

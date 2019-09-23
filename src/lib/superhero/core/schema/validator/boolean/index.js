@@ -1,17 +1,17 @@
-/* eslint-disable no-undef */
-define(['superhero/core/schema/validator/boolean/error/invalid'], function(InvalidBooleanError)
+const InvalidBooleanError = require('./error/invalid')
+/**
+ * @implements {SchemaValidator}
+ */
+class SchemaValidatorBoolean
 {
-  /**
-   * @implements {SchemaValidator}
-   */
-  class SchemaValidatorBoolean
+  valid(options, data)
   {
-    valid(options, data)
+    if(typeof data !== 'boolean')
     {
-      if(typeof data !== 'boolean')
-        throw new InvalidBooleanError(`Invalid type: "${typeof data}", boolean expected`)
+      const msg = `Invalid type: "${typeof data}", boolean expected`
+      throw new InvalidBooleanError(msg)
     }
   }
+}
 
-  return SchemaValidatorBoolean
-})
+module.exports = SchemaValidatorBoolean

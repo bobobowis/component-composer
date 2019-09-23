@@ -1,13 +1,11 @@
-/* eslint-disable no-undef */
-define(['superhero/core/schema/validator/json/index'], function(SchemaValidatorJson)
-{
-  class SchemaValidatorJsonLocator
-  {
-    locate()
-    {
-      return new SchemaValidatorJson()
-    }
-  }
+const SchemaValidatorJson = require('.')
 
-  return SchemaValidatorJsonLocator
-})
+class SchemaValidatorJsonLocator
+{
+  locate()
+  {
+    return new SchemaValidatorJson
+  }
+}
+
+module.exports = SchemaValidatorJsonLocator

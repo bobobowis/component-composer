@@ -1,15 +1,11 @@
-/* eslint-disable no-undef */
-define(function()
+class NotAnObjectError extends Error
 {
-  class NotAnObjectError extends Error
+  constructor(...args)
   {
-    constructor(...args)
-    {
-      super(...args)
+    super(...args)
 
-      this.code = 'E_NOT_AN_OBJECT'
-    }
+    this.code = 'E_NOT_AN_OBJECT'
   }
+}
 
-  return NotAnObjectError
-})
+module.exports = NotAnObjectError

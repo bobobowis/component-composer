@@ -1,17 +1,13 @@
-/* eslint-disable no-undef */
-define(function()
+/**
+ * @extends {Error}
+ */
+class SchemaNotFoundError extends Error
 {
-  /**
-   * @extends {Error}
-   */
-  class SchemaNotFoundError extends Error
+  constructor(...a)
   {
-    constructor(...a)
-    {
-      super(...a)
-      this.code = 'E_SCHEMA_NOT_FOUND'
-    }
+    super(...a)
+    this.code = 'E_SCHEMA_NOT_FOUND'
   }
+}
 
-  return SchemaNotFoundError
-})
+module.exports = SchemaNotFoundError

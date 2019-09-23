@@ -1,13 +1,11 @@
-/* eslint-disable no-undef */
-define(['superhero/core/deepclone/index'], function(DeepClone)
-{
-  class DeepCloneLocator
-  {
-    locate()
-    {
-      return new DeepClone()
-    }
-  }
+const DeepClone = require('.')
 
-  return DeepCloneLocator
-})
+class DeepCloneLocator
+{
+  locate()
+  {
+    return new DeepClone()
+  }
+}
+
+module.exports = DeepCloneLocator

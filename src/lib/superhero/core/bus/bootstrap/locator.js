@@ -1,22 +1,17 @@
-// eslint-disable-next-line no-undef
-define(['superhero/core/bus/bootstrap/index'], function(BusBootstrap)
+const
+LocatorConstituent  = require('superhero/core/locator/constituent'),
+BusBootstrap        = require('.')
+
+class BusBootstrapLocator extends LocatorConstituent
 {
-  class BusBootstrapLocator
+  locate()
   {
-    constructor(locator)
-    {
-      this.locator = locator
-    }
+    const
+    configuration = this.locator.locate('core/configuration'),
+    bus           = this.locator.locate('core/bus')
 
-    locate()
-    {
-      const
-      configuration = this.locator.locate('core/configuration'),
-      bus           = this.locator.locate('core/bus')
-
-      return new BusBootstrap(configuration, bus, this.locator)
-    }
+    return new BusBootstrap(configuration, bus, this.locator)
   }
+}
 
-  return BusBootstrapLocator
-})
+module.exports = BusBootstrapLocator

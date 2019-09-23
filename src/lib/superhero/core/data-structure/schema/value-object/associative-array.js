@@ -1,11 +1,7 @@
-/* eslint-disable no-undef */
-define(function()
-{
-  return {
-    'items' :
-    {
-      'type'    : 'custom-json',
-      'default' : {}
-    }
+module.exports = {
+  'items' :
+  {
+    'type'    : 'custom-json',
+    'default' : {}
   }
-})
+}

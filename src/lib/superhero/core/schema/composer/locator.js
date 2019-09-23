@@ -1,22 +1,21 @@
-/* eslint-disable no-undef */
-define(['superhero/core/schema/composer/index'], function(Composer)
+const Schema = require('.')
+
+class SchemaLocator
 {
-  class ComposerLocator
+  constructor(locator)
   {
-    constructor(locator)
-    {
-      this.locator = locator
-    }
-
-    locate()
-    {
-      const
-      deepmerge = this.locator.locate('core/deepmerge'),
-      deepclone = this.locator.locate('core/deepclone')
-
-      return new Composer(deepmerge, deepclone)
-    }
+    this.locator = locator
   }
 
-  return ComposerLocator
-})
+  locate()
+  {
+    const
+    deepmerge   = this.locator.locate('core/deepmerge'),
+    deepclone   = this.locator.locate('core/deepclone'),
+    deepfreeze  = this.locator.locate('core/deepfreeze')
+
+    return new Schema(deepmerge, deepclone, deepfreeze)
+  }
+}
+
+module.exports = SchemaLocator

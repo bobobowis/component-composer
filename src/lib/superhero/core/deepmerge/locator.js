@@ -1,13 +1,11 @@
-/* eslint-disable no-undef */
-define(['superhero/core/deepmerge'], function(DeepMerge)
-{
-  class DeepMergeLocator
-  {
-    locate()
-    {
-      return new DeepMerge()
-    }
-  }
+const DeepMerge = require('.')
 
-  return DeepMergeLocator
-})
+class DeepMergeLocator
+{
+  locate()
+  {
+    return new DeepMerge()
+  }
+}
+
+module.exports = DeepMergeLocator

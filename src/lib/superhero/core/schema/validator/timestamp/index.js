@@ -1,34 +1,54 @@
-/* eslint-disable no-undef */
-define(['superhero/core/schema/validator/timestamp/error/invalid'], function(InvalidTimestampError)
+const InvalidTimestampError = require('./error/invalid')
+/**
+ * @implements {SchemaValidator}
+ */
+class SchemaValidatorTimestamp
 {
-  /**
-   * @implements {SchemaValidator}
-   */
-  class SchemaValidatorTimestamp
+  valid(options, data)
   {
-    valid(options, data)
+    if(typeof data !== 'string')
     {
-      if(typeof data !== 'string')
-        throw new InvalidTimestampError(`Invalid type: "${typeof data}", string expected`)
+      const msg = `Invalid type: "${typeof data}", string expected`
+      throw new InvalidTimestampError(msg)
+    }
 
-      const date = new Date(data)
+    const date = new Date(data)
 
-      if('min' in options && date.getTime() < new Date(options.min).getTime())
-        throw new InvalidTimestampError(`Timestamp must be at least: "${options.min}"`)
+    if('min' in options
+    && date.getTime() < new Date(options.min).getTime())
+    {
+      const msg = `Timestamp must be at least: "${options.min}"`
+      throw new InvalidTimestampError(msg)
+    }
 
-      if('max' in options && date.getTime() > new Date(options.max).getTime())
-        throw new InvalidTimestampError(`Timestamp can't be more then: "${options.max}"`)
+    if('max' in options
+    && date.getTime() > new Date(options.max).getTime())
+    {
+      const msg = `Timestamp can't be more then: "${options.max}"`
+      throw new InvalidTimestampError(msg)
+    }
 
-      if('gt' in options && date.getTime() > new Date(options.gt).getTime())
-        throw new InvalidTimestampError(`Timestamp must be more then: "${options.gt}" long`)
+    if('gt' in options
+    && date.getTime() > new Date(options.gt).getTime())
+    {
+      const msg = `Timestamp must be more then: "${options.gt}" long`
+      throw new InvalidTimestampError(msg)
+    }
 
-      if('lt' in options && date.getTime() < new Date(options.lt).getTime())
-        throw new InvalidTimestampError(`Timestamp must be less then: "${options.lt}" long`)
+    if('lt' in options
+    && date.getTime() < new Date(options.lt).getTime())
+    {
+      const msg = `Timestamp must be less then: "${options.lt}" long`
+      throw new InvalidTimestampError(msg)
+    }
 
-      if(options.enum && !options.enum.includes(data))
-        throw new InvalidTimestampError(`Expected one of the enumeral values: "${options.enum}"`)
+    if(options.enum
+    &&!options.enum.includes(data))
+    {
+      const msg = `Expected one of the enumeral values: "${options.enum}"`
+      throw new InvalidTimestampError(msg)
     }
   }
+}
 
-  return SchemaValidatorTimestamp
-})
+module.exports = SchemaValidatorTimestamp

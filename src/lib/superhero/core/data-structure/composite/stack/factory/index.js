@@ -1,23 +1,19 @@
-/* eslint-disable no-undef */
-define([
-  'superhero/core/data-structure/composite/stack/index'
-], function(Stack)
-{
-  class StackFactory
-  {
-    constructor({
-      composer
-    })
-    {
-      this.composer = composer
-    }
+const Stack = require('..')
 
-    create(items = [])
-    {
-      const args = this.composer.compose('data-structure/stack', { items })
-      return new Stack(args)
-    }
+class StackFactory
+{
+  constructor({
+    composer
+  })
+  {
+    this.composer = composer
   }
 
-  return StackFactory
-})
+  create(items = [])
+  {
+    const args = this.composer.compose('data-structure/stack', { items })
+    return new Stack(args)
+  }
+}
+
+module.exports = StackFactory

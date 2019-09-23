@@ -1,59 +1,58 @@
-/* eslint-disable no-undef */
-define(function()
+const path = require('path')
+
+module.exports =
 {
-  return {
-    'core' :
+  'core' :
+  {
+    'bootstrap' :
     {
-      'bootstrap' :
+      'schema' : 'core/schema/bootstrap'
+    },
+    'schema' :
+    {
+      'filter' :
       {
-        'schema' : 'core/schema/bootstrap'
+        'boolean'   : 'core/schema/filter/boolean',
+        'csv'       : 'core/schema/filter/csv',
+        'decimal'   : 'core/schema/filter/decimal',
+        'integer'   : 'core/schema/filter/integer',
+        'json'      : 'core/schema/filter/json',
+        'schema'    : 'core/schema/filter/schema',
+        'string'    : 'core/schema/filter/string',
+        'timestamp' : 'core/schema/filter/timestamp'
       },
-      'schema' :
+      'validator' :
       {
-        'filter' :
-        {
-          'boolean'   : 'core/schema/filter/boolean',
-          'csv'       : 'core/schema/filter/csv',
-          'decimal'   : 'core/schema/filter/decimal',
-          'integer'   : 'core/schema/filter/integer',
-          'json'      : 'core/schema/filter/json',
-          'schema'    : 'core/schema/filter/schema',
-          'string'    : 'core/schema/filter/string',
-          'timestamp' : 'core/schema/filter/timestamp'
-        },
-        'validator' :
-        {
-          'boolean'   : 'core/schema/validator/boolean',
-          'csv'       : 'core/schema/validator/csv',
-          'decimal'   : 'core/schema/validator/decimal',
-          'integer'   : 'core/schema/validator/integer',
-          'json'      : 'core/schema/validator/json',
-          'schema'    : 'core/schema/validator/schema',
-          'string'    : 'core/schema/validator/string',
-          'timestamp' : 'core/schema/validator/timestamp'
-        }
-      },
-      'locator' :
-      {
-        'core/schema/composer'            : 'superhero/core/schema/composer',
-        'core/schema/bootstrap'           : 'superhero/core/schema/bootstrap',
-        'core/schema/filter/boolean'      : 'superhero/core/schema/filter/boolean',
-        'core/schema/filter/csv'          : 'superhero/core/schema/filter/csv',
-        'core/schema/filter/decimal'      : 'superhero/core/schema/filter/decimal',
-        'core/schema/filter/integer'      : 'superhero/core/schema/filter/integer',
-        'core/schema/filter/json'         : 'superhero/core/schema/filter/json',
-        'core/schema/filter/schema'       : 'superhero/core/schema/filter/schema',
-        'core/schema/filter/string'       : 'superhero/core/schema/filter/string',
-        'core/schema/filter/timestamp'    : 'superhero/core/schema/filter/timestamp',
-        'core/schema/validator/boolean'   : 'superhero/core/schema/validator/boolean',
-        'core/schema/validator/csv'       : 'superhero/core/schema/validator/csv',
-        'core/schema/validator/decimal'   : 'superhero/core/schema/validator/decimal',
-        'core/schema/validator/integer'   : 'superhero/core/schema/validator/integer',
-        'core/schema/validator/json'      : 'superhero/core/schema/validator/json',
-        'core/schema/validator/schema'    : 'superhero/core/schema/validator/schema',
-        'core/schema/validator/string'    : 'superhero/core/schema/validator/string',
-        'core/schema/validator/timestamp' : 'superhero/core/schema/validator/timestamp'
+        'boolean'   : 'core/schema/validator/boolean',
+        'csv'       : 'core/schema/validator/csv',
+        'decimal'   : 'core/schema/validator/decimal',
+        'integer'   : 'core/schema/validator/integer',
+        'json'      : 'core/schema/validator/json',
+        'schema'    : 'core/schema/validator/schema',
+        'string'    : 'core/schema/validator/string',
+        'timestamp' : 'core/schema/validator/timestamp'
       }
+    },
+    'locator' :
+    {
+      'core/schema/composer'            : path.join(__dirname, '/composer'),
+      'core/schema/bootstrap'           : path.join(__dirname, '/bootstrap'),
+      'core/schema/filter/boolean'      : path.join(__dirname, '/filter/boolean'),
+      'core/schema/filter/csv'          : path.join(__dirname, '/filter/csv'),
+      'core/schema/filter/decimal'      : path.join(__dirname, '/filter/decimal'),
+      'core/schema/filter/integer'      : path.join(__dirname, '/filter/integer'),
+      'core/schema/filter/json'         : path.join(__dirname, '/filter/json'),
+      'core/schema/filter/schema'       : path.join(__dirname, '/filter/schema'),
+      'core/schema/filter/string'       : path.join(__dirname, '/filter/string'),
+      'core/schema/filter/timestamp'    : path.join(__dirname, '/filter/timestamp'),
+      'core/schema/validator/boolean'   : path.join(__dirname, '/validator/boolean'),
+      'core/schema/validator/csv'       : path.join(__dirname, '/validator/csv'),
+      'core/schema/validator/decimal'   : path.join(__dirname, '/validator/decimal'),
+      'core/schema/validator/integer'   : path.join(__dirname, '/validator/integer'),
+      'core/schema/validator/json'      : path.join(__dirname, '/validator/json'),
+      'core/schema/validator/schema'    : path.join(__dirname, '/validator/schema'),
+      'core/schema/validator/string'    : path.join(__dirname, '/validator/string'),
+      'core/schema/validator/timestamp' : path.join(__dirname, '/validator/timestamp')
     }
   }
-})
+}

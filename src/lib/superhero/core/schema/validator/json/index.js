@@ -1,23 +1,23 @@
-/* eslint-disable no-undef */
-define(['superhero/core/schema/validator/json/error/invalid'], function(InvalidJsonError)
+const InvalidJsonError = require('./error/invalid')
+/**
+ * @implements {SchemaValidator}
+ */
+class SchemaValidatorJson
 {
-  /**
-   * @implements {SchemaValidator}
-   */
-  class SchemaValidatorJson
+  valid(options, data)
   {
-    valid(options, data)
+    try
     {
-      try
-      {
-        options.stringified ? JSON.parse(data) : JSON.stringify(data)
-      }
-      catch(error)
-      {
-        throw new InvalidJsonError('Unparsable JSON provided')
-      }
+      options.stringified
+      ? JSON.parse(data)
+      : JSON.stringify(data)
+    }
+    catch(error)
+    {
+      const msg = `Unparsable JSON provided`
+      throw new InvalidJsonError(msg)
     }
   }
+}
 
-  return SchemaValidatorJson
-})
+module.exports = SchemaValidatorJson

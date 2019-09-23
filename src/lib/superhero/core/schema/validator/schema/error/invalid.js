@@ -1,17 +1,13 @@
-/* eslint-disable no-undef */
-define(function()
+/**
+ * @extends {Error}
+ */
+class InvalidSchemaError extends Error
 {
-  /**
-   * @extends {Error}
-   */
-  class InvalidSchemaError extends Error
+  constructor(...a)
   {
-    constructor(...a)
-    {
-      super(...a)
-      this.code = 'E_INVALID_SCHEMA'
-    }
+    super(...a)
+    this.code = 'E_INVALID_SCHEMA'
   }
+}
 
-  return InvalidSchemaError
-})
+module.exports = InvalidSchemaError

@@ -1,24 +1,22 @@
-/* eslint-disable no-undef */
-define(['superhero/core/configuration/index'], function(Configuration)
+const Configuration = require('.')
+
+class ConfigurationLocator
 {
-  class ConfigurationLocator
+  constructor(locator)
   {
-    constructor(locator)
-    {
-      this.locator = locator
-    }
-
-    locate()
-    {
-      const
-      deepclone     = this.locator.locate('core/deepclone'),
-      deepmerge     = this.locator.locate('core/deepmerge'),
-      deepfind      = this.locator.locate('core/deepfind'),
-      configuration = new Configuration(deepclone, deepmerge, deepfind)
-
-      return configuration
-    }
+    this.locator = locator
   }
 
-  return ConfigurationLocator
-})
+  locate()
+  {
+    const
+    deepclone     = this.locator.locate('core/deepclone'),
+    deepmerge     = this.locator.locate('core/deepmerge'),
+    deepfind      = this.locator.locate('core/deepfind'),
+    configuration = new Configuration(deepclone, deepmerge, deepfind)
+
+    return configuration
+  }
+}
+
+module.exports = ConfigurationLocator

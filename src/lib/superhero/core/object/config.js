@@ -1,14 +1,9 @@
-/* eslint-disable no-undef */
-define(function()
-{
-  return {
-    'core' :
+module.exports = {
+  'core' :
+  {
+    'locator' :
     {
-      'locator' :
-      {
-        'core/object' : 'superhero/core/object'
-      }
+      'core/object' : 'superhero/core/object'
     }
   }
-})
-
+}

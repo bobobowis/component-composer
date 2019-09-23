@@ -1,14 +1,11 @@
+const SchemaFilterTimestamp = require('.')
 
-/* eslint-disable no-undef */
-define(['superhero/core/schema/filter/timestamp/index'], function(SchemaFilterTimestamp)
+class SchemaFilterTimestampLocator
 {
-  class SchemaFilterTimestampLocator
+  locate()
   {
-    locate()
-    {
-      return new SchemaFilterTimestamp()
-    }
+    return new SchemaFilterTimestamp
   }
+}
 
-  return SchemaFilterTimestampLocator
-})
+module.exports = SchemaFilterTimestampLocator

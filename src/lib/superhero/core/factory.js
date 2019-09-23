@@ -31,8 +31,8 @@ define([
       core.add('core/schema')
       core.add('core')
       core.add('core/data-structure')
-      core.add('core/channel')
-      core.add('core/bus')
+      // core.add('core/channel')
+      // core.add('core/bus')
       return core
     }
 

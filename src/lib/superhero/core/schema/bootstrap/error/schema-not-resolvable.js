@@ -1,14 +1,10 @@
-// eslint-disable-next-line no-undef
-define(function()
+class SchemaNotResolvableError extends ReferenceError
 {
-  class SchemaNotResolvableError extends Error
+  constructor(...a)
   {
-    constructor(...a)
-    {
-      super(...a)
-      this.code = 'E_SCHEMA_NOT_RESOLVABLE'
-    }
+    super(...a)
+    this.code = 'E_SCHEMA_NOT_RESOLVABLE'
   }
+}
 
-  return SchemaNotResolvableError
-})
+module.exports = SchemaNotResolvableError

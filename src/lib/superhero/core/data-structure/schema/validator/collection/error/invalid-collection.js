@@ -1,18 +1,14 @@
-/* eslint-disable no-undef */
-define(function()
+/**
+ * @memberof Domain
+ * @extends {Error}
+ */
+class InvalidCollectionError extends Error
 {
-  /**
-   * @memberof Domain
-   * @extends {Error}
-   */
-  class InvalidCollectionError extends Error
+  constructor(...args)
   {
-    constructor(...args)
-    {
-      super(...args)
-      this.code = 'E_INVALID_COLLECTION'
-    }
+    super(...args)
+    this.code = 'E_INVALID_COLLECTION'
   }
+}
 
-  return InvalidCollectionError
-})
+module.exports = InvalidCollectionError

@@ -1,20 +1,13 @@
-/* eslint-disable no-undef */
-define(['superhero/core/bus/index'], function(Bus)
+const LocatorConstituent  = require('superhero/core/locator/constituent')
+
+class BusLocator extends LocatorConstituent
 {
-  class BusLocator
+  locate()
   {
-    constructor(locator)
-    {
-      this.locator = locator
-    }
+    const busFactory = this.locator.locate('core/bus/factory')
 
-    locate()
-    {
-      const busFactory = this.locator.locate('core/bus/factory')
-
-      return busFactory.create()
-    }
+    return busFactory.create()
   }
+}
 
-  return BusLocator
-})
+module.exports = BusLocator

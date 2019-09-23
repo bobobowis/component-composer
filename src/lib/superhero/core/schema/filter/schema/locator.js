@@ -1,20 +1,17 @@
+const SchemaFilterSchema = require('.')
 
-/* eslint-disable no-undef */
-define(['superhero/core/schema/filter/schema/index'], function(SchemaFilterSchema)
+class SchemaFilterSchemaLocator
 {
-  class SchemaFilterSchemaLocator
+  constructor(locator)
   {
-    constructor(locator)
-    {
-      this.locator = locator
-    }
-
-    locate()
-    {
-      const composer = this.locator.locate('core/schema/composer')
-      return new SchemaFilterSchema(composer)
-    }
+    this.locator = locator
   }
 
-  return SchemaFilterSchemaLocator
-})
+  locate()
+  {
+    const composer = this.locator.locate('core/schema/composer')
+    return new SchemaFilterSchema(composer)
+  }
+}
+
+module.exports = SchemaFilterSchemaLocator

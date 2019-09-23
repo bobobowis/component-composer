@@ -1,22 +1,17 @@
-/* eslint-disable no-undef */
-define(function()
-{
-  return {
-    '@meta' :
+module.exports = {
+  '@meta' :
+  {
+    'extends' : [
+      'data-structure/associative-array'
+    ]
+  },
+  'items' :
+  {
+    'type'        : 'custom-json',
+    'custom-json' :
     {
-      'extends' : [
-        'data-structure/associative-array'
-      ]
+      'type' : 'collection'
     },
-    'items' :
-    {
-      'type'        : 'custom-json',
-      'custom-json' :
-      {
-        'type' : 'collection'
-      },
-      'default' : {}
-    }
+    'default' : {}
   }
-})
-
+}

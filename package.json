@@ -12,7 +12,8 @@
     "tester": "eslint src/**/**.js && nyc mocha src/**/*.test.js test/**/*.test.js",
     "linter": "eslint src/**/**.js",
     "linter-and-fix": "eslint src/**/**.js --fix",
-    "build": "babel src -d dist"
+    "build": "babel src -d dist",
+    "start": "node src/lib/superhero/core/index.js"
   },
   "keywords": [
     "handlebars",

@@ -1,21 +1,20 @@
-/* eslint-disable no-undef */
-define(['superhero/core/deepassign/index', 'superhero/core/locator/constituent'], function(DeepAssign, LocatorConstituent)
+const
+DeepAssign          = require('.'),
+LocatorConstituent  = require('../locator/constituent')
+/**
+ * @extends {superhero/core/locator/constituent}
+ */
+class DeepAssignLocator extends LocatorConstituent
 {
   /**
-   * @extends {superhero/core/locator/constituent}
+   * @returns {DeepAssign}
    */
-  class DeepAssignLocator extends LocatorConstituent
+  locate()
   {
-    /**
-     * @returns {DeepAssign}
-     */
-    locate()
-    {
-      const deepclone = this.locator.locate('core/deepclone')
+    const deepclone = this.locator.locate('core/deepclone')
 
-      return new DeepAssign(deepclone)
-    }
+    return new DeepAssign(deepclone)
   }
+}
 
-  return DeepAssignLocator
-})
+module.exports = DeepAssignLocator

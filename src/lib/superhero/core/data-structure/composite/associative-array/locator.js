@@ -1,22 +1,19 @@
-/* eslint-disable no-undef */
-define([
-  'superhero/core/data-structure/composite/associative-array/index',
-  'superhero/core/locator/constituent'
-], function(AssociativeArray, LocatorConstituent)
+const
+AssociativeArray    = require('.'),
+LocatorConstituent  = require('superhero/core/locator/constituent')
+
+/**
+ * @extends {superhero/core/locator/constituent}
+ */
+class AssociativeArrayLocator extends LocatorConstituent
 {
   /**
-   * @extends {superhero/core/locator/constituent}
+   * @returns {AssociativeArrayLocator}
    */
-  class AssociativeArrayLocator extends LocatorConstituent
+  locate()
   {
-    /**
-     * @returns {AssociativeArrayLocator}
-     */
-    locate()
-    {
-      return AssociativeArray
-    }
+    return AssociativeArray
   }
+}
 
-  return AssociativeArrayLocator
-})
+module.exports = AssociativeArrayLocator

@@ -1,17 +1,13 @@
-/* eslint-disable*/
-define(['superhero/core/schema/validator/schema/error/invalid'], function(InvalidSchemaError)
+const InvalidSchemaError = require('./error/invalid')
+/**
+ * @implements {SchemaValidator}
+ */
+class SchemaValidatorSchema
 {
-  /**
-   * @implements {SchemaValidator}
-   */
-  class SchemaValidatorSchema
+  valid(options, data)
   {
-    valid(options, data)
-    {
-      // nothing to validate
-    }
+    // nothing to validate
   }
+}
 
-  return SchemaValidatorSchema
-})
-
+module.exports = SchemaValidatorSchema

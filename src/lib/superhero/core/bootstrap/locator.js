@@ -1,18 +1,16 @@
-/* eslint-disable no-undef */
-define(['superhero/core/bootstrap/index'], function(Bootstrap)
-{
-  class BootstrapLocator
-  {
-    constructor(locator)
-    {
-      this.locator = locator
-    }
+const Bootstrap = require('.')
 
-    locate()
-    {
-      return new Bootstrap(this.locator)
-    }
+class BootstrapLocator
+{
+  constructor(locator)
+  {
+    this.locator = locator
   }
 
-  return BootstrapLocator
-})
+  locate()
+  {
+    return new Bootstrap(this.locator)
+  }
+}
+
+module.exports = BootstrapLocator

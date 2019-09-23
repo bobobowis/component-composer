@@ -1,26 +1,23 @@
-/* eslint-disable no-undef */
-define([
-  'superhero/core/data-structure/composite/multiple-associative-array/factory/index',
-  'superhero/core/locator/constituent'
-], function(MultipleAssociativeArrayFactory, LocatorConstituent)
+const
+MultipleAssociativeArrayFactory = require('.'),
+LocatorConstituent              = require('superhero/core/locator/constituent')
+
+/**
+ * @extends {superhero/core/locator/constituent}
+ */
+class MultipleAssociativeArrayFactoryLocator extends LocatorConstituent
 {
   /**
-   * @extends {superhero/core/locator/constituent}
+   * @returns {MultipleAssociativeArrayFactory}
    */
-  class MultipleAssociativeArrayFactoryLocator extends LocatorConstituent
+  locate()
   {
-    /**
-     * @returns {MultipleAssociativeArrayFactory}
-     */
-    locate()
-    {
-      const composer = this.locator.locate('core/schema/composer')
+    const composer = this.locator.locate('core/schema/composer')
 
-      return new MultipleAssociativeArrayFactory({
-        composer
-      })
-    }
+    return new MultipleAssociativeArrayFactory({
+      composer
+    })
   }
+}
 
-  return MultipleAssociativeArrayFactoryLocator
-})
+module.exports = MultipleAssociativeArrayFactoryLocator

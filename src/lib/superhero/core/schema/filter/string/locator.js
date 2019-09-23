@@ -1,14 +1,11 @@
+const SchemaFilterString = require('.')
 
-/* eslint-disable no-undef */
-define(['superhero/core/schema/filter/string/index'], function(SchemaFilterString)
+class SchemaFilterStringLocator
 {
-  class SchemaFilterStringLocator
+  locate()
   {
-    locate()
-    {
-      return new SchemaFilterString()
-    }
+    return new SchemaFilterString
   }
+}
 
-  return SchemaFilterStringLocator
-})
+module.exports = SchemaFilterStringLocator

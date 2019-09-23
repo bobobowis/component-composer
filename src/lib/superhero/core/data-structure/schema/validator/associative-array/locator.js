@@ -1,23 +1,19 @@
-/* eslint-disable no-undef */
-define([
-  'superhero/core/data-structure/schema/validator/associative-array/index',
-  'superhero/core/locator/constituent'
-], function(AssociativeArrayValidator, LocatorConstituent)
+const
+LocatorConstituent        = require('superhero/core/locator/constituent'),
+AssociativeArrayValidator = require('.')
+/**
+ * @extends {superhero/core/locator/constituent}
+ */
+class AssociativeArrayValidatorLocator extends LocatorConstituent
 {
   /**
-   * @extends {superhero/core/locator/constituent}
+   * @returns {AssociativeArrayValidator}
    */
-  class AssociativeArrayValidatorLocator extends LocatorConstituent
+  locate()
   {
-    /**
-     * @returns {AssociativeArrayValidator}
-     */
-    locate()
-    {
-      const locator = this.locator
-      return new AssociativeArrayValidator(locator)
-    }
+    const locator = this.locator
+    return new AssociativeArrayValidator(locator)
   }
+}
 
-  return AssociativeArrayValidatorLocator
-})
+module.exports = AssociativeArrayValidatorLocator

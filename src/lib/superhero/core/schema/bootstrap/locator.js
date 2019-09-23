@@ -1,20 +1,20 @@
-/* eslint-disable no-undef */
-define(['superhero/core/schema/bootstrap/index'], function(SchemaBootstrap)
+const SchemaBootstrap = require('.')
+
+class SchemaBootstrapLocator
 {
-  class SchemaBootstrapLocator
+  constructor(locator)
   {
-    constructor(locator)
-    {
-      this.locator = locator
-    }
-
-    locate()
-    {
-      const configuration = this.locator.locate('core/configuration')
-
-      return new SchemaBootstrap(this.locator, configuration)
-    }
+    this.locator = locator
   }
 
-  return SchemaBootstrapLocator
-})
+  locate()
+  {
+    const
+    configuration = this.locator.locate('core/configuration'),
+    path          = this.locator.locate('core/path')
+
+    return new SchemaBootstrap(this.locator, configuration, path)
+  }
+}
+
+module.exports = SchemaBootstrapLocator

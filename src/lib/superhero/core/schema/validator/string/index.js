@@ -1,36 +1,59 @@
-
-/* eslint-disable no-undef */
-define(['superhero/core/schema/validator/string/error/invalid'], function(InvalidStringError)
+const InvalidStringError = require('./error/invalid')
+/**
+ * @implements {SchemaValidator}
+ */
+class SchemaValidatorString
 {
-  /**
-   * @implements {SchemaValidator}
-   */
-  class SchemaValidatorString
+  valid(options, data)
   {
-    valid(options, data)
+    if(typeof data !== 'string')
     {
-      if(typeof data !== 'string')
-        throw new InvalidStringError(`Invalid type: "${typeof data}", string expected`)
+      const msg = `Invalid type: "${typeof data}", string expected`
+      throw new InvalidStringError(msg)
+    }
 
-      if(options['not-empty'] && !data.length)
-        throw new InvalidStringError(`Must not be empty`)
+    if(options['not-empty']
+    && !data.length)
+    {
+      const msg = `Must not be empty`
+      throw new InvalidStringError(msg)
+    }
 
-      if('min' in options && data.length < options.min)
-        throw new InvalidStringError(`String length must be minimum: "${options.min}" long`)
+    if('min' in options
+    && data.length < options.min)
+    {
+      const msg = `String length must be minimum: "${options.min}" long`
+      throw new InvalidStringError(msg)
+    }
 
-      if('max' in options && data.length > options.max)
-        throw new InvalidStringError(`String length can't be more then: "${options.max}" long`)
+    if('max' in options
+    && data.length > options.max)
+    {
+      const msg = `String length can't be more then: "${options.max}" long`
+      throw new InvalidStringError(msg)
+    }
 
-      if(options.enum && !options.enum.includes(data))
-        throw new InvalidStringError(`Expected one of the enumeral values: "${options.enum}"`)
+    if(options.enum
+    &&!options.enum.includes(data))
+    {
+      const msg = `Expected one of the enumeral values: "${options.enum}"`
+      throw new InvalidStringError(msg)
+    }
 
-      if(options.uppercase && data !== data.toUpperCase())
-        throw new InvalidStringError('Uppercase string expected')
+    if(options.uppercase
+    && data !== data.toUpperCase())
+    {
+      const msg = `Upper case string expected`
+      throw new InvalidStringError(msg)
+    }
 
-      if(options.lowercase  && data !== data.toLowerCase())
-        throw new InvalidStringError('Lower case string expected')
+    if(options.lowercase
+    && data !== data.toLowerCase())
+    {
+      const msg = `Lower case string expected`
+      throw new InvalidStringError(msg)
     }
   }
+}
 
-  return SchemaValidatorString
-})
+module.exports = SchemaValidatorString

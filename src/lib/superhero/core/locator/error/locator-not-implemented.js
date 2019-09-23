@@ -1,15 +1,10 @@
-/* eslint-disable no-undef */
-define(function()
+class LocatorNotImplementedError extends Error
 {
-  class LocatorNotImplementedError extends Error
+  constructor(...a)
   {
-    constructor(...a)
-    {
-      super(...a)
-      this.code = 'E_LOCATOR_NOT_IMPLEMENTED'
-    }
+    super(...a)
+    this.code = 'E_LOCATOR_NOT_IMPLEMENTED'
   }
+}
 
-  return LocatorNotImplementedError
-})
-
+module.exports = LocatorNotImplementedError

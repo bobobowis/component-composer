@@ -1,21 +1,18 @@
+const FailedToCloneError = require('./error/failed-to-clone')
 
-/* eslint-disable no-undef */
-define(['superhero/core/deepclone/error/failed-to-clone'], function(FailedToCloneError)
+class DeepClone
 {
-  class DeepClone
+  clone(obj)
   {
-    clone(obj)
+    try
     {
-      try
-      {
-        return JSON.parse(JSON.stringify(obj))
-      }
-      catch(error)
-      {
-        throw new FailedToCloneError(error.message)
-      }
+      return JSON.parse(JSON.stringify(obj))
+    }
+    catch(error)
+    {
+      throw new FailedToCloneError(error.message)
     }
   }
+}
 
-  return DeepClone
-})
+module.exports = DeepClone

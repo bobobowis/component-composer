@@ -1,14 +1,11 @@
+const SchemaFilterJson = require('.')
 
-/* eslint-disable no-undef */
-define(['superhero/core/schema/filter/json/index'], function(SchemaFilterJson)
+class SchemaFilterJsonLocator
 {
-  class SchemaFilterJsonLocator
+  locate()
   {
-    locate()
-    {
-      return new SchemaFilterJson()
-    }
+    return new SchemaFilterJson
   }
+}
 
-  return SchemaFilterJsonLocator
-})
+module.exports = SchemaFilterJsonLocator

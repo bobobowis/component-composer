@@ -1,21 +1,17 @@
-/* eslint-disable no-undef */
-define(function()
+class DeepFreeze
 {
-  class DeepFreeze
+  freeze(obj)
   {
-    freeze(obj)
+    const propNames = Object.getOwnPropertyNames(obj)
+
+    for(const name of propNames)
     {
-      const propNames = Object.getOwnPropertyNames(obj)
-
-      for(const name of propNames)
-      {
-        const value = obj[name]
-        obj[name] = value && typeof value === 'object' ? this.freeze(value) : value
-      }
-
-      return Object.freeze(obj)
+      const value = obj[name]
+      obj[name] = value && typeof value === 'object' ? this.freeze(value) : value
     }
-  }
 
-  return DeepFreeze
-})
+    return Object.freeze(obj)
+  }
+}
+
+module.exports = DeepFreeze

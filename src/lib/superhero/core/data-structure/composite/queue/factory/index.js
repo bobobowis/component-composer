@@ -1,23 +1,19 @@
-/* eslint-disable no-undef */
-define([
-  'superhero/core/data-structure/composite/queue/index'
-], function(Queue)
-{
-  class QueueFactory
-  {
-    constructor({
-      composer
-    })
-    {
-      this.composer = composer
-    }
+const Queue = require('..')
 
-    create(items = [])
-    {
-      const args = this.composer.compose('data-structure/queue', { items })
-      return new Queue(args)
-    }
+class QueueFactory
+{
+  constructor({
+    composer
+  })
+  {
+    this.composer = composer
   }
 
-  return QueueFactory
-})
+  create(items = [])
+  {
+    const args = this.composer.compose('data-structure/queue', { items })
+    return new Queue(args)
+  }
+}
+
+module.exports = QueueFactory

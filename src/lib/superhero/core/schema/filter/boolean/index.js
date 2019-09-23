@@ -1,46 +1,44 @@
-/* eslint-disable no-undef */
-define(function()
+/**
+ * @implements {SchemaFilter}
+ */
+class SchemaFilterBoolean
 {
-  /**
-   * @implements {SchemaFilter}
-   */
-  class SchemaFilterBoolean
+  filter(options, data)
   {
-    filter(options, data)
-    {
-      return options.collection ? this.filterCollection(data) : this.filterSingle(data)
-    }
-
-    filterCollection(data)
-    {
-      if(!Array.isArray(data))
-        return data
-
-      const collection = []
-
-      for(const item of data)
-      {
-        const filtered = this.filterSingle(item)
-        collection.push(filtered)
-      }
-
-      return collection
-    }
-
-    filterSingle(data)
-    {
-      if(typeof data === 'string')
-      {
-        if(data.toLowerCase() === 'true')
-          return true
-
-        if(data.toLowerCase() === 'false')
-          return false
-      }
-
-      return data
-    }
+    return options.collection
+    ? this.filterCollection(data)
+    : this.filterSingle(data)
   }
 
-  return SchemaFilterBoolean
-})
+  filterCollection(data)
+  {
+    if(!Array.isArray(data))
+      return data
+
+    const collection = []
+
+    for(const item of data)
+    {
+      const filtered = this.filterSingle(item)
+      collection.push(filtered)
+    }
+
+    return collection
+  }
+
+  filterSingle(data)
+  {
+    if(typeof data === 'string')
+    {
+      if(data.toLowerCase() === 'true')
+        return true
+
+      if(data.toLowerCase() === 'false')
+        return false
+    }
+
+    return data
+  }
+}
+
+module.exports = SchemaFilterBoolean

@@ -1,25 +1,22 @@
-/* eslint-disable no-undef */
-define([
-  'superhero/core/data-structure/composite/stack/factory/index',
-  'superhero/core/locator/constituent'
-], function(StackFactory, LocatorConstituent)
+const
+LocatorConstituent  = require('superhero/core/locator/constituent'),
+StackFactory        = require('.')
+
+/**
+ * @extends {superhero/core/locator/constituent}
+ */
+class StackFactoryLocator extends LocatorConstituent
 {
   /**
-   * @extends {superhero/core/locator/constituent}
+   * @returns {StackFactory}
    */
-  class StackFactoryLocator extends LocatorConstituent
+  locate()
   {
-    /**
-     * @returns {StackFactory}
-     */
-    locate()
-    {
-      const composer = this.locator.locate('core/schema/composer')
-      return new StackFactory({
-        composer
-      })
-    }
+    const composer = this.locator.locate('core/schema/composer')
+    return new StackFactory({
+      composer
+    })
   }
+}
 
-  return StackFactoryLocator
-})
+module.exports = StackFactoryLocator

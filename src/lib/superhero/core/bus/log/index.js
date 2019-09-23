@@ -1,16 +1,12 @@
-/* eslint-disable no-undef */
-define(function()
+/**
+ * @implements {superhero/core/eventbus/observer}
+ */
+class LogObserver
 {
-  /**
-   * @implements {superhero/core/eventbus/observer}
-   */
-  class LogObserver
+  observe(data)
   {
-    observe(data)
-    {
-      console.log(JSON.stringify(data))
-    }
+    console.log(JSON.stringify(data))
   }
+}
 
-  return LogObserver
-})
+module.exports = LogObserver
