@@ -160,25 +160,36 @@ describe('Deepassign', () =>
 
   it('When property is not an object, it should throw an error', () =>
   {
-    expect(() =>
-    {
-      const
-      obj   = {
+    const
+    obj   = {
+      'a' : 'a',
+      'b' : {
         'a' : 'a',
-        'b' : {
-          'a' : 'a',
-          'b' : [1, 2, 3]
-        },
-        'c' : {
-          'a' : 'a',
-          'b' : [{ 'a': 'a' }]
-        }
+        'b' : [1, 2, 3]
       },
-      path  = 'c.not-exists.this-neither',
-      value = 4
+      'c' : {
+        'a' : 'a',
+        'b' : [{ 'a': 'a' }]
+      }
+    },
+    path  = 'c.not-exists.this-neither',
+    value = 4,
+    modified = deepassign.assign(obj, path, value)
 
-      deepassign.assign(obj, path, value)
-    }).to.throw(/Expected and object for assigning properties: c\.not-exists/)
+    expect(modified).to.deep.equal({
+      'a' : 'a',
+      'b' : {
+        'a' : 'a',
+        'b' : [1, 2, 3]
+      },
+      'c' : {
+        'a'          : 'a',
+        'b'          : [{ 'a': 'a' }],
+        'not-exists' : {
+          'this-neither' : 4
+        }
+      }
+    })
   })
 
   it('When array element is not an object, it should throw an error', () =>
