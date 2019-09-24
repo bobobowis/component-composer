@@ -13,7 +13,7 @@
     "linter": "eslint src/**/**.js",
     "linter-and-fix": "eslint src/**/**.js --fix",
     "build": "babel src -d dist",
-    "start": "node src/lib/superhero/core/index.js"
+    "frontender": "node src/core/frontender/index.js"
   },
   "keywords": [
     "handlebars",

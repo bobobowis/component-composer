@@ -2,17 +2,8 @@
 describe('Deepassign', () =>
 {
   const
-  expect    = require('chai').expect,
-  path      = require('path'),
-  requirejs = require('requirejs')
-
-  requirejs.config({
-    'baseUrl' : path.resolve(__dirname,  '../src/lib'),
-    'paths'   :
-    {
-      'core' : path.resolve(__dirname,  '../src/lib/superhero/core')
-    }
-  })
+  expect      = require('chai').expect,
+  CoreFactory = require('../src/core/factory')
 
   let
   core,
@@ -20,18 +11,14 @@ describe('Deepassign', () =>
 
   before((done) =>
   {
-    requirejs(['superhero/core/factory'], (CoreFactory) =>
-    {
-      const coreFactory = new CoreFactory()
+    const coreFactory = new CoreFactory()
 
-      core = coreFactory.create()
+    core = coreFactory.create()
 
-      core.load().then(() =>
-      {
-        deepassign = core.locate('core/deepassign')
-        done()
-      })
-    })
+    core.load()
+
+    deepassign = core.locate('core/deepassign')
+    done()
   })
 
   it('Can replace value a property', () =>

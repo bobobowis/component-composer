@@ -2,17 +2,8 @@
 describe('Collection Validator', () =>
 {
   const
-  expect    = require('chai').expect,
-  path      = require('path'),
-  requirejs = require('requirejs')
-
-  requirejs.config({
-    'baseUrl' : path.resolve(__dirname,  '../src/lib'),
-    'paths'   :
-    {
-      'core' : path.resolve(__dirname,  '../src/lib/superhero/core')
-    }
-  })
+  expect      = require('chai').expect,
+  CoreFactory = require('../src/core/factory')
 
   let
   core,
@@ -20,22 +11,18 @@ describe('Collection Validator', () =>
 
   before((done) =>
   {
-    requirejs(['superhero/core/factory'], (CoreFactory) =>
+    const coreFactory = new CoreFactory()
+
+    core = coreFactory.create()
+
+    core.add('core/data-structure')
+
+    core.load()
+
+    core.locate('core/bootstrap').bootstrap().then(() =>
     {
-      const coreFactory = new CoreFactory()
-
-      core = coreFactory.create()
-
-      core.add('core/data-structure')
-
-      core.load().then(() =>
-      {
-        core.locate('core/bootstrap').bootstrap().then(() =>
-        {
-          validator = core.locate('core/schema/validator/collection')
-          done()
-        })
-      })
+      validator = core.locate('core/schema/validator/collection')
+      done()
     })
   })
 
