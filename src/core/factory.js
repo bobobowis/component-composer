@@ -1,21 +1,24 @@
 const
-Core = require('..'),
-Locator       = require('./locator'),
-Deepclone     = require('./deepclone'),
-Deepfreeze    = require('./deepfreeze'),
-Deepfind      = require('./deepfind'),
-Deepmerge     = require('./deepmerge'),
-DeepAssign    = require('./deepassign'),
-Path          = require('./path'),
-Configuration = require('./configuration')
+Core                  = require('..'),
+Locator               = require('./locator'),
+Deepclone             = require('./deepclone'),
+Deepfreeze            = require('./deepfreeze'),
+Deepfind              = require('./deepfind'),
+Deepmerge             = require('./deepmerge'),
+DeepAssign            = require('./deepassign'),
+Configuration         = require('./configuration'),
+BrowserConfigFetcher  = require('./browser-config-fetcher'),
+BrowserServiceLoader  = require('./browser-service-loader')
 
 class CoreFactory
 {
   create()
   {
     const
-    locator = this.createLocator(),
-    core    = new Core(locator)
+    locator       = this.createLocator(),
+    configFetcher = new BrowserConfigFetcher(locator),
+    serviceLoader = new BrowserServiceLoader(locator),
+    core          = new Core(locator, configFetcher, serviceLoader)
 
     core.add('core/bootstrap')
     core.add('core/schema')
@@ -31,7 +34,6 @@ class CoreFactory
   {
     const
     locator       = new Locator(),
-    path          = new Path(),
     deepclone     = new Deepclone(),
     deepfreeze    = new Deepfreeze(),
     deepmerge     = new Deepmerge(),
@@ -40,7 +42,6 @@ class CoreFactory
     configuration = new Configuration(deepclone, deepmerge, deepfind, deepfreeze)
 
     locator.set('core/deepclone', deepclone)
-    locator.set('core/path', path)
     locator.set('core/deepfreeze', deepfreeze)
     locator.set('core/deepmerge', deepmerge)
     locator.set('core/deepfind', deepfind)

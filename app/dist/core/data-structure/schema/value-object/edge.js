@@ -1,0 +1,1 @@
+"use strict";module.exports={source:{type:"string","not-empty":!1,optional:!0},target:{type:"string","not-empty":!1},payload:{type:"json"}};

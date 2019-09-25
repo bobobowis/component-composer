@@ -1,0 +1,1 @@
+"use strict";module.exports={"@meta":{immutable:!1,extends:["data-structure/graph"]},root:{type:"string",optional:!0,nullable:!0}};

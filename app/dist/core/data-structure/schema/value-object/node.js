@@ -1,0 +1,1 @@
+"use strict";module.exports={id:{type:"string","not-empty":!1},name:{type:"string","not-empty":!1}};

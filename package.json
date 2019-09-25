@@ -12,7 +12,8 @@
     "tester": "eslint src/**/**.js && nyc mocha src/**/*.test.js test/**/*.test.js",
     "linter": "eslint src/**/**.js",
     "linter-and-fix": "eslint src/**/**.js --fix",
-    "build": "babel src -d dist",
+    "build": "babel src/core -d app/dist/core",
+    "webpack": "webpack --progress --profile",
     "frontender": "node src/core/frontender/index.js"
   },
   "keywords": [
@@ -36,7 +37,9 @@
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
     "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "@babel/polyfill": "^7.6.0",
     "@babel/preset-env": "^7.1.6",
+    "babel-loader": "^8.0.6",
     "babel-preset-minify": "^0.5.0",
     "chai": "^4.2.0",
     "eslint": "^5.9.0",
@@ -52,9 +55,10 @@
     "mochawesome": "^3.1.1",
     "nyc": "^13.1.0",
     "tui-jsdoc-template": "^1.2.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "4.29.6",
     "webpack-bundle-analyzer": "3.1.0",
-    "webpack-cli": "3.3.2"
+    "webpack-cli": "^3.3.9"
   },
   "publishConfig": {
     "access": "public"

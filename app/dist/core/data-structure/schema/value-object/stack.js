@@ -1,0 +1,1 @@
+"use strict";module.exports={items:{type:"collection",default:[]}};

@@ -1,0 +1,1 @@
+"use strict";module.exports={"@meta":{immutable:!1,extends:["data-structure/associative-array"]},items:{type:"custom-json","custom-json":{type:"collection"},default:{}}};

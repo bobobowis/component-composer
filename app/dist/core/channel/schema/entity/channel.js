@@ -1,0 +1,1 @@
+"use strict";module.exports={id:{type:"string","not-empty":!0},observers:{type:"data-structure/multiple-associative-array"}};

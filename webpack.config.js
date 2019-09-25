@@ -8,21 +8,24 @@ module.exports = {
   mode  : 'production', /* Sets process.env.NODE_ENV on DefinePlugin to value production. Enables FlagDependencyUsagePlugin, FlagIncludedChunksPlugin, ModuleConcatenationPlugin, NoEmitOnErrorsPlugin, OccurrenceOrderPlugin, SideEffectsFlagPlugin and UglifyJsPlugin. */
   entry :
   {
-    'polyfills'           : '@babel/polyfill',
+    'polyfills' : '@babel/polyfill',
     //layout
-    'index'   : './src/ui/index.js',
+    'index'     : path.join(__dirname, 'app/index.js'),
     /* If needed, client-side js for each view must be added here. We use differents entries to reduce javascript size in views */
   },
   output :
   {
-    path     : path.join(__dirname, 'webpacked'),
+    path     : path.join(__dirname, 'app/webpacked'),
     filename : '[name].bundle.js'
     // path: '/home/proj/cdn/assets/[hash]',
     // publicPath: 'https://cdn.example.com/assets/[hash]/'
   },
   resolve:
   {
-    modulesDirectories: ['public/js', 'node_modules'],
+    modules: ['node_modules'],
+    alias  : {
+      'src' : path.resolve(__dirname, 'src'),
+    }
     // alias:
     // {
     //   "backbone": "lib/backbone-1.1.0",
@@ -77,5 +80,8 @@ module.exports = {
       chunks: 'all'
     }
   },
-  devtool : 'source-map'
+  devtool : 'source-map',
+  node : {
+    __dirname : false
+  }
 }

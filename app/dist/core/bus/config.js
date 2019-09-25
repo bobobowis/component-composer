@@ -1,0 +1,1 @@
+"use strict";module.exports={core:{bootstrap:{bus:"core/bus/bootstrap"},bus:{options:{},channels:{events:{observers:{logged:{"core/bus/log":!0}}}}},schema:{composer:{"core/bus":"".concat(__dirname,"/schema/entity/bus")}},locator:{"core/bus/factory":"".concat(__dirname,"/factory"),"core/bus/bootstrap":"".concat(__dirname,"/bootstrap"),"core/bus/log":"".concat(__dirname,"/log")}}};
