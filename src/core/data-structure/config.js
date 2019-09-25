@@ -1,3 +1,5 @@
+const dirname = 'core/data-structure'
+
 module.exports = {
   'core' :
   {
@@ -14,14 +16,14 @@ module.exports = {
     {
       'composer' :
       {
-        'data-structure/associative-array'          : `${__dirname}/schema/value-object/associative-array`,
-        'data-structure/multiple-associative-array' : `${__dirname}/schema/value-object/multiple-associative-array`,
-        'data-structure/queue'                      : `${__dirname}/schema/value-object/queue`,
-        'data-structure/stack'                      : `${__dirname}/schema/value-object/stack`,
-        'data-structure/edge'                       : `${__dirname}/schema/value-object/edge`,
-        'data-structure/graph'                      : `${__dirname}/schema/value-object/graph`,
-        'data-structure/node'                       : `${__dirname}/schema/value-object/node`,
-        'data-structure/tree'                       : `${__dirname}/schema/value-object/tree`
+        'data-structure/associative-array'          : `${dirname}/schema/value-object/associative-array`,
+        'data-structure/multiple-associative-array' : `${dirname}/schema/value-object/multiple-associative-array`,
+        'data-structure/queue'                      : `${dirname}/schema/value-object/queue`,
+        'data-structure/stack'                      : `${dirname}/schema/value-object/stack`,
+        'data-structure/edge'                       : `${dirname}/schema/value-object/edge`,
+        'data-structure/graph'                      : `${dirname}/schema/value-object/graph`,
+        'data-structure/node'                       : `${dirname}/schema/value-object/node`,
+        'data-structure/tree'                       : `${dirname}/schema/value-object/tree`
       },
       'validator' :
       {
@@ -33,16 +35,16 @@ module.exports = {
     },
     'locator' :
     {
-      'core/schema/validator/collection'                                : `${__dirname}/schema/validator/collection`,
-      'core/schema/validator/custom-json'                               : `${__dirname}/schema/validator/custom-json`,
-      'core/schema/validator/data-structure/associative-array'          : `${__dirname}/schema/validator/associative-array`,
-      'core/schema/validator/data-structure/multiple-associative-array' : `${__dirname}/schema/validator/multiple-associative-array`,
-      'data-structure/associative-array/factory'                        : `${__dirname}/associative-array/factory`,
-      'data-structure/multiple-associative-array/factory'               : `${__dirname}/multiple-associative-array/factory`,
-      'data-structure/queue/factory'                                    : `${__dirname}/queue/factory`,
-      'data-structure/stack/factory'                                    : `${__dirname}/stack/factory`,
-      'data-structure/graph/factory'                                    : `${__dirname}/graph/factory`,
-      'data-structure/tree/factory'                                     : `${__dirname}/tree/factory`
+      'core/schema/validator/collection'                                : `${dirname}/schema/validator/collection`,
+      'core/schema/validator/custom-json'                               : `${dirname}/schema/validator/custom-json`,
+      'core/schema/validator/data-structure/associative-array'          : `${dirname}/schema/validator/associative-array`,
+      'core/schema/validator/data-structure/multiple-associative-array' : `${dirname}/schema/validator/multiple-associative-array`,
+      'data-structure/associative-array/factory'                        : `${dirname}/associative-array/factory`,
+      'data-structure/multiple-associative-array/factory'               : `${dirname}/multiple-associative-array/factory`,
+      'data-structure/queue/factory'                                    : `${dirname}/queue/factory`,
+      'data-structure/stack/factory'                                    : `${dirname}/stack/factory`,
+      'data-structure/graph/factory'                                    : `${dirname}/graph/factory`,
+      'data-structure/tree/factory'                                     : `${dirname}/tree/factory`
     }
   }
 }

@@ -1,9 +1,11 @@
+const dirname = 'core/bootstrap'
+
 module.exports = {
   'core' :
   {
     'locator' :
     {
-      'core/bootstrap' : __dirname
+      'core/bootstrap' : dirname
     }
   }
 }

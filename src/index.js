@@ -1,6 +1,4 @@
-const
-ComponentNotResolvableError             = require('./core/error/component-not-resolvable'),
-ServiceUnableToResolveDependenciesError = require('./core/error/service-unable-to-resolve-dependencies')
+const ServiceUnableToResolveDependenciesError = require('./core/error/service-unable-to-resolve-dependencies')
 
 class Core
 {
@@ -40,28 +38,7 @@ class Core
     serviceNames  = Object.keys(serviceMap)
 
     // eager loading the services in the sevice locator
-    this.loadServiceRecursion(serviceNames)
-  }
-
-  fetchComponentConfig(component, pathname)
-  {
-    const
-    path          = this.locate('core/path'),
-    specifiedPath = `${pathname}/config`,
-    localPath     = `${path.main.dirname}/${component}/config`,
-    absolutePath  = `${component}/config`,
-    corePath      = `${__dirname}/${component}/config`
-
-    if(path.isResolvable(specifiedPath)) // TODO, cannot do in webpack
-      return require(specifiedPath)
-    else if(path.isResolvable(localPath))
-      return require(localPath)
-    else if(path.isResolvable(absolutePath))
-      return require(absolutePath)
-    else if(path.isResolvable(corePath))
-      return require(corePath)
-    else
-      throw new ComponentNotResolvableError(`could not resolve path to component "${component}"`)
+    await this.loadServiceRecursion(serviceNames)
   }
 
   /**

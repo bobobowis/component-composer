@@ -23,16 +23,13 @@ module.exports = {
   resolve:
   {
     modules: ['node_modules'],
-    alias  : {
-      'src' : path.resolve(__dirname, 'src'),
+    alias:
+    {
+      "src": path.join(__dirname, 'src')
+      // "jquery": "lib/jquery-1.10.2",
+      // "underscore": "lib/lodash.underscore-2.3.0",
+      // "jqueryUI": "lib/jquery-ui.min"
     }
-    // alias:
-    // {
-    //   "backbone": "lib/backbone-1.1.0",
-    //   "jquery": "lib/jquery-1.10.2",
-    //   "underscore": "lib/lodash.underscore-2.3.0",
-    //   "jqueryUI": "lib/jquery-ui.min"
-    // }
   },
 
   module : {
@@ -81,7 +78,7 @@ module.exports = {
     }
   },
   devtool : 'source-map',
-  node : {
-    __dirname : false
+  node: {
+    __dirname: true
   }
 }

@@ -1,3 +1,5 @@
+const dirname = 'core/channel'
+
 module.exports = {
   'core' :
   {
@@ -11,15 +13,15 @@ module.exports = {
     {
       'composer' :
       {
-        'core/channel/event-meta' : `${__dirname}/schema/dto/event-meta`,
-        'core/channel/event'      : `${__dirname}/schema/dto/event`,
-        'core/channel'            : `${__dirname}/schema/entity/channel`
+        'core/channel/event-meta' : `${dirname}/schema/dto/event-meta`,
+        'core/channel/event'      : `${dirname}/schema/dto/event`,
+        'core/channel'            : `${dirname}/schema/entity/channel`
       }
     },
     'locator' :
     {
-      'core/channel/factory' : `${__dirname}/factory`,
-      'core/channel'         : __dirname
+      'core/channel/factory' : `${dirname}/factory`,
+      'core/channel'         : dirname
     }
   }
 }

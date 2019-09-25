@@ -9,8 +9,8 @@ class SchemaValidatorJson
     try
     {
       options.stringified
-      ? JSON.parse(data)
-      : JSON.stringify(data)
+        ? JSON.parse(data)
+        : JSON.stringify(data)
     }
     catch(error)
     {

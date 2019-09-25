@@ -12,8 +12,8 @@ class SchemaFilterSchema
   filter(options, data)
   {
     return options.collection
-    ? this.filterCollection(options, data)
-    : this.filterSingle(options, data)
+      ? this.filterCollection(options, data)
+      : this.filterSingle(options, data)
   }
 
   filterCollection(options, data)
@@ -37,13 +37,12 @@ class SchemaFilterSchema
     if(typeof options.schema === 'string')
     {
       return options.trait
-      ? this.composer.trait(options.schema, options.trait, data)
-      : this.composer.compose(options.schema, data)
+        ? this.composer.trait(options.schema, options.trait, data)
+        : this.composer.compose(options.schema, data)
     }
     else
     {
-      const msg = `Expected the attribute "schema" to declare what type of schema `
-      throw new MissingSchemaDefinitionError(msg)
+      throw new MissingSchemaDefinitionError('Expected the attribute "schema" to declare what type of schema ')
     }
   }
 }

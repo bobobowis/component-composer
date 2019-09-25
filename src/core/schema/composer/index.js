@@ -132,8 +132,7 @@ class SchemaComposer
     }
     catch(error)
     {
-      const msg = `Invalid attribute: "${attribute}", schema: "${schemaName}", error: ${error.message}`
-      throw new InvalidAttributeError(msg)
+      throw new InvalidAttributeError(`Invalid attribute: "${attribute}", schema: "${schemaName}", error: ${error.message}`)
     }
 
     return data

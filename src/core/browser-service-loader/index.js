@@ -15,7 +15,12 @@ class BrowserServiceLoader
     {
       try
       {
-        const locator = require.context('src', true, /^locator\.js$/)
+        const
+        configuration = this.locator.locate('core/configuration'),
+        path          = configuration.find('core.locator')[name],
+        Locator       = require(`src/${path}/locator`),
+        locator       = new Locator(this.locator)
+
         try
         {
           const service = locator.locate()

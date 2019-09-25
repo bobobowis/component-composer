@@ -4,7 +4,7 @@ ComponentNotResolvableError = require('../error/component-not-resolvable')
 
 class BrowserConfigFetcher extends ConfigFetcher
 {
-  async fetchComponentConfig(component, url)
+  async fetchComponentConfig(component, path)
   {
     return new Promise(async (resolve, reject) =>
     {
@@ -29,7 +29,7 @@ class BrowserConfigFetcher extends ConfigFetcher
       // }
       try
       {
-        const config = require.context('src', false, /^config\.js$/)
+        const config = require(`src/${path ? path : component}/config`)
         resolve(config)
       }
       catch(error)

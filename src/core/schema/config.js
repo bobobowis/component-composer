@@ -1,3 +1,5 @@
+const dirname = 'core/schema'
+
 module.exports =
 {
   'core' :
@@ -33,24 +35,24 @@ module.exports =
     },
     'locator' :
     {
-      'core/schema/browser-composer'    : `${__dirname}/browser-composer`,
-      'core/schema/bootstrap'           : `${__dirname}/bootstrap`,
-      'core/schema/filter/boolean'      : `${__dirname}/filter/boolean`,
-      'core/schema/filter/csv'          : `${__dirname}/filter/csv`,
-      'core/schema/filter/decimal'      : `${__dirname}/filter/decimal`,
-      'core/schema/filter/integer'      : `${__dirname}/filter/integer`,
-      'core/schema/filter/json'         : `${__dirname}/filter/json`,
-      'core/schema/filter/schema'       : `${__dirname}/filter/schema`,
-      'core/schema/filter/string'       : `${__dirname}/filter/string`,
-      'core/schema/filter/timestamp'    : `${__dirname}/filter/timestamp`,
-      'core/schema/validator/boolean'   : `${__dirname}/validator/boolean`,
-      'core/schema/validator/csv'       : `${__dirname}/validator/csv`,
-      'core/schema/validator/decimal'   : `${__dirname}/validator/decimal`,
-      'core/schema/validator/integer'   : `${__dirname}/validator/integer`,
-      'core/schema/validator/json'      : `${__dirname}/validator/json`,
-      'core/schema/validator/schema'    : `${__dirname}/validator/schema`,
-      'core/schema/validator/string'    : `${__dirname}/validator/string`,
-      'core/schema/validator/timestamp' : `${__dirname}/validator/timestamp`
+      'core/schema/composer'            : `${dirname}/composer`,
+      'core/schema/bootstrap'           : `${dirname}/bootstrap`,
+      'core/schema/filter/boolean'      : `${dirname}/filter/boolean`,
+      'core/schema/filter/csv'          : `${dirname}/filter/csv`,
+      'core/schema/filter/decimal'      : `${dirname}/filter/decimal`,
+      'core/schema/filter/integer'      : `${dirname}/filter/integer`,
+      'core/schema/filter/json'         : `${dirname}/filter/json`,
+      'core/schema/filter/schema'       : `${dirname}/filter/schema`,
+      'core/schema/filter/string'       : `${dirname}/filter/string`,
+      'core/schema/filter/timestamp'    : `${dirname}/filter/timestamp`,
+      'core/schema/validator/boolean'   : `${dirname}/validator/boolean`,
+      'core/schema/validator/csv'       : `${dirname}/validator/csv`,
+      'core/schema/validator/decimal'   : `${dirname}/validator/decimal`,
+      'core/schema/validator/integer'   : `${dirname}/validator/integer`,
+      'core/schema/validator/json'      : `${dirname}/validator/json`,
+      'core/schema/validator/schema'    : `${dirname}/validator/schema`,
+      'core/schema/validator/string'    : `${dirname}/validator/string`,
+      'core/schema/validator/timestamp' : `${dirname}/validator/timestamp`
     }
   }
 }

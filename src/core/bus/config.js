@@ -1,3 +1,5 @@
+const dirname = 'core/bus'
+
 module.exports = {
   'core' :
   {
@@ -28,15 +30,15 @@ module.exports = {
     {
       'composer' :
       {
-        'core/bus' : `${__dirname}/schema/entity/bus`
+        'core/bus' : `${dirname}/schema/entity/bus`
       }
     },
     'locator' :
     {
-      // 'core/bus'           : __dirname,
-      'core/bus/factory'   : `${__dirname}/factory`,
-      'core/bus/bootstrap' : `${__dirname}/bootstrap`,
-      'core/bus/log'       : `${__dirname}/log`
+      // 'core/bus'           : dirname,
+      'core/bus/factory'   : `${dirname}/factory`,
+      'core/bus/bootstrap' : `${dirname}/bootstrap`,
+      'core/bus/log'       : `${dirname}/log`
     }
   }
 }

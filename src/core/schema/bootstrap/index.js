@@ -28,7 +28,7 @@ class SchemaBootstrap
     {
       if(this.path.isResolvable(schemas[schemaName]))
       {
-        const schema = require(schemas[schemaName]) // TODO create webpack CONTEXT
+        const schema = require(`src/${schemas[schemaName]}`) // TODO create webpack CONTEXT
         composer.addSchema(schemaName, schema)
       }
       else
