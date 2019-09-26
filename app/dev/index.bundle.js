@@ -1,6 +1,65 @@
 /******/ (function(modules) { // webpackBootstrap
+/******/ 	// install a JSONP callback for chunk loading
+/******/ 	function webpackJsonpCallback(data) {
+/******/ 		var chunkIds = data[0];
+/******/ 		var moreModules = data[1];
+/******/ 		var executeModules = data[2];
+/******/
+/******/ 		// add "moreModules" to the modules object,
+/******/ 		// then flag all "chunkIds" as loaded and fire callback
+/******/ 		var moduleId, chunkId, i = 0, resolves = [];
+/******/ 		for(;i < chunkIds.length; i++) {
+/******/ 			chunkId = chunkIds[i];
+/******/ 			if(installedChunks[chunkId]) {
+/******/ 				resolves.push(installedChunks[chunkId][0]);
+/******/ 			}
+/******/ 			installedChunks[chunkId] = 0;
+/******/ 		}
+/******/ 		for(moduleId in moreModules) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				modules[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
+/******/
+/******/ 		while(resolves.length) {
+/******/ 			resolves.shift()();
+/******/ 		}
+/******/
+/******/ 		// add entry modules from loaded chunk to deferred list
+/******/ 		deferredModules.push.apply(deferredModules, executeModules || []);
+/******/
+/******/ 		// run deferred modules when all chunks ready
+/******/ 		return checkDeferredModules();
+/******/ 	};
+/******/ 	function checkDeferredModules() {
+/******/ 		var result;
+/******/ 		for(var i = 0; i < deferredModules.length; i++) {
+/******/ 			var deferredModule = deferredModules[i];
+/******/ 			var fulfilled = true;
+/******/ 			for(var j = 1; j < deferredModule.length; j++) {
+/******/ 				var depId = deferredModule[j];
+/******/ 				if(installedChunks[depId] !== 0) fulfilled = false;
+/******/ 			}
+/******/ 			if(fulfilled) {
+/******/ 				deferredModules.splice(i--, 1);
+/******/ 				result = __webpack_require__(__webpack_require__.s = deferredModule[0]);
+/******/ 			}
+/******/ 		}
+/******/ 		return result;
+/******/ 	}
+/******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
+/******/
+/******/ 	// object to store loaded and loading chunks
+/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 	// Promise = chunk loading, 0 = chunk loaded
+/******/ 	var installedChunks = {
+/******/ 		"index": 0
+/******/ 	};
+/******/
+/******/ 	var deferredModules = [];
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -79,9 +138,18 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
+/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
+/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
+/******/ 	jsonpArray.push = webpackJsonpCallback;
+/******/ 	jsonpArray = jsonpArray.slice();
+/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
+/******/ 	var parentJsonpFunction = oldJsonpFunction;
 /******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./app/index.js");
+/******/
+/******/ 	// add entry module to deferred list
+/******/ 	deferredModules.push(["./app/index.js","vendors~index"]);
+/******/ 	// run deferred modules when ready
+/******/ 	return checkDeferredModules();
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -104,7 +172,7 @@ var isIEBrowser=__webpack_require__(/*! ./is-ie-browser */ "./app/is-ie-browser.
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-function asyncGeneratorStep(a,b,c,d,e,f,g){try{var h=a[f](g),i=h.value}catch(a){return void c(a)}h.done?b(i):Promise.resolve(i).then(d,e)}function _asyncToGenerator(a){return function(){var b=this,c=arguments;return new Promise(function(d,e){function f(a){asyncGeneratorStep(h,d,e,f,g,"next",a)}function g(a){asyncGeneratorStep(h,d,e,f,g,"throw",a)}var h=a.apply(b,c);f(void 0)})}}(function(){var a=__webpack_require__(/*! ./dom-ready */ "./app/dom-ready.js"),b=function(){var a=_asyncToGenerator(regeneratorRuntime.mark(function a(){var b,c,d;return regeneratorRuntime.wrap(function(a){for(;;)switch(a.prev=a.next){case 0:return b=__webpack_require__(/*! ../src/core/factory */ "./src/core/factory.js"),c=new b,d=c.create(),d.add("core/channel"),d.add("core/bus"),a.next=5,d.load();case 5:d.locate("core/bootstrap").bootstrap().then(function(){var a=d.locator.locate("core/bus");a.emit({channelId:"events",name:"logged",data:"que paso parce"})});case 6:case"end":return a.stop();}},a)}));return function(){return a.apply(this,arguments)}}();a(b)})(document,window);
+function asyncGeneratorStep(a,b,c,d,e,f,g){try{var h=a[f](g),i=h.value}catch(a){return void c(a)}h.done?b(i):Promise.resolve(i).then(d,e)}function _asyncToGenerator(a){return function(){var b=this,c=arguments;return new Promise(function(d,e){function f(a){asyncGeneratorStep(h,d,e,f,g,"next",a)}function g(a){asyncGeneratorStep(h,d,e,f,g,"throw",a)}var h=a.apply(b,c);f(void 0)})}}(function(){var a=__webpack_require__(/*! ./dom-ready */ "./app/dom-ready.js"),b=function(){var a=_asyncToGenerator(regeneratorRuntime.mark(function a(){var b,c,d;return regeneratorRuntime.wrap(function(a){for(;;)switch(a.prev=a.next){case 0:return b=__webpack_require__(/*! ../src/core/browser-factory */ "./src/core/browser-factory.js"),c=new b,d=c.create(),d.add("core/channel"),d.add("core/bus"),a.next=5,d.load();case 5:d.locate("core/bootstrap").bootstrap().then(function(){var a=d.locator.locate("core/bus");a.emit({channelId:"domain-events",name:"logged",data:"que paso parce"})});case 6:case"end":return a.stop();}},a)}));return function(){return a.apply(this,arguments)}}();a(b)})(document,window);
 
 /***/ }),
 
@@ -140,6 +208,8 @@ var map = {
 	"./core/browser-config-fetcher/": "./src/core/browser-config-fetcher/index.js",
 	"./core/browser-config-fetcher/index": "./src/core/browser-config-fetcher/index.js",
 	"./core/browser-config-fetcher/index.js": "./src/core/browser-config-fetcher/index.js",
+	"./core/browser-factory": "./src/core/browser-factory.js",
+	"./core/browser-factory.js": "./src/core/browser-factory.js",
 	"./core/browser-service-loader": "./src/core/browser-service-loader/index.js",
 	"./core/browser-service-loader/": "./src/core/browser-service-loader/index.js",
 	"./core/browser-service-loader/index": "./src/core/browser-service-loader/index.js",
@@ -164,8 +234,6 @@ var map = {
 	"./core/bus/factory/locator.js": "./src/core/bus/factory/locator.js",
 	"./core/bus/index": "./src/core/bus/index.js",
 	"./core/bus/index.js": "./src/core/bus/index.js",
-	"./core/bus/locator": "./src/core/bus/locator.js",
-	"./core/bus/locator.js": "./src/core/bus/locator.js",
 	"./core/bus/log": "./src/core/bus/log/index.js",
 	"./core/bus/log/": "./src/core/bus/log/index.js",
 	"./core/bus/log/index": "./src/core/bus/log/index.js",
@@ -208,6 +276,18 @@ var map = {
 	"./core/configuration/index.js": "./src/core/configuration/index.js",
 	"./core/configuration/locator": "./src/core/configuration/locator.js",
 	"./core/configuration/locator.js": "./src/core/configuration/locator.js",
+	"./core/console": "./src/core/console/index.js",
+	"./core/console/": "./src/core/console/index.js",
+	"./core/console/config": "./src/core/console/config.js",
+	"./core/console/config.js": "./src/core/console/config.js",
+	"./core/console/factory": "./src/core/console/factory/index.js",
+	"./core/console/factory/": "./src/core/console/factory/index.js",
+	"./core/console/factory/index": "./src/core/console/factory/index.js",
+	"./core/console/factory/index.js": "./src/core/console/factory/index.js",
+	"./core/console/factory/locator": "./src/core/console/factory/locator.js",
+	"./core/console/factory/locator.js": "./src/core/console/factory/locator.js",
+	"./core/console/index": "./src/core/console/index.js",
+	"./core/console/index.js": "./src/core/console/index.js",
 	"./core/data-structure/associative-array": "./src/core/data-structure/associative-array/index.js",
 	"./core/data-structure/associative-array/": "./src/core/data-structure/associative-array/index.js",
 	"./core/data-structure/associative-array/factory": "./src/core/data-structure/associative-array/factory/index.js",
@@ -346,6 +426,8 @@ var map = {
 	"./core/data-structure/tree/locator.js": "./src/core/data-structure/tree/locator.js",
 	"./core/deepassign": "./src/core/deepassign/index.js",
 	"./core/deepassign/": "./src/core/deepassign/index.js",
+	"./core/deepassign/config": "./src/core/deepassign/config.js",
+	"./core/deepassign/config.js": "./src/core/deepassign/config.js",
 	"./core/deepassign/error/not-an-object": "./src/core/deepassign/error/not-an-object.js",
 	"./core/deepassign/error/not-an-object.js": "./src/core/deepassign/error/not-an-object.js",
 	"./core/deepassign/index": "./src/core/deepassign/index.js",
@@ -394,8 +476,6 @@ var map = {
 	"./core/error/service-unable-to-resolve-dependencies.js": "./src/core/error/service-unable-to-resolve-dependencies.js",
 	"./core/error/service-unmet-dependency": "./src/core/error/service-unmet-dependency.js",
 	"./core/error/service-unmet-dependency.js": "./src/core/error/service-unmet-dependency.js",
-	"./core/factory": "./src/core/factory.js",
-	"./core/factory.js": "./src/core/factory.js",
 	"./core/locator": "./src/core/locator/index.js",
 	"./core/locator/": "./src/core/locator/index.js",
 	"./core/locator/constituent": "./src/core/locator/constituent.js",
@@ -406,6 +486,14 @@ var map = {
 	"./core/locator/error/service-undefined.js": "./src/core/locator/error/service-undefined.js",
 	"./core/locator/index": "./src/core/locator/index.js",
 	"./core/locator/index.js": "./src/core/locator/index.js",
+	"./core/object": "./src/core/object/index.js",
+	"./core/object/": "./src/core/object/index.js",
+	"./core/object/config": "./src/core/object/config.js",
+	"./core/object/config.js": "./src/core/object/config.js",
+	"./core/object/index": "./src/core/object/index.js",
+	"./core/object/index.js": "./src/core/object/index.js",
+	"./core/object/locator": "./src/core/object/locator.js",
+	"./core/object/locator.js": "./src/core/object/locator.js",
 	"./core/schema/browser-bootstrap": "./src/core/schema/browser-bootstrap/index.js",
 	"./core/schema/browser-bootstrap/": "./src/core/schema/browser-bootstrap/index.js",
 	"./core/schema/browser-bootstrap/error/schema-not-resolvable": "./src/core/schema/browser-bootstrap/error/schema-not-resolvable.js",
@@ -570,6 +658,14 @@ var map = {
 	"./core/service-loader/": "./src/core/service-loader/index.js",
 	"./core/service-loader/index": "./src/core/service-loader/index.js",
 	"./core/service-loader/index.js": "./src/core/service-loader/index.js",
+	"./core/string": "./src/core/string/index.js",
+	"./core/string/": "./src/core/string/index.js",
+	"./core/string/config": "./src/core/string/config.js",
+	"./core/string/config.js": "./src/core/string/config.js",
+	"./core/string/index": "./src/core/string/index.js",
+	"./core/string/index.js": "./src/core/string/index.js",
+	"./core/string/locator": "./src/core/string/locator.js",
+	"./core/string/locator.js": "./src/core/string/locator.js",
 	"./index": "./src/index.js",
 	"./index.js": "./src/index.js"
 };
@@ -609,13 +705,17 @@ var map = {
 	"./core/channel/config": "./src/core/channel/config.js",
 	"./core/config": "./src/core/config.js",
 	"./core/configuration/config": "./src/core/configuration/config.js",
+	"./core/console/config": "./src/core/console/config.js",
 	"./core/data-structure/config": "./src/core/data-structure/config.js",
 	"./core/data-structure/object/config": "./src/core/data-structure/object/config.js",
+	"./core/deepassign/config": "./src/core/deepassign/config.js",
 	"./core/deepclone/config": "./src/core/deepclone/config.js",
 	"./core/deepfind/config": "./src/core/deepfind/config.js",
 	"./core/deepfreeze/config": "./src/core/deepfreeze/config.js",
 	"./core/deepmerge/config": "./src/core/deepmerge/config.js",
-	"./core/schema/config": "./src/core/schema/config.js"
+	"./core/object/config": "./src/core/object/config.js",
+	"./core/schema/config": "./src/core/schema/config.js",
+	"./core/string/config": "./src/core/string/config.js"
 };
 
 
@@ -651,11 +751,11 @@ var map = {
 	"./core/bootstrap/locator": "./src/core/bootstrap/locator.js",
 	"./core/bus/bootstrap/locator": "./src/core/bus/bootstrap/locator.js",
 	"./core/bus/factory/locator": "./src/core/bus/factory/locator.js",
-	"./core/bus/locator": "./src/core/bus/locator.js",
 	"./core/bus/log/locator": "./src/core/bus/log/locator.js",
 	"./core/channel/factory/locator": "./src/core/channel/factory/locator.js",
 	"./core/channel/locator": "./src/core/channel/locator.js",
 	"./core/configuration/locator": "./src/core/configuration/locator.js",
+	"./core/console/factory/locator": "./src/core/console/factory/locator.js",
 	"./core/data-structure/associative-array/factory/locator": "./src/core/data-structure/associative-array/factory/locator.js",
 	"./core/data-structure/associative-array/locator": "./src/core/data-structure/associative-array/locator.js",
 	"./core/data-structure/graph/factory/locator": "./src/core/data-structure/graph/factory/locator.js",
@@ -679,6 +779,7 @@ var map = {
 	"./core/deepfreeze/locator": "./src/core/deepfreeze/locator.js",
 	"./core/deepmerge/locator": "./src/core/deepmerge/locator.js",
 	"./core/locator": "./src/core/locator/index.js",
+	"./core/object/locator": "./src/core/object/locator.js",
 	"./core/schema/browser-bootstrap/locator": "./src/core/schema/browser-bootstrap/locator.js",
 	"./core/schema/composer/locator": "./src/core/schema/composer/locator.js",
 	"./core/schema/filter/boolean/locator": "./src/core/schema/filter/boolean/locator.js",
@@ -697,7 +798,8 @@ var map = {
 	"./core/schema/validator/json/locator": "./src/core/schema/validator/json/locator.js",
 	"./core/schema/validator/schema/locator": "./src/core/schema/validator/schema/locator.js",
 	"./core/schema/validator/string/locator": "./src/core/schema/validator/string/locator.js",
-	"./core/schema/validator/timestamp/locator": "./src/core/schema/validator/timestamp/locator.js"
+	"./core/schema/validator/timestamp/locator": "./src/core/schema/validator/timestamp/locator.js",
+	"./core/string/locator": "./src/core/string/locator.js"
 };
 
 
@@ -766,6 +868,17 @@ function _typeof(a){return _typeof="function"==typeof Symbol&&"symbol"==typeof S
 
 /***/ }),
 
+/***/ "./src/core/browser-factory.js":
+/*!*************************************!*\
+  !*** ./src/core/browser-factory.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _defineProperties(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}function _createClass(a,b,c){return b&&_defineProperties(a.prototype,b),c&&_defineProperties(a,c),a}var Core=__webpack_require__(/*! .. */ "./src/index.js"),Locator=__webpack_require__(/*! ./locator */ "./src/core/locator/index.js"),Deepclone=__webpack_require__(/*! ./deepclone */ "./src/core/deepclone/index.js"),Deepfreeze=__webpack_require__(/*! ./deepfreeze */ "./src/core/deepfreeze/index.js"),Deepfind=__webpack_require__(/*! ./deepfind */ "./src/core/deepfind/index.js"),Deepmerge=__webpack_require__(/*! ./deepmerge */ "./src/core/deepmerge/index.js"),DeepAssign=__webpack_require__(/*! ./deepassign */ "./src/core/deepassign/index.js"),Configuration=__webpack_require__(/*! ./configuration */ "./src/core/configuration/index.js"),ConfigFetcher=__webpack_require__(/*! ./browser-config-fetcher */ "./src/core/browser-config-fetcher/index.js"),ServiceLoader=__webpack_require__(/*! ./browser-service-loader */ "./src/core/browser-service-loader/index.js"),CoreFactory=function(){function a(){_classCallCheck(this,a)}return _createClass(a,[{key:"create",value:function create(){var a=this.createLocator(),b=new ConfigFetcher(a),c=new ServiceLoader(a),d=new Core(a,b,c);return d.add("core/bootstrap"),d.add("core/console"),d.add("core/schema"),d.add("core/data-structure"),d.add("core/channel"),d.add("core/bus"),d.add("core"),d}},{key:"createLocator",value:function createLocator(){var a=new Locator,b=new Deepclone,c=new Deepfreeze,d=new Deepmerge,e=new Deepfind,f=new DeepAssign(b),g=new Configuration(b,d,e,c);return a.set("core/deepclone",b),a.set("core/deepfreeze",c),a.set("core/deepmerge",d),a.set("core/deepfind",e),a.set("core/deepassign",f),a.set("core/configuration",g),a}}]),a}();module.exports=CoreFactory;
+
+/***/ }),
+
 /***/ "./src/core/browser-service-loader/index.js":
 /*!**************************************************!*\
   !*** ./src/core/browser-service-loader/index.js ***!
@@ -817,7 +930,7 @@ function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot c
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var dirname= false||"core/bus";module.exports={core:{bootstrap:{bus:"core/bus/bootstrap"},bus:{options:{},channels:{events:{observers:{logged:{"core/bus/log":!0}}}}},schema:{composer:{"core/bus":"".concat(dirname,"/schema/entity/bus")}},locator:{"core/bus/factory":"".concat(dirname,"/factory"),"core/bus/bootstrap":"".concat(dirname,"/bootstrap"),"core/bus/log":"".concat(dirname,"/log")}}};
+var dirname= false||"core/bus";module.exports={core:{bootstrap:{bus:"core/bus/bootstrap"},bus:{options:{},channels:{"domain-events":{observers:{logged:{"core/bus/log":!0}}}}},schema:{composer:{"core/bus":"".concat(dirname,"/schema/entity/bus")}},locator:{"core/bus/factory":"".concat(dirname,"/factory"),"core/bus/bootstrap":"".concat(dirname,"/bootstrap"),"core/bus/log":"".concat(dirname,"/log")}}};
 
 /***/ }),
 
@@ -854,17 +967,6 @@ function asyncGeneratorStep(a,b,c,d,e,f,g){try{var h=a[f](g),i=h.value}catch(a){
 
 /***/ }),
 
-/***/ "./src/core/bus/locator.js":
-/*!*********************************!*\
-  !*** ./src/core/bus/locator.js ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
 /***/ "./src/core/bus/log/index.js":
 /*!***********************************!*\
   !*** ./src/core/bus/log/index.js ***!
@@ -872,7 +974,7 @@ function asyncGeneratorStep(a,b,c,d,e,f,g){try{var h=a[f](g),i=h.value}catch(a){
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _defineProperties(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}function _createClass(a,b,c){return b&&_defineProperties(a.prototype,b),c&&_defineProperties(a,c),a}var LogObserver=function(){function a(){_classCallCheck(this,a)}return _createClass(a,[{key:"observe",value:function observe(a){console.log(JSON.stringify(a))}}]),a}();module.exports=LogObserver;
+function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _defineProperties(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}function _createClass(a,b,c){return b&&_defineProperties(a.prototype,b),c&&_defineProperties(a,c),a}var LogObserver=function(){function a(b){_classCallCheck(this,a),this.logConsole=b}return _createClass(a,[{key:"observe",value:function observe(a){this.logConsole.log(a)}}]),a}();module.exports=LogObserver;
 
 /***/ }),
 
@@ -883,7 +985,7 @@ function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot c
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _defineProperties(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}function _createClass(a,b,c){return b&&_defineProperties(a.prototype,b),c&&_defineProperties(a,c),a}var LogObserver=__webpack_require__(/*! . */ "./src/core/bus/log/index.js"),LogObserverLocator=function(){function a(b){_classCallCheck(this,a),this.locator=b}return _createClass(a,[{key:"locate",value:function locate(){return new LogObserver}}]),a}();module.exports=LogObserverLocator;
+function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _defineProperties(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}function _createClass(a,b,c){return b&&_defineProperties(a.prototype,b),c&&_defineProperties(a,c),a}var LogObserver=__webpack_require__(/*! . */ "./src/core/bus/log/index.js"),LogObserverLocator=function(){function a(b){_classCallCheck(this,a),this.locator=b}return _createClass(a,[{key:"locate",value:function locate(){var a=this.locator.locate("core/console/factory"),b=a.create();return new LogObserver(b)}}]),a}();module.exports=LogObserverLocator;
 
 /***/ }),
 
@@ -1038,6 +1140,50 @@ function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot c
 /***/ (function(module, exports, __webpack_require__) {
 
 function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _defineProperties(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}function _createClass(a,b,c){return b&&_defineProperties(a.prototype,b),c&&_defineProperties(a,c),a}var Configuration=__webpack_require__(/*! . */ "./src/core/configuration/index.js"),ConfigurationLocator=function(){function a(b){_classCallCheck(this,a),this.locator=b}return _createClass(a,[{key:"locate",value:function locate(){var a=this.locator.locate("core/deepclone"),b=this.locator.locate("core/deepmerge"),c=this.locator.locate("core/deepfind"),d=new Configuration(a,b,c);return d}}]),a}();module.exports=ConfigurationLocator;
+
+/***/ }),
+
+/***/ "./src/core/console/config.js":
+/*!************************************!*\
+  !*** ./src/core/console/config.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var dirname= false||"core/console";module.exports={core:{console:{default:{maxArrayLength:10,maxObjectDepth:10,maxStringLength:300,date:!0,dateFormat:"yyyy-mm-dd HH:MM:ss",debug:!0,index:!1,prefix:!1,inspect:!0,separator:"\t",colors:!0,showHidden:!1,styles:{special:"cyan",number:"yellow",bigint:"yellow",boolean:"yellow",undefined:"grey",null:"bold",string:"green",symbol:"green",date:"magenta",regexp:"red"}}},locator:{"core/console/factory":"".concat(dirname,"/factory")}}};
+
+/***/ }),
+
+/***/ "./src/core/console/factory/index.js":
+/*!*******************************************!*\
+  !*** ./src/core/console/factory/index.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _objectSpread(a){for(var b=1;b<arguments.length;b++){var c=null==arguments[b]?{}:arguments[b],d=Object.keys(c);"function"==typeof Object.getOwnPropertySymbols&&(d=d.concat(Object.getOwnPropertySymbols(c).filter(function(a){return Object.getOwnPropertyDescriptor(c,a).enumerable}))),d.forEach(function(b){_defineProperty(a,b,c[b])})}return a}function _defineProperty(a,b,c){return b in a?Object.defineProperty(a,b,{value:c,enumerable:!0,configurable:!0,writable:!0}):a[b]=c,a}function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _defineProperties(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}function _createClass(a,b,c){return b&&_defineProperties(a.prototype,b),c&&_defineProperties(a,c),a}var Console=__webpack_require__(/*! .. */ "./src/core/console/index.js"),ConsoleFactory=function(){function a(b){var c=b.util,d=b.dateformat,e=b.console,f=b.defaults,g=b.availableColors;_classCallCheck(this,a),this.util=c,this.dateformat=d,this.console=e,this.defaults=f,this.availableColors=g}return _createClass(a,[{key:"create",value:function create(){var a=0<arguments.length&&void 0!==arguments[0]?arguments[0]:{};return new Console({util:this.util,dateformat:this.dateformat,console:this.console,availableColors:this.availableColors,config:_objectSpread({},this.defaults,a)})}}]),a}();module.exports=ConsoleFactory;
+
+/***/ }),
+
+/***/ "./src/core/console/factory/locator.js":
+/*!*********************************************!*\
+  !*** ./src/core/console/factory/locator.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _defineProperties(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}function _createClass(a,b,c){return b&&_defineProperties(a.prototype,b),c&&_defineProperties(a,c),a}var ConsoleFactory=__webpack_require__(/*! . */ "./src/core/console/factory/index.js"),ConsoleFactoryLocator=function(){function a(b){_classCallCheck(this,a),this.locator=b}return _createClass(a,[{key:"locate",value:function locate(){var a=__webpack_require__(/*! util */ "./node_modules/util/util.js"),b=__webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js"),c=this.locator.locate("core/configuration").find("core.console"),d=c["default"],e=c.colors,f=console;return new ConsoleFactory({util:a,dateformat:b,defaults:d,availableColors:e,console:f})}}]),a}();module.exports=ConsoleFactoryLocator;
+
+/***/ }),
+
+/***/ "./src/core/console/index.js":
+/*!***********************************!*\
+  !*** ./src/core/console/index.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function asyncGeneratorStep(a,b,c,d,e,f,g){try{var h=a[f](g),i=h.value}catch(a){return void c(a)}h.done?b(i):Promise.resolve(i).then(d,e)}function _asyncToGenerator(a){return function(){var b=this,c=arguments;return new Promise(function(d,e){function f(a){asyncGeneratorStep(h,d,e,f,g,"next",a)}function g(a){asyncGeneratorStep(h,d,e,f,g,"throw",a)}var h=a.apply(b,c);f(void 0)})}}function _typeof(a){return _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(a){return typeof a}:function(a){return a&&"function"==typeof Symbol&&a.constructor===Symbol&&a!==Symbol.prototype?"symbol":typeof a},_typeof(a)}function _objectSpread(a){for(var b=1;b<arguments.length;b++){var c=null==arguments[b]?{}:arguments[b],d=Object.keys(c);"function"==typeof Object.getOwnPropertySymbols&&(d=d.concat(Object.getOwnPropertySymbols(c).filter(function(a){return Object.getOwnPropertyDescriptor(c,a).enumerable}))),d.forEach(function(b){_defineProperty(a,b,c[b])})}return a}function _defineProperty(a,b,c){return b in a?Object.defineProperty(a,b,{value:c,enumerable:!0,configurable:!0,writable:!0}):a[b]=c,a}function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _defineProperties(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}function _createClass(a,b,c){return b&&_defineProperties(a.prototype,b),c&&_defineProperties(a,c),a}var Console=function(){function a(b){var c=b.util,d=b.dateformat,e=b.config,f=b.console;_classCallCheck(this,a),this.sn=0,this.util=c,this.dateformat=d,this.config=e,this.console=f,this.util.inspect.styles=_objectSpread({},this.config.styles)}return _createClass(a,[{key:"getInspectOptions",value:function getInspectOptions(){var a={depth:this.config.maxObjectDepth,showHidden:this.config.showHidden,colors:this.config.colors,maxArrayLength:this.config.maxArrayLength};return a}},{key:"escape",value:function escape(a){var b=Math.floor,c=a;if(this.config.maxStringLength&&a.length>this.config.maxStringLength){var d=b(this.config.maxStringLength/2);c=[a.substr(0,d).trim(),a.substr(-d).trim()].join("...")}return c}},{key:"buildOutput",value:function buildOutput(a){var b=[];this.config.date&&b.push(this.dateformat(new Date,this.config.dateFormat)),this.config.prefix&&b.push(this.config.prefix),this.config.index&&b.push(this.sn);var c=!0,d=!1,e=void 0;try{for(var f,g,h=a[Symbol.iterator]();!(c=(f=h.next()).done);c=!0)g=f.value,"object"===_typeof(g)&&this.config.inspect?b.push(this.util.inspect(g,this.getInspectOptions())):"string"==typeof x?b.push(this.escape(g)):b.push(g)}catch(a){d=!0,e=a}finally{try{c||null==h["return"]||h["return"]()}finally{if(d)throw e}}return b.join(this.config.separator)}},{key:"output",value:function output(a,b){var c=Number.MAX_SAFE_INTEGER;if(this.sn=this.sn<c?this.sn+1:0,this.config.debug){var d=this.buildOutput(a);b(d)}}},{key:"log",value:function log(){for(var a=arguments.length,b=Array(a),c=0;c<a;c++)b[c]=arguments[c];this.output(b,this.console.log)}},{key:"info",value:function info(){for(var a=arguments.length,b=Array(a),c=0;c<a;c++)b[c]=arguments[c];this.output.call(b,this.console.log)}},{key:"error",value:function error(){for(var a=arguments.length,b=Array(a),c=0;c<a;c++)b[c]=arguments[c];this.output.call(b,this.console.error)}},{key:"trace",value:function trace(){for(var a=arguments.length,b=Array(a),c=0;c<a;c++)b[c]=arguments[c];this.output.call(b,this.console.trace)}},{key:"table",value:function table(){for(var a=arguments.length,b=Array(a),c=0;c<a;c++)b[c]=arguments[c];this.output.call(b,this.console.table)}},{key:"startTimer",value:function startTimer(a){this.console.time(a)}},{key:"getTimeLog",value:function getTimeLog(a){this.console.timeLog(a)}},{key:"finishTimer",value:function finishTimer(a){this.console.timeEnd(a)}},{key:"group",value:function group(a){a?this.console.groupCollapsed():this.console.group()}},{key:"clear",value:function clear(){this.console.clear()}},{key:"groupEnd",value:function groupEnd(){this.console.groupEnd()}},{key:"measureTime",value:function(){var a=_asyncToGenerator(regeneratorRuntime.mark(function a(b,c){var d,e,f,g=this,h=arguments;return regeneratorRuntime.wrap(function(a){for(;;)switch(a.prev=a.next){case 0:for(d=h.length,e=Array(2<d?d-2:0),f=2;f<d;f++)e[f-2]=h[f];return a.abrupt("return",new Promise(function(){var a=_asyncToGenerator(regeneratorRuntime.mark(function a(d,f){var h;return regeneratorRuntime.wrap(function(a){for(;;)switch(a.prev=a.next){case 0:return a.prev=0,g.trace(e),g.startTimer(b),a.next=5,c(e);case 5:h=a.sent,g.finishTimer(b),d(h),a.next=14;break;case 10:a.prev=10,a.t0=a["catch"](0),g.finishTimer(b),f(a.t0);case 14:case"end":return a.stop();}},a,null,[[0,10]])}));return function(){return a.apply(this,arguments)}}()));case 2:case"end":return a.stop();}},a)}));return function measureTime(){return a.apply(this,arguments)}}()}]),a}();module.exports=Console;
 
 /***/ }),
 
@@ -1591,6 +1737,17 @@ function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot c
 
 /***/ }),
 
+/***/ "./src/core/deepassign/config.js":
+/*!***************************************!*\
+  !*** ./src/core/deepassign/config.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var dirname= false||"core/deepassign";module.exports={core:{locator:{"core/deepassign":dirname}}};
+
+/***/ }),
+
 /***/ "./src/core/deepassign/error/not-an-object.js":
 /*!****************************************************!*\
   !*** ./src/core/deepassign/error/not-an-object.js ***!
@@ -1629,9 +1786,9 @@ function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot c
   !*** ./src/core/deepclone/config.js ***!
   \**************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports={core:{locator:{"core/deepclone":"superhero/core/deepclone"}}};
+var dirname= false||"core/deepclone";module.exports={core:{locator:{"core/deepclone":dirname}}};
 
 /***/ }),
 
@@ -1673,9 +1830,9 @@ function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot c
   !*** ./src/core/deepfind/config.js ***!
   \*************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports={core:{locator:{"core/deepfind":"superhero/core/deepfind"}}};
+var dirname= false||"core/deepfind";module.exports={core:{locator:{"core/deepfind":dirname}}};
 
 /***/ }),
 
@@ -1706,9 +1863,9 @@ function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot c
   !*** ./src/core/deepfreeze/config.js ***!
   \***************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports={core:{locator:{"core/deepfreeze":"superhero/core/deepfreeze"}}};
+var dirname= false||"core/deepfreeze";module.exports={core:{locator:{"core/deepfreeze":dirname}}};
 
 /***/ }),
 
@@ -1739,9 +1896,9 @@ function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot c
   !*** ./src/core/deepmerge/config.js ***!
   \**************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports={core:{locator:{"core/deepmerge":"superhero/core/deepmerge"}}};
+var dirname= false||"core/deepmerge";module.exports={core:{locator:{"core/deepmerge":dirname}}};
 
 /***/ }),
 
@@ -1811,17 +1968,6 @@ function _typeof(a){return _typeof="function"==typeof Symbol&&"symbol"==typeof S
 
 /***/ }),
 
-/***/ "./src/core/factory.js":
-/*!*****************************!*\
-  !*** ./src/core/factory.js ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _defineProperties(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}function _createClass(a,b,c){return b&&_defineProperties(a.prototype,b),c&&_defineProperties(a,c),a}var Core=__webpack_require__(/*! .. */ "./src/index.js"),Locator=__webpack_require__(/*! ./locator */ "./src/core/locator/index.js"),Deepclone=__webpack_require__(/*! ./deepclone */ "./src/core/deepclone/index.js"),Deepfreeze=__webpack_require__(/*! ./deepfreeze */ "./src/core/deepfreeze/index.js"),Deepfind=__webpack_require__(/*! ./deepfind */ "./src/core/deepfind/index.js"),Deepmerge=__webpack_require__(/*! ./deepmerge */ "./src/core/deepmerge/index.js"),DeepAssign=__webpack_require__(/*! ./deepassign */ "./src/core/deepassign/index.js"),Configuration=__webpack_require__(/*! ./configuration */ "./src/core/configuration/index.js"),BrowserConfigFetcher=__webpack_require__(/*! ./browser-config-fetcher */ "./src/core/browser-config-fetcher/index.js"),BrowserServiceLoader=__webpack_require__(/*! ./browser-service-loader */ "./src/core/browser-service-loader/index.js"),CoreFactory=function(){function a(){_classCallCheck(this,a)}return _createClass(a,[{key:"create",value:function create(){var a=this.createLocator(),b=new BrowserConfigFetcher(a),c=new BrowserServiceLoader(a),d=new Core(a,b,c);return d.add("core/bootstrap"),d.add("core/schema"),d.add("core"),d.add("core/data-structure"),d.add("core/channel"),d.add("core/bus"),d}},{key:"createLocator",value:function createLocator(){var a=new Locator,b=new Deepclone,c=new Deepfreeze,d=new Deepmerge,e=new Deepfind,f=new DeepAssign(b),g=new Configuration(b,d,e,c);return a.set("core/deepclone",b),a.set("core/deepfreeze",c),a.set("core/deepmerge",d),a.set("core/deepfind",e),a.set("core/deepassign",f),a.set("core/configuration",g),a}}]),a}();module.exports=CoreFactory;
-
-/***/ }),
-
 /***/ "./src/core/locator/constituent.js":
 /*!*****************************************!*\
   !*** ./src/core/locator/constituent.js ***!
@@ -1863,6 +2009,39 @@ function _typeof(a){return _typeof="function"==typeof Symbol&&"symbol"==typeof S
 /***/ (function(module, exports, __webpack_require__) {
 
 function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _defineProperties(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}function _createClass(a,b,c){return b&&_defineProperties(a.prototype,b),c&&_defineProperties(a,c),a}var ServiceUndefinedError=__webpack_require__(/*! ./error/service-undefined */ "./src/core/locator/error/service-undefined.js"),Locator=function(){function a(){_classCallCheck(this,a),this.services={}}return _createClass(a,[{key:"set",value:function set(a,b){this.services[a]=b}},{key:"has",value:function has(a){return a in this.services}},{key:"locate",value:function locate(a){if(a in this.services)return this.services[a];throw new ServiceUndefinedError("\"".concat(a,"\" can not be located"))}}]),a}();module.exports=Locator;
+
+/***/ }),
+
+/***/ "./src/core/object/config.js":
+/*!***********************************!*\
+  !*** ./src/core/object/config.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var dirname= false||"core/object";module.exports={core:{locator:{"core/object":dirname}}};
+
+/***/ }),
+
+/***/ "./src/core/object/index.js":
+/*!**********************************!*\
+  !*** ./src/core/object/index.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _objectSpread(a){for(var b=1;b<arguments.length;b++){var c=null==arguments[b]?{}:arguments[b],d=Object.keys(c);"function"==typeof Object.getOwnPropertySymbols&&(d=d.concat(Object.getOwnPropertySymbols(c).filter(function(a){return Object.getOwnPropertyDescriptor(c,a).enumerable}))),d.forEach(function(b){_defineProperty(a,b,c[b])})}return a}function _defineProperty(a,b,c){return b in a?Object.defineProperty(a,b,{value:c,enumerable:!0,configurable:!0,writable:!0}):a[b]=c,a}function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _defineProperties(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}function _createClass(a,b,c){return b&&_defineProperties(a.prototype,b),c&&_defineProperties(a,c),a}var CoreObject=function(){function a(b){_classCallCheck(this,a),this.coreString=b}return _createClass(a,[{key:"trimKeys",value:function trimKeys(a){return this.transformKeys(a,this.coreString.trim)}},{key:"hyphenateKeys",value:function hyphenateKeys(a,b){return this.transformKeys(a,this.coreString.hyphenate,b)}},{key:"lowercaseKeys",value:function lowercaseKeys(a){return this.transformKeys(a,this.coreString.lowercase)}},{key:"upppercaseKeys",value:function upppercaseKeys(a){return this.transformKeys(a,this.coreString.uppercase)}},{key:"camelcaseKeys",value:function camelcaseKeys(a){return this.transformKeys(a,this.coreString.camelCase)}},{key:"transformKeys",value:function transformKeys(a,b){for(var c=arguments.length,d=Array(2<c?c-2:0),e=2;e<c;e++)d[e-2]=arguments[e];var f=a||{},g=Object.keys(f),h=g.reduce(function(a,c){return a[b.apply(void 0,[c].concat(d))]=f[c],a},{});return h}},{key:"removeKeys",value:function removeKeys(a){for(var b=a||{},c=_objectSpread({},b),d=arguments.length,e=Array(1<d?d-1:0),f=1;f<d;f++)e[f-1]=arguments[f];for(var g,h=0,i=e;h<i.length;h++)g=i[h],delete c[g];return c}},{key:"removeKeysWithSpecificValues",value:function removeKeysWithSpecificValues(a){for(var b,c=1<arguments.length&&void 0!==arguments[1]?arguments[1]:[],d=a||{},e=_objectSpread({},d),f=Object.keys(e),g=0,h=f;g<h.length;g++)b=h[g],c.includes(e[b])&&delete e[b];return e}}]),a}();module.exports=CoreObject;
+
+/***/ }),
+
+/***/ "./src/core/object/locator.js":
+/*!************************************!*\
+  !*** ./src/core/object/locator.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _defineProperties(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}function _createClass(a,b,c){return b&&_defineProperties(a.prototype,b),c&&_defineProperties(a,c),a}var CoreObject=__webpack_require__(/*! . */ "./src/core/object/index.js"),CoreObjectLocator=function(){function a(b){_classCallCheck(this,a),this.locator=b}return _createClass(a,[{key:"locate",value:function locate(){var a=this.locator.locate("core/string");return new CoreObject(a)}}]),a}();module.exports=CoreObjectLocator;
 
 /***/ }),
 
@@ -2523,6 +2702,39 @@ function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot c
 /***/ (function(module, exports) {
 
 function asyncGeneratorStep(a,b,c,d,e,f,g){try{var h=a[f](g),i=h.value}catch(a){return void c(a)}h.done?b(i):Promise.resolve(i).then(d,e)}function _asyncToGenerator(a){return function(){var b=this,c=arguments;return new Promise(function(d,e){function f(a){asyncGeneratorStep(h,d,e,f,g,"next",a)}function g(a){asyncGeneratorStep(h,d,e,f,g,"throw",a)}var h=a.apply(b,c);f(void 0)})}}function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _defineProperties(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}function _createClass(a,b,c){return b&&_defineProperties(a.prototype,b),c&&_defineProperties(a,c),a}var ServiceLoader=function(){function a(b){_classCallCheck(this,a),this.locator=b}return _createClass(a,[{key:"loadService",value:function(){var a=_asyncToGenerator(regeneratorRuntime.mark(function a(){return regeneratorRuntime.wrap(function(a){for(;;)switch(a.prev=a.next){case 0:throw new Error("Method not implemented");case 1:case"end":return a.stop();}},a)}));return function loadService(){return a.apply(this,arguments)}}()}]),a}();module.exports=ServiceLoader;
+
+/***/ }),
+
+/***/ "./src/core/string/config.js":
+/*!***********************************!*\
+  !*** ./src/core/string/config.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var dirname= false||"core/string";module.exports={core:{locator:{"core/string":dirname}}};
+
+/***/ }),
+
+/***/ "./src/core/string/index.js":
+/*!**********************************!*\
+  !*** ./src/core/string/index.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _defineProperties(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}function _createClass(a,b,c){return b&&_defineProperties(a.prototype,b),c&&_defineProperties(a,c),a}var CoreString=function(){function a(){_classCallCheck(this,a)}return _createClass(a,[{key:"trim",value:function trim(a){return a.trim()}},{key:"capitalize",value:function capitalize(a){return a[0].toUpperCase()+a.slice(1)}},{key:"hyphenate",value:function hyphenate(a){var b=1<arguments.length&&void 0!==arguments[1]?arguments[1]:"-";return a.replace(/\W+/g,b).toLowerCase()}},{key:"camelCase",value:function camelCase(a){var b=this;return a=this.lowercase(a),a=a.split("-").map(function(a,c){return 0===c?a:b.capitalize(a)}).join(""),a}},{key:"lowercase",value:function lowercase(a){return a.toLowerCase()}},{key:"uppercase",value:function uppercase(a){return a.toLowerCase()}}]),a}();module.exports=CoreString;
+
+/***/ }),
+
+/***/ "./src/core/string/locator.js":
+/*!************************************!*\
+  !*** ./src/core/string/locator.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _defineProperties(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}function _createClass(a,b,c){return b&&_defineProperties(a.prototype,b),c&&_defineProperties(a,c),a}var CoreString=__webpack_require__(/*! . */ "./src/core/string/index.js"),CoreStringLocator=function(){function a(b){_classCallCheck(this,a),this.locator=b}return _createClass(a,[{key:"locate",value:function locate(){return new CoreString}}]),a}();module.exports=CoreStringLocator;
 
 /***/ }),
 

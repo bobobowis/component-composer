@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "add-module-exports-webpack-plugin": "^0.1.0",
+    "dateformat": "^3.0.3",
     "handlebars": "^4.3.1",
     "requirejs": "^2.3.6",
     "uuid": "^3.3.2"

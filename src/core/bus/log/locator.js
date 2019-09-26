@@ -9,7 +9,11 @@ class LogObserverLocator
 
   locate()
   {
-    return new LogObserver()
+    const
+    consoleFactory = this.locator.locate('core/console/factory'),
+    logConsole     = consoleFactory.create()
+
+    return new LogObserver(logConsole)
   }
 }
 

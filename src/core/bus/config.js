@@ -19,7 +19,7 @@ module.exports = {
       'options'  : {},
       'channels' :
       {
-        'events' : {
+        'domain-events' : {
           'observers' : {
             'logged' : { 'core/bus/log': true }
           }
@@ -35,7 +35,6 @@ module.exports = {
     },
     'locator' :
     {
-      // 'core/bus'           : dirname,
       'core/bus/factory'   : `${dirname}/factory`,
       'core/bus/bootstrap' : `${dirname}/bootstrap`,
       'core/bus/log'       : `${dirname}/log`

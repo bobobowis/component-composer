@@ -5,7 +5,7 @@
   const callback = async function()
   {
     const
-    CoreFactory = require('../src/core/factory'),
+    CoreFactory = require('../src/core/browser-factory'),
     coreFactory = new CoreFactory(),
     core        = coreFactory.create()
 
@@ -18,7 +18,7 @@
     {
       const bus = core.locator.locate('core/bus')
       bus.emit({
-        channelId : 'events',
+        channelId : 'domain-events',
         name      : 'logged',
         data      : 'que paso parce'
       })

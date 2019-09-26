@@ -1,9 +1,11 @@
+const dirname =  __dirname || 'core/deepclone'
+
 module.exports = {
   'core' :
   {
     'locator' :
     {
-      'core/deepclone' : 'superhero/core/deepclone'
+      'core/deepclone' : dirname
     }
   }
 }

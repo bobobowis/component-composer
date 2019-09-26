@@ -1,14 +1,14 @@
 const
-Core                  = require('..'),
-Locator               = require('./locator'),
-Deepclone             = require('./deepclone'),
-Deepfreeze            = require('./deepfreeze'),
-Deepfind              = require('./deepfind'),
-Deepmerge             = require('./deepmerge'),
-DeepAssign            = require('./deepassign'),
-Configuration         = require('./configuration'),
-BrowserConfigFetcher  = require('./browser-config-fetcher'),
-BrowserServiceLoader  = require('./browser-service-loader')
+Core          = require('..'),
+Locator       = require('./locator'),
+Deepclone     = require('./deepclone'),
+Deepfreeze    = require('./deepfreeze'),
+Deepfind      = require('./deepfind'),
+Deepmerge     = require('./deepmerge'),
+DeepAssign    = require('./deepassign'),
+Configuration = require('./configuration'),
+ConfigFetcher = require('./browser-config-fetcher'),
+ServiceLoader = require('./browser-service-loader')
 
 class CoreFactory
 {
@@ -16,16 +16,17 @@ class CoreFactory
   {
     const
     locator       = this.createLocator(),
-    configFetcher = new BrowserConfigFetcher(locator),
-    serviceLoader = new BrowserServiceLoader(locator),
+    configFetcher = new ConfigFetcher(locator),
+    serviceLoader = new ServiceLoader(locator),
     core          = new Core(locator, configFetcher, serviceLoader)
 
     core.add('core/bootstrap')
+    core.add('core/console')
     core.add('core/schema')
-    core.add('core')
     core.add('core/data-structure')
     core.add('core/channel')
     core.add('core/bus')
+    core.add('core')
 
     return core
   }

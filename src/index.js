@@ -4,10 +4,10 @@ class Core
 {
   constructor(locator, configFetcher, serviceLoader)
   {
-    this.locator        = locator
-    this.configFetcher  = configFetcher
-    this.serviceLoader  = serviceLoader
-    this.components     = {}
+    this.locator           = locator
+    this.configFetcher     = configFetcher
+    this.serviceLoader     = serviceLoader
+    this.components        = {}
   }
 
   add(component, pathname)

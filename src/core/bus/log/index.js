@@ -3,9 +3,14 @@
  */
 class LogObserver
 {
+  constructor(logConsole)
+  {
+    this.logConsole = logConsole
+  }
+
   observe(data)
   {
-    console.log(JSON.stringify(data))
+    this.logConsole.log(data)
   }
 }
 
