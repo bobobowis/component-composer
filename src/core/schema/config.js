@@ -1,4 +1,4 @@
-const dirname = 'core/schema'
+const dirname =  __dirname || 'core/schema'
 
 module.exports =
 {
@@ -36,7 +36,7 @@ module.exports =
     'locator' :
     {
       'core/schema/composer'            : `${dirname}/composer`,
-      'core/schema/bootstrap'           : `${dirname}/bootstrap`,
+      'core/schema/bootstrap'           : `${dirname}/browser-bootstrap`,
       'core/schema/filter/boolean'      : `${dirname}/filter/boolean`,
       'core/schema/filter/csv'          : `${dirname}/filter/csv`,
       'core/schema/filter/decimal'      : `${dirname}/filter/decimal`,

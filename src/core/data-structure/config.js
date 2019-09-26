@@ -1,4 +1,4 @@
-const dirname = 'core/data-structure'
+const dirname =  __dirname || 'core/data-structure'
 
 module.exports = {
   'core' :

@@ -1,4 +1,4 @@
-const dirname = 'core/channel'
+const dirname = __dirname || 'core/channel'
 
 module.exports = {
   'core' :

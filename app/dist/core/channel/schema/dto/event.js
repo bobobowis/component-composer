@@ -1,1 +1,0 @@
-"use strict";module.exports={meta:{type:"schema",schema:"core/channel/event-meta","not-empty":!0},data:{type:"json"}};

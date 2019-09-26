@@ -1,4 +1,4 @@
-const dirname = 'core/configuration'
+const dirname =  __dirname || 'core/configuration'
 
 module.exports = {
   'core' :

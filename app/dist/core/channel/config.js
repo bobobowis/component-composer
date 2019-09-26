@@ -1,1 +1,0 @@
-"use strict";module.exports={core:{schema:{composer:{"core/channel/event-meta":"".concat(__dirname,"/schema/dto/event-meta"),"core/channel/event":"".concat(__dirname,"/schema/dto/event"),"core/channel":"".concat(__dirname,"/schema/entity/channel")}},locator:{"core/channel/factory":"".concat(__dirname,"/factory"),"core/channel":__dirname}}};

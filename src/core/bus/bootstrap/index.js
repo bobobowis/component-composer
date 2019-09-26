@@ -41,7 +41,7 @@ class BusBootstrap
         }
       }
 
-      this.locator.set('core/bus', this.bus)
+      this.locator.set('core/bus', bus)
     }
   }
 }

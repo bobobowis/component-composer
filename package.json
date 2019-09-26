@@ -13,7 +13,7 @@
     "linter": "eslint src/**/**.js",
     "linter-and-fix": "eslint src/**/**.js --fix",
     "build": "babel src/core -d app/dist/core",
-    "webpack": "webpack --progress --profile",
+    "webpack": "webpack --progress --profile --config webpack.config.dev.js",
     "frontender": "node src/core/frontender/index.js"
   },
   "keywords": [
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "add-module-exports-webpack-plugin": "^0.1.0",
-    "handlebars": "^4.0.12",
+    "handlebars": "^4.3.1",
     "requirejs": "^2.3.6",
     "uuid": "^3.3.2"
   },
@@ -48,16 +48,17 @@
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "jsdoc": "^3.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "jsdoc": "^3.6.3",
     "jsdom": "^13.0.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^5.2.0",
     "mochawesome": "^3.1.1",
-    "nyc": "^13.1.0",
+    "nyc": "^14.1.1",
     "tui-jsdoc-template": "^1.2.2",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "4.29.6",
-    "webpack-bundle-analyzer": "3.1.0",
+    "webpack-bundle-analyzer": "^3.5.1",
     "webpack-cli": "^3.3.9"
   },
   "publishConfig": {

@@ -32,10 +32,7 @@ class SchemaComposer
   compose(schemaName, dto)
   {
     if(schemaName in this.schemas === false)
-    {
-      const msg = `Schema: "${schemaName}" not found`
-      throw new SchemaNotFoundError(msg)
-    }
+      throw new SchemaNotFoundError(`Schema: "${schemaName}" not found`)
 
     if(Array.isArray(dto))
       dto = this.deepmerge.merge({}, ...dto)
@@ -67,10 +64,7 @@ class SchemaComposer
   trait(schemaName, attribute, data)
   {
     if(schemaName in this.schemas === false)
-    {
-      const msg = `Schema: "${schemaName}" not found`
-      throw new SchemaNotFoundError(msg)
-    }
+      throw new SchemaNotFoundError(`Schema: "${schemaName}" not found`)
 
     const
     schema = this.schemas[schemaName],
@@ -105,10 +99,7 @@ class SchemaComposer
 
     // Validating type
     if(options.type in this.validators === false)
-    {
-      const msg = `In schema: "${schemaName}", validator: "${options.type}" not found`
-      throw new ValidatorNotFoundError(msg)
-    }
+      throw new ValidatorNotFoundError(`In schema: "${schemaName}", validator: "${options.type}" not found`)
 
     try
     {
@@ -117,10 +108,7 @@ class SchemaComposer
       if(options.collection)
       {
         if(!Array.isArray(data))
-        {
-          const msg = `In schema: "${schemaName}", invalid type: "${typeof data}", array expected`
-          throw new InvalidCollectionError(msg)
-        }
+          throw new InvalidCollectionError(`In schema: "${schemaName}", invalid type: "${typeof data}", array expected`)
 
         for(const item of data)
           validator.valid(options, item)
@@ -182,14 +170,11 @@ class SchemaComposer
   addSchema(schemaName, schema)
   {
     if(typeof schema !== 'object')
-    {
-      const msg = `Schema "${schemaName}" must be an object`
-      throw new InvalidSchemaError(msg)
-    }
+      throw new InvalidSchemaError(`Schema "${schemaName}" must be an object`)
 
     // TODO: Improve validation of the schema when it's added
     // For the moment we can suffer unexpected errors when we start working with the schema
-    // A better approch is to validate the schema structure as a value object
+    // A better approach is to validate the schema structure as a value object
     // ...resulting in a garantee that the schema is of expected definition.
 
     this.schemas[schemaName] = this.deepclone.clone(schema)
@@ -203,10 +188,7 @@ class SchemaComposer
   addFilter(filterName, filter)
   {
     if(typeof filter.filter !== 'function')
-    {
-      const msg = `Filter "${filterName}" not honering contract`
-      throw new FilterIsNotHoneringContractError(msg)
-    }
+      throw new FilterIsNotHoneringContractError(`Filter "${filterName}" not honering contract`)
 
     this.filters[filterName] = filter
   }
@@ -219,10 +201,7 @@ class SchemaComposer
   addValidator(validatorName, validator)
   {
     if(typeof validator.valid !== 'function')
-    {
-      const msg = `Validator "${validatorName}" not honering contract`
-      throw new ValidatorIsNotHoneringContractError(msg)
-    }
+      throw new ValidatorIsNotHoneringContractError(`Validator "${validatorName}" not honering contract`)
 
     this.validators[validatorName] = validator
   }
