@@ -8,7 +8,7 @@
     "generate-doc-coverage": "nyc report --reporter=html --report-dir=./doc/coverage",
     "generate-doc-tests": "mocha src/**/*.test.js test/**/*.test.js --reporter mochawesome --reporter-options reportDir=doc/tests,reportFilename=index,showHooks=always",
     "generate-doc-jsdoc": "jsdoc src -c jsdoc.json",
-    "test": "nyc mocha src/**/*.test.js test/**/*.test.js",
+    "test": "nyc mocha test/**/*.test.js",
     "tester": "eslint src/**/**.js && nyc mocha src/**/*.test.js test/**/*.test.js",
     "linter": "eslint src/**/**.js",
     "linter-and-fix": "eslint src/**/**.js --fix",

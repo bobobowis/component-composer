@@ -13,7 +13,7 @@ class NodeConfigFetcher extends ConfigFetcher
       specifiedPath = `${pathname}/config`,
       localPath     = `${path.main.dirname}/${component}/config`,
       absolutePath  = `${component}/config`,
-      corePath      = `${__dirname}/${component}/config`
+      corePath      = `${path.resolve(__dirname, '../..')}/${component}/config`
 
       if(path.isResolvable(specifiedPath))
         resolve(require(specifiedPath))

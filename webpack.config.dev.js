@@ -27,8 +27,13 @@ module.exports = {
   module : {
     rules : [
       {
-        test   : /\.js$/,
-        loader : 'babel-loader',
+        test    : /\.js$/,
+        loader  : 'babel-loader',
+        exclude : [
+          path.join(__dirname, 'src/core/node-service-loader'),
+          path.join(__dirname, 'src/core/node-config-fetcher'),
+          path.join(__dirname, 'src/core/path')
+        ],
         query  :
         {
           presets : [

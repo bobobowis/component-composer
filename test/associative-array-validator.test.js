@@ -3,21 +3,19 @@ describe('Associative Array Validator', () =>
 {
   const
   expect      = require('chai').expect,
-  CoreFactory = require('../src/core/factory')
+  CoreFactory = require('../src/core/node-factory')
 
   let
   core,
   validator
 
-  before((done) =>
+  before(async (done) =>
   {
     const coreFactory = new CoreFactory()
 
     core = coreFactory.create()
 
-    core.add('core/data-structure')
-
-    core.load()
+    await core.load()
 
     core.locate('core/bootstrap').bootstrap().then(() =>
     {

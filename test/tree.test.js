@@ -2,7 +2,7 @@ describe('Tree', () =>
 {
   const
   expect      = require('chai').expect,
-  CoreFactory = require('../src/core/factory')
+  CoreFactory = require('../src/core/node-factory')
 
   let
   core,
