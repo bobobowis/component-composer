@@ -9,18 +9,19 @@ describe('Associative Array Validator', () =>
   core,
   validator
 
-  before(async (done) =>
+  before((done) =>
   {
     const coreFactory = new CoreFactory()
 
     core = coreFactory.create()
 
-    await core.load()
-
-    core.locate('core/bootstrap').bootstrap().then(() =>
+    core.load().then(() =>
     {
-      validator = core.locate('core/schema/validator/data-structure/associative-array')
-      done()
+      core.locate('core/bootstrap').bootstrap().then(() =>
+      {
+        validator = core.locate('core/schema/validator/data-structure/associative-array')
+        done()
+      })
     })
   })
 

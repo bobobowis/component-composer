@@ -15,10 +15,14 @@ describe('Deepassign', () =>
 
     core = coreFactory.create()
 
-    core.load()
-
-    deepassign = core.locate('core/deepassign')
-    done()
+    core.load().then(() =>
+    {
+      core.locate('core/bootstrap').bootstrap().then(() =>
+      {
+        deepassign = core.locate('core/deepassign')
+        done()
+      })
+    })
   })
 
   it('Can replace value a property', () =>

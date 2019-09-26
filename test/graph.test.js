@@ -14,14 +14,13 @@ describe('Graph', () =>
 
     core = coreFactory.create()
 
-    core.add('core/data-structure')
-
-    core.load()
-
-    core.locate('core/bootstrap').bootstrap().then(() =>
+    core.load().then(() =>
     {
-      factory = core.locate('data-structure/graph/factory')
-      done()
+      core.locate('core/bootstrap').bootstrap().then(() =>
+      {
+        factory = core.locate('data-structure/graph/factory')
+        done()
+      })
     })
   })
 

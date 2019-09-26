@@ -15,14 +15,13 @@ describe('Custom JSON Validator', () =>
 
     core = coreFactory.create()
 
-    core.add('core/data-structure')
-
-    core.load()
-
-    core.locate('core/bootstrap').bootstrap().then(() =>
+    core.load().then(() =>
     {
-      validator = core.locate('core/schema/validator/custom-json')
-      done()
+      core.locate('core/bootstrap').bootstrap().then(() =>
+      {
+        validator = core.locate('core/schema/validator/custom-json')
+        done()
+      })
     })
   })
 

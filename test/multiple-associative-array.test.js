@@ -14,13 +14,13 @@ describe('Multiple Associative Array', () =>
 
     core = coreFactory.create()
 
-    core.add('core/data-structure')
-
-    core.load()
-    core.locate('core/bootstrap').bootstrap().then(() =>
+    core.load().then(() =>
     {
-      factory = core.locate('data-structure/multiple-associative-array/factory')
-      done()
+      core.locate('core/bootstrap').bootstrap().then(() =>
+      {
+        factory = core.locate('data-structure/multiple-associative-array/factory')
+        done()
+      })
     })
   })
 

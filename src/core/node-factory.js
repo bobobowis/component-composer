@@ -26,6 +26,7 @@ class CoreFactory
     core.add('core/object')
     core.add('core/process')
     core.add('core/schema')
+    core.add('core/node-schema-bootstrap')
     core.add('core/string')
     core.add('core/data-structure')
     core.add('core/channel')

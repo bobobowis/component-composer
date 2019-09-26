@@ -31,7 +31,9 @@ module.exports = {
         exclude : [
           path.join(__dirname, 'src/core/node-service-loader'),
           path.join(__dirname, 'src/core/node-config-fetcher'),
-          path.join(__dirname, 'src/core/path')
+          path.join(__dirname, 'src/core/path'),
+          path.join(__dirname, 'src/core/process'),
+          path.join(__dirname, 'src/core/eventbus')
         ],
         query :
         {

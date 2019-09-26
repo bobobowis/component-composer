@@ -23,6 +23,7 @@ class CoreFactory
     core.add('core/bootstrap')
     core.add('core/console')
     core.add('core/schema')
+    core.add('core/browser-schema-bootstrap')
     core.add('core/data-structure')
     core.add('core/channel')
     core.add('core/bus')
