@@ -20,7 +20,8 @@ module.exports = {
     modules: ['node_modules'],
     alias:
     {
-      src : path.join(__dirname, 'src')
+      'src'     : path.resolve(__dirname, 'src'),
+      'core'    : path.resolve(__dirname, 'src/core')
     }
   },
 
@@ -29,14 +30,11 @@ module.exports = {
       {
         test    : /\.js$/,
         loader  : 'babel-loader',
-        exclude : [
-          path.join(__dirname, 'src/core/node-service-loader'),
-          path.join(__dirname, 'src/core/node-config-fetcher'),
-          path.join(__dirname, 'src/core/path'),
-          path.join(__dirname, 'src/core/process'),
-          path.join(__dirname, 'src/core/eventbus')
+        include :
+        [
+          path.resolve(__dirname, 'src/core/node')
         ],
-        query  :
+        options  :
         {
           presets : [
             ['@babel/preset-env']
