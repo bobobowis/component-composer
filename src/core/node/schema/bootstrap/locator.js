@@ -11,7 +11,7 @@ class SchemaBootstrapLocator
   {
     const
     configuration = this.locator.locate('core/configuration'),
-    path          = this.locator.locate('core/node/path')
+    path          = this.locator.locate('core/path')
 
     return new SchemaBootstrap(this.locator, configuration, path)
   }

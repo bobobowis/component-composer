@@ -4,41 +4,46 @@ path    = require('path'),
 webpack = require('webpack')
 
 module.exports = {
-  mode  : 'development',
   entry :
   {
     polyfills : '@babel/polyfill',
-    index     : path.join(__dirname, 'app/index.js')
-  },
-  output :
-  {
-    path     : path.join(__dirname, 'app/dev'),
-    filename : '[name].bundle.js'
+    index     : path.resolve(__dirname, '../../dist/browser/core/browser/app/index.js')
   },
   resolve:
   {
     modules: ['node_modules'],
     alias:
     {
-      'src'     : path.resolve(__dirname, 'src'),
-      'core'    : path.resolve(__dirname, 'src/core')
+      'dist'  : path.resolve(__dirname, '../../dist/browser'),
+      'core'  : path.resolve(__dirname, '../../dist/browser/core')
     }
   },
-
   module : {
     rules : [
       {
         test    : /\.js$/,
         loader  : 'babel-loader',
-        include :
-        [
-          path.resolve(__dirname, 'src/core/node')
-        ],
-        options  :
+        options :
         {
           presets : [
             ['@babel/preset-env']
           ]
+        //{
+        //  "presets": [["minify", {
+        //    "keepFnName": true
+        //  }]]
+        //}
+        // // is the same as
+        //{
+        //  "presets": [["minify", {
+        //    "mangle": {
+        //      "keepFnName": true
+        //     },
+        //     "deadcode": {
+        //      "keepFnName": true
+        //     }
+        //   }]]
+        //}
         }
       }
     ]
@@ -64,19 +69,14 @@ module.exports = {
       chunks: 'all'
     }
   },
-  devtool : 'source-map',
-  target  : 'web',
-  node: {
-    __dirname: true
-  },
+  target : 'web',
   plugins: [
-    new webpack.EnvironmentPlugin({
-      NODE_ENV : 'development',
-      DEBUG    : true
-    }),
     new webpack.DefinePlugin({
       __dirname : false,
       VERSION   : '1.0.0'
     })
-  ]
+  ],
+  node: {
+    __dirname: true
+  }
 }

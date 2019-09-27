@@ -1,4 +1,4 @@
-const SchemaNotResolvable = require('core/common/schema/error/schema-not-resolvable')
+const SchemaNotResolvable = require('../../../common/schema/error/schema-not-resolvable')
 
 class SchemaBootstrap
 {

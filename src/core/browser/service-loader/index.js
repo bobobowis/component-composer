@@ -14,7 +14,7 @@ class BrowserServiceLoader extends ServiceLoader
         const
         configuration = this.locator.locate('core/configuration'),
         path          = configuration.find('core.locator')[name],
-        Locator       = require(`src/${path}/locator`),
+        Locator       = require(`dist/${path}/locator`),
         locator       = new Locator(this.locator)
 
         try

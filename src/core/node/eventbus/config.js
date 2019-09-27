@@ -1,17 +1,20 @@
 module.exports =
 {
-  'bootstrap' :
+  'core' :
   {
-    'eventbus' : 'core/node/eventbus/bootstrap'
-  },
-  'locator' :
-  {
-    'core/node/eventbus'           : __dirname,
-    'core/node/eventbus/bootstrap' : `${__dirname}/bootstrap`
-  },
-  'eventbus' :
-  {
-    'options'   : {},
-    'observers' : {}
+    'bootstrap' :
+    {
+      'eventbus' : 'core/eventbus/bootstrap'
+    },
+    'locator' :
+    {
+      'core/eventbus'           : __dirname,
+      'core/eventbus/bootstrap' : `${__dirname}/bootstrap`
+    },
+    'eventbus' :
+    {
+      'options'   : {},
+      'observers' : {}
+    }
   }
 }

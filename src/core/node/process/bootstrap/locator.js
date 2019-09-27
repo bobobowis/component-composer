@@ -9,7 +9,7 @@ class ProcessBootstrapLocator
 
   locate()
   {
-    const eventbus = this.locator.locate('core/node/eventbus')
+    const eventbus = this.locator.locate('core/eventbus')
     return new ProcessBootstrap(eventbus)
   }
 }

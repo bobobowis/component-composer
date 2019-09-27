@@ -1,15 +1,15 @@
 const
 Core          = require('..'),
-Locator       = require('core/common/locator'),
-Deepclone     = require('core/common/deepclone'),
-Deepfreeze    = require('core/common/deepfreeze'),
-Deepfind      = require('core/common/deepfind'),
-Deepmerge     = require('core/common/deepmerge'),
-DeepAssign    = require('core/common/deepassign'),
-Configuration = require('core/common/configuration'),
-ConfigFetcher = require('core/node/config-fetcher'),
-ServiceLoader = require('core/node/service-loader'),
-Path          = require('core/node/path')
+Locator       = require('../common/locator'),
+Deepclone     = require('../common/deepclone'),
+Deepfreeze    = require('../common/deepfreeze'),
+Deepfind      = require('../common/deepfind'),
+Deepmerge     = require('../common/deepmerge'),
+DeepAssign    = require('../common/deepassign'),
+Configuration = require('../common/configuration'),
+ConfigFetcher = require('./config-fetcher'),
+ServiceLoader = require('./service-loader'),
+Path          = require('./path')
 
 class CoreFactory
 {
@@ -21,16 +21,19 @@ class CoreFactory
     serviceLoader = new ServiceLoader(locator),
     core          = new Core(locator, configFetcher, serviceLoader)
 
-    core.add('core/bootstrap')
-    core.add('core/console')
-    core.add('core/object')
-    core.add('core/schema')
+    core.add('core/common/bootstrap')
+    core.add('core/common/schema')
+    core.add('core/common/object')
+    core.add('core/common/string')
+    core.add('core/common/data-structure')
+
+    core.add('core/node/console')
+    core.add('core/node/eventbus')
     core.add('core/node/process')
     core.add('core/node/schema/bootstrap')
-    core.add('core/string')
-    core.add('core/data-structure')
-    core.add('core/node/eventbus')
-    core.add('core')
+
+    core.add('core/common/channel')
+    core.add('core/common/bus')
 
     return core
   }
@@ -43,12 +46,11 @@ class CoreFactory
     deepfreeze    = new Deepfreeze(),
     deepmerge     = new Deepmerge(),
     deepfind      = new Deepfind(),
-    nodePath      = require('path'),
-    path          = new Path(nodePath),
+    path          = new Path(),
     deepassign    = new DeepAssign(deepclone),
     configuration = new Configuration(deepclone, deepmerge, deepfind, deepfreeze)
 
-    locator.set('core/node/path', path)
+    locator.set('core/path', path)
     locator.set('core/deepclone', deepclone)
     locator.set('core/deepfreeze', deepfreeze)
     locator.set('core/deepmerge', deepmerge)

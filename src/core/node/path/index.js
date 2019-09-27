@@ -1,13 +1,23 @@
+const path = require('path')
+
 class Path
 {
-  constructor(path)
+  constructor()
   {
     const
-    filename  = require.main.filename,
-    dirname   = this.dirname(filename)
+    filename    = require.main.filename,
+    srcPath     = path.resolve(__dirname, '../../..'),
+    nodePath    = path.resolve(__dirname, '../../../node'),
+    browserPath = path.resolve(__dirname, '../../../browser'),
+    commonPath  = path.resolve(__dirname, '../../../common')
 
-    this.main = { filename, dirname }
-    this.path = path
+    this.main   = {
+      filename,
+      srcPath,
+      nodePath,
+      browserPath,
+      commonPath
+    }
   }
 
   /**
@@ -31,7 +41,7 @@ class Path
    */
   dirname(filename)
   {
-    return this.path.dirname(filename)
+    return path.dirname(filename)
   }
 
   /**
@@ -39,7 +49,7 @@ class Path
    */
   normalize(filename)
   {
-    return this.path.normalize(filename)
+    return path.normalize(filename)
   }
 
   /**
@@ -47,7 +57,7 @@ class Path
    */
   extension(filename)
   {
-    return this.path.extname(filename)
+    return path.extname(filename)
   }
 
   /**
@@ -55,12 +65,12 @@ class Path
    */
   isAbsolute(filename)
   {
-    return this.path.isAbsolute(filename)
+    return path.isAbsolute(filename)
   }
 
   resolve(...paths)
   {
-    return this.path.resolve(...paths)
+    return path.resolve(...paths)
   }
 }
 

@@ -27,7 +27,7 @@ class SchemaBootstrap
     {
       try
       {
-        const schema = require(`src/${schemas[schemaName]}`)
+        const schema = require(`dist/${schemas[schemaName]}`)
         composer.addSchema(schemaName, schema)
       }
       catch(error)

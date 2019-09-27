@@ -1,4 +1,4 @@
-const dirname = __dirname || 'core/browser/bus'
+const dirname = __dirname || 'core/common/bus'
 
 module.exports = {
   'core' :

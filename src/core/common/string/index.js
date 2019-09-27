@@ -2,7 +2,40 @@ class CoreString
 {
   trim(s)
   {
-    return s.trim()
+    return s.replace(/\s/g, '')
+  }
+
+  ellipsis(
+    s,
+    maxLength,
+    ellipsis = '...'
+  )
+  {
+    let ellipsed = s
+    if(s && s.length > maxLength)
+      ellipsed = `${s.substr(0, maxLength)}${ellipsis}`
+
+    return ellipsed
+  }
+
+  shorten(
+    s,
+    maxLength,
+    fill = '...'
+  )
+  {
+    let shortened = s
+    if(s && s.length > maxLength)
+    {
+      const segment = Math.floor(maxLength / 2)
+
+      shortened = [
+        s.substr(0, segment).trim(),
+        s.substr(-segment).trim()
+      ].join(fill)
+    }
+
+    return shortened
   }
 
   /**

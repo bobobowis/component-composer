@@ -2,17 +2,17 @@ const Events = require('events')
 
 class EventBus extends Events
 {
-  constructor(options, observers, console)
+  constructor(options, observers, eventBusConsole)
   {
     super(options)
-    this.observers  = observers
-    this.console    = console
+    this.observers        = observers
+    this.eventBusConsole  = eventBusConsole
   }
 
   emit(name, data)
   {
     if(!this.observers.includes(name))
-      this.console.warning(`event: "${name}" does not have a defined observer`)
+      this.eventBusConsole.warning(`event: "${name}" does not have a defined observer`)
 
     super.emit(name, { name, data })
   }

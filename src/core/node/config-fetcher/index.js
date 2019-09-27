@@ -1,6 +1,6 @@
 const
-ConfigFetcher               = require('core/common/config-fetcher'),
-ComponentNotResolvableError = require('core/common/config-fetcher/error/component-not-resolvable')
+ConfigFetcher               = require('../../common/config-fetcher'),
+ComponentNotResolvableError = require('../../common/config-fetcher/error/component-not-resolvable')
 
 class NodeConfigFetcher extends ConfigFetcher
 {
@@ -9,20 +9,26 @@ class NodeConfigFetcher extends ConfigFetcher
     return new Promise(async (resolve, reject) =>
     {
       const
-      path          = this.locator.locate('core/node/path'),
+      path          = this.locator.locate('core/path'),
       specifiedPath = `${pathname}/config`,
-      localPath     = `${path.main.dirname}/${component}/config`,
-      absolutePath  = `${component}/config`,
-      corePath      = `${path.resolve(__dirname, '../..')}/${component}/config`
+      srcPath       = `${path.main.srcPath}/${component}/config`,
+      nodePath      = `${path.main.nodePath}/${component}/config`,
+      browserPath   = `${path.main.browserPath}/${component}/config`,
+      commonPath    = `${path.main.commonPath}/${component}/config`,
+      absolutePath  = `${component}/config`
 
       if(path.isResolvable(specifiedPath))
         resolve(require(specifiedPath))
-      else if(path.isResolvable(localPath))
-        resolve(require(localPath))
+      else if(path.isResolvable(nodePath))
+        resolve(require(nodePath))
+      else if(path.isResolvable(commonPath))
+        resolve(require(commonPath))
+      else if(path.isResolvable(browserPath))
+        resolve(require(browserPath))
+      else if(path.isResolvable(srcPath))
+        resolve(require(srcPath))
       else if(path.isResolvable(absolutePath))
         resolve(require(absolutePath))
-      else if(path.isResolvable(corePath))
-        resolve(require(corePath))
       else
         reject(new ComponentNotResolvableError(`could not resolve path to component "${component}"`))
     })

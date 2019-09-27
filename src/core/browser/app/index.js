@@ -1,8 +1,8 @@
-(function(document, window)
+(() =>
 {
   const domIsReady = require('core/browser/dom-ready')
 
-  const callback = async function()
+  const callback = async () =>
   {
     const
     CoreFactory = require('core/browser/factory'),
@@ -24,4 +24,4 @@
   }
 
   domIsReady(callback)
-})(document, window)
+})()

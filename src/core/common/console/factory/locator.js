@@ -14,14 +14,14 @@ class ConsoleFactoryLocator
     dateformat      = require('dateformat'),
     configuration   = this.locator.locate('core/configuration').find('core.console'),
     defaults        = configuration.default,
-    availableColors = configuration.colors,
+    coreString      = this.locator.locate('core/string'),
     jsConsole       = console
 
     return new ConsoleFactory({
+      coreString,
       util,
       dateformat,
       defaults,
-      availableColors,
       console : jsConsole
     })
   }

@@ -10,7 +10,7 @@ class BrowserConfigFetcher extends ConfigFetcher
     {
       try
       {
-        const config = require(`src/${path ? path : component}/config`)
+        const config = require(`dist/${path ? path : component}/config`)
         resolve(config)
       }
       catch(error)

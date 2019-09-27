@@ -1,13 +1,16 @@
+/* eslint-disable no-control-regex */
 class Console
 {
   constructor({
     util,
     dateformat,
     config,
-    console
+    console,
+    coreString
   })
   {
     this.sn         = 0
+    this.coreString = coreString
     this.util       = util
     this.dateformat = dateformat
     this.config     = config
@@ -29,19 +32,22 @@ class Console
     return options
   }
 
-  escape(s)
+  shortenString(s)
   {
-    let escaped = s
     if(this.config.maxStringLength && s.length > this.config.maxStringLength)
-    {
-      const segment = Math.floor(this.config.maxStringLength / 2)
+      return this.coreString.shorten(s, this.config.maxStringLength)
 
-      escaped = [ s.substr(0, segment).trim(),
-        s.substr(-segment).trim()
-      ].join('...')
-    }
+    return s
+  }
 
-    return escaped
+  formatOutputString(s)
+  {
+    return this.shortenString(s)
+  }
+
+  getCurrentDate()
+  {
+    return this.dateformat(new Date(), this.config.dateFormat)
   }
 
   buildOutput(args)
@@ -49,7 +55,7 @@ class Console
     let output = []
 
     if(this.config.date)
-      output.push(this.dateformat(new Date(), this.config.dateFormat))
+      output.push(this.getCurrentDate())
 
     if(this.config.prefix)
       output.push(this.config.prefix)
@@ -60,14 +66,23 @@ class Console
     for(const arg of args)
     {
       if(typeof arg === 'object' && this.config.inspect)
-        output.push(this.util.inspect(arg, this.getInspectOptions()))
+        output = [ ...output, ...this.inspectObject(arg) ]
       else if(typeof x === 'string')
-        output.push(this.escape(arg)) // output.push(this.colorize(this.escape(arg)))
+        output = [...output, ...this.formatOutputString(arg)]
       else
-        output.push(arg)
+        output = [ ...output, arg ]
     }
 
     return output.join(this.config.separator)
+  }
+
+  inspectObject(o)
+  {
+    const
+    inspectOptions = this.getInspectOptions(),
+    inspectString  = this.util.inspect(o, inspectOptions)
+
+    return [inspectString]
   }
 
   output(args, cb)

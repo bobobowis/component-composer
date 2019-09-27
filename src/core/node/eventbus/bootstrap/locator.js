@@ -11,7 +11,7 @@ class EventBusBootstrapLocator
   {
     const
     configuration = this.locator.locate('core/configuration'),
-    eventbus      = this.locator.locate('core/node/eventbus')
+    eventbus      = this.locator.locate('core/eventbus')
 
     return new EventBusBootstrap(configuration, eventbus, this.locator)
   }

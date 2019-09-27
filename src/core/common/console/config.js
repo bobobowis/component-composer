@@ -22,6 +22,9 @@ module.exports = {
         'inspect'         : true,
         'separator'       : '\t',
         'colors'          : true,
+        'color'           : 'white',
+        'background'      : 'black',
+        'tty'             : false,
         'showHidden'      : false,
         'styles'          : // white, grey, black, blue, cyan, green, magenta, red, yellow, bold, italic, underline, inverse
         {

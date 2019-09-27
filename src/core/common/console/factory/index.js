@@ -7,24 +7,24 @@ class ConsoleFactory
     dateformat,
     console,
     defaults,
-    availableColors
+    coreString
   })
   {
-    this.util             = util
-    this.dateformat       = dateformat
-    this.console          = console
-    this.defaults         = defaults
-    this.availableColors  = availableColors
+    this.util       = util
+    this.dateformat = dateformat
+    this.console    = console
+    this.defaults   = defaults
+    this.coreString = coreString
   }
 
   create(options = {})
   {
     return new Console({
-      util            : this.util,
-      dateformat      : this.dateformat,
-      console         : this.console,
-      availableColors : this.availableColors,
-      config          : { ...this.defaults, ...options }
+      coreString : this.coreString,
+      util       : this.util,
+      dateformat : this.dateformat,
+      console    : this.console,
+      config     : { ...this.defaults, ...options }
     })
   }
 }

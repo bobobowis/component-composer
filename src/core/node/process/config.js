@@ -1,12 +1,15 @@
 module.exports =
 {
-  'bootstrap' :
+  'core' :
   {
-    'process' : 'process/bootstrap'
-  },
-  'locator' :
-  {
-    'core/node/process'           : __dirname,
-    'core/node/process/bootstrap' : `${__dirname}/bootstrap`
+    'bootstrap' :
+    {
+      'process' : 'core/process/bootstrap'
+    },
+    'locator' :
+    {
+      'core/process'           : __dirname,
+      'core/process/bootstrap' : `${__dirname}/bootstrap`
+    }
   }
 }

@@ -15,7 +15,12 @@ class EventBusLocator
     observers       = configuration.find('eventbus.observers'),
     observersKeys   = Object.keys(observers || {}),
     consoleFactory  = this.locator.locate('core/console/factory'),
-    eventBusConsole = consoleFactory.create(),
+    eventBusConsole = consoleFactory.create({
+      prefix     : 'WARN',
+      tty        : true,
+      color      : 'black',
+      background : 'yellow'
+    }),
     eventbus        = new EventBus(eventbusOptions, observersKeys, eventBusConsole)
 
     return eventbus

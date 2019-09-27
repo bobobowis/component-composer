@@ -1,7 +1,7 @@
 const
-ServiceUnmetDependencyError = require('core/common/service-loader/error/service-unmet-dependency'),
-ServiceLocatorNotFoundError = require('core/common/service-loader/error/service-locator-not-found'),
-ServiceLoader               = require('core/common/service-loader')
+ServiceUnmetDependencyError = require('../../common/service-loader/error/service-unmet-dependency'),
+ServiceLocatorNotFoundError = require('../../common/service-loader/error/service-locator-not-found'),
+ServiceLoader               = require('../../common/service-loader')
 
 class NodeServiceLoader extends ServiceLoader
 {
@@ -11,7 +11,7 @@ class NodeServiceLoader extends ServiceLoader
     {
       const
       configuration = this.locator.locate('core/configuration'),
-      path          = this.locator.locate('core/node/path'),
+      path          = this.locator.locate('core/path'),
       locatorPath   = `${configuration.find('core.locator')[name]}/locator`
 
       if(path.isResolvable(locatorPath))
