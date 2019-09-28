@@ -4,10 +4,12 @@ class BusChannelFactory
 {
   constructor({
     composer,
+    consoleFactory,
     multipleAssociativeArrayFactory
   })
   {
     this.composer                        = composer
+    this.consoleFactory                  = consoleFactory
     this.multipleAssociativeArrayFactory = multipleAssociativeArrayFactory
   }
 
@@ -16,10 +18,19 @@ class BusChannelFactory
     return this.multipleAssociativeArrayFactory.create()
   }
 
-  create(id)
+  createConsole(options = {})
+  {
+    return this.consoleFactory.create(options)
+  }
+
+  create({
+    id,
+    consoleOptions
+  })
   {
     return new BusChannel({
       id,
+      console   : this.createConsole(consoleOptions),
       observers : this.createMultipleAssociativeArray(),
       composer  : this.composer
     })

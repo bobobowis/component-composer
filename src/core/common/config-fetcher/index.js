@@ -1,14 +1,10 @@
-class ConfigFetcher
-{
-  constructor(locator)
-  {
-    this.locator = locator
-  }
+/**
+ * @interface ConfigFetcher
+ */
 
-  async fetchComponentConfig()
-  {
-    throw new Error('Method not implemented')
-  }
-}
-
-module.exports = ConfigFetcher
+/**
+ * @function ConfigFetcher#fetchComponentConfig
+ * @param {string} component
+ * @param {string} path
+ * @returns {Object} Component config
+ */

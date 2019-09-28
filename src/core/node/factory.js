@@ -22,6 +22,7 @@ class CoreFactory
     core          = new Core(locator, configFetcher, serviceLoader)
 
     core.add('core/common/bootstrap')
+    core.add('core/common/observer')
     core.add('core/common/schema')
     core.add('core/common/object')
     core.add('core/common/string')

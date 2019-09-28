@@ -10,12 +10,14 @@ class BusChannel
   constructor({
     id,
     observers,
-    composer
+    composer,
+    console
   })
   {
     this.observers          = observers
     this.composer           = composer
     this.warnings           = []
+    this.console            = console
     this[Symbol.for('id')]  = id
   }
 
@@ -138,7 +140,7 @@ class BusChannel
     if(eventObservers.length === 0 && !this.warnings.includes(name))
     {
       this.warnings.push(event)
-      console.log(`event: "${event}" does not have a defined observer`)
+      this.console.warning(`event: "${name}" does not have a defined observer`)
     }
 
     return new Promise((resolve, reject) =>

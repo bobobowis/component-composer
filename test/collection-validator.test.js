@@ -15,8 +15,6 @@ describe('Collection Validator', () =>
 
     core = coreFactory.create()
 
-    core.add('core/data-structure')
-
     core.load().then(() =>
     {
       core.locate('core/bootstrap').bootstrap().then(() =>

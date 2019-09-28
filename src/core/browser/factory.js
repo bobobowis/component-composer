@@ -24,10 +24,13 @@ class CoreFactory
     core.add('core/string', 'core/common/string')
     core.add('core/console', 'core/browser/console')
     core.add('core/schema', 'core/common/schema')
+    core.add('core/observer', 'core/common/observer')
+
     core.add('data-structure', 'core/common/data-structure')
     core.add('core/schema/bootstrap', 'core/browser/schema/bootstrap')
     core.add('core/channel', 'core/common/channel')
     core.add('core/bus', 'core/common/bus')
+    core.add('core/eventbus', 'core/browser/eventbus')
 
     return core
   }

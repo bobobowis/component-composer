@@ -14,10 +14,12 @@ class BusChannelFactoryLocator
   {
     const
     composer                        = this.locator.locate('core/schema/composer'),
+    consoleFactory                  = this.locator.locate('core/console/factory'),
     multipleAssociativeArrayFactory = this.locator.locate('data-structure/multiple-associative-array/factory')
 
     return new BusChannelFactory({
       composer,
+      consoleFactory,
       multipleAssociativeArrayFactory
     })
   }

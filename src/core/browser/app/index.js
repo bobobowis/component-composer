@@ -19,6 +19,12 @@
           name      : 'logged',
           data      : 'que paso parce'
         })
+
+        const eventbus = core.locator.locate('core/eventbus')
+        eventbus.emit({
+          name : 'logged',
+          data : 'que paso parce'
+        })
       })
     })
   }

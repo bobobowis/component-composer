@@ -66,11 +66,21 @@ class Console
     for(const arg of args)
     {
       if(typeof arg === 'object' && this.config.inspect)
-        output = [ ...output, ...this.inspectObject(arg) ]
-      else if(typeof x === 'string')
-        output = [...output, ...this.formatOutputString(arg)]
+      {
+        output = [ ...output, this.inspectObject(arg) ]
+      }
+      else if(typeof arg === 'string')
+      {
+        const sFormatted = this.formatOutputString(arg)
+        if(Array.isArray(sFormatted))
+          output = [...output, ...sFormatted]
+        else
+          output = [...output, sFormatted]
+      }
       else
+      {
         output = [ ...output, arg ]
+      }
     }
 
     return output.join(this.config.separator)
@@ -82,7 +92,7 @@ class Console
     inspectOptions = this.getInspectOptions(),
     inspectString  = this.util.inspect(o, inspectOptions)
 
-    return [inspectString]
+    return inspectString
   }
 
   output(args, cb)
@@ -102,22 +112,27 @@ class Console
 
   info(...args)
   {
-    this.output.call(args, this.console.log)
+    this.output(args, this.console.log)
+  }
+
+  warning(...args)
+  {
+    this.output(args, this.console.warn)
   }
 
   error(...args)
   {
-    this.output.call(args, this.console.error)
+    this.output(args, this.console.error)
   }
 
   trace(...args)
   {
-    this.output.call(args, this.console.trace)
+    this.output(args, this.console.trace)
   }
 
   table(...args)
   {
-    this.output.call(args, this.console.table)
+    this.output(args, this.console.table)
   }
 
   startTimer(label)

@@ -1,9 +1,14 @@
-const
-ConfigFetcher               = require('../../common/config-fetcher'),
-ComponentNotResolvableError = require('../../common/config-fetcher/error/component-not-resolvable')
+const ComponentNotResolvableError = require('./error/component-not-resolvable')
 
-class NodeConfigFetcher extends ConfigFetcher
+/**
+ * @implements {core/config-fetcher}
+ */
+class NodeConfigFetcher
 {
+  constructor(locator)
+  {
+    this.locator = locator
+  }
   async fetchComponentConfig(component, pathname)
   {
     return new Promise(async (resolve, reject) =>

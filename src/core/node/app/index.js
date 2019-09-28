@@ -7,11 +7,15 @@ core.load().then(() =>
 {
   core.locate('core/bootstrap').bootstrap().then(() =>
   {
-    const bus = core.locator.locate('core/bus')
-    bus.emit({
-      channelId : 'domain-events',
-      name      : 'logged',
-      data      : 'que paso parce'
+    const
+    consoleFactory = core.locate('core/console/factory'),
+    myConsole      = consoleFactory.create({
+      prefix     : 'WARN',
+      tty        : true,
+      color      : 'black',
+      background : 'yellow'
     })
+
+    myConsole.log('HUEHUEHUE')
   })
 })

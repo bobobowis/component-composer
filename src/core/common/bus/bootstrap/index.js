@@ -1,4 +1,4 @@
-const ObserverContractNotHoneredError = require('../../observer/error/observer-contract-not-honered')
+const ObserverContractNotHoneredError = require('./error/observer-contract-not-honered')
 
 class BusBootstrap
 {

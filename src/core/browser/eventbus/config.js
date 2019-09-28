@@ -1,3 +1,5 @@
+const dirname =  __dirname || 'core/browser/eventbus'
+
 module.exports =
 {
   'core' :
@@ -8,12 +10,16 @@ module.exports =
     },
     'locator' :
     {
-      'core/eventbus'           : __dirname,
-      'core/eventbus/bootstrap' : `${__dirname}/bootstrap`
+      'core/eventbus/bootstrap' : `${dirname}/bootstrap`
     },
     'eventbus' :
     {
-      'options'   : {},
+      'options' : {
+        'console' :
+        {
+          'prefix' : 'WARN'
+        }
+      },
       'observers' :
       {
         'core.error'   : { 'core/observer/error': true },

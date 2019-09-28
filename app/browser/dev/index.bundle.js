@@ -170,6 +170,8 @@ var map = {
 	"./core/browser/app/index.js": "./dist/browser/core/browser/app/index.js",
 	"./core/browser/config-fetcher": "./dist/browser/core/browser/config-fetcher/index.js",
 	"./core/browser/config-fetcher/": "./dist/browser/core/browser/config-fetcher/index.js",
+	"./core/browser/config-fetcher/error/component-not-resolvable": "./dist/browser/core/browser/config-fetcher/error/component-not-resolvable.js",
+	"./core/browser/config-fetcher/error/component-not-resolvable.js": "./dist/browser/core/browser/config-fetcher/error/component-not-resolvable.js",
 	"./core/browser/config-fetcher/index": "./dist/browser/core/browser/config-fetcher/index.js",
 	"./core/browser/config-fetcher/index.js": "./dist/browser/core/browser/config-fetcher/index.js",
 	"./core/browser/console": "./dist/browser/core/browser/console/index.js",
@@ -188,6 +190,16 @@ var map = {
 	"./core/browser/dom-ready/": "./dist/browser/core/browser/dom-ready/index.js",
 	"./core/browser/dom-ready/index": "./dist/browser/core/browser/dom-ready/index.js",
 	"./core/browser/dom-ready/index.js": "./dist/browser/core/browser/dom-ready/index.js",
+	"./core/browser/eventbus/bootstrap": "./dist/browser/core/browser/eventbus/bootstrap/index.js",
+	"./core/browser/eventbus/bootstrap/": "./dist/browser/core/browser/eventbus/bootstrap/index.js",
+	"./core/browser/eventbus/bootstrap/error/observer-contract-not-honered": "./dist/browser/core/browser/eventbus/bootstrap/error/observer-contract-not-honered.js",
+	"./core/browser/eventbus/bootstrap/error/observer-contract-not-honered.js": "./dist/browser/core/browser/eventbus/bootstrap/error/observer-contract-not-honered.js",
+	"./core/browser/eventbus/bootstrap/index": "./dist/browser/core/browser/eventbus/bootstrap/index.js",
+	"./core/browser/eventbus/bootstrap/index.js": "./dist/browser/core/browser/eventbus/bootstrap/index.js",
+	"./core/browser/eventbus/bootstrap/locator": "./dist/browser/core/browser/eventbus/bootstrap/locator.js",
+	"./core/browser/eventbus/bootstrap/locator.js": "./dist/browser/core/browser/eventbus/bootstrap/locator.js",
+	"./core/browser/eventbus/config": "./dist/browser/core/browser/eventbus/config.js",
+	"./core/browser/eventbus/config.js": "./dist/browser/core/browser/eventbus/config.js",
 	"./core/browser/factory": "./dist/browser/core/browser/factory.js",
 	"./core/browser/factory.js": "./dist/browser/core/browser/factory.js",
 	"./core/browser/is-ie": "./dist/browser/core/browser/is-ie/index.js",
@@ -204,6 +216,12 @@ var map = {
 	"./core/browser/schema/bootstrap/locator.js": "./dist/browser/core/browser/schema/bootstrap/locator.js",
 	"./core/browser/service-loader": "./dist/browser/core/browser/service-loader/index.js",
 	"./core/browser/service-loader/": "./dist/browser/core/browser/service-loader/index.js",
+	"./core/browser/service-loader/error/service-locator-not-found": "./dist/browser/core/browser/service-loader/error/service-locator-not-found.js",
+	"./core/browser/service-loader/error/service-locator-not-found.js": "./dist/browser/core/browser/service-loader/error/service-locator-not-found.js",
+	"./core/browser/service-loader/error/service-unable-to-resolve-dependencies": "./dist/browser/core/browser/service-loader/error/service-unable-to-resolve-dependencies.js",
+	"./core/browser/service-loader/error/service-unable-to-resolve-dependencies.js": "./dist/browser/core/browser/service-loader/error/service-unable-to-resolve-dependencies.js",
+	"./core/browser/service-loader/error/service-unmet-dependency": "./dist/browser/core/browser/service-loader/error/service-unmet-dependency.js",
+	"./core/browser/service-loader/error/service-unmet-dependency.js": "./dist/browser/core/browser/service-loader/error/service-unmet-dependency.js",
 	"./core/browser/service-loader/index": "./dist/browser/core/browser/service-loader/index.js",
 	"./core/browser/service-loader/index.js": "./dist/browser/core/browser/service-loader/index.js",
 	"./core/common/bootstrap": "./dist/browser/core/common/bootstrap/index.js",
@@ -218,6 +236,8 @@ var map = {
 	"./core/common/bus/": "./dist/browser/core/common/bus/index.js",
 	"./core/common/bus/bootstrap": "./dist/browser/core/common/bus/bootstrap/index.js",
 	"./core/common/bus/bootstrap/": "./dist/browser/core/common/bus/bootstrap/index.js",
+	"./core/common/bus/bootstrap/error/observer-contract-not-honered": "./dist/browser/core/common/bus/bootstrap/error/observer-contract-not-honered.js",
+	"./core/common/bus/bootstrap/error/observer-contract-not-honered.js": "./dist/browser/core/common/bus/bootstrap/error/observer-contract-not-honered.js",
 	"./core/common/bus/bootstrap/index": "./dist/browser/core/common/bus/bootstrap/index.js",
 	"./core/common/bus/bootstrap/index.js": "./dist/browser/core/common/bus/bootstrap/index.js",
 	"./core/common/bus/bootstrap/locator": "./dist/browser/core/common/bus/bootstrap/locator.js",
@@ -260,8 +280,6 @@ var map = {
 	"./core/common/channel/schema/entity/channel.js": "./dist/browser/core/common/channel/schema/entity/channel.js",
 	"./core/common/config-fetcher": "./dist/browser/core/common/config-fetcher/index.js",
 	"./core/common/config-fetcher/": "./dist/browser/core/common/config-fetcher/index.js",
-	"./core/common/config-fetcher/error/component-not-resolvable": "./dist/browser/core/common/config-fetcher/error/component-not-resolvable.js",
-	"./core/common/config-fetcher/error/component-not-resolvable.js": "./dist/browser/core/common/config-fetcher/error/component-not-resolvable.js",
 	"./core/common/config-fetcher/index": "./dist/browser/core/common/config-fetcher/index.js",
 	"./core/common/config-fetcher/index.js": "./dist/browser/core/common/config-fetcher/index.js",
 	"./core/common/configuration": "./dist/browser/core/common/configuration/index.js",
@@ -482,10 +500,28 @@ var map = {
 	"./core/common/object/index.js": "./dist/browser/core/common/object/index.js",
 	"./core/common/object/locator": "./dist/browser/core/common/object/locator.js",
 	"./core/common/object/locator.js": "./dist/browser/core/common/object/locator.js",
-	"./core/common/observer/error/observer-contract-not-honered": "./dist/browser/core/common/observer/error/observer-contract-not-honered.js",
-	"./core/common/observer/error/observer-contract-not-honered.js": "./dist/browser/core/common/observer/error/observer-contract-not-honered.js",
+	"./core/common/observer/config": "./dist/browser/core/common/observer/config.js",
+	"./core/common/observer/config.js": "./dist/browser/core/common/observer/config.js",
+	"./core/common/observer/error": "./dist/browser/core/common/observer/error/index.js",
+	"./core/common/observer/error/": "./dist/browser/core/common/observer/error/index.js",
+	"./core/common/observer/error/index": "./dist/browser/core/common/observer/error/index.js",
+	"./core/common/observer/error/index.js": "./dist/browser/core/common/observer/error/index.js",
+	"./core/common/observer/error/locator": "./dist/browser/core/common/observer/error/locator.js",
+	"./core/common/observer/error/locator.js": "./dist/browser/core/common/observer/error/locator.js",
+	"./core/common/observer/info": "./dist/browser/core/common/observer/info/index.js",
+	"./core/common/observer/info/": "./dist/browser/core/common/observer/info/index.js",
+	"./core/common/observer/info/index": "./dist/browser/core/common/observer/info/index.js",
+	"./core/common/observer/info/index.js": "./dist/browser/core/common/observer/info/index.js",
+	"./core/common/observer/info/locator": "./dist/browser/core/common/observer/info/locator.js",
+	"./core/common/observer/info/locator.js": "./dist/browser/core/common/observer/info/locator.js",
 	"./core/common/observer/observer": "./dist/browser/core/common/observer/observer.js",
 	"./core/common/observer/observer.js": "./dist/browser/core/common/observer/observer.js",
+	"./core/common/observer/warning": "./dist/browser/core/common/observer/warning/index.js",
+	"./core/common/observer/warning/": "./dist/browser/core/common/observer/warning/index.js",
+	"./core/common/observer/warning/index": "./dist/browser/core/common/observer/warning/index.js",
+	"./core/common/observer/warning/index.js": "./dist/browser/core/common/observer/warning/index.js",
+	"./core/common/observer/warning/locator": "./dist/browser/core/common/observer/warning/locator.js",
+	"./core/common/observer/warning/locator.js": "./dist/browser/core/common/observer/warning/locator.js",
 	"./core/common/schema/composer": "./dist/browser/core/common/schema/composer/index.js",
 	"./core/common/schema/composer/": "./dist/browser/core/common/schema/composer/index.js",
 	"./core/common/schema/composer/error/filter-is-not-honering-contract": "./dist/browser/core/common/schema/composer/error/filter-is-not-honering-contract.js",
@@ -634,12 +670,6 @@ var map = {
 	"./core/common/schema/validator/timestamp/locator.js": "./dist/browser/core/common/schema/validator/timestamp/locator.js",
 	"./core/common/service-loader": "./dist/browser/core/common/service-loader/index.js",
 	"./core/common/service-loader/": "./dist/browser/core/common/service-loader/index.js",
-	"./core/common/service-loader/error/service-locator-not-found": "./dist/browser/core/common/service-loader/error/service-locator-not-found.js",
-	"./core/common/service-loader/error/service-locator-not-found.js": "./dist/browser/core/common/service-loader/error/service-locator-not-found.js",
-	"./core/common/service-loader/error/service-unable-to-resolve-dependencies": "./dist/browser/core/common/service-loader/error/service-unable-to-resolve-dependencies.js",
-	"./core/common/service-loader/error/service-unable-to-resolve-dependencies.js": "./dist/browser/core/common/service-loader/error/service-unable-to-resolve-dependencies.js",
-	"./core/common/service-loader/error/service-unmet-dependency": "./dist/browser/core/common/service-loader/error/service-unmet-dependency.js",
-	"./core/common/service-loader/error/service-unmet-dependency.js": "./dist/browser/core/common/service-loader/error/service-unmet-dependency.js",
 	"./core/common/service-loader/index": "./dist/browser/core/common/service-loader/index.js",
 	"./core/common/service-loader/index.js": "./dist/browser/core/common/service-loader/index.js",
 	"./core/common/string": "./dist/browser/core/common/string/index.js",
@@ -687,6 +717,7 @@ webpackContext.id = "./dist/browser sync recursive ^\\.\\/.*$";
 
 var map = {
 	"./core/browser/console/config": "./dist/browser/core/browser/console/config.js",
+	"./core/browser/eventbus/config": "./dist/browser/core/browser/eventbus/config.js",
 	"./core/browser/schema/bootstrap/config": "./dist/browser/core/browser/schema/bootstrap/config.js",
 	"./core/common/bootstrap/config": "./dist/browser/core/common/bootstrap/config.js",
 	"./core/common/bus/config": "./dist/browser/core/common/bus/config.js",
@@ -701,6 +732,7 @@ var map = {
 	"./core/common/deepfreeze/config": "./dist/browser/core/common/deepfreeze/config.js",
 	"./core/common/deepmerge/config": "./dist/browser/core/common/deepmerge/config.js",
 	"./core/common/object/config": "./dist/browser/core/common/object/config.js",
+	"./core/common/observer/config": "./dist/browser/core/common/observer/config.js",
 	"./core/common/schema/config": "./dist/browser/core/common/schema/config.js",
 	"./core/common/string/config": "./dist/browser/core/common/string/config.js",
 	"./core/config": "./dist/browser/core/config.js"
@@ -737,6 +769,7 @@ webpackContext.id = "./dist/browser sync recursive ^\\.\\/.*\\/config$";
 
 var map = {
 	"./core/browser/console/factory/locator": "./dist/browser/core/browser/console/factory/locator.js",
+	"./core/browser/eventbus/bootstrap/locator": "./dist/browser/core/browser/eventbus/bootstrap/locator.js",
 	"./core/browser/schema/bootstrap/locator": "./dist/browser/core/browser/schema/bootstrap/locator.js",
 	"./core/common/bootstrap/locator": "./dist/browser/core/common/bootstrap/locator.js",
 	"./core/common/bus/bootstrap/locator": "./dist/browser/core/common/bus/bootstrap/locator.js",
@@ -769,6 +802,9 @@ var map = {
 	"./core/common/deepmerge/locator": "./dist/browser/core/common/deepmerge/locator.js",
 	"./core/common/locator": "./dist/browser/core/common/locator/index.js",
 	"./core/common/object/locator": "./dist/browser/core/common/object/locator.js",
+	"./core/common/observer/error/locator": "./dist/browser/core/common/observer/error/locator.js",
+	"./core/common/observer/info/locator": "./dist/browser/core/common/observer/info/locator.js",
+	"./core/common/observer/warning/locator": "./dist/browser/core/common/observer/warning/locator.js",
 	"./core/common/schema/composer/locator": "./dist/browser/core/common/schema/composer/locator.js",
 	"./core/common/schema/filter/boolean/locator": "./dist/browser/core/common/schema/filter/boolean/locator.js",
 	"./core/common/schema/filter/csv/locator": "./dist/browser/core/common/schema/filter/csv/locator.js",
@@ -845,6 +881,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     name: 'logged',
                     data: 'que paso parce'
                   });
+                  var eventbus = core.locator.locate('core/eventbus');
+                  eventbus.emit({
+                    name: 'logged',
+                    data: 'que paso parce'
+                  });
                 });
               });
 
@@ -866,14 +907,69 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
+/***/ "./dist/browser/core/browser/config-fetcher/error/component-not-resolvable.js":
+/*!************************************************************************************!*\
+  !*** ./dist/browser/core/browser/config-fetcher/error/component-not-resolvable.js ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
+
+function isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _construct(Parent, args, Class) { if (isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
+
+function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var ComponentNotResolvableError =
+/*#__PURE__*/
+function (_Error) {
+  _inherits(ComponentNotResolvableError, _Error);
+
+  function ComponentNotResolvableError() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, ComponentNotResolvableError);
+
+    for (var _len = arguments.length, a = new Array(_len), _key = 0; _key < _len; _key++) {
+      a[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ComponentNotResolvableError)).call.apply(_getPrototypeOf2, [this].concat(a)));
+    _this.code = 'E_COMPONENT_NOT_RESOLVABLE';
+    return _this;
+  }
+
+  return ComponentNotResolvableError;
+}(_wrapNativeSuper(Error));
+
+module.exports = ComponentNotResolvableError;
+
+/***/ }),
+
 /***/ "./dist/browser/core/browser/config-fetcher/index.js":
 /*!***********************************************************!*\
   !*** ./dist/browser/core/browser/config-fetcher/index.js ***!
   \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -885,28 +981,19 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+var ComponentNotResolvableError = __webpack_require__(/*! ./error/component-not-resolvable */ "./dist/browser/core/browser/config-fetcher/error/component-not-resolvable.js");
+/**
+ * @implements {core/config-fetcher}
+ */
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var ConfigFetcher = __webpack_require__(/*! core/common/config-fetcher */ "./dist/browser/core/common/config-fetcher/index.js"),
-    ComponentNotResolvableError = __webpack_require__(/*! core/common/config-fetcher/error/component-not-resolvable */ "./dist/browser/core/common/config-fetcher/error/component-not-resolvable.js");
 
 var BrowserConfigFetcher =
 /*#__PURE__*/
-function (_ConfigFetcher) {
-  _inherits(BrowserConfigFetcher, _ConfigFetcher);
-
-  function BrowserConfigFetcher() {
+function () {
+  function BrowserConfigFetcher(locator) {
     _classCallCheck(this, BrowserConfigFetcher);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(BrowserConfigFetcher).apply(this, arguments));
+    this.locator = locator;
   }
 
   _createClass(BrowserConfigFetcher, [{
@@ -967,7 +1054,7 @@ function (_ConfigFetcher) {
   }]);
 
   return BrowserConfigFetcher;
-}(ConfigFetcher);
+}();
 
 module.exports = BrowserConfigFetcher;
 
@@ -1187,9 +1274,9 @@ function (_CoreConsole) {
   }
 
   _createClass(BrowserConsole, [{
-    key: "format",
-    value: function format(s) {
-      var formatted = _get(_getPrototypeOf(BrowserConsole.prototype), "format", this).call(this, s),
+    key: "formatOutputString",
+    value: function formatOutputString(s) {
+      var formatted = _get(_getPrototypeOf(BrowserConsole.prototype), "formatOutputString", this).call(this, s),
           colorized = this.colorize(formatted);
 
       return colorized;
@@ -1201,7 +1288,7 @@ function (_CoreConsole) {
       if (this.color) css = "color:".concat(this.color, ";");
       if (this.background) css = "background-color:".concat(this.background, ";");
       if (this.config.css && typeof this.config.css === 'string') css = "".concat(css).concat(this.config.css);
-      return this.coreString.trim(css) !== '' ? ["%c".concat(s), css] : [s];
+      return this.coreString.trim(css) !== '' ? ["%c".concat(s), css] : s;
     }
   }]);
 
@@ -1234,6 +1321,210 @@ module.exports = function (callback) {
     }
   } else {
     console.error('The callback is not a function!');
+  }
+};
+
+/***/ }),
+
+/***/ "./dist/browser/core/browser/eventbus/bootstrap/error/observer-contract-not-honered.js":
+/*!*********************************************************************************************!*\
+  !*** ./dist/browser/core/browser/eventbus/bootstrap/error/observer-contract-not-honered.js ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
+
+function isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _construct(Parent, args, Class) { if (isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
+
+function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var ObserverContractNotHoneredError =
+/*#__PURE__*/
+function (_Error) {
+  _inherits(ObserverContractNotHoneredError, _Error);
+
+  function ObserverContractNotHoneredError() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, ObserverContractNotHoneredError);
+
+    for (var _len = arguments.length, a = new Array(_len), _key = 0; _key < _len; _key++) {
+      a[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ObserverContractNotHoneredError)).call.apply(_getPrototypeOf2, [this].concat(a)));
+    _this.code = 'E_BUS_OBSERVER_CONTRACT_NOT_HONERED';
+    return _this;
+  }
+
+  return ObserverContractNotHoneredError;
+}(_wrapNativeSuper(Error));
+
+module.exports = ObserverContractNotHoneredError;
+
+/***/ }),
+
+/***/ "./dist/browser/core/browser/eventbus/bootstrap/index.js":
+/*!***************************************************************!*\
+  !*** ./dist/browser/core/browser/eventbus/bootstrap/index.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var ObserverContractNotHoneredError = __webpack_require__(/*! ./error/observer-contract-not-honered */ "./dist/browser/core/browser/eventbus/bootstrap/error/observer-contract-not-honered.js");
+
+var EventbusBootstrap =
+/*#__PURE__*/
+function () {
+  function EventbusBootstrap(_ref) {
+    var configuration = _ref.configuration,
+        busChannelFactory = _ref.busChannelFactory,
+        locator = _ref.locator;
+
+    _classCallCheck(this, EventbusBootstrap);
+
+    this.configuration = configuration;
+    this.busChannelFactory = busChannelFactory;
+    this.locator = locator;
+  }
+
+  _createClass(EventbusBootstrap, [{
+    key: "bootstrap",
+    value: function bootstrap() {
+      var eventbusConfig = this.configuration.find("core.eventbus"),
+          consoleOptions = eventbusConfig.options.console,
+          eventbus = this.busChannelFactory.create({
+        id: 'eventbus',
+        consoleOptions: consoleOptions
+      }),
+          observers = eventbusConfig.observers;
+
+      for (var event in observers) {
+        for (var observerPath in observers[event]) {
+          if (!observers[event][observerPath]) continue;
+          var observer = this.locator.locate(observerPath);
+          if (typeof observer.observe !== 'function') throw new ObserverContractNotHoneredError("\"".concat(observerPath, "\" does not implement the BusObserver interface"));
+          eventbus.on({
+            observer: observer.observe.bind(observer),
+            event: event
+          });
+        }
+      }
+
+      this.locator.set('core/eventbus', eventbus);
+    }
+  }]);
+
+  return EventbusBootstrap;
+}();
+
+module.exports = EventbusBootstrap;
+
+/***/ }),
+
+/***/ "./dist/browser/core/browser/eventbus/bootstrap/locator.js":
+/*!*****************************************************************!*\
+  !*** ./dist/browser/core/browser/eventbus/bootstrap/locator.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var EventBusBootstrap = __webpack_require__(/*! . */ "./dist/browser/core/browser/eventbus/bootstrap/index.js");
+
+var EventBusBootstrapLocator =
+/*#__PURE__*/
+function () {
+  function EventBusBootstrapLocator(locator) {
+    _classCallCheck(this, EventBusBootstrapLocator);
+
+    this.locator = locator;
+  }
+
+  _createClass(EventBusBootstrapLocator, [{
+    key: "locate",
+    value: function locate() {
+      var configuration = this.locator.locate('core/configuration'),
+          busChannelFactory = this.locator.locate('core/channel/factory');
+      return new EventBusBootstrap({
+        configuration: configuration,
+        busChannelFactory: busChannelFactory,
+        locator: this.locator
+      });
+    }
+  }]);
+
+  return EventBusBootstrapLocator;
+}();
+
+module.exports = EventBusBootstrapLocator;
+
+/***/ }),
+
+/***/ "./dist/browser/core/browser/eventbus/config.js":
+/*!******************************************************!*\
+  !*** ./dist/browser/core/browser/eventbus/config.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var dirname =  false || 'core/browser/eventbus';
+module.exports = {
+  'core': {
+    'bootstrap': {
+      'eventbus': 'core/eventbus/bootstrap'
+    },
+    'locator': {
+      'core/eventbus/bootstrap': "".concat(dirname, "/bootstrap")
+    },
+    'eventbus': {
+      'options': {
+        'console': {
+          'prefix': 'WARN'
+        }
+      },
+      'observers': {
+        'core.error': {
+          'core/observer/error': true
+        },
+        'core.warning': {
+          'core/observer/warning': true
+        },
+        'core.info': {
+          'core/observer/info': true
+        }
+      }
+    }
   }
 };
 
@@ -1281,10 +1572,12 @@ function () {
       core.add('core/string', 'core/common/string');
       core.add('core/console', 'core/browser/console');
       core.add('core/schema', 'core/common/schema');
+      core.add('core/observer', 'core/common/observer');
       core.add('data-structure', 'core/common/data-structure');
       core.add('core/schema/bootstrap', 'core/browser/schema/bootstrap');
       core.add('core/channel', 'core/common/channel');
       core.add('core/bus', 'core/common/bus');
+      core.add('core/eventbus', 'core/browser/eventbus');
       return core;
     }
   }, {
@@ -1461,14 +1754,183 @@ module.exports = SchemaBootstrapLocator;
 
 /***/ }),
 
+/***/ "./dist/browser/core/browser/service-loader/error/service-locator-not-found.js":
+/*!*************************************************************************************!*\
+  !*** ./dist/browser/core/browser/service-loader/error/service-locator-not-found.js ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
+
+function isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _construct(Parent, args, Class) { if (isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
+
+function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var ServiceLocatorNotFoundError =
+/*#__PURE__*/
+function (_Error) {
+  _inherits(ServiceLocatorNotFoundError, _Error);
+
+  function ServiceLocatorNotFoundError() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, ServiceLocatorNotFoundError);
+
+    for (var _len = arguments.length, a = new Array(_len), _key = 0; _key < _len; _key++) {
+      a[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ServiceLocatorNotFoundError)).call.apply(_getPrototypeOf2, [this].concat(a)));
+    _this.code = 'E_SERVICE_LOCATOR_NOT_FOUND';
+    return _this;
+  }
+
+  return ServiceLocatorNotFoundError;
+}(_wrapNativeSuper(Error));
+
+module.exports = ServiceLocatorNotFoundError;
+
+/***/ }),
+
+/***/ "./dist/browser/core/browser/service-loader/error/service-unable-to-resolve-dependencies.js":
+/*!**************************************************************************************************!*\
+  !*** ./dist/browser/core/browser/service-loader/error/service-unable-to-resolve-dependencies.js ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
+
+function isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _construct(Parent, args, Class) { if (isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
+
+function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var ServiceUnableToResolveDependenciesError =
+/*#__PURE__*/
+function (_Error) {
+  _inherits(ServiceUnableToResolveDependenciesError, _Error);
+
+  function ServiceUnableToResolveDependenciesError() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, ServiceUnableToResolveDependenciesError);
+
+    for (var _len = arguments.length, a = new Array(_len), _key = 0; _key < _len; _key++) {
+      a[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ServiceUnableToResolveDependenciesError)).call.apply(_getPrototypeOf2, [this].concat(a)));
+    _this.code = 'E_SERVICE_UNABLE_TO_RESOLVE_DEPENDENCIES';
+    return _this;
+  }
+
+  return ServiceUnableToResolveDependenciesError;
+}(_wrapNativeSuper(Error));
+
+module.exports = ServiceUnableToResolveDependenciesError;
+
+/***/ }),
+
+/***/ "./dist/browser/core/browser/service-loader/error/service-unmet-dependency.js":
+/*!************************************************************************************!*\
+  !*** ./dist/browser/core/browser/service-loader/error/service-unmet-dependency.js ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
+
+function isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _construct(Parent, args, Class) { if (isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
+
+function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var ServiceUnmetDependencyError =
+/*#__PURE__*/
+function (_Error) {
+  _inherits(ServiceUnmetDependencyError, _Error);
+
+  function ServiceUnmetDependencyError() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, ServiceUnmetDependencyError);
+
+    for (var _len = arguments.length, a = new Array(_len), _key = 0; _key < _len; _key++) {
+      a[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ServiceUnmetDependencyError)).call.apply(_getPrototypeOf2, [this].concat(a)));
+    _this.code = 'E_SERVICE_UNMET_DEPENDENCY';
+    return _this;
+  }
+
+  return ServiceUnmetDependencyError;
+}(_wrapNativeSuper(Error));
+
+module.exports = ServiceUnmetDependencyError;
+
+/***/ }),
+
 /***/ "./dist/browser/core/browser/service-loader/index.js":
 /*!***********************************************************!*\
   !*** ./dist/browser/core/browser/service-loader/index.js ***!
   \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -1480,110 +1942,233 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+var ServiceUnmetDependencyError = __webpack_require__(/*! ./error/service-unmet-dependency */ "./dist/browser/core/browser/service-loader/error/service-unmet-dependency.js"),
+    ServiceLocatorNotFoundError = __webpack_require__(/*! ./error/service-locator-not-found */ "./dist/browser/core/browser/service-loader/error/service-locator-not-found.js"),
+    ServiceUnableToResolveDependenciesError = __webpack_require__(/*! ./error/service-unable-to-resolve-dependencies */ "./dist/browser/core/browser/service-loader/error/service-unable-to-resolve-dependencies.js");
+/**
+ * @implements {core/service-loader}
+ */
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var ServiceUnmetDependencyError = __webpack_require__(/*! core/common/service-loader/error/service-unmet-dependency */ "./dist/browser/core/common/service-loader/error/service-unmet-dependency.js"),
-    ServiceLocatorNotFoundError = __webpack_require__(/*! core/common/service-loader/error/service-locator-not-found */ "./dist/browser/core/common/service-loader/error/service-locator-not-found.js"),
-    ServiceLoader = __webpack_require__(/*! core/common/service-loader */ "./dist/browser/core/common/service-loader/index.js");
 
 var BrowserServiceLoader =
 /*#__PURE__*/
-function (_ServiceLoader) {
-  _inherits(BrowserServiceLoader, _ServiceLoader);
-
-  function BrowserServiceLoader() {
+function () {
+  function BrowserServiceLoader(locator) {
     _classCallCheck(this, BrowserServiceLoader);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(BrowserServiceLoader).apply(this, arguments));
+    this.locator = locator;
   }
+  /**
+   * Eager loading the services in the sevice locator.
+   * Recursion queue to complete loading all services.
+   * @param {Array<string>} services names of services
+   */
+
 
   _createClass(BrowserServiceLoader, [{
+    key: "loadServiceRecursion",
+    value: function () {
+      var _loadServiceRecursion = _asyncToGenerator(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee(services) {
+        var queue, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, serviceName;
+
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                if (!(services.length === 0)) {
+                  _context.next = 2;
+                  break;
+                }
+
+                return _context.abrupt("return");
+
+              case 2:
+                // incomplete services that could not be loaded in the declared order
+                queue = []; // looping through different service names in an attempt to eager load them
+                // if an "unmet dependency" error is thrown, the service name is pushed to a queue to be located at a later stage
+                // in hope that the earlier unmet dependency then is locatable
+
+                _iteratorNormalCompletion = true;
+                _didIteratorError = false;
+                _iteratorError = undefined;
+                _context.prev = 6;
+                _iterator = services[Symbol.iterator]();
+
+              case 8:
+                if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
+                  _context.next = 26;
+                  break;
+                }
+
+                serviceName = _step.value;
+                _context.prev = 10;
+                _context.next = 13;
+                return this.loadService(serviceName);
+
+              case 13:
+                _context.next = 23;
+                break;
+
+              case 15:
+                _context.prev = 15;
+                _context.t0 = _context["catch"](10);
+                _context.t1 = _context.t0.code;
+                _context.next = _context.t1 === 'E_SERVICE_UNMET_DEPENDENCY' ? 20 : 22;
+                break;
+
+              case 20:
+                queue.push(serviceName);
+                return _context.abrupt("break", 23);
+
+              case 22:
+                throw _context.t0;
+
+              case 23:
+                _iteratorNormalCompletion = true;
+                _context.next = 8;
+                break;
+
+              case 26:
+                _context.next = 32;
+                break;
+
+              case 28:
+                _context.prev = 28;
+                _context.t2 = _context["catch"](6);
+                _didIteratorError = true;
+                _iteratorError = _context.t2;
+
+              case 32:
+                _context.prev = 32;
+                _context.prev = 33;
+
+                if (!_iteratorNormalCompletion && _iterator.return != null) {
+                  _iterator.return();
+                }
+
+              case 35:
+                _context.prev = 35;
+
+                if (!_didIteratorError) {
+                  _context.next = 38;
+                  break;
+                }
+
+                throw _iteratorError;
+
+              case 38:
+                return _context.finish(35);
+
+              case 39:
+                return _context.finish(32);
+
+              case 40:
+                if (!(services.length === queue.length)) {
+                  _context.next = 42;
+                  break;
+                }
+
+                throw new ServiceUnableToResolveDependenciesError("Unmet dependencies found, could not resolve dependencies for ".concat(queue.join(', ')));
+
+              case 42:
+                _context.next = 44;
+                return this.loadServiceRecursion(queue);
+
+              case 44:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[6, 28, 32, 40], [10, 15], [33,, 35, 39]]);
+      }));
+
+      function loadServiceRecursion(_x) {
+        return _loadServiceRecursion.apply(this, arguments);
+      }
+
+      return loadServiceRecursion;
+    }()
+  }, {
     key: "loadService",
     value: function () {
       var _loadService = _asyncToGenerator(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee2(name) {
+      regeneratorRuntime.mark(function _callee3(name) {
         var _this = this;
 
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        return regeneratorRuntime.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
-                return _context2.abrupt("return", new Promise(
+                return _context3.abrupt("return", new Promise(
                 /*#__PURE__*/
                 function () {
                   var _ref = _asyncToGenerator(
                   /*#__PURE__*/
-                  regeneratorRuntime.mark(function _callee(resolve, reject) {
+                  regeneratorRuntime.mark(function _callee2(resolve, reject) {
                     var configuration, path, Locator, locator, service;
-                    return regeneratorRuntime.wrap(function _callee$(_context) {
+                    return regeneratorRuntime.wrap(function _callee2$(_context2) {
                       while (1) {
-                        switch (_context.prev = _context.next) {
+                        switch (_context2.prev = _context2.next) {
                           case 0:
-                            _context.prev = 0;
+                            _context2.prev = 0;
                             configuration = _this.locator.locate('core/configuration'), path = configuration.find('core.locator')[name], Locator = __webpack_require__("./dist/browser sync recursive ^\\.\\/.*\\/locator$")("./".concat(path, "/locator")), locator = new Locator(_this.locator);
-                            _context.prev = 2;
+                            _context2.prev = 2;
                             service = locator.locate();
 
                             _this.locator.set(name, service);
 
                             resolve();
-                            _context.next = 16;
+                            _context2.next = 16;
                             break;
 
                           case 8:
-                            _context.prev = 8;
-                            _context.t0 = _context["catch"](2);
-                            _context.t1 = _context.t0.code;
-                            _context.next = _context.t1 === 'E_SERVICE_UNDEFINED' ? 13 : 15;
+                            _context2.prev = 8;
+                            _context2.t0 = _context2["catch"](2);
+                            _context2.t1 = _context2.t0.code;
+                            _context2.next = _context2.t1 === 'E_SERVICE_UNDEFINED' ? 13 : 15;
                             break;
 
                           case 13:
-                            reject(new ServiceUnmetDependencyError("An unmet dependency was found for service \"".concat(name, "\", error: ").concat(_context.t0.message)));
-                            return _context.abrupt("break", 16);
+                            reject(new ServiceUnmetDependencyError("An unmet dependency was found for service \"".concat(name, "\", error: ").concat(_context2.t0.message)));
+                            return _context2.abrupt("break", 16);
 
                           case 15:
-                            reject(_context.t0);
+                            reject(_context2.t0);
 
                           case 16:
-                            _context.next = 21;
+                            _context2.next = 21;
                             break;
 
                           case 18:
-                            _context.prev = 18;
-                            _context.t2 = _context["catch"](0);
+                            _context2.prev = 18;
+                            _context2.t2 = _context2["catch"](0);
                             reject(new ServiceLocatorNotFoundError("locator could not be found for ".concat(name)));
 
                           case 21:
                           case "end":
-                            return _context.stop();
+                            return _context2.stop();
                         }
                       }
-                    }, _callee, null, [[0, 18], [2, 8]]);
+                    }, _callee2, null, [[0, 18], [2, 8]]);
                   }));
 
-                  return function (_x2, _x3) {
+                  return function (_x3, _x4) {
                     return _ref.apply(this, arguments);
                   };
                 }()));
 
               case 1:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2);
+        }, _callee3);
       }));
 
-      function loadService(_x) {
+      function loadService(_x2) {
         return _loadService.apply(this, arguments);
       }
 
@@ -1592,7 +2177,7 @@ function (_ServiceLoader) {
   }]);
 
   return BrowserServiceLoader;
-}(ServiceLoader);
+}();
 
 module.exports = BrowserServiceLoader;
 
@@ -1733,6 +2318,63 @@ module.exports = BootstrapLocator;
 
 /***/ }),
 
+/***/ "./dist/browser/core/common/bus/bootstrap/error/observer-contract-not-honered.js":
+/*!***************************************************************************************!*\
+  !*** ./dist/browser/core/common/bus/bootstrap/error/observer-contract-not-honered.js ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
+
+function isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _construct(Parent, args, Class) { if (isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
+
+function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var ObserverContractNotHoneredError =
+/*#__PURE__*/
+function (_Error) {
+  _inherits(ObserverContractNotHoneredError, _Error);
+
+  function ObserverContractNotHoneredError() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, ObserverContractNotHoneredError);
+
+    for (var _len = arguments.length, a = new Array(_len), _key = 0; _key < _len; _key++) {
+      a[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ObserverContractNotHoneredError)).call.apply(_getPrototypeOf2, [this].concat(a)));
+    _this.code = 'E_BUS_OBSERVER_CONTRACT_NOT_HONERED';
+    return _this;
+  }
+
+  return ObserverContractNotHoneredError;
+}(_wrapNativeSuper(Error));
+
+module.exports = ObserverContractNotHoneredError;
+
+/***/ }),
+
 /***/ "./dist/browser/core/common/bus/bootstrap/index.js":
 /*!*********************************************************!*\
   !*** ./dist/browser/core/common/bus/bootstrap/index.js ***!
@@ -1746,7 +2388,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var ObserverContractNotHoneredError = __webpack_require__(/*! ../../observer/error/observer-contract-not-honered */ "./dist/browser/core/common/observer/error/observer-contract-not-honered.js");
+var ObserverContractNotHoneredError = __webpack_require__(/*! ./error/observer-contract-not-honered */ "./dist/browser/core/common/bus/bootstrap/error/observer-contract-not-honered.js");
 
 var BusBootstrap =
 /*#__PURE__*/
@@ -2008,7 +2650,9 @@ function () {
     value: function addChannel(id) {
       this.channels.add({
         id: id,
-        element: this.channelFactory.create(id)
+        element: this.channelFactory.create({
+          id: id
+        })
       });
     }
   }, {
@@ -2271,11 +2915,13 @@ var BusChannelFactory =
 function () {
   function BusChannelFactory(_ref) {
     var composer = _ref.composer,
+        consoleFactory = _ref.consoleFactory,
         multipleAssociativeArrayFactory = _ref.multipleAssociativeArrayFactory;
 
     _classCallCheck(this, BusChannelFactory);
 
     this.composer = composer;
+    this.consoleFactory = consoleFactory;
     this.multipleAssociativeArrayFactory = multipleAssociativeArrayFactory;
   }
 
@@ -2285,10 +2931,19 @@ function () {
       return this.multipleAssociativeArrayFactory.create();
     }
   }, {
+    key: "createConsole",
+    value: function createConsole() {
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      return this.consoleFactory.create(options);
+    }
+  }, {
     key: "create",
-    value: function create(id) {
+    value: function create(_ref2) {
+      var id = _ref2.id,
+          consoleOptions = _ref2.consoleOptions;
       return new BusChannel({
         id: id,
+        console: this.createConsole(consoleOptions),
         observers: this.createMultipleAssociativeArray(),
         composer: this.composer
       });
@@ -2334,9 +2989,11 @@ function () {
     key: "locate",
     value: function locate() {
       var composer = this.locator.locate('core/schema/composer'),
+          consoleFactory = this.locator.locate('core/console/factory'),
           multipleAssociativeArrayFactory = this.locator.locate('data-structure/multiple-associative-array/factory');
       return new BusChannelFactory({
         composer: composer,
+        consoleFactory: consoleFactory,
         multipleAssociativeArrayFactory: multipleAssociativeArrayFactory
       });
     }
@@ -2379,13 +3036,15 @@ function () {
   function BusChannel(_ref) {
     var id = _ref.id,
         observers = _ref.observers,
-        composer = _ref.composer;
+        composer = _ref.composer,
+        console = _ref.console;
 
     _classCallCheck(this, BusChannel);
 
     this.observers = observers;
     this.composer = composer;
     this.warnings = [];
+    this.console = console;
     this[Symbol.for('id')] = id;
   }
   /**
@@ -2517,7 +3176,7 @@ function () {
 
                 if (eventObservers.length === 0 && !this.warnings.includes(name)) {
                   this.warnings.push(event);
-                  console.log("event: \"".concat(event, "\" does not have a defined observer"));
+                  this.console.warning("event: \"".concat(name, "\" does not have a defined observer"));
                 }
 
                 return _context.abrupt("return", new Promise(function (resolve, reject) {
@@ -2722,63 +3381,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./dist/browser/core/common/config-fetcher/error/component-not-resolvable.js":
-/*!***********************************************************************************!*\
-  !*** ./dist/browser/core/common/config-fetcher/error/component-not-resolvable.js ***!
-  \***********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
-
-function isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _construct(Parent, args, Class) { if (isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
-
-function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-var ComponentNotResolvableError =
-/*#__PURE__*/
-function (_Error) {
-  _inherits(ComponentNotResolvableError, _Error);
-
-  function ComponentNotResolvableError() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    _classCallCheck(this, ComponentNotResolvableError);
-
-    for (var _len = arguments.length, a = new Array(_len), _key = 0; _key < _len; _key++) {
-      a[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ComponentNotResolvableError)).call.apply(_getPrototypeOf2, [this].concat(a)));
-    _this.code = 'E_COMPONENT_NOT_RESOLVABLE';
-    return _this;
-  }
-
-  return ComponentNotResolvableError;
-}(_wrapNativeSuper(Error));
-
-module.exports = ComponentNotResolvableError;
-
-/***/ }),
-
 /***/ "./dist/browser/core/common/config-fetcher/index.js":
 /*!**********************************************************!*\
   !*** ./dist/browser/core/common/config-fetcher/index.js ***!
@@ -2786,57 +3388,16 @@ module.exports = ComponentNotResolvableError;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+/**
+ * @interface ConfigFetcher
+ */
 
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var ConfigFetcher =
-/*#__PURE__*/
-function () {
-  function ConfigFetcher(locator) {
-    _classCallCheck(this, ConfigFetcher);
-
-    this.locator = locator;
-  }
-
-  _createClass(ConfigFetcher, [{
-    key: "fetchComponentConfig",
-    value: function () {
-      var _fetchComponentConfig = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee() {
-        return regeneratorRuntime.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                throw new Error('Method not implemented');
-
-              case 1:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }));
-
-      function fetchComponentConfig() {
-        return _fetchComponentConfig.apply(this, arguments);
-      }
-
-      return fetchComponentConfig;
-    }()
-  }]);
-
-  return ConfigFetcher;
-}();
-
-module.exports = ConfigFetcher;
+/**
+ * @function ConfigFetcher#fetchComponentConfig
+ * @param {string} component
+ * @param {string} path
+ * @returns {Object} Component config
+ */
 
 /***/ }),
 
@@ -3214,7 +3775,15 @@ function () {
       try {
         for (var _iterator = args[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
           var arg = _step.value;
-          if (_typeof(arg) === 'object' && this.config.inspect) output = [].concat(_toConsumableArray(output), _toConsumableArray(this.inspectObject(arg)));else if (typeof x === 'string') output = [].concat(_toConsumableArray(output), _toConsumableArray(this.formatOutputString(arg)));else output = [].concat(_toConsumableArray(output), [arg]);
+
+          if (_typeof(arg) === 'object' && this.config.inspect) {
+            output = [].concat(_toConsumableArray(output), [this.inspectObject(arg)]);
+          } else if (typeof arg === 'string') {
+            var sFormatted = this.formatOutputString(arg);
+            if (Array.isArray(sFormatted)) output = [].concat(_toConsumableArray(output), _toConsumableArray(sFormatted));else output = [].concat(_toConsumableArray(output), [sFormatted]);
+          } else {
+            output = [].concat(_toConsumableArray(output), [arg]);
+          }
         }
       } catch (err) {
         _didIteratorError = true;
@@ -3238,7 +3807,7 @@ function () {
     value: function inspectObject(o) {
       var inspectOptions = this.getInspectOptions(),
           inspectString = this.util.inspect(o, inspectOptions);
-      return [inspectString];
+      return inspectString;
     }
   }, {
     key: "output",
@@ -3266,34 +3835,43 @@ function () {
         args[_key2] = arguments[_key2];
       }
 
-      this.output.call(args, this.console.log);
+      this.output(args, this.console.log);
     }
   }, {
-    key: "error",
-    value: function error() {
+    key: "warning",
+    value: function warning() {
       for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
         args[_key3] = arguments[_key3];
       }
 
-      this.output.call(args, this.console.error);
+      this.output(args, this.console.warn);
     }
   }, {
-    key: "trace",
-    value: function trace() {
+    key: "error",
+    value: function error() {
       for (var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
         args[_key4] = arguments[_key4];
       }
 
-      this.output.call(args, this.console.trace);
+      this.output(args, this.console.error);
     }
   }, {
-    key: "table",
-    value: function table() {
+    key: "trace",
+    value: function trace() {
       for (var _len5 = arguments.length, args = new Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
         args[_key5] = arguments[_key5];
       }
 
-      this.output.call(args, this.console.table);
+      this.output(args, this.console.trace);
+    }
+  }, {
+    key: "table",
+    value: function table() {
+      for (var _len6 = arguments.length, args = new Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
+        args[_key6] = arguments[_key6];
+      }
+
+      this.output(args, this.console.table);
     }
   }, {
     key: "startTimer",
@@ -3333,17 +3911,17 @@ function () {
       regeneratorRuntime.mark(function _callee2(label, cb) {
         var _this = this;
 
-        var _len6,
+        var _len7,
             args,
-            _key6,
+            _key7,
             _args2 = arguments;
 
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                for (_len6 = _args2.length, args = new Array(_len6 > 2 ? _len6 - 2 : 0), _key6 = 2; _key6 < _len6; _key6++) {
-                  args[_key6 - 2] = _args2[_key6];
+                for (_len7 = _args2.length, args = new Array(_len7 > 2 ? _len7 - 2 : 0), _key7 = 2; _key7 < _len7; _key7++) {
+                  args[_key7 - 2] = _args2[_key7];
                 }
 
                 return _context2.abrupt("return", new Promise(
@@ -6209,8 +6787,8 @@ function (_Graph) {
       var previousIndex = nodeIndex - 1;
       var parent;
 
-      for (var _i = previousIndex; _i >= 0; _i--) {
-        var previousNodeId = path[_i],
+      for (var i = previousIndex; i >= 0; i--) {
+        var previousNodeId = path[i],
             previousNodeEdges = this.edges.get(previousNodeId);
 
         if (previousNodeEdges) {
@@ -7422,60 +8000,179 @@ module.exports = CoreObjectLocator;
 
 /***/ }),
 
-/***/ "./dist/browser/core/common/observer/error/observer-contract-not-honered.js":
-/*!**********************************************************************************!*\
-  !*** ./dist/browser/core/common/observer/error/observer-contract-not-honered.js ***!
-  \**********************************************************************************/
+/***/ "./dist/browser/core/common/observer/config.js":
+/*!*****************************************************!*\
+  !*** ./dist/browser/core/common/observer/config.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var dirname =  false || 'core/common/observer';
+module.exports = {
+  'core': {
+    'locator': {
+      'core/observer/error': "".concat(dirname, "/error"),
+      'core/observer/info': "".concat(dirname, "/info"),
+      'core/observer/warning': "".concat(dirname, "/warning")
+    }
+  }
+};
+
+/***/ }),
+
+/***/ "./dist/browser/core/common/observer/error/index.js":
+/*!**********************************************************!*\
+  !*** ./dist/browser/core/common/observer/error/index.js ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var ConsoleObserverError =
+/*#__PURE__*/
+function () {
+  function ConsoleObserverError(console) {
+    _classCallCheck(this, ConsoleObserverError);
+
+    this.console = console;
+  }
+
+  _createClass(ConsoleObserverError, [{
+    key: "observe",
+    value: function observe(event) {
+      this.console.error(event.name, event.data);
+    }
+  }]);
+
+  return ConsoleObserverError;
+}();
+
+module.exports = ConsoleObserverError;
+
+/***/ }),
+
+/***/ "./dist/browser/core/common/observer/error/locator.js":
+/*!************************************************************!*\
+  !*** ./dist/browser/core/common/observer/error/locator.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+var ConsoleObserverError = __webpack_require__(/*! . */ "./dist/browser/core/common/observer/error/index.js");
 
-function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
-
-function isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _construct(Parent, args, Class) { if (isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
-
-function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-var ObserverContractNotHoneredError =
+var ConsoleObserverErrorLocator =
 /*#__PURE__*/
-function (_Error) {
-  _inherits(ObserverContractNotHoneredError, _Error);
+function () {
+  function ConsoleObserverErrorLocator(locator) {
+    _classCallCheck(this, ConsoleObserverErrorLocator);
 
-  function ObserverContractNotHoneredError() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    _classCallCheck(this, ObserverContractNotHoneredError);
-
-    for (var _len = arguments.length, a = new Array(_len), _key = 0; _key < _len; _key++) {
-      a[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ObserverContractNotHoneredError)).call.apply(_getPrototypeOf2, [this].concat(a)));
-    _this.code = 'E_BUS_OBSERVER_CONTRACT_NOT_HONERED';
-    return _this;
+    this.locator = locator;
   }
 
-  return ObserverContractNotHoneredError;
-}(_wrapNativeSuper(Error));
+  _createClass(ConsoleObserverErrorLocator, [{
+    key: "locate",
+    value: function locate() {
+      var consoleFactory = this.locator.locate('core/console/factory'),
+          console = consoleFactory.create({
+        prefix: 'ERR'
+      });
+      return new ConsoleObserverError(console);
+    }
+  }]);
 
-module.exports = ObserverContractNotHoneredError;
+  return ConsoleObserverErrorLocator;
+}();
+
+module.exports = ConsoleObserverErrorLocator;
+
+/***/ }),
+
+/***/ "./dist/browser/core/common/observer/info/index.js":
+/*!*********************************************************!*\
+  !*** ./dist/browser/core/common/observer/info/index.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var ConsoleObserverInfo =
+/*#__PURE__*/
+function () {
+  function ConsoleObserverInfo(console) {
+    _classCallCheck(this, ConsoleObserverInfo);
+
+    this.console = console;
+  }
+
+  _createClass(ConsoleObserverInfo, [{
+    key: "observe",
+    value: function observe(event) {
+      this.console.info(event.name, event.data);
+    }
+  }]);
+
+  return ConsoleObserverInfo;
+}();
+
+module.exports = ConsoleObserverInfo;
+
+/***/ }),
+
+/***/ "./dist/browser/core/common/observer/info/locator.js":
+/*!***********************************************************!*\
+  !*** ./dist/browser/core/common/observer/info/locator.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var ConsoleObserverInfo = __webpack_require__(/*! . */ "./dist/browser/core/common/observer/info/index.js");
+
+var ConsoleObserverInfoLocator =
+/*#__PURE__*/
+function () {
+  function ConsoleObserverInfoLocator(locator) {
+    _classCallCheck(this, ConsoleObserverInfoLocator);
+
+    this.locator = locator;
+  }
+
+  _createClass(ConsoleObserverInfoLocator, [{
+    key: "locate",
+    value: function locate() {
+      var consoleFactory = this.locator.locate('core/console/factory'),
+          console = consoleFactory.create({
+        prefix: 'INF'
+      });
+      return new ConsoleObserverInfo(console);
+    }
+  }]);
+
+  return ConsoleObserverInfoLocator;
+}();
+
+module.exports = ConsoleObserverInfoLocator;
 
 /***/ }),
 
@@ -7495,6 +8192,84 @@ module.exports = ObserverContractNotHoneredError;
  * @param {*} data
  * @returns {void}
  */
+
+/***/ }),
+
+/***/ "./dist/browser/core/common/observer/warning/index.js":
+/*!************************************************************!*\
+  !*** ./dist/browser/core/common/observer/warning/index.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var ConsoleObserverWarning =
+/*#__PURE__*/
+function () {
+  function ConsoleObserverWarning(console) {
+    _classCallCheck(this, ConsoleObserverWarning);
+
+    this.console = console;
+  }
+
+  _createClass(ConsoleObserverWarning, [{
+    key: "observe",
+    value: function observe(event) {
+      this.console.warning(event.name, event.data);
+    }
+  }]);
+
+  return ConsoleObserverWarning;
+}();
+
+module.exports = ConsoleObserverWarning;
+
+/***/ }),
+
+/***/ "./dist/browser/core/common/observer/warning/locator.js":
+/*!**************************************************************!*\
+  !*** ./dist/browser/core/common/observer/warning/locator.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var ConsoleObserverWarning = __webpack_require__(/*! . */ "./dist/browser/core/common/observer/warning/index.js");
+
+var ConsoleObserverWarningLocator =
+/*#__PURE__*/
+function () {
+  function ConsoleObserverWarningLocator(locator) {
+    _classCallCheck(this, ConsoleObserverWarningLocator);
+
+    this.locator = locator;
+  }
+
+  _createClass(ConsoleObserverWarningLocator, [{
+    key: "locate",
+    value: function locate() {
+      var consoleFactory = this.locator.locate('core/console/factory'),
+          console = consoleFactory.create({
+        prefix: 'WARN'
+      });
+      return new ConsoleObserverWarning(console);
+    }
+  }]);
+
+  return ConsoleObserverWarningLocator;
+}();
+
+module.exports = ConsoleObserverWarningLocator;
 
 /***/ }),
 
@@ -10610,368 +11385,28 @@ module.exports = SchemaValidatorStringLocator;
 
 /***/ }),
 
-/***/ "./dist/browser/core/common/service-loader/error/service-locator-not-found.js":
-/*!************************************************************************************!*\
-  !*** ./dist/browser/core/common/service-loader/error/service-locator-not-found.js ***!
-  \************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
-
-function isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _construct(Parent, args, Class) { if (isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
-
-function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-var ServiceLocatorNotFoundError =
-/*#__PURE__*/
-function (_Error) {
-  _inherits(ServiceLocatorNotFoundError, _Error);
-
-  function ServiceLocatorNotFoundError() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    _classCallCheck(this, ServiceLocatorNotFoundError);
-
-    for (var _len = arguments.length, a = new Array(_len), _key = 0; _key < _len; _key++) {
-      a[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ServiceLocatorNotFoundError)).call.apply(_getPrototypeOf2, [this].concat(a)));
-    _this.code = 'E_SERVICE_LOCATOR_NOT_FOUND';
-    return _this;
-  }
-
-  return ServiceLocatorNotFoundError;
-}(_wrapNativeSuper(Error));
-
-module.exports = ServiceLocatorNotFoundError;
-
-/***/ }),
-
-/***/ "./dist/browser/core/common/service-loader/error/service-unable-to-resolve-dependencies.js":
-/*!*************************************************************************************************!*\
-  !*** ./dist/browser/core/common/service-loader/error/service-unable-to-resolve-dependencies.js ***!
-  \*************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
-
-function isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _construct(Parent, args, Class) { if (isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
-
-function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-var ServiceUnableToResolveDependenciesError =
-/*#__PURE__*/
-function (_Error) {
-  _inherits(ServiceUnableToResolveDependenciesError, _Error);
-
-  function ServiceUnableToResolveDependenciesError() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    _classCallCheck(this, ServiceUnableToResolveDependenciesError);
-
-    for (var _len = arguments.length, a = new Array(_len), _key = 0; _key < _len; _key++) {
-      a[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ServiceUnableToResolveDependenciesError)).call.apply(_getPrototypeOf2, [this].concat(a)));
-    _this.code = 'E_SERVICE_UNABLE_TO_RESOLVE_DEPENDENCIES';
-    return _this;
-  }
-
-  return ServiceUnableToResolveDependenciesError;
-}(_wrapNativeSuper(Error));
-
-module.exports = ServiceUnableToResolveDependenciesError;
-
-/***/ }),
-
-/***/ "./dist/browser/core/common/service-loader/error/service-unmet-dependency.js":
-/*!***********************************************************************************!*\
-  !*** ./dist/browser/core/common/service-loader/error/service-unmet-dependency.js ***!
-  \***********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
-
-function isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _construct(Parent, args, Class) { if (isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
-
-function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-var ServiceUnmetDependencyError =
-/*#__PURE__*/
-function (_Error) {
-  _inherits(ServiceUnmetDependencyError, _Error);
-
-  function ServiceUnmetDependencyError() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    _classCallCheck(this, ServiceUnmetDependencyError);
-
-    for (var _len = arguments.length, a = new Array(_len), _key = 0; _key < _len; _key++) {
-      a[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ServiceUnmetDependencyError)).call.apply(_getPrototypeOf2, [this].concat(a)));
-    _this.code = 'E_SERVICE_UNMET_DEPENDENCY';
-    return _this;
-  }
-
-  return ServiceUnmetDependencyError;
-}(_wrapNativeSuper(Error));
-
-module.exports = ServiceUnmetDependencyError;
-
-/***/ }),
-
 /***/ "./dist/browser/core/common/service-loader/index.js":
 /*!**********************************************************!*\
   !*** ./dist/browser/core/common/service-loader/index.js ***!
   \**********************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+/**
+ * @interface ServiceLoader
+ */
 
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+/**
+ * @function ServiceLoader#loadServiceRecursion
+ * @param {Array<string>} services
+ * @returns {void}
+ */
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var ServiceUnableToResolveDependenciesError = __webpack_require__(/*! ./error/service-unable-to-resolve-dependencies */ "./dist/browser/core/common/service-loader/error/service-unable-to-resolve-dependencies.js");
-
-var ServiceLoader =
-/*#__PURE__*/
-function () {
-  function ServiceLoader(locator) {
-    _classCallCheck(this, ServiceLoader);
-
-    this.locator = locator;
-  }
-  /**
-   * Eager loading the services in the sevice locator.
-   * Recursion queue to complete loading all services.
-   * @param {Array<string>} services names of services
-   */
-
-
-  _createClass(ServiceLoader, [{
-    key: "loadServiceRecursion",
-    value: function () {
-      var _loadServiceRecursion = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee(services) {
-        var queue, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, serviceName;
-
-        return regeneratorRuntime.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                if (!(services.length === 0)) {
-                  _context.next = 2;
-                  break;
-                }
-
-                return _context.abrupt("return");
-
-              case 2:
-                // incomplete services that could not be loaded in the declared order
-                queue = []; // looping through different service names in an attempt to eager load them
-                // if an "unmet dependency" error is thrown, the service name is pushed to a queue to be located at a later stage
-                // in hope that the earlier unmet dependency then is locatable
-
-                _iteratorNormalCompletion = true;
-                _didIteratorError = false;
-                _iteratorError = undefined;
-                _context.prev = 6;
-                _iterator = services[Symbol.iterator]();
-
-              case 8:
-                if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
-                  _context.next = 26;
-                  break;
-                }
-
-                serviceName = _step.value;
-                _context.prev = 10;
-                _context.next = 13;
-                return this.loadService(serviceName);
-
-              case 13:
-                _context.next = 23;
-                break;
-
-              case 15:
-                _context.prev = 15;
-                _context.t0 = _context["catch"](10);
-                _context.t1 = _context.t0.code;
-                _context.next = _context.t1 === 'E_SERVICE_UNMET_DEPENDENCY' ? 20 : 22;
-                break;
-
-              case 20:
-                queue.push(serviceName);
-                return _context.abrupt("break", 23);
-
-              case 22:
-                throw _context.t0;
-
-              case 23:
-                _iteratorNormalCompletion = true;
-                _context.next = 8;
-                break;
-
-              case 26:
-                _context.next = 32;
-                break;
-
-              case 28:
-                _context.prev = 28;
-                _context.t2 = _context["catch"](6);
-                _didIteratorError = true;
-                _iteratorError = _context.t2;
-
-              case 32:
-                _context.prev = 32;
-                _context.prev = 33;
-
-                if (!_iteratorNormalCompletion && _iterator.return != null) {
-                  _iterator.return();
-                }
-
-              case 35:
-                _context.prev = 35;
-
-                if (!_didIteratorError) {
-                  _context.next = 38;
-                  break;
-                }
-
-                throw _iteratorError;
-
-              case 38:
-                return _context.finish(35);
-
-              case 39:
-                return _context.finish(32);
-
-              case 40:
-                if (!(services.length === queue.length)) {
-                  _context.next = 42;
-                  break;
-                }
-
-                throw new ServiceUnableToResolveDependenciesError("Unmet dependencies found, could not resolve dependencies for ".concat(queue.join(', ')));
-
-              case 42:
-                _context.next = 44;
-                return this.loadServiceRecursion(queue);
-
-              case 44:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this, [[6, 28, 32, 40], [10, 15], [33,, 35, 39]]);
-      }));
-
-      function loadServiceRecursion(_x) {
-        return _loadServiceRecursion.apply(this, arguments);
-      }
-
-      return loadServiceRecursion;
-    }()
-  }, {
-    key: "loadService",
-    value: function () {
-      var _loadService = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee2(name) {
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                throw new Error('Method not implemented');
-
-              case 1:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }));
-
-      function loadService(_x2) {
-        return _loadService.apply(this, arguments);
-      }
-
-      return loadService;
-    }()
-  }]);
-
-  return ServiceLoader;
-}();
-
-module.exports = ServiceLoader;
+/**
+ * @function ServiceLoader#loadService
+ * @param {string} name
+ * @returns {void}
+ */
 
 /***/ }),
 

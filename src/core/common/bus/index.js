@@ -13,7 +13,7 @@ class Bus
   {
     this.channels.add({
       id,
-      element : this.channelFactory.create(id)
+      element : this.channelFactory.create({ id })
     })
   }
 

@@ -1,4 +1,4 @@
-const ObserverContractNotHoneredError = require('../../../common/observer/error/observer-contract-not-honered')
+const ObserverContractNotHoneredError = require('./error/observer-contract-not-honered')
 
 class EventBusBootstrap
 {
@@ -11,19 +11,22 @@ class EventBusBootstrap
 
   bootstrap()
   {
-    const observers = this.configuration.find('eventbus.observers')
+    const observers = this.configuration.find('core.eventbus.observers')
 
     for(const event in observers)
     {
-      for(const serviceName of observers[event])
+      for(const serviceName in observers[event])
       {
-        const service = this.locator.locate(serviceName)
+        if(observers[event][serviceName])
+        {
+          const service = this.locator.locate(serviceName)
 
-        if(typeof service.observe !== 'function')
-          throw new ObserverContractNotHoneredError(`"${serviceName}" does not implement the EventBusObserver interface`)
+          if(typeof service.observe !== 'function')
+            throw new ObserverContractNotHoneredError(`"${serviceName}" does not implement the EventBusObserver interface`)
 
-        const observer = service.observe.bind(service)
-        this.eventbus.on(event, observer)
+          const observer = service.observe.bind(service)
+          this.eventbus.on(event, observer)
+        }
       }
     }
   }

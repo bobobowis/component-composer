@@ -10,10 +10,10 @@ class BrowserConsole extends CoreConsole
     this.bg     = this.config.background
   }
 
-  format(s)
+  formatOutputString(s)
   {
     const
-    formatted = super.format(s),
+    formatted = super.formatOutputString(s),
     colorized = this.colorize(formatted)
 
     return colorized
@@ -32,7 +32,7 @@ class BrowserConsole extends CoreConsole
     if(this.config.css && typeof this.config.css === 'string')
       css = `${css}${this.config.css}`
 
-    return this.coreString.trim(css) !== '' ? [`%c${s}`, css] : [s]
+    return this.coreString.trim(css) !== '' ? [`%c${s}`, css] : s
   }
 }
 

@@ -6,8 +6,8 @@ class NodeConsole extends CoreConsole
   {
     super(args)
 
-    this.color  = this.getFontColor(this.config.color)
-    this.bg     = this.getBackgroundColor(this.config.background)
+    this.color      = this.getFontColor(this.config.color)
+    this.background = this.getBackgroundColor(this.config.background)
   }
 
   getFontColor(color)
@@ -46,11 +46,11 @@ class NodeConsole extends CoreConsole
     return s.replace(/[\x00-\x09\x10-\x1F]/g, '')
   }
 
-  format(s)
+  formatOutputString(s)
   {
     const
     noControlCharacters = this.removeControlCharacters(s),
-    formatted           = super.format(noControlCharacters),
+    formatted           = super.formatOutputString(noControlCharacters),
     colorized           = this.colorize(formatted)
 
     return colorized

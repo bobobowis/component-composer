@@ -12,15 +12,13 @@
     "tester": "eslint src/**/**.js && nyc mocha src/**/*.test.js test/**/*.test.js",
     "linter": "eslint src/**/**.js",
     "linter-and-fix": "eslint src/**/**.js --fix",
-
     "webpack-browser": "npm run webpack-browser-dev && npm run webpack-browser-prod",
     "webpack-browser-dev": "webpack --progress --profile --config webpack/browser/config.dev.js",
     "webpack-browser-prod": "webpack --progress --profile --config webpack/browser/config.prod.js",
-
     "remove-dist": "rm -rf dist",
     "create-browser-dist": "npm run remove-dist && npm run browser-dist",
     "browser-dist": "mkdir -p dist/browser/core/ && cp -r src/core/config.js dist/browser/core && cp -r src/core/index.js dist/browser/core && cp -r src/core/common dist/browser/core/common && cp -r src/core/browser dist/browser/core/browser",
-    "pack-that-shit" : "npm run create-browser-dist && npm run webpack-browser && npm run remove-dist"
+    "pack-that-shit": "npm run create-browser-dist && npm run webpack-browser && npm run remove-dist"
   },
   "keywords": [
     "handlebars",
