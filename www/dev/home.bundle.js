@@ -1274,7 +1274,7 @@ function (_CoreConsole) {
       if (this.color) css = "color:".concat(this.color, ";");
       if (this.background) css = "".concat(css, "background-color:").concat(this.background, ";");
       if (this.config.css) css = "".concat(css).concat(this.config.css);
-      return this.coreString.trim(css) !== '' ? ["%c".concat(s), css] : s;
+      return this.coreString.trim(css) !== '' ? ["%c".concat(s), css] : [s];
     }
   }]);
 
@@ -4049,7 +4049,7 @@ function () {
   }, {
     key: "colorize",
     value: function colorize(s) {
-      return s;
+      return [s];
     }
   }, {
     key: "buildOutput",
@@ -4066,7 +4066,7 @@ function () {
         for (var _iterator = args[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
           var arg = _step.value;
           var outputArg = void 0;
-          if (_typeof(arg) === 'object' && this.config.inspect) outputArg = this.inspectObject(arg);else if (_typeof(arg) === 'object' && this.config.stringify) outputArg = JSON.stringify(arg, this.config.stringify.replacer, this.config.stringify.space);else if (typeof outputArg === 'string') outputArg = this.formatOutputString(outputArg);
+          if (_typeof(arg) === 'object' && this.config.inspect) outputArg = this.inspectObject(arg);else if (_typeof(arg) === 'object' && this.config.stringify) outputArg = JSON.stringify(arg, this.config.stringify.replacer, this.config.stringify.space);else if (typeof arg === 'string') outputArg = this.formatOutputString(arg);
           output = [].concat(_toConsumableArray(output), [outputArg]);
         }
       } catch (err) {

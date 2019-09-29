@@ -49,7 +49,7 @@ class Console
 
   colorize(s)
   {
-    return s
+    return [s]
   }
 
   buildOutput(args)
@@ -73,8 +73,8 @@ class Console
         outputArg = this.inspectObject(arg)
       else if(typeof arg === 'object' && this.config.stringify)
         outputArg = JSON.stringify(arg, this.config.stringify.replacer,  this.config.stringify.space)
-      else if(typeof outputArg === 'string')
-        outputArg = this.formatOutputString(outputArg)
+      else if(typeof arg === 'string')
+        outputArg = this.formatOutputString(arg)
 
 
       output = [...output, outputArg]

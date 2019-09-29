@@ -23,7 +23,7 @@ class BrowserConsole extends CoreConsole
     if(this.config.css)
       css = `${css}${this.config.css}`
 
-    return this.coreString.trim(css) !== '' ? [`%c${s}`, css] : s
+    return this.coreString.trim(css) !== '' ? [`%c${s}`, css] : [s]
   }
 }
 

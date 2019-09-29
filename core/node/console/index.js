@@ -68,7 +68,7 @@ class NodeConsole extends CoreConsole
     if(this.background || this.color)
       colored = `${colored}\x1b[0m`
 
-    return colored
+    return [colored]
   }
 }
 
