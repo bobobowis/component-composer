@@ -16,9 +16,8 @@
     "webpack-browser-dev": "webpack --progress --profile --config webpack/browser/config.dev.js",
     "webpack-browser-prod": "webpack --progress --profile --config webpack/browser/config.prod.js",
     "remove-dist": "rm -rf dist",
-    "create-browser-dist": "npm run remove-dist && npm run browser-dist",
-    "browser-dist": "mkdir -p dist/browser/core/ && cp -r src/core/config.js dist/browser/core && cp -r src/core/index.js dist/browser/core && cp -r src/core/common dist/browser/core/common && cp -r src/core/browser dist/browser/core/browser",
-    "pack-that-shit": "npm run create-browser-dist && npm run webpack-browser && npm run remove-dist"
+    "browser-dist": "mkdir -p dist/browser/core/ && cp -r core/config.js dist/browser/core && cp -r core/index.js dist/browser/core && cp -r core/common dist/browser/core/common && cp -r core/browser dist/browser/core/browser",
+    "pack-that-shit": "npm run browser-dist && npm run webpack-browser && npm run remove-dist"
   },
   "keywords": [
     "handlebars",
@@ -32,7 +31,9 @@
     "url": "https://github.com/borbalher/component-composer/"
   },
   "dependencies": {
+    "@superhero/request": "^2.1.0",
     "add-module-exports-webpack-plugin": "0.1.0",
+    "cookies": "^0.7.3",
     "dateformat": "3.0.3",
     "handlebars": "4.3.1",
     "requirejs": "2.3.6",

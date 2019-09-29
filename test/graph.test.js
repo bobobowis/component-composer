@@ -2,7 +2,8 @@ describe('Graph', () =>
 {
   const
   expect      = require('chai').expect,
-  CoreFactory = require('../src/core/node/factory')
+  CoreFactory = require('../core/node/factory'),
+  components  = require('./components')
 
   let
   core,
@@ -12,7 +13,7 @@ describe('Graph', () =>
   {
     const coreFactory = new CoreFactory()
 
-    core = coreFactory.create()
+    core = coreFactory.create(components)
 
     core.load().then(() =>
     {

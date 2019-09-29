@@ -9,7 +9,7 @@ module.exports = {
   mode  : 'production',
   output :
   {
-    path     : path.resolve(__dirname, '../../app/browser/prod'),
+    path     : path.resolve(__dirname, '../../www/prod'),
     filename : '[name].bundle.js'
   },
   plugins: common.plugins.concat([

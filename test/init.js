@@ -1,4 +1,2 @@
-// const path = require('path')
-
-// require.main.filename = path.resolve(__dirname,  '../src/index.js')
-// require.main.dirname  = path.resolve(__dirname,  '../src')
+require.main.filename = __filename
+require.main.dirname  = __dirname

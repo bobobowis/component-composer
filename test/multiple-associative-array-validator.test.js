@@ -3,7 +3,8 @@ describe('Multiple Associative Array Validator', () =>
 {
   const
   expect      = require('chai').expect,
-  CoreFactory = require('../src/core/node/factory')
+  CoreFactory = require('../core/node/factory'),
+  components  = require('./components')
 
   let
   core,
@@ -13,7 +14,7 @@ describe('Multiple Associative Array Validator', () =>
   {
     const coreFactory = new CoreFactory()
 
-    core = coreFactory.create()
+    core = coreFactory.create(components)
 
     core.load().then(() =>
     {

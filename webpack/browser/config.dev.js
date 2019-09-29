@@ -9,7 +9,7 @@ module.exports = {
   mode  : 'development',
   output :
   {
-    path     : path.resolve(__dirname, '../../app/browser/dev'),
+    path     : path.resolve(__dirname, '../../www/dev'),
     filename : '[name].bundle.js'
   },
   devtool : 'source-map',
