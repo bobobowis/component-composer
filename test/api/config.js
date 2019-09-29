@@ -15,7 +15,7 @@ module.exports =
           {
             'url'      : '/calculations',
             'method'   : 'post',
-            'endpoint' : 'api/endpoint/create-calculation',
+            'endpoint' : `test/api/endpoint/create-calculation`,
             'view'     : 'core/http/server/view/json',
             'input'    : false
           },
@@ -23,14 +23,14 @@ module.exports =
           {
             'middleware' :
             [
-              'api/middleware/authentication'
+              'test/api/middleware/authentication'
             ]
           },
           'append-calculation' :
           {
             'url'      : '/calculations/:id',
             'method'   : 'put',
-            'endpoint' : 'api/endpoint/append-calculation',
+            'endpoint' : `test/api/endpoint/append-calculation`,
             'view'     : 'core/http/server/view/json',
             'input'    : 'entity/calculation'
           }

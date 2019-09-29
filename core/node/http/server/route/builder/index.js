@@ -23,10 +23,7 @@ class HttpServerRouteBuilder
   build(routes, request)
   {
     if(typeof routes !== 'object')
-    {
-      const msg = 'routes must be built from an object'
-      throw new RoutesInvalidTypeError(msg)
-    }
+      throw new RoutesInvalidTypeError('routes must be built from an object')
 
     const
     validRoutes       = this.fetchValidRoutes(routes, request),
@@ -34,29 +31,18 @@ class HttpServerRouteBuilder
     route             = this.deepmerge.merge({}, ...validRoutesClone)
 
     if(!validRoutesClone.length)
-    {
-      const msg = 'Could not find a matching route'
-      throw new NoRouteFoundError(msg)
-    }
+      throw new NoRouteFoundError(`Could not find a matching route: ${request.url}`)
 
     if(!route.endpoint)
-    {
-      const msg = `No endpoint defined in route for the request: ${request.method} -> ${request.url}`
-      throw new NoEndpointDefinedError(msg)
-    }
+      throw new NoEndpointDefinedError(`No endpoint defined in route for the request: ${request.method} -> ${request.url}`)
 
     if('input' in route === false)
-    {
-      const msg = `route requires a defintion of an input schema, "false" is an acceptable value: ${request.method} -> ${request.url}`
-      throw new InvalidRouteInputError(msg)
-    }
+      throw new InvalidRouteInputError(`route requires a defintion of an input schema, "false" is an acceptable value: ${request.method} -> ${request.url}`)
 
     try
     {
       if(route.input)
-      {
         route.dto = this.composeDto(request, route)
-      }
 
       return route
     }
@@ -81,16 +67,13 @@ class HttpServerRouteBuilder
       url     = route.url     && new RegExp(`^${route.url.replace(/\/:(\w+)/g, '/[^/]+').replace(/\/+$/g, '')}$`),
       method  = route.method  && new RegExp(`^${route.method}$`, 'i')
 
-      if(request.url    .match(url)
-      && request.method .match(method))
+      if(request.url.match(url) && request.method.match(method))
       {
         validRoutes.push(route)
 
         // when an endpoint has been found, the route is terminated
         if(route.endpoint)
-        {
           break
-        }
       }
     }
 
@@ -103,10 +86,7 @@ class HttpServerRouteBuilder
   addDtoBuilder(dtoBuilder)
   {
     if(typeof dtoBuilder.build !== 'function')
-    {
-      const msg = 'Expected "dtoBuilder" to have a build function'
-      throw new DtoBuilderContractNotHoneredError(msg)
-    }
+      throw new DtoBuilderContractNotHoneredError('Expected "dtoBuilder" to have a build function')
 
     return this.dtoBuilders.push(dtoBuilder)
   }

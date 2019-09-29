@@ -1,2 +1,5 @@
+const path = require('path')
+
 require.main.filename = __filename
-require.main.dirname  = __dirname
+require.main.dirname  = path.resolve(__dirname, '..')
+

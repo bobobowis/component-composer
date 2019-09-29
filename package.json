@@ -1,5 +1,5 @@
 {
-  "name": "@borbalher/component-composer",
+  "name": "coreboot",
   "version": "1.0.18",
   "description": "Component composer for Handlebars.js",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "generate-doc-coverage": "nyc report --reporter=html --report-dir=./doc/coverage",
     "generate-doc-tests": "mocha src/**/*.test.js test/**/*.test.js --reporter mochawesome --reporter-options reportDir=doc/tests,reportFilename=index,showHooks=always",
     "generate-doc-jsdoc": "jsdoc src -c jsdoc.json",
-    "test": "nyc mocha test/**/*.test.js",
+    "test": "nyc mocha './{,!(node_modules)/**}/*.test.js' --opts ./test/mocha.opts",
     "tester": "eslint src/**/**.js && nyc mocha src/**/*.test.js test/**/*.test.js",
     "linter": "eslint src/**/**.js",
     "linter-and-fix": "eslint src/**/**.js --fix",
@@ -16,7 +16,13 @@
     "webpack-browser-dev": "webpack --progress --profile --config webpack/browser/config.dev.js",
     "webpack-browser-prod": "webpack --progress --profile --config webpack/browser/config.prod.js",
     "remove-dist": "rm -rf dist",
-    "browser-dist": "mkdir -p dist/browser/core/ && cp -r core/config.js dist/browser/core && cp -r core/index.js dist/browser/core && cp -r core/common dist/browser/core/common && cp -r core/browser dist/browser/core/browser",
+    "start": "node core/node/app/index.js",
+    "copy-view": "mkdir -p dist/browser/view && cp -r view dist/browser",
+    "copy-core": "mkdir -p dist/browser/core && cp -r core dist/browser",
+    "remove-node": "rm -rf dist/browser/core/node",
+    "remove-test-files": "find dist/browser -type f -name '*.test.js' -delete",
+    "remove-test-folders": "find dist/browser -type d -name 'test' -exec rm -rv {} +",
+    "browser-dist": "npm run copy-view && npm run copy-core && npm run remove-node && npm run remove-test-files && npm run remove-test-folders",
     "pack-that-shit": "npm run browser-dist && npm run webpack-browser && npm run remove-dist"
   },
   "keywords": [
@@ -31,12 +37,14 @@
     "url": "https://github.com/borbalher/component-composer/"
   },
   "dependencies": {
+    "@borbalher/component-composer": "^1.0.18",
     "@superhero/request": "^2.1.0",
     "add-module-exports-webpack-plugin": "0.1.0",
     "cookies": "^0.7.3",
     "dateformat": "3.0.3",
     "handlebars": "4.3.1",
     "requirejs": "2.3.6",
+    "superhero": "^2.0.0-beta.33",
     "uuid": "3.3.2"
   },
   "devDependencies": {

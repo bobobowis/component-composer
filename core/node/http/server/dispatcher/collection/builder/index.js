@@ -28,7 +28,7 @@ class ServerDispatcherCollectionBuilder
 
   createDispatcher(pathname, route, request, session, viewModel)
   {
-    const fullPathname = `${this.path.main.dirname}/${pathname}`
+    const fullPathname = `${this.path.main.baseDir}/${pathname}`
 
     if(this.path.isResolvable(fullPathname))
     {
@@ -36,19 +36,14 @@ class ServerDispatcherCollectionBuilder
       Dispatcher  = require(fullPathname),
       dispatcher  = new Dispatcher(route, request, session, this.locator, viewModel)
 
-      if(typeof dispatcher.dispatch !== 'function'
-      || typeof dispatcher.onError  !== 'function')
-      {
-        const msg = `dispatcher "${pathname}" is not honering the server dispatcher contract`
-        throw new NotHoneringDispatcherContractError(msg)
-      }
+      if(typeof dispatcher.dispatch !== 'function' || typeof dispatcher.onError  !== 'function')
+        throw new NotHoneringDispatcherContractError(`dispatcher "${pathname}" is not honering the server dispatcher contract`)
 
       return dispatcher
     }
     else
     {
-      const msg = `dispatcher "${pathname}" can not be resolved in request: ${request.method} -> ${request.url}`
-      throw new DispatcherCanNotBeResolvedError(msg)
+      throw new DispatcherCanNotBeResolvedError(`dispatcher "${pathname}" can not be resolved in request: ${request.method} -> ${request.url}`)
     }
   }
 }

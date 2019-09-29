@@ -12,7 +12,7 @@ class HttpRequestBuilder
   async build(input)
   {
     const
-    parsedUrl = urlParser(input.url, true),
+    parsedUrl = urlParser(input.url, true), // !WARN THIS IS DEPRECATED, MUSTH CHANGE
     headers   = this.mapHeaders(input.headers),
     method    = input.method.toUpperCase(),
     url       = parsedUrl.pathname.replace(/\/+$/g, ''),
@@ -38,13 +38,19 @@ class HttpRequestBuilder
 
   async fetchBody(stream, headers)
   {
-    return new Promise((accept, reject) =>
+    return new Promise((resolve, reject) =>
     {
       let body = ''
 
       stream.on('error', reject)
-      stream.on('data',  (data)  => body += data)
-      stream.on('end',   ()      => this.parseBody(headers['content-type'], body).then(accept).catch(reject))
+      stream.on('data', (data) =>
+      {
+        body += data
+      })
+      stream.on('end', () =>
+      {
+        this.parseBody(headers['content-type'], body).then(resolve).catch(reject)
+      })
     })
   }
 
@@ -52,11 +58,11 @@ class HttpRequestBuilder
   {
     switch(contentType)
     {
-      case 'application/json':
-        return JSON.parse(body || '{}')
+    case 'application/json':
+      return JSON.parse(body || '{}')
 
-      default:
-        return querystring.parse(body)
+    default:
+      return querystring.parse(body)
     }
   }
 }

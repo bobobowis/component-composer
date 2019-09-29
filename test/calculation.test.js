@@ -2,6 +2,7 @@ describe('Calculations', () =>
 {
   const
   expect      = require('chai').expect,
+  path        = require('path'),
   context     = require('mochawesome/addContext'),
   CoreFactory = require('../core/node/factory'),
   components  = require('./components')
@@ -14,15 +15,15 @@ describe('Calculations', () =>
 
     core        = coreFactory.create([
       ...components,
-      { name: 'api' },
-      { name: 'domain' }
+      { name: 'api', path: path.resolve(__dirname, '/api') },
+      { name: 'domain', path: path.resolve(__dirname, '/domain') }
     ])
 
     core.load().then(() =>
     {
       core.locate('core/bootstrap').bootstrap().then(() =>
       {
-        core.locate('core/http/server').listen(9002)
+        core.locate('core/http/server').listen(9003)
         core.locate('core/http/server').onListening(done)
       })
     })
@@ -44,7 +45,7 @@ describe('Calculations', () =>
       value : configuration.find('core.http.server.routes.create-calculation')
     })
 
-    const response = await httpRequest.post('http://localhost:9002/calculations')
+    const response = await httpRequest.post('http://localhost:9003/calculations')
     expect(response.data.id).to.be.equal(1)
   })
 
@@ -59,7 +60,7 @@ describe('Calculations', () =>
       value : configuration.find('core.http.server.routes.append-calculation')
     })
     const
-    url                   = 'http://localhost:9002/calculations/1',
+    url                   = 'http://localhost:9003/calculations/1',
     data                  = {
       id    : 1,
       type  : 'addition',

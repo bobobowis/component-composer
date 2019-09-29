@@ -147,7 +147,7 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push(["./dist/browser/core/browser/page/home/index.js","vendors~home"]);
+/******/ 	deferredModules.push(["./dist/browser/view/page/home/index.js","vendors~home"]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
@@ -216,12 +216,6 @@ var map = {
 	"./core/browser/is-ie/": "./dist/browser/core/browser/is-ie/index.js",
 	"./core/browser/is-ie/index": "./dist/browser/core/browser/is-ie/index.js",
 	"./core/browser/is-ie/index.js": "./dist/browser/core/browser/is-ie/index.js",
-	"./core/browser/page/home": "./dist/browser/core/browser/page/home/index.js",
-	"./core/browser/page/home/": "./dist/browser/core/browser/page/home/index.js",
-	"./core/browser/page/home/components": "./dist/browser/core/browser/page/home/components.js",
-	"./core/browser/page/home/components.js": "./dist/browser/core/browser/page/home/components.js",
-	"./core/browser/page/home/index": "./dist/browser/core/browser/page/home/index.js",
-	"./core/browser/page/home/index.js": "./dist/browser/core/browser/page/home/index.js",
 	"./core/browser/schema/bootstrap": "./dist/browser/core/browser/schema/bootstrap/index.js",
 	"./core/browser/schema/bootstrap/": "./dist/browser/core/browser/schema/bootstrap/index.js",
 	"./core/browser/schema/bootstrap/config": "./dist/browser/core/browser/schema/bootstrap/config.js",
@@ -358,14 +352,6 @@ var map = {
 	"./core/common/data-structure/multiple-associative-array/index.js": "./dist/browser/core/common/data-structure/multiple-associative-array/index.js",
 	"./core/common/data-structure/multiple-associative-array/locator": "./dist/browser/core/common/data-structure/multiple-associative-array/locator.js",
 	"./core/common/data-structure/multiple-associative-array/locator.js": "./dist/browser/core/common/data-structure/multiple-associative-array/locator.js",
-	"./core/common/data-structure/object": "./dist/browser/core/common/data-structure/object/index.js",
-	"./core/common/data-structure/object/": "./dist/browser/core/common/data-structure/object/index.js",
-	"./core/common/data-structure/object/config": "./dist/browser/core/common/data-structure/object/config.js",
-	"./core/common/data-structure/object/config.js": "./dist/browser/core/common/data-structure/object/config.js",
-	"./core/common/data-structure/object/index": "./dist/browser/core/common/data-structure/object/index.js",
-	"./core/common/data-structure/object/index.js": "./dist/browser/core/common/data-structure/object/index.js",
-	"./core/common/data-structure/object/locator": "./dist/browser/core/common/data-structure/object/locator.js",
-	"./core/common/data-structure/object/locator.js": "./dist/browser/core/common/data-structure/object/locator.js",
 	"./core/common/data-structure/queue": "./dist/browser/core/common/data-structure/queue/index.js",
 	"./core/common/data-structure/queue/": "./dist/browser/core/common/data-structure/queue/index.js",
 	"./core/common/data-structure/queue/factory": "./dist/browser/core/common/data-structure/queue/factory/index.js",
@@ -498,6 +484,36 @@ var map = {
 	"./core/common/deepmerge/index.js": "./dist/browser/core/common/deepmerge/index.js",
 	"./core/common/deepmerge/locator": "./dist/browser/core/common/deepmerge/locator.js",
 	"./core/common/deepmerge/locator.js": "./dist/browser/core/common/deepmerge/locator.js",
+	"./core/common/entity": "./dist/browser/core/common/entity/index.js",
+	"./core/common/entity/": "./dist/browser/core/common/entity/index.js",
+	"./core/common/entity/factory": "./dist/browser/core/common/entity/factory.js",
+	"./core/common/entity/factory.js": "./dist/browser/core/common/entity/factory.js",
+	"./core/common/entity/index": "./dist/browser/core/common/entity/index.js",
+	"./core/common/entity/index.js": "./dist/browser/core/common/entity/index.js",
+	"./core/common/id-generator": "./dist/browser/core/common/id-generator/index.js",
+	"./core/common/id-generator/": "./dist/browser/core/common/id-generator/index.js",
+	"./core/common/id-generator/error/not-implemented": "./dist/browser/core/common/id-generator/error/not-implemented.js",
+	"./core/common/id-generator/error/not-implemented.js": "./dist/browser/core/common/id-generator/error/not-implemented.js",
+	"./core/common/id-generator/incremental-id-generator": "./dist/browser/core/common/id-generator/incremental-id-generator/index.js",
+	"./core/common/id-generator/incremental-id-generator/": "./dist/browser/core/common/id-generator/incremental-id-generator/index.js",
+	"./core/common/id-generator/incremental-id-generator/index": "./dist/browser/core/common/id-generator/incremental-id-generator/index.js",
+	"./core/common/id-generator/incremental-id-generator/index.js": "./dist/browser/core/common/id-generator/incremental-id-generator/index.js",
+	"./core/common/id-generator/incremental-id-generator/locator": "./dist/browser/core/common/id-generator/incremental-id-generator/locator.js",
+	"./core/common/id-generator/incremental-id-generator/locator.js": "./dist/browser/core/common/id-generator/incremental-id-generator/locator.js",
+	"./core/common/id-generator/incremental-prefixed-id-generator": "./dist/browser/core/common/id-generator/incremental-prefixed-id-generator/index.js",
+	"./core/common/id-generator/incremental-prefixed-id-generator/": "./dist/browser/core/common/id-generator/incremental-prefixed-id-generator/index.js",
+	"./core/common/id-generator/incremental-prefixed-id-generator/index": "./dist/browser/core/common/id-generator/incremental-prefixed-id-generator/index.js",
+	"./core/common/id-generator/incremental-prefixed-id-generator/index.js": "./dist/browser/core/common/id-generator/incremental-prefixed-id-generator/index.js",
+	"./core/common/id-generator/incremental-prefixed-id-generator/locator": "./dist/browser/core/common/id-generator/incremental-prefixed-id-generator/locator.js",
+	"./core/common/id-generator/incremental-prefixed-id-generator/locator.js": "./dist/browser/core/common/id-generator/incremental-prefixed-id-generator/locator.js",
+	"./core/common/id-generator/index": "./dist/browser/core/common/id-generator/index.js",
+	"./core/common/id-generator/index.js": "./dist/browser/core/common/id-generator/index.js",
+	"./core/common/id-generator/uuidv4-generator": "./dist/browser/core/common/id-generator/uuidv4-generator/index.js",
+	"./core/common/id-generator/uuidv4-generator/": "./dist/browser/core/common/id-generator/uuidv4-generator/index.js",
+	"./core/common/id-generator/uuidv4-generator/index": "./dist/browser/core/common/id-generator/uuidv4-generator/index.js",
+	"./core/common/id-generator/uuidv4-generator/index.js": "./dist/browser/core/common/id-generator/uuidv4-generator/index.js",
+	"./core/common/id-generator/uuidv4-generator/locator": "./dist/browser/core/common/id-generator/uuidv4-generator/locator.js",
+	"./core/common/id-generator/uuidv4-generator/locator.js": "./dist/browser/core/common/id-generator/uuidv4-generator/locator.js",
 	"./core/common/locator": "./dist/browser/core/common/locator/index.js",
 	"./core/common/locator/": "./dist/browser/core/common/locator/index.js",
 	"./core/common/locator/constituent": "./dist/browser/core/common/locator/constituent.js",
@@ -699,7 +715,18 @@ var map = {
 	"./core/config": "./dist/browser/core/config.js",
 	"./core/config.js": "./dist/browser/core/config.js",
 	"./core/index": "./dist/browser/core/index.js",
-	"./core/index.js": "./dist/browser/core/index.js"
+	"./core/index.js": "./dist/browser/core/index.js",
+	"./view/component/hello-name/hello-name.hbs": "./dist/browser/view/component/hello-name/hello-name.hbs",
+	"./view/config": "./dist/browser/view/config.js",
+	"./view/config.js": "./dist/browser/view/config.js",
+	"./view/layout/template.hbs": "./dist/browser/view/layout/template.hbs",
+	"./view/page/home": "./dist/browser/view/page/home/index.js",
+	"./view/page/home/": "./dist/browser/view/page/home/index.js",
+	"./view/page/home/components": "./dist/browser/view/page/home/components.js",
+	"./view/page/home/components.js": "./dist/browser/view/page/home/components.js",
+	"./view/page/home/index": "./dist/browser/view/page/home/index.js",
+	"./view/page/home/index.js": "./dist/browser/view/page/home/index.js",
+	"./view/page/home/template.hbs": "./dist/browser/view/page/home/template.hbs"
 };
 
 
@@ -741,7 +768,6 @@ var map = {
 	"./core/common/configuration/config": "./dist/browser/core/common/configuration/config.js",
 	"./core/common/console/config": "./dist/browser/core/common/console/config.js",
 	"./core/common/data-structure/config": "./dist/browser/core/common/data-structure/config.js",
-	"./core/common/data-structure/object/config": "./dist/browser/core/common/data-structure/object/config.js",
 	"./core/common/deepassign/config": "./dist/browser/core/common/deepassign/config.js",
 	"./core/common/deepclone/config": "./dist/browser/core/common/deepclone/config.js",
 	"./core/common/deepfind/config": "./dist/browser/core/common/deepfind/config.js",
@@ -751,7 +777,8 @@ var map = {
 	"./core/common/observer/config": "./dist/browser/core/common/observer/config.js",
 	"./core/common/schema/config": "./dist/browser/core/common/schema/config.js",
 	"./core/common/string/config": "./dist/browser/core/common/string/config.js",
-	"./core/config": "./dist/browser/core/config.js"
+	"./core/config": "./dist/browser/core/config.js",
+	"./view/config": "./dist/browser/view/config.js"
 };
 
 
@@ -801,7 +828,6 @@ var map = {
 	"./core/common/data-structure/graph/locator": "./dist/browser/core/common/data-structure/graph/locator.js",
 	"./core/common/data-structure/multiple-associative-array/factory/locator": "./dist/browser/core/common/data-structure/multiple-associative-array/factory/locator.js",
 	"./core/common/data-structure/multiple-associative-array/locator": "./dist/browser/core/common/data-structure/multiple-associative-array/locator.js",
-	"./core/common/data-structure/object/locator": "./dist/browser/core/common/data-structure/object/locator.js",
 	"./core/common/data-structure/queue/factory/locator": "./dist/browser/core/common/data-structure/queue/factory/locator.js",
 	"./core/common/data-structure/queue/locator": "./dist/browser/core/common/data-structure/queue/locator.js",
 	"./core/common/data-structure/schema/validator/associative-array/locator": "./dist/browser/core/common/data-structure/schema/validator/associative-array/locator.js",
@@ -817,6 +843,9 @@ var map = {
 	"./core/common/deepfind/locator": "./dist/browser/core/common/deepfind/locator.js",
 	"./core/common/deepfreeze/locator": "./dist/browser/core/common/deepfreeze/locator.js",
 	"./core/common/deepmerge/locator": "./dist/browser/core/common/deepmerge/locator.js",
+	"./core/common/id-generator/incremental-id-generator/locator": "./dist/browser/core/common/id-generator/incremental-id-generator/locator.js",
+	"./core/common/id-generator/incremental-prefixed-id-generator/locator": "./dist/browser/core/common/id-generator/incremental-prefixed-id-generator/locator.js",
+	"./core/common/id-generator/uuidv4-generator/locator": "./dist/browser/core/common/id-generator/uuidv4-generator/locator.js",
 	"./core/common/locator": "./dist/browser/core/common/locator/index.js",
 	"./core/common/object/locator": "./dist/browser/core/common/object/locator.js",
 	"./core/common/observer/error/locator": "./dist/browser/core/common/observer/error/locator.js",
@@ -1803,89 +1832,6 @@ module.exports = CoreFactory;
 module.exports = function () {
   return !(!document.attachEvent || typeof document.attachEvent === 'undefined');
 };
-
-/***/ }),
-
-/***/ "./dist/browser/core/browser/page/home/components.js":
-/*!***********************************************************!*\
-  !*** ./dist/browser/core/browser/page/home/components.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = [{
-  name: 'core/bootstrap',
-  path: 'core/common/bootstrap'
-}, {
-  name: 'core/string',
-  path: 'core/common/string'
-}, {
-  name: 'core/console',
-  path: 'core/browser/console'
-}, {
-  name: 'core/schema',
-  path: 'core/common/schema'
-}, {
-  name: 'core/observer',
-  path: 'core/common/observer'
-}, {
-  name: 'data-structure',
-  path: 'core/common/data-structure'
-}, {
-  name: 'core/schema/bootstrap',
-  path: 'core/browser/schema/bootstrap'
-}, {
-  name: 'core/channel',
-  path: 'core/common/channel'
-}, {
-  name: 'core/bus',
-  path: 'core/common/bus'
-}, {
-  name: 'core/eventbus',
-  path: 'core/browser/eventbus'
-}];
-
-/***/ }),
-
-/***/ "./dist/browser/core/browser/page/home/index.js":
-/*!******************************************************!*\
-  !*** ./dist/browser/core/browser/page/home/index.js ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var Application = __webpack_require__(/*! core/browser/app */ "./dist/browser/core/browser/app/index.js"),
-    components = __webpack_require__(/*! ./components */ "./dist/browser/core/browser/page/home/components.js");
-
-var HomePage =
-/*#__PURE__*/
-function (_Application) {
-  _inherits(HomePage, _Application);
-
-  function HomePage() {
-    _classCallCheck(this, HomePage);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(HomePage).call(this, components));
-  }
-
-  return HomePage;
-}(Application);
-
-module.exports = new HomePage();
 
 /***/ }),
 
@@ -5320,140 +5266,6 @@ module.exports = MultipleAssociativeArrayLocator;
 
 /***/ }),
 
-/***/ "./dist/browser/core/common/data-structure/object/config.js":
-/*!******************************************************************!*\
-  !*** ./dist/browser/core/common/data-structure/object/config.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = {
-  'core': {
-    'locator': {
-      'core/object': 'superhero/core/object'
-    }
-  }
-};
-
-/***/ }),
-
-/***/ "./dist/browser/core/common/data-structure/object/index.js":
-/*!*****************************************************************!*\
-  !*** ./dist/browser/core/common/data-structure/object/index.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var CoreObject =
-/*#__PURE__*/
-function () {
-  function CoreObject() {
-    _classCallCheck(this, CoreObject);
-  }
-
-  _createClass(CoreObject, [{
-    key: "composeLowerCaseKeyedObject",
-
-    /**
-     * @example { FooBar:'FooBar' } => { foobar:'FooBar' }
-     * @param {object} o input to be manipulated
-     * @returns {object}
-     */
-    value: function composeLowerCaseKeyedObject(o) {
-      var object = o || {},
-          objectKeys = Object.keys(object),
-          composed = objectKeys.reduce(function (c, k) {
-        c[k.toLowerCase()] = object[k];
-        return c;
-      }, {});
-      return composed;
-    }
-    /**
-     * Creates a copy of an object excluding some keys.
-     * References are kept, so modifing Objects or arrays on the resulting object will modify the source one
-     * To avoid this behaivour clone the input before using or clone the output after
-     * @param {object} o source object to create a copy
-     * @param {...string} keys Keys to remove
-     * @returns Copy of object without the specified keys
-     * @author Lleonard Subirana (arsu.leo@gmail.com)
-     */
-
-  }, {
-    key: "composeObjectWithoutKeys",
-    value: function composeObjectWithoutKeys(o) {
-      var object = o || {},
-          result = _objectSpread({}, object);
-
-      for (var _len = arguments.length, keys = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-        keys[_key - 1] = arguments[_key];
-      }
-
-      for (var _i = 0, _keys = keys; _i < _keys.length; _i++) {
-        var key = _keys[_i];
-        delete result[key];
-      }
-
-      return result;
-    }
-  }]);
-
-  return CoreObject;
-}();
-
-module.exports = CoreObject;
-
-/***/ }),
-
-/***/ "./dist/browser/core/common/data-structure/object/locator.js":
-/*!*******************************************************************!*\
-  !*** ./dist/browser/core/common/data-structure/object/locator.js ***!
-  \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var CoreObject = __webpack_require__(/*! . */ "./dist/browser/core/common/data-structure/object/index.js");
-
-var CoreObjectLocator =
-/*#__PURE__*/
-function () {
-  function CoreObjectLocator(locator) {
-    _classCallCheck(this, CoreObjectLocator);
-
-    this.locator = locator;
-  }
-
-  _createClass(CoreObjectLocator, [{
-    key: "locate",
-    value: function locate() {
-      return CoreObject;
-    }
-  }]);
-
-  return CoreObjectLocator;
-}();
-
-module.exports = CoreObjectLocator;
-
-/***/ }),
-
 /***/ "./dist/browser/core/common/data-structure/queue/factory/index.js":
 /*!************************************************************************!*\
   !*** ./dist/browser/core/common/data-structure/queue/factory/index.js ***!
@@ -7874,6 +7686,668 @@ function () {
 }();
 
 module.exports = DeepMergeLocator;
+
+/***/ }),
+
+/***/ "./dist/browser/core/common/entity/factory.js":
+/*!****************************************************!*\
+  !*** ./dist/browser/core/common/entity/factory.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+/**
+ * @extends {superhero/core/locator/constituent}
+ */
+var EntityFactory =
+/*#__PURE__*/
+function () {
+  function EntityFactory(_ref) {
+    var idGenerator = _ref.idGenerator,
+        deepassign = _ref.deepassign,
+        bus = _ref.bus,
+        deepfreeze = _ref.deepfreeze,
+        deepcopy = _ref.deepcopy,
+        composer = _ref.composer,
+        EntityClass = _ref.EntityClass,
+        coreObject = _ref.coreObject,
+        type = _ref.type;
+
+    _classCallCheck(this, EntityFactory);
+
+    this.idGenerator = idGenerator;
+    this.bus = bus;
+    this.deepassign = deepassign;
+    this.deepfreeze = deepfreeze;
+    this.deepcopy = deepcopy;
+    this.composer = composer;
+    this.EntityClass = EntityClass;
+    this.coreObject = coreObject;
+    this.type = type;
+    this[Symbol.for('type')] = 'entity-factory';
+  }
+
+  _createClass(EntityFactory, [{
+    key: "getId",
+    value: function getId(args) {
+      return this.idGenerator.getId(args);
+    }
+  }, {
+    key: "composeDTO",
+    value: function composeDTO(dto) {
+      return this.composer.compose(this.type, dto);
+    }
+    /**
+     * @returns {Entity}
+     */
+
+  }, {
+    key: "create",
+    value: function create(_ref2) {
+      var id = _ref2.id,
+          dto = _ref2.dto,
+          args = _objectWithoutProperties(_ref2, ["id", "dto"]);
+
+      var entityDTO = this.composeDTO(dto);
+      return new this.EntityClass(_objectSpread({
+        id: id ? id : this.idGenerator.getId(),
+        dto: entityDTO,
+        bus: this.bus,
+        deepassign: this.deepassign,
+        deepfreeze: this.deepfreeze,
+        deepcopy: this.deepcopy,
+        composer: this.composer,
+        type: this.type
+      }, args));
+    }
+  }, {
+    key: Symbol.toStringTag,
+    get: function get() {
+      return 'EntityFactory';
+    }
+  }]);
+
+  return EntityFactory;
+}();
+
+module.exports = EntityFactory;
+
+/***/ }),
+
+/***/ "./dist/browser/core/common/entity/index.js":
+/*!**************************************************!*\
+  !*** ./dist/browser/core/common/entity/index.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Entity =
+/*#__PURE__*/
+function () {
+  function Entity(_ref) {
+    var id = _ref.id,
+        dto = _ref.dto,
+        deepfreeze = _ref.deepfreeze,
+        deepcopy = _ref.deepcopy,
+        bus = _ref.bus,
+        set = _ref.set,
+        composer = _ref.composer,
+        type = _ref.type;
+
+    _classCallCheck(this, Entity);
+
+    if ((this instanceof Entity ? this.constructor : void 0) === Entity) throw new TypeError('Cannot construct Entity instances directly');
+    this[Symbol.for('id')] = id;
+    this[Symbol.for('type')] = type;
+    this.set = set;
+    this.deepfreeze = deepfreeze;
+    this.deepcopy = deepcopy;
+    this.bus = bus;
+    this.composer = composer;
+    this.state = this.createState(dto);
+    this.bus.addChannel(this[Symbol.for('id')]);
+  }
+
+  _createClass(Entity, [{
+    key: "createState",
+    value: function createState(dto) {
+      var state = this.composer.compose(this[Symbol.for('type')], dto);
+      return this.deepfreeze.freeze(state);
+    }
+  }, {
+    key: "emit",
+    value: function emit(_ref2) {
+      var name = _ref2.name,
+          data = _ref2.data;
+      this.bus.emit({
+        channelId: this[Symbol.for('id')],
+        name: name,
+        data: data
+      });
+    }
+  }, {
+    key: "changeStatePath",
+    value: function changeStatePath(path, value) {
+      var stateModified = this.deepassign.assign(this.state, path, value);
+      this.state = this.changeState(stateModified);
+      this.bus.emit({
+        channelId: this[Symbol.for('id')],
+        name: "".concat(this[Symbol.for('id')], ".entity.").concat(path, ".state-changed"),
+        data: stateModified
+      });
+    }
+  }, {
+    key: "changeState",
+    value: function changeState(newState) {
+      this.state = this.createState(newState);
+      this.bus.publish({
+        channelId: this[Symbol.for('id')],
+        name: "".concat(this[Symbol.for('id')], ".entity.state-changed"),
+        data: newState
+      });
+    }
+  }, {
+    key: Symbol.toStringTag,
+    get: function get() {
+      return 'Entity';
+    }
+  }]);
+
+  return Entity;
+}();
+
+module.exports = Entity;
+
+/***/ }),
+
+/***/ "./dist/browser/core/common/id-generator/error/not-implemented.js":
+/*!************************************************************************!*\
+  !*** ./dist/browser/core/common/id-generator/error/not-implemented.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
+
+function isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _construct(Parent, args, Class) { if (isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
+
+function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var NotImplemented =
+/*#__PURE__*/
+function (_Error) {
+  _inherits(NotImplemented, _Error);
+
+  function NotImplemented() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, NotImplemented);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(NotImplemented)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _this.code = 'E_NOT_IMPLEMENTED_METHOD';
+    return _this;
+  }
+
+  return NotImplemented;
+}(_wrapNativeSuper(Error));
+
+module.exports = NotImplemented;
+
+/***/ }),
+
+/***/ "./dist/browser/core/common/id-generator/incremental-id-generator/index.js":
+/*!*********************************************************************************!*\
+  !*** ./dist/browser/core/common/id-generator/incremental-id-generator/index.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var IdGenerator = __webpack_require__(/*! .. */ "./dist/browser/core/common/id-generator/index.js");
+
+var IncrementalIdGenerator =
+/*#__PURE__*/
+function (_IdGenerator) {
+  _inherits(IncrementalIdGenerator, _IdGenerator);
+
+  function IncrementalIdGenerator(_ref) {
+    var _this;
+
+    var startIndex = _ref.startIndex;
+
+    _classCallCheck(this, IncrementalIdGenerator);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(IncrementalIdGenerator).call(this));
+    _this.index = startIndex;
+    _this[Symbol.for('type')] = 'incremental-id-generator';
+    return _this;
+  }
+
+  _createClass(IncrementalIdGenerator, [{
+    key: "getId",
+    value: function getId() {
+      return this.index++;
+    }
+  }]);
+
+  return IncrementalIdGenerator;
+}(IdGenerator);
+
+module.exports = IncrementalIdGenerator;
+
+/***/ }),
+
+/***/ "./dist/browser/core/common/id-generator/incremental-id-generator/locator.js":
+/*!***********************************************************************************!*\
+  !*** ./dist/browser/core/common/id-generator/incremental-id-generator/locator.js ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var IncrementalIdGenerator = __webpack_require__(/*! . */ "./dist/browser/core/common/id-generator/incremental-id-generator/index.js"),
+    LocatorConstituent = __webpack_require__(/*! superhero/core/locator/constituent */ "./node_modules/superhero/core/locator/constituent.js");
+/**
+ * @extends {superhero/core/locator/constituent}
+ */
+
+
+var IncrementalIdGeneratorLocator =
+/*#__PURE__*/
+function (_LocatorConstituent) {
+  _inherits(IncrementalIdGeneratorLocator, _LocatorConstituent);
+
+  function IncrementalIdGeneratorLocator() {
+    _classCallCheck(this, IncrementalIdGeneratorLocator);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(IncrementalIdGeneratorLocator).apply(this, arguments));
+  }
+
+  _createClass(IncrementalIdGeneratorLocator, [{
+    key: "locate",
+
+    /**
+     * @returns {IncrementalIdGenerator}
+     */
+    value: function locate() {
+      return IncrementalIdGenerator;
+    }
+  }]);
+
+  return IncrementalIdGeneratorLocator;
+}(LocatorConstituent);
+
+module.exports = IncrementalIdGeneratorLocator;
+
+/***/ }),
+
+/***/ "./dist/browser/core/common/id-generator/incremental-prefixed-id-generator/index.js":
+/*!******************************************************************************************!*\
+  !*** ./dist/browser/core/common/id-generator/incremental-prefixed-id-generator/index.js ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var IncrementalIdGenerator = __webpack_require__(/*! ../incremental-id-generator */ "./dist/browser/core/common/id-generator/incremental-id-generator/index.js");
+
+var IncrementalPrefixedIdGenerator =
+/*#__PURE__*/
+function (_IncrementalIdGenerat) {
+  _inherits(IncrementalPrefixedIdGenerator, _IncrementalIdGenerat);
+
+  function IncrementalPrefixedIdGenerator(_ref) {
+    var _this;
+
+    var prefix = _ref.prefix,
+        args = _objectWithoutProperties(_ref, ["prefix"]);
+
+    _classCallCheck(this, IncrementalPrefixedIdGenerator);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(IncrementalPrefixedIdGenerator).call(this, args));
+    _this.prefix = prefix;
+    _this[Symbol.for('type')] = 'incremental-type-id-generator';
+    return _this;
+  }
+
+  _createClass(IncrementalPrefixedIdGenerator, [{
+    key: "getId",
+    value: function getId() {
+      return "".concat(this.prefix, "-").concat(_get(_getPrototypeOf(IncrementalPrefixedIdGenerator.prototype), "getId", this).call(this));
+    }
+  }]);
+
+  return IncrementalPrefixedIdGenerator;
+}(IncrementalIdGenerator);
+
+module.exports = IncrementalPrefixedIdGenerator;
+
+/***/ }),
+
+/***/ "./dist/browser/core/common/id-generator/incremental-prefixed-id-generator/locator.js":
+/*!********************************************************************************************!*\
+  !*** ./dist/browser/core/common/id-generator/incremental-prefixed-id-generator/locator.js ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var IncrementalTypeIdGenerator = __webpack_require__(/*! . */ "./dist/browser/core/common/id-generator/incremental-prefixed-id-generator/index.js"),
+    LocatorConstituent = __webpack_require__(/*! superhero/core/locator/constituent */ "./node_modules/superhero/core/locator/constituent.js");
+/**
+ * @extends {superhero/core/locator/constituent}
+ */
+
+
+var IncrementalTypeIdGeneratorLocator =
+/*#__PURE__*/
+function (_LocatorConstituent) {
+  _inherits(IncrementalTypeIdGeneratorLocator, _LocatorConstituent);
+
+  function IncrementalTypeIdGeneratorLocator() {
+    _classCallCheck(this, IncrementalTypeIdGeneratorLocator);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(IncrementalTypeIdGeneratorLocator).apply(this, arguments));
+  }
+
+  _createClass(IncrementalTypeIdGeneratorLocator, [{
+    key: "locate",
+
+    /**
+     * @returns {IncrementalTypeIdGenerator}
+     */
+    value: function locate() {
+      return IncrementalTypeIdGenerator;
+    }
+  }]);
+
+  return IncrementalTypeIdGeneratorLocator;
+}(LocatorConstituent);
+
+module.exports = IncrementalTypeIdGeneratorLocator;
+
+/***/ }),
+
+/***/ "./dist/browser/core/common/id-generator/index.js":
+/*!********************************************************!*\
+  !*** ./dist/browser/core/common/id-generator/index.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var NotImplementedError = __webpack_require__(/*! ./error/not-implemented */ "./dist/browser/core/common/id-generator/error/not-implemented.js");
+
+var IdGenerator =
+/*#__PURE__*/
+function () {
+  function IdGenerator() {
+    _classCallCheck(this, IdGenerator);
+
+    this[Symbol.for('type')] = 'id-generator';
+  }
+
+  _createClass(IdGenerator, [{
+    key: "getId",
+    value: function getId() {
+      throw new NotImplementedError('"getId" method not implemented');
+    }
+  }, {
+    key: Symbol.toStringTag,
+    get: function get() {
+      return 'IdGenerator';
+    }
+  }]);
+
+  return IdGenerator;
+}();
+
+module.exports = IdGenerator;
+
+/***/ }),
+
+/***/ "./dist/browser/core/common/id-generator/uuidv4-generator/index.js":
+/*!*************************************************************************!*\
+  !*** ./dist/browser/core/common/id-generator/uuidv4-generator/index.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var IdGenerator = __webpack_require__(/*! .. */ "./dist/browser/core/common/id-generator/index.js");
+
+var UUIDv4Generator =
+/*#__PURE__*/
+function (_IdGenerator) {
+  _inherits(UUIDv4Generator, _IdGenerator);
+
+  function UUIDv4Generator(_ref) {
+    var _this;
+
+    var uuidv4 = _ref.uuidv4;
+
+    _classCallCheck(this, UUIDv4Generator);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UUIDv4Generator).call(this));
+    _this.uuidv4 = uuidv4;
+    _this[Symbol.for('type')] = 'uuidv4-generator';
+    return _this;
+  }
+
+  _createClass(UUIDv4Generator, [{
+    key: "getId",
+    value: function getId() {
+      return this.uuidv4();
+    }
+  }]);
+
+  return UUIDv4Generator;
+}(IdGenerator);
+
+module.exports = UUIDv4Generator;
+
+/***/ }),
+
+/***/ "./dist/browser/core/common/id-generator/uuidv4-generator/locator.js":
+/*!***************************************************************************!*\
+  !*** ./dist/browser/core/common/id-generator/uuidv4-generator/locator.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var UUIDV4Generator = __webpack_require__(/*! . */ "./dist/browser/core/common/id-generator/uuidv4-generator/index.js"),
+    LocatorConstituent = __webpack_require__(/*! superhero/core/locator/constituent */ "./node_modules/superhero/core/locator/constituent.js");
+/**
+ * @extends {superhero/core/locator/constituent}
+ */
+
+
+var UUIDV4GeneratorLocator =
+/*#__PURE__*/
+function (_LocatorConstituent) {
+  _inherits(UUIDV4GeneratorLocator, _LocatorConstituent);
+
+  function UUIDV4GeneratorLocator() {
+    _classCallCheck(this, UUIDV4GeneratorLocator);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(UUIDV4GeneratorLocator).apply(this, arguments));
+  }
+
+  _createClass(UUIDV4GeneratorLocator, [{
+    key: "locate",
+
+    /**
+     * @returns {UUIDV4Generator}
+     */
+    value: function locate() {
+      return UUIDV4Generator;
+    }
+  }]);
+
+  return UUIDV4GeneratorLocator;
+}(LocatorConstituent);
+
+module.exports = UUIDV4GeneratorLocator;
 
 /***/ }),
 
@@ -11943,7 +12417,7 @@ function () {
 
               case 10:
                 configuration.freeze();
-                serviceMap = configuration.find('core.locator'), serviceNames = Object.keys(serviceMap); // eager loading the services in the sevice locator
+                serviceMap = configuration.find('core.locator'), serviceNames = serviceMap ? Object.keys(serviceMap) : []; // eager loading the services in the sevice locator
 
                 _context.next = 14;
                 return this.serviceLoader.loadServiceRecursion(serviceNames);
@@ -11973,6 +12447,136 @@ function () {
 }();
 
 module.exports = Core;
+
+/***/ }),
+
+/***/ "./dist/browser/view/component/hello-name/hello-name.hbs":
+/*!***************************************************************!*\
+  !*** ./dist/browser/view/component/hello-name/hello-name.hbs ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module parse failed: Unexpected token (1:0)\nYou may need an appropriate loader to handle this file type.\n> <h1>Hello {{name}}!</h1>");
+
+/***/ }),
+
+/***/ "./dist/browser/view/config.js":
+/*!*************************************!*\
+  !*** ./dist/browser/view/config.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./dist/browser/view/layout/template.hbs":
+/*!***********************************************!*\
+  !*** ./dist/browser/view/layout/template.hbs ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module parse failed: Unexpected token (1:0)\nYou may need an appropriate loader to handle this file type.\n> <!DOCTYPE html>\n| <html lang=\"en\">\n|   <head>");
+
+/***/ }),
+
+/***/ "./dist/browser/view/page/home/components.js":
+/*!***************************************************!*\
+  !*** ./dist/browser/view/page/home/components.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = [{
+  name: 'core/bootstrap',
+  path: 'core/common/bootstrap'
+}, {
+  name: 'core/bootstrap',
+  path: 'core/common/bootstrap'
+}, {
+  name: 'core/string',
+  path: 'core/common/string'
+}, {
+  name: 'core/console',
+  path: 'core/browser/console'
+}, {
+  name: 'core/schema',
+  path: 'core/common/schema'
+}, {
+  name: 'core/observer',
+  path: 'core/common/observer'
+}, {
+  name: 'data-structure',
+  path: 'core/common/data-structure'
+}, {
+  name: 'core/schema/bootstrap',
+  path: 'core/browser/schema/bootstrap'
+}, {
+  name: 'core/channel',
+  path: 'core/common/channel'
+}, {
+  name: 'core/bus',
+  path: 'core/common/bus'
+}, {
+  name: 'core/eventbus',
+  path: 'core/browser/eventbus'
+}];
+
+/***/ }),
+
+/***/ "./dist/browser/view/page/home/index.js":
+/*!**********************************************!*\
+  !*** ./dist/browser/view/page/home/index.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var Application = __webpack_require__(/*! core/browser/app */ "./dist/browser/core/browser/app/index.js"),
+    components = __webpack_require__(/*! ./components */ "./dist/browser/view/page/home/components.js");
+
+var HomePage =
+/*#__PURE__*/
+function (_Application) {
+  _inherits(HomePage, _Application);
+
+  function HomePage() {
+    _classCallCheck(this, HomePage);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(HomePage).call(this, components));
+  }
+
+  return HomePage;
+}(Application);
+
+module.exports = new HomePage();
+
+/***/ }),
+
+/***/ "./dist/browser/view/page/home/template.hbs":
+/*!**************************************************!*\
+  !*** ./dist/browser/view/page/home/template.hbs ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module parse failed: Unexpected character '#' (2:2)\nYou may need an appropriate loader to handle this file type.\n| \n> {{#> layout title=\"Title\" }}\n|   {{component helloName 'hello-name' }}\n| {{/layout}}");
 
 /***/ })
 

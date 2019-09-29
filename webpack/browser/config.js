@@ -7,7 +7,7 @@ module.exports = {
   entry :
   {
     polyfills : '@babel/polyfill',
-    home      : path.resolve(__dirname, '../../dist/browser/core/browser/page/home')
+    home      : path.resolve(__dirname, '../../dist/browser/view/page/home')
   },
   resolve:
   {

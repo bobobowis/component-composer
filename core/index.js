@@ -33,7 +33,7 @@ class Core
 
     const
     serviceMap    = configuration.find('core.locator'),
-    serviceNames  = Object.keys(serviceMap)
+    serviceNames  = serviceMap ? Object.keys(serviceMap) : []
 
     // eager loading the services in the sevice locator
     await this.serviceLoader.loadServiceRecursion(serviceNames)
